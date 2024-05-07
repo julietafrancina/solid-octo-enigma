@@ -41,7 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Articulo.cs" />
+    <Compile Include="Estado.cs" />
+    <Compile Include="Factura.cs" />
+    <Compile Include="FacturaPrev.cs" />
+    <Compile Include="Item_Preventa_Por_Articulo.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="Preventa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Remito.cs" />
+    <Compile Include="Remito_Por_Factura.cs" />
+    <Compile Include="Rol.cs" />
+    <Compile Include="Sucursal.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
