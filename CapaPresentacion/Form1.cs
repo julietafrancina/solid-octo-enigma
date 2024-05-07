@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace solid_octo_enigma
+namespace CapaPresentacion
 {
     public partial class Form1 : Form
     {

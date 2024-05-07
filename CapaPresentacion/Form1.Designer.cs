@@ -1,5 +1,5 @@
 ﻿
-namespace solid_octo_enigma
+namespace CapaPresentacion
 {
     partial class Form1
     {
