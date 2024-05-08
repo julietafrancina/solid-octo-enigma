@@ -13,6 +13,8 @@ obj/
 *.7z
 *.log
 
+*.config
+
 # Ignorar archivos generados automáticamente
 *.csproj.user
 *.csproj.vspscc
