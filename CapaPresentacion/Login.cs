@@ -54,11 +54,11 @@ namespace SistemaDeVentas
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            /* Inicio form = new Inicio();
+            Inicio form = new Inicio();
             form.Show();
             this.Hide();
 
-            form.FormClosing += Frm_closing; */
+            form.FormClosing += Frm_closing;
         }
         private void Frm_closing(object sender, FormClosingEventArgs e)
             {

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaDatos
+namespace CapaEntidad
 {
-    public class Class1
+    public class Rol
     {
+
+        public int idRol { get; set; }
+        public string descripcion { get; set; }
+
     }
 }
