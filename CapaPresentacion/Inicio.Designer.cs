@@ -208,6 +208,7 @@ namespace SistemaDeVentas
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Firebrick;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(938, 0);
@@ -219,6 +220,7 @@ namespace SistemaDeVentas
             // 
             // usuario
             // 
+            this.usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.usuario.AutoSize = true;
             this.usuario.BackColor = System.Drawing.Color.Firebrick;
             this.usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,6 +233,7 @@ namespace SistemaDeVentas
             // 
             // lblUsuarioName
             // 
+            this.lblUsuarioName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuarioName.AutoSize = true;
             this.lblUsuarioName.BackColor = System.Drawing.Color.Firebrick;
             this.lblUsuarioName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -255,6 +258,7 @@ namespace SistemaDeVentas
             this.Controls.Add(this.menuTitulo);
             this.MainMenuStrip = this.menu;
             this.Name = "Inicio";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.Form1_Load);
