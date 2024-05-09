@@ -57,20 +57,24 @@ namespace SistemaDeVentas
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-
-            Usuario ousuario = new CN_Usuario().listar().Where(u => u.dni == Convert.ToInt32(txtDNI.Text) && u.contraseña == txtClave.Text).FirstOrDefault();
-
-            if(ousuario != null)
-            {
-                Inicio form = new Inicio();
-                form.Show();
-                this.Hide();
-
-                form.FormClosing += Frm_closing;
+            if (txtDNI.Text == "" || txtClave.Text == "") {
+                MessageBox.Show("Ingrese su información por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else
-            {
-                MessageBox.Show("Usuario no encontrado","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            else { 
+                Usuario ousuario = new CN_Usuario().listar().Where(u => u.dni == Convert.ToInt32(txtDNI.Text) && u.contraseña == txtClave.Text).FirstOrDefault();
+
+                if(ousuario != null)
+                {
+                    Inicio form = new Inicio();
+                    form.Show();
+                    this.Hide();
+
+                    form.FormClosing += Frm_closing;
+                }
+                else
+                {
+                    MessageBox.Show("Datos inválidos. Verifique sus datos.","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                }
             }
 
         }
