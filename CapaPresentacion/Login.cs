@@ -18,6 +18,7 @@ namespace SistemaDeVentas
         public Login()
         {
             InitializeComponent();
+            this.AcceptButton = iconButton1;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -65,7 +66,7 @@ namespace SistemaDeVentas
 
                 if(ousuario != null)
                 {
-                    Inicio form = new Inicio();
+                    Inicio form = new Inicio(ousuario);
                     form.Show();
                     this.Hide();
 
@@ -84,5 +85,17 @@ namespace SistemaDeVentas
             txtClave.Text = "";
             this.Show();
             }
+
+        private void txtDNI_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtDNI.Text, "^[0-9]*$"))
+            {
+                txtDNI.Text = string.Empty;
+                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+
+
     }
 }

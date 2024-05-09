@@ -43,6 +43,8 @@ namespace SistemaDeVentas
             this.contenedor = new System.Windows.Forms.Panel();
             this.menuTitulo = new System.Windows.Forms.MenuStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.usuario = new System.Windows.Forms.Label();
+            this.lblUsuarioName = new System.Windows.Forms.Label();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -215,11 +217,37 @@ namespace SistemaDeVentas
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // usuario
+            // 
+            this.usuario.AutoSize = true;
+            this.usuario.BackColor = System.Drawing.Color.Firebrick;
+            this.usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usuario.ForeColor = System.Drawing.Color.White;
+            this.usuario.Location = new System.Drawing.Point(699, 44);
+            this.usuario.Name = "usuario";
+            this.usuario.Size = new System.Drawing.Size(80, 20);
+            this.usuario.TabIndex = 6;
+            this.usuario.Text = "Usuario:";
+            // 
+            // lblUsuarioName
+            // 
+            this.lblUsuarioName.AutoSize = true;
+            this.lblUsuarioName.BackColor = System.Drawing.Color.Firebrick;
+            this.lblUsuarioName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioName.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioName.Location = new System.Drawing.Point(772, 44);
+            this.lblUsuarioName.Name = "lblUsuarioName";
+            this.lblUsuarioName.Size = new System.Drawing.Size(142, 20);
+            this.lblUsuarioName.TabIndex = 7;
+            this.lblUsuarioName.Text = "lblUsuarioName";
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1114, 539);
+            this.Controls.Add(this.lblUsuarioName);
+            this.Controls.Add(this.usuario);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.contenedor);
             this.Controls.Add(this.label1);
@@ -253,6 +281,8 @@ namespace SistemaDeVentas
         private System.Windows.Forms.Panel contenedor;
         private System.Windows.Forms.MenuStrip menuTitulo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label usuario;
+        private System.Windows.Forms.Label lblUsuarioName;
     }
 }
 
