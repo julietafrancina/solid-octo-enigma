@@ -12,6 +12,7 @@ obj/
 *.rar
 *.7z
 *.log
+*.config
 
 # Ignorar archivos generados automáticamente
 *.csproj.user
