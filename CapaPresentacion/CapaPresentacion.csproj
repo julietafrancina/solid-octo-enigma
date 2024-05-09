@@ -55,6 +55,54 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_Categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Categoria.Designer.cs">
+      <DependentUpon>Form_Categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Clientes.Designer.cs">
+      <DependentUpon>Form_Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Detalle_Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Detalle_Factura.Designer.cs">
+      <DependentUpon>Form_Detalle_Factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_detalle_prevta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_detalle_prevta.Designer.cs">
+      <DependentUpon>Form_detalle_prevta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Facturas.Designer.cs">
+      <DependentUpon>Form_Facturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Preventa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Preventa.Designer.cs">
+      <DependentUpon>Form_Preventa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Producto.Designer.cs">
+      <DependentUpon>Form_Producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Remito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Remito.Designer.cs">
+      <DependentUpon>Form_Remito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +117,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_Categoria.resx">
+      <DependentUpon>Form_Categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Preventa.resx">
+      <DependentUpon>Form_Preventa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Producto.resx">
+      <DependentUpon>Form_Producto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
