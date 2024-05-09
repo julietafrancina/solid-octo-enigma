@@ -60,10 +60,9 @@ namespace SistemaDeVentas
             this.menuAyuda});
             this.menu.Location = new System.Drawing.Point(0, 72);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1114, 78);
+            this.menu.Size = new System.Drawing.Size(1147, 78);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
-            this.menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // menuUsuarios
             // 
@@ -79,6 +78,7 @@ namespace SistemaDeVentas
             this.menuUsuarios.Text = "Usuarios";
             this.menuUsuarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuUsuarios.Click += new System.EventHandler(this.menuUsuarios_Click);
             // 
             // menuMantenedor
             // 
@@ -94,7 +94,6 @@ namespace SistemaDeVentas
             this.menuMantenedor.Text = "Mantenedor";
             this.menuMantenedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuMantenedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuMantenedor.Click += new System.EventHandler(this.iconMenuItem5_Click);
             // 
             // menuPreventas
             // 
@@ -182,15 +181,15 @@ namespace SistemaDeVentas
             this.label1.Size = new System.Drawing.Size(279, 36);
             this.label1.TabIndex = 2;
             this.label1.Text = "Sistema de Ventas";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // contenedor
             // 
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 150);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1114, 389);
+            this.contenedor.Size = new System.Drawing.Size(1147, 612);
             this.contenedor.TabIndex = 3;
+            // this.contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.contenedor_Paint);
             // 
             // menuTitulo
             // 
@@ -200,7 +199,7 @@ namespace SistemaDeVentas
             this.menuTitulo.Location = new System.Drawing.Point(0, 0);
             this.menuTitulo.Name = "menuTitulo";
             this.menuTitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitulo.Size = new System.Drawing.Size(1114, 72);
+            this.menuTitulo.Size = new System.Drawing.Size(1147, 72);
             this.menuTitulo.TabIndex = 1;
             this.menuTitulo.Text = "menuStrip2";
             // 
@@ -213,13 +212,12 @@ namespace SistemaDeVentas
             this.pictureBox1.Size = new System.Drawing.Size(164, 72);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 539);
+            this.ClientSize = new System.Drawing.Size(1147, 762);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.contenedor);
             this.Controls.Add(this.label1);
@@ -229,7 +227,6 @@ namespace SistemaDeVentas
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

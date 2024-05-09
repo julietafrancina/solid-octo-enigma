@@ -7,39 +7,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidad;
+using CapaPresentacion;
+using FontAwesome.Sharp;
 
 namespace SistemaDeVentas
 {
     public partial class Inicio : Form
     {
+        private static IconMenuItem MenuActivo = null;
+        private static Form FormularioActivo = null;
+
         public Inicio()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Inicio_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void AbrirFormulario(IconMenuItem menu, Form formulario)
         {
+            if (MenuActivo != null)
+            {
+                MenuActivo.BackColor = Color.White;
+            }
+            menu.BackColor = Color.Silver;
+            MenuActivo = menu;
 
+            if (FormularioActivo != null)
+            {
+                FormularioActivo.Close();
+            }
+
+            FormularioActivo = formulario;
+
+            // Propiedades del formulario activo
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            formulario.BackColor = Color.Firebrick;
+
+            // Para que el formulario se muestre
+            contenedor.Controls.Add(formulario);
+            formulario.Show();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void menuUsuarios_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void iconMenuItem5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            AbrirFormulario((IconMenuItem)sender, new formUsuarios());
         }
     }
 }
