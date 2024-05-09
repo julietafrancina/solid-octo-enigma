@@ -82,11 +82,17 @@ namespace SistemaDeVentas
 
         private void sub_detalle_Click(object sender, EventArgs e)
         {
-
+            Abrir_formulario(menuprevta)sender, new Form_Prevta());
         }
 
         private void sub_fact_detalle_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void sub_fact_detalle_Click_1(object sender, EventArgs e)
+        {
+            Abrir_formulario(menufactura)sender, new Form_Factura());
 
         }
     }

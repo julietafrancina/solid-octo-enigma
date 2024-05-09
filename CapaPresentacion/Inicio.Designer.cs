@@ -187,7 +187,7 @@ namespace SistemaDeVentas
             this.sub_fact_detalle.Name = "sub_fact_detalle";
             this.sub_fact_detalle.Size = new System.Drawing.Size(224, 26);
             this.sub_fact_detalle.Text = "Ver detalle";
-            this.sub_fact_detalle.Click += new System.EventHandler(this.sub_fact_detalle_Click);
+            this.sub_fact_detalle.Click += new System.EventHandler(this.sub_fact_detalle_Click_1);
             // 
             // menuRemitos
             // 
