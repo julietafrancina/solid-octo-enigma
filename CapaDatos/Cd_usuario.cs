@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
@@ -10,44 +11,56 @@ using CapaEntidad;
 
 namespace CapaDatos
 {
-    public class Cd_usuario{
+    public class CD_Usuario
+    {
 
-        public List<Usuario> Listar() {
-
-            List<Usuario> lista = new List<Usuario>(),
+        public List<Usuario> listar()
+        {
+            List<Usuario> lista = new List<Usuario>();
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
-                try {
+                try
+                {
+                    string query = "select id_usuario, dni, nombre_completo, correo, contraseña from usuario";
 
-                string query = "select idUsuario, dni, nombreCompleto, correo, contraseña from Usuario";
-                SqlCommand cmd = new SqlCommand(query, oconexion);
-                cmd.CommandType = CommandType.Text;
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
 
-                oconexion.Open();
-
-                using (SqlDataReader dr = cmd.ExecuteReader()) {
-                    while (dr.Read())
+                    oconexion.Open();
+                    using(SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        lista.Add(new Usuario() {
 
-                            idUsuario = Convert.ToInt32(dr["idUsuario"]),
-                            dni = dr["dni"].ToString(),
-                            nombreCompleto = dr["nombreCompleto"].ToString(),
-                            correo = dr["correo"].ToString(),
-                            contraseña = dr["contraseña"].ToString(),
+                    while (dr.Read())
+                        {
+                            lista.Add(new Usuario()
+                            {
+                                idUsuario = Convert.ToInt32(dr["id_usuario"]),
+                                dni = Convert.ToInt32(dr["dni"]),
+                                nombreCompleto = dr["nombre_completo"].ToString(),
+                                correo = dr["correo"].ToString(),
+                                contraseña = dr["contraseña"].ToString()
+                            });
+                        }
 
-                        });
                     }
+
                 }
-            } catch (Exception ex) {
-                lista = new List<Usuario>();
+                catch(Exception ex)
+                {
+                    lista = new List<Usuario>();
+                }
+
+
+
             }
-        }
-        return lista;    
+
+
+            return lista;
+
+
 
         }
 
-        }
     }
-
+}
