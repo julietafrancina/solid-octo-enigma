@@ -81,6 +81,7 @@ namespace SistemaDeVentas
             this.menuUsuarios.Text = "Usuarios";
             this.menuUsuarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuUsuarios.Click += new System.EventHandler(this.menuUsuarios_Click);
             // 
             // menuMantenedor
             // 
@@ -157,6 +158,7 @@ namespace SistemaDeVentas
             this.menuClientes.Text = "Clientes";
             this.menuClientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuClientes.Click += new System.EventHandler(this.menuClientes_Click);
             // 
             // menuAyuda
             // 
@@ -193,6 +195,7 @@ namespace SistemaDeVentas
             this.contenedor.Name = "contenedor";
             this.contenedor.Size = new System.Drawing.Size(1114, 389);
             this.contenedor.TabIndex = 3;
+            this.contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.contenedor_Paint);
             // 
             // menuTitulo
             // 

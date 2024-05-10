@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CapaEntidad;
+using FontAwesome.Sharp;
 
 namespace SistemaDeVentas
 {
     public partial class Inicio : Form
     {
         private static Usuario usuarioActual;
+        private static IconMenuItem MenuActivo = null;
+        private static Form FormularioActivo = null;
+
         public Inicio(Usuario usuario)
         {
             usuarioActual = usuario;
@@ -24,6 +28,33 @@ namespace SistemaDeVentas
         private void Form1_Load(object sender, EventArgs e)
         {
             lblUsuarioName.Text = usuarioActual.nombreCompleto;
+        }
+
+        private void AbrirFormulario(IconMenuItem menu, Form formulario)
+        {
+
+            if(MenuActivo != null)
+            {
+                MenuActivo.BackColor = Color.White;
+            }
+
+            menu.BackColor = Color.Silver;
+            MenuActivo = menu;
+
+            if(FormularioActivo != null)
+            {
+                FormularioActivo.Close();
+            }
+
+            FormularioActivo = formulario;
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            formulario.BackColor = Color.Firebrick;
+
+            contenedor.Controls.Add(formulario);
+            formulario.Show();
+
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -44,6 +75,21 @@ namespace SistemaDeVentas
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void menuClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Clientes());
+        }
+
+        private void contenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void menuUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Usuarios());
         }
     }
 }
