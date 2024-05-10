@@ -59,36 +59,7 @@ namespace SistemaDeVentas
             formulario.Show();
 
         }
-        private void AbrirFormulario(IconMenuItem menu, Form formulario)
-        {
-            if (MenuActivo != null)
-            {
-                MenuActivo.BackColor = Color.White;
-            }
-            menu.BackColor = Color.Silver;
-            MenuActivo = menu;
-
-            if (FormularioActivo != null)
-            {
-                FormularioActivo.Close();
-            }
-
-            FormularioActivo = formulario;
-
-            // Propiedades del formulario activo
-            formulario.TopLevel = false;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.Fill;
-            formulario.BackColor = Color.Firebrick;
-
-            // Para que el formulario se muestre
-            contenedor.Controls.Add(formulario);
-            formulario.Show();
-        }
-        private void menuUsuarios_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void menuClientes_Click(object sender, EventArgs e)
         {
