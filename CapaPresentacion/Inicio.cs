@@ -51,7 +51,7 @@ namespace SistemaDeVentas
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.Dock = DockStyle.Fill;
-            formulario.BackColor = Color.Firebrick;
+            formulario.BackColor = Color.LightGray;
 
             contenedor.Controls.Add(formulario);
             formulario.Show();
@@ -74,5 +74,9 @@ namespace SistemaDeVentas
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Usuarios());
         }
 
+        private void menuArtículos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
