@@ -55,7 +55,7 @@ namespace SistemaDeVentas
         }
         private void menuUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new formUsuarios());
+            AbrirFormulario((IconMenuItem)sender, new form_Usuarios());
         }
     }
 }

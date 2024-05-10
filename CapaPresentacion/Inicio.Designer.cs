@@ -74,7 +74,7 @@ namespace SistemaDeVentas
             this.menuUsuarios.IconSize = 50;
             this.menuUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuUsuarios.Name = "menuUsuarios";
-            this.menuUsuarios.Size = new System.Drawing.Size(95, 74);
+            this.menuUsuarios.Size = new System.Drawing.Size(152, 74);
             this.menuUsuarios.Text = "Usuarios";
             this.menuUsuarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -90,7 +90,7 @@ namespace SistemaDeVentas
             this.menuMantenedor.IconSize = 50;
             this.menuMantenedor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuMantenedor.Name = "menuMantenedor";
-            this.menuMantenedor.Size = new System.Drawing.Size(95, 74);
+            this.menuMantenedor.Size = new System.Drawing.Size(152, 74);
             this.menuMantenedor.Text = "Mantenedor";
             this.menuMantenedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuMantenedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -184,12 +184,12 @@ namespace SistemaDeVentas
             // 
             // contenedor
             // 
+            this.contenedor.AccessibleName = "contenedor";
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 150);
             this.contenedor.Name = "contenedor";
             this.contenedor.Size = new System.Drawing.Size(1147, 612);
             this.contenedor.TabIndex = 3;
-            // this.contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.contenedor_Paint);
             // 
             // menuTitulo
             // 
