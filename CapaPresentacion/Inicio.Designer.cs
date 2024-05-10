@@ -51,6 +51,7 @@ namespace SistemaDeVentas
             // 
             // menu
             // 
+            this.menu.BackColor = System.Drawing.Color.White;
             this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuUsuarios,
@@ -62,7 +63,7 @@ namespace SistemaDeVentas
             this.menuAyuda});
             this.menu.Location = new System.Drawing.Point(0, 72);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1147, 78);
+            this.menu.Size = new System.Drawing.Size(1114, 78);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
             // 
@@ -76,7 +77,7 @@ namespace SistemaDeVentas
             this.menuUsuarios.IconSize = 50;
             this.menuUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuUsuarios.Name = "menuUsuarios";
-            this.menuUsuarios.Size = new System.Drawing.Size(152, 74);
+            this.menuUsuarios.Size = new System.Drawing.Size(95, 74);
             this.menuUsuarios.Text = "Usuarios";
             this.menuUsuarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -92,7 +93,7 @@ namespace SistemaDeVentas
             this.menuMantenedor.IconSize = 50;
             this.menuMantenedor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuMantenedor.Name = "menuMantenedor";
-            this.menuMantenedor.Size = new System.Drawing.Size(152, 74);
+            this.menuMantenedor.Size = new System.Drawing.Size(95, 74);
             this.menuMantenedor.Text = "Mantenedor";
             this.menuMantenedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuMantenedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -191,7 +192,7 @@ namespace SistemaDeVentas
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 150);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1147, 612);
+            this.contenedor.Size = new System.Drawing.Size(1114, 389);
             this.contenedor.TabIndex = 3;
             this.contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.contenedor_Paint);
             // 
@@ -203,7 +204,7 @@ namespace SistemaDeVentas
             this.menuTitulo.Location = new System.Drawing.Point(0, 0);
             this.menuTitulo.Name = "menuTitulo";
             this.menuTitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitulo.Size = new System.Drawing.Size(1147, 72);
+            this.menuTitulo.Size = new System.Drawing.Size(1114, 72);
             this.menuTitulo.TabIndex = 1;
             this.menuTitulo.Text = "menuStrip2";
             // 
@@ -261,6 +262,7 @@ namespace SistemaDeVentas
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
+            this.Load += new System.EventHandler(this.Inicio_Load_1);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -11,8 +11,6 @@ using CapaEntidad;
 using CapaPresentacion;
 using FontAwesome.Sharp;
 
-using CapaEntidad;
-using FontAwesome.Sharp;
 
 namespace SistemaDeVentas
 {
@@ -28,7 +26,7 @@ namespace SistemaDeVentas
             InitializeComponent();
         }
 
-        private void Inicio_Load(object sender, EventArgs e)
+        private void Inicio_Load_1(object sender, EventArgs e)
         {
             lblUsuarioName.Text = usuarioActual.nombreCompleto;
         }
@@ -75,5 +73,6 @@ namespace SistemaDeVentas
         {
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Usuarios());
         }
+
     }
 }
