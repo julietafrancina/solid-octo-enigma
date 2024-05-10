@@ -28,10 +28,9 @@ namespace CapaDatos
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
-                    using(SqlDataReader dr = cmd.ExecuteReader())
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-
-                    while (dr.Read())
+                        while (dr.Read())
                         {
                             lista.Add(new Usuario()
                             {
@@ -44,9 +43,8 @@ namespace CapaDatos
                         }
 
                     }
-
                 }
-                catch(Exception ex)
+                catch (Exception)
                 {
                     lista = new List<Usuario>();
                 }

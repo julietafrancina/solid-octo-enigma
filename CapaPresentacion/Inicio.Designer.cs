@@ -62,10 +62,9 @@ namespace SistemaDeVentas
             this.menuAyuda});
             this.menu.Location = new System.Drawing.Point(0, 72);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1114, 78);
+            this.menu.Size = new System.Drawing.Size(1147, 78);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
-            this.menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // menuUsuarios
             // 
@@ -77,7 +76,7 @@ namespace SistemaDeVentas
             this.menuUsuarios.IconSize = 50;
             this.menuUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuUsuarios.Name = "menuUsuarios";
-            this.menuUsuarios.Size = new System.Drawing.Size(95, 74);
+            this.menuUsuarios.Size = new System.Drawing.Size(152, 74);
             this.menuUsuarios.Text = "Usuarios";
             this.menuUsuarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -93,11 +92,10 @@ namespace SistemaDeVentas
             this.menuMantenedor.IconSize = 50;
             this.menuMantenedor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuMantenedor.Name = "menuMantenedor";
-            this.menuMantenedor.Size = new System.Drawing.Size(95, 74);
+            this.menuMantenedor.Size = new System.Drawing.Size(152, 74);
             this.menuMantenedor.Text = "Mantenedor";
             this.menuMantenedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuMantenedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuMantenedor.Click += new System.EventHandler(this.iconMenuItem5_Click);
             // 
             // menuPreventas
             // 
@@ -186,14 +184,14 @@ namespace SistemaDeVentas
             this.label1.Size = new System.Drawing.Size(279, 36);
             this.label1.TabIndex = 2;
             this.label1.Text = "Sistema de Ventas";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // contenedor
             // 
+            this.contenedor.AccessibleName = "contenedor";
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 150);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1114, 389);
+            this.contenedor.Size = new System.Drawing.Size(1147, 612);
             this.contenedor.TabIndex = 3;
             this.contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.contenedor_Paint);
             // 
@@ -205,7 +203,7 @@ namespace SistemaDeVentas
             this.menuTitulo.Location = new System.Drawing.Point(0, 0);
             this.menuTitulo.Name = "menuTitulo";
             this.menuTitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitulo.Size = new System.Drawing.Size(1114, 72);
+            this.menuTitulo.Size = new System.Drawing.Size(1147, 72);
             this.menuTitulo.TabIndex = 1;
             this.menuTitulo.Text = "menuStrip2";
             // 
@@ -219,7 +217,6 @@ namespace SistemaDeVentas
             this.pictureBox1.Size = new System.Drawing.Size(164, 72);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // usuario
             // 
@@ -264,7 +261,6 @@ namespace SistemaDeVentas
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
