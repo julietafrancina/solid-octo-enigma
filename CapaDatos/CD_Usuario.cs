@@ -22,7 +22,8 @@ namespace CapaDatos
             {
                 try
                 {
-                    string query = "select id_usuario, dni, nombre_completo, correo, contraseña from usuario";
+                    string query = "select u.id_usuario, u.dni, u.nombre_completo, u.correo, u.contraseña, u.rol_id, r.descripcion from usuario u "
+                       + "join rol r on u.rol_id = r.id_rol" ;
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -32,14 +33,16 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
+
                             lista.Add(new Usuario()
                             {
                                 idUsuario = Convert.ToInt32(dr["id_usuario"]),
                                 dni = Convert.ToInt32(dr["dni"]),
                                 nombreCompleto = dr["nombre_completo"].ToString(),
                                 correo = dr["correo"].ToString(),
-                                contraseña = dr["contraseña"].ToString()
-                            });
+                                contraseña = dr["contraseña"].ToString(),
+                                Rol_id = new Rol(Convert.ToInt32(dr["rol_id"]), dr["descripcion"].ToString())
+                            }); ;
                         }
 
                     }

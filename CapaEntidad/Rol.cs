@@ -12,5 +12,11 @@ namespace CapaEntidad
         public int idRol { get; set; }
         public string descripcion { get; set; }
 
+        public Rol (int id, string descripcion)
+        {
+            this.idRol = id;
+            this.descripcion = descripcion;
+        }
+
     }
 }

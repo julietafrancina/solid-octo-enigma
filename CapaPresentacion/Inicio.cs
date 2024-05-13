@@ -29,7 +29,14 @@ namespace SistemaDeVentas
         private void Inicio_Load_1(object sender, EventArgs e)
         {
             lblUsuarioName.Text = usuarioActual.nombreCompleto;
+
+            if (usuarioActual.Rol_id.descripcion == "user")
+            {
+                menuUsuarios.Visible = false;
+            }
+
         }
+
 
         private void AbrirFormulario(IconMenuItem menu, Form formulario)
         {
