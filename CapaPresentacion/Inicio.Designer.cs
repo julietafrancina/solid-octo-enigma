@@ -63,7 +63,7 @@ namespace SistemaDeVentas
             this.menuAyuda});
             this.menu.Location = new System.Drawing.Point(0, 72);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1114, 78);
+            this.menu.Size = new System.Drawing.Size(1167, 78);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
             // 
@@ -192,7 +192,7 @@ namespace SistemaDeVentas
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 150);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1114, 389);
+            this.contenedor.Size = new System.Drawing.Size(1167, 389);
             this.contenedor.TabIndex = 3;
             this.contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.contenedor_Paint);
             // 
@@ -204,7 +204,7 @@ namespace SistemaDeVentas
             this.menuTitulo.Location = new System.Drawing.Point(0, 0);
             this.menuTitulo.Name = "menuTitulo";
             this.menuTitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitulo.Size = new System.Drawing.Size(1114, 72);
+            this.menuTitulo.Size = new System.Drawing.Size(1167, 72);
             this.menuTitulo.TabIndex = 1;
             this.menuTitulo.Text = "menuStrip2";
             // 
@@ -213,7 +213,7 @@ namespace SistemaDeVentas
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Firebrick;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(938, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(991, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(164, 72);
             this.pictureBox1.TabIndex = 5;
@@ -226,7 +226,7 @@ namespace SistemaDeVentas
             this.usuario.BackColor = System.Drawing.Color.Firebrick;
             this.usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuario.ForeColor = System.Drawing.Color.White;
-            this.usuario.Location = new System.Drawing.Point(699, 44);
+            this.usuario.Location = new System.Drawing.Point(752, 44);
             this.usuario.Name = "usuario";
             this.usuario.Size = new System.Drawing.Size(80, 20);
             this.usuario.TabIndex = 6;
@@ -239,7 +239,7 @@ namespace SistemaDeVentas
             this.lblUsuarioName.BackColor = System.Drawing.Color.Firebrick;
             this.lblUsuarioName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioName.ForeColor = System.Drawing.Color.White;
-            this.lblUsuarioName.Location = new System.Drawing.Point(772, 44);
+            this.lblUsuarioName.Location = new System.Drawing.Point(825, 44);
             this.lblUsuarioName.Name = "lblUsuarioName";
             this.lblUsuarioName.Size = new System.Drawing.Size(142, 20);
             this.lblUsuarioName.TabIndex = 7;
@@ -249,7 +249,7 @@ namespace SistemaDeVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 539);
+            this.ClientSize = new System.Drawing.Size(1167, 539);
             this.Controls.Add(this.lblUsuarioName);
             this.Controls.Add(this.usuario);
             this.Controls.Add(this.pictureBox1);
