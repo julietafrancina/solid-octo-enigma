@@ -9,13 +9,13 @@ using CapaEntidad;
 
 namespace CapaNegocio
 {
-    public class CN_Usuario
+    public class CN_Rol
     {
-        private CD_Usuario objcd_usuario = new CD_Usuario();
+        private CD_Rol objcd_rol = new CD_Rol();
 
-        public List<Usuario> listar()
+        public List<Rol> listar()
         {
-            return objcd_usuario.listar();
+            return objcd_rol.listar();
         }
     }
 }
