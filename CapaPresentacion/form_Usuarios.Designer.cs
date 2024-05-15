@@ -302,7 +302,7 @@ namespace CapaPresentacion
             this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 40;
-            this.dgvData.Size = new System.Drawing.Size(847, 527);
+            this.dgvData.Size = new System.Drawing.Size(846, 527);
             this.dgvData.TabIndex = 19;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
@@ -350,7 +350,7 @@ namespace CapaPresentacion
             this.txtBusqueda.Location = new System.Drawing.Point(815, 43);
             this.txtBusqueda.MinimumSize = new System.Drawing.Size(4, 24);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(197, 24);
+            this.txtBusqueda.Size = new System.Drawing.Size(197, 22);
             this.txtBusqueda.TabIndex = 24;
             // 
             // btnLimpiar
@@ -509,6 +509,7 @@ namespace CapaPresentacion
             this.Estado.MinimumWidth = 6;
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
+            this.Estado.Visible = false;
             this.Estado.Width = 125;
             // 
             // form_Usuarios

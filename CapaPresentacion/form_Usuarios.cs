@@ -133,7 +133,7 @@ namespace CapaPresentacion
                     txtNombreCompleto.Text = dgvData.Rows[indice].Cells["NombreCompleto"].Value.ToString();
                     txtCorreo.Text = dgvData.Rows[indice].Cells["Correo"].Value.ToString();
                     txtClave.Text = dgvData.Rows[indice].Cells["Contraseña"].Value.ToString();
-                    txtConfirmarClave.Text = dgvData.Rows[indice].Cells["ConfirmarClave"].Value.ToString();
+                    txtConfirmarClave.Text = dgvData.Rows[indice].Cells["Contraseña"].Value.ToString();
 
                     foreach (OpcionCombo oc in cboRol.Items)
                     {
