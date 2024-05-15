@@ -20,9 +20,17 @@ namespace SistemaDeVentas
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
 
-        public Inicio(Usuario usuario)
+        public Inicio(Usuario usuario = null)
         {
-            usuarioActual = usuario;
+            // solución momentánea para no tener que loguearme cada vez que abro el sistema.
+            if (usuario == null) usuarioActual = new Usuario()
+            {
+                nombreCompleto = "Admin", idUsuario = 1
+            };
+            else
+            { 
+                usuarioActual = usuario;
+            }
             InitializeComponent();
         }
 

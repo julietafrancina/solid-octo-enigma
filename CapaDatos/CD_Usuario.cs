@@ -13,7 +13,6 @@ namespace CapaDatos
 {
     public class CD_Usuario
     {
-
         public List<Usuario> listar()
         {
             List<Usuario> lista = new List<Usuario>();
@@ -22,10 +21,11 @@ namespace CapaDatos
             {
                 try
                 {
-                    string query = "select u.id_usuario, u.dni, u.nombre_completo, u.correo, u.contraseña, u.rol_id, r.descripcion from usuario u "
-                       + "join rol r on u.rol_id = r.id_rol" ;
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT u.id_usuario, u.dni, u.nombre_completo, u.correo, u.contraseña, r.id_rol, r.descripcion FROM usuario u");
+                    query.AppendLine("INNER JOIN rol r on r.id_rol = u.rol_id");
 
-                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
