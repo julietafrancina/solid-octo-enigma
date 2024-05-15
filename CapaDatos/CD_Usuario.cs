@@ -41,7 +41,7 @@ namespace CapaDatos
                                 nombreCompleto = dr["nombre_completo"].ToString(),
                                 correo = dr["correo"].ToString(),
                                 contraseña = dr["contraseña"].ToString(),
-                                Rol_id = new Rol(){idRol = Convert.ToInt32(dr["rol_id"]), descripcion = dr["descripcion"].ToString()}
+                                orol = new Rol(){id_rol = Convert.ToInt32(dr["id_rol"]), descripcion = dr["descripcion"].ToString()}
                             }); 
                         }
 
@@ -53,7 +53,7 @@ namespace CapaDatos
                 }
 
 
-
+                
             }
 
 

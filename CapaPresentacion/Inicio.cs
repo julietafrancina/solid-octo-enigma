@@ -20,17 +20,18 @@ namespace SistemaDeVentas
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
 
-        public Inicio(Usuario usuario = null)
+        public Inicio(Usuario usuario)
         {
-            // solución momentánea para no tener que loguearme cada vez que abro el sistema.
-            if (usuario == null) usuarioActual = new Usuario()
-            {
-                nombreCompleto = "Admin", idUsuario = 1
-            };
-            else
-            { 
-                usuarioActual = usuario;
-            }
+            usuarioActual = usuario;
+            //solución momentánea para no tener que loguearme cada vez que abro el sistema.
+            //if (usuario == null) usuarioActual = new Usuario()
+            //{
+            //    nombreCompleto = "Admin", idUsuario = 1
+            //};
+            //else
+            //{ 
+            //    usuarioActual = usuario;
+            //}
             InitializeComponent();
         }
 
@@ -38,7 +39,7 @@ namespace SistemaDeVentas
         {
             lblUsuarioName.Text = usuarioActual.nombreCompleto;
 
-            if (usuarioActual.Rol_id.descripcion == "user")
+            if (usuarioActual.orol.descripcion == "user")
             {
                 menuUsuarios.Visible = false;
             }

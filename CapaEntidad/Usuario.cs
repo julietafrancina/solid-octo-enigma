@@ -10,13 +10,12 @@ namespace CapaEntidad
     {
 
         public int idUsuario { get; set; }
-        public Rol Rol_id { get; set; }
+        public Rol orol { get; set; }
         public int dni { get; set; }
         public string nombreCompleto { get; set; }
         public string correo { get; set; }
         public string contraseña { get; set; }
-        public Rol orol { get; set; }
-        public string descripcion { get; set; }
+ 
     }
 
 }
