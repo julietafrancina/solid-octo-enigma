@@ -40,8 +40,11 @@ namespace CapaDatos
                                 nombreCompleto = dr["nombre_completo"].ToString(),
                                 correo = dr["correo"].ToString(),
                                 contraseña = dr["contraseña"].ToString(),
-                                orol = new Rol() { id_rol = Convert.ToInt32(dr["id_rol"]) },
-                                descripcion = dr["descripcion"].ToString(),
+                                orol = new Rol()
+                                {
+                                    id_rol = Convert.ToInt32(dr["id_rol"]),
+                                    descripcion = dr["descripcion"].ToString()
+                                }
                             });
                         }
 
@@ -51,17 +54,8 @@ namespace CapaDatos
                 {
                     lista = new List<Usuario>();
                 }
-
-
-
             }
-
-
             return lista;
-
-
-
         }
-
     }
 }
