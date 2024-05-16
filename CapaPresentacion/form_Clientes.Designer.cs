@@ -29,10 +29,20 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -61,47 +71,43 @@ namespace CapaPresentacion
             this.textCorreo = new System.Windows.Forms.TextBox();
             this.textDNI = new System.Windows.Forms.TextBox();
             this.textNombreCompleto = new System.Windows.Forms.TextBox();
-            this.txtFechaNac = new System.Windows.Forms.TextBox();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDia = new System.Windows.Forms.TextBox();
+            this.txtIndice = new System.Windows.Forms.TextBox();
+            this.txtMes = new System.Windows.Forms.TextBox();
+            this.txtAnio = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
-            // iconButton2
+            // btnEditar
             // 
-            this.iconButton2.BackColor = System.Drawing.SystemColors.Control;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(33, 445);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(97, 42);
-            this.iconButton2.TabIndex = 49;
-            this.iconButton2.Text = "Editar";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.btnEditar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnEditar.IconColor = System.Drawing.Color.Black;
+            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditar.IconSize = 20;
+            this.btnEditar.Location = new System.Drawing.Point(33, 445);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(114, 42);
+            this.btnEditar.TabIndex = 49;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvData.ColumnHeadersHeight = 40;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -118,20 +124,103 @@ namespace CapaPresentacion
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.Size = new System.Drawing.Size(888, 527);
             this.dgvData.TabIndex = 52;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 40;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // DNI
+            // 
+            this.DNI.HeaderText = "DNI";
+            this.DNI.MinimumWidth = 6;
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            this.DNI.Width = 125;
+            // 
+            // NombreCompleto
+            // 
+            this.NombreCompleto.HeaderText = "Nombre Completo";
+            this.NombreCompleto.MinimumWidth = 6;
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.ReadOnly = true;
+            this.NombreCompleto.Width = 150;
+            // 
+            // Correo
+            // 
+            this.Correo.HeaderText = "Correo";
+            this.Correo.MinimumWidth = 6;
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            this.Correo.Width = 140;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.MinimumWidth = 6;
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            this.Telefono.Width = 125;
+            // 
+            // Domicilio
+            // 
+            this.Domicilio.HeaderText = "Domicilio";
+            this.Domicilio.MinimumWidth = 6;
+            this.Domicilio.Name = "Domicilio";
+            this.Domicilio.ReadOnly = true;
+            this.Domicilio.Width = 125;
+            // 
+            // FechaNacimiento
+            // 
+            this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
+            this.FechaNacimiento.MinimumWidth = 6;
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.ReadOnly = true;
+            this.FechaNacimiento.Width = 150;
+            // 
+            // EstadoValor
+            // 
+            this.EstadoValor.HeaderText = "EstadoValor";
+            this.EstadoValor.MinimumWidth = 6;
+            this.EstadoValor.Name = "EstadoValor";
+            this.EstadoValor.ReadOnly = true;
+            this.EstadoValor.Visible = false;
+            this.EstadoValor.Width = 125;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Visible = false;
+            this.Estado.Width = 125;
             // 
             // btnLimpiar
             // 
@@ -201,7 +290,7 @@ namespace CapaPresentacion
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(205, 13);
+            this.txtId.Location = new System.Drawing.Point(234, 12);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(33, 22);
             this.txtId.TabIndex = 53;
@@ -214,9 +303,9 @@ namespace CapaPresentacion
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 20;
-            this.iconButton3.Location = new System.Drawing.Point(144, 445);
+            this.iconButton3.Location = new System.Drawing.Point(153, 445);
             this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(95, 42);
+            this.iconButton3.Size = new System.Drawing.Size(114, 42);
             this.iconButton3.TabIndex = 50;
             this.iconButton3.Text = "Eliminar";
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -243,7 +332,7 @@ namespace CapaPresentacion
             this.bntGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bntGuardar.Location = new System.Drawing.Point(34, 504);
             this.bntGuardar.Name = "bntGuardar";
-            this.bntGuardar.Size = new System.Drawing.Size(205, 46);
+            this.bntGuardar.Size = new System.Drawing.Size(233, 46);
             this.bntGuardar.TabIndex = 48;
             this.bntGuardar.Text = "Guardar";
             this.bntGuardar.UseVisualStyleBackColor = false;
@@ -263,8 +352,9 @@ namespace CapaPresentacion
             // 
             this.txtDomicilio.Location = new System.Drawing.Point(33, 322);
             this.txtDomicilio.Name = "txtDomicilio";
-            this.txtDomicilio.Size = new System.Drawing.Size(206, 22);
+            this.txtDomicilio.Size = new System.Drawing.Size(233, 22);
             this.txtDomicilio.TabIndex = 43;
+            this.txtDomicilio.TextChanged += new System.EventHandler(this.txtDomicilio_TextChanged);
             // 
             // label2
             // 
@@ -280,8 +370,9 @@ namespace CapaPresentacion
             // 
             this.txtTelefono.Location = new System.Drawing.Point(33, 253);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(205, 22);
+            this.txtTelefono.Size = new System.Drawing.Size(232, 22);
             this.txtTelefono.TabIndex = 41;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             // 
             // label7
             // 
@@ -298,22 +389,23 @@ namespace CapaPresentacion
             // 
             this.txtCorreo.Location = new System.Drawing.Point(34, 187);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(205, 22);
+            this.txtCorreo.Size = new System.Drawing.Size(232, 22);
             this.txtCorreo.TabIndex = 39;
             // 
             // txtNombreCompleto
             // 
             this.txtNombreCompleto.Location = new System.Drawing.Point(34, 124);
             this.txtNombreCompleto.Name = "txtNombreCompleto";
-            this.txtNombreCompleto.Size = new System.Drawing.Size(205, 22);
+            this.txtNombreCompleto.Size = new System.Drawing.Size(232, 22);
             this.txtNombreCompleto.TabIndex = 36;
             // 
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(34, 63);
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(205, 22);
+            this.txtDNI.Size = new System.Drawing.Size(232, 22);
             this.txtDNI.TabIndex = 32;
+            this.txtDNI.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
             // 
             // usuarioCorreo
             // 
@@ -351,7 +443,7 @@ namespace CapaPresentacion
             this.formUsuarios.Dock = System.Windows.Forms.DockStyle.Left;
             this.formUsuarios.Location = new System.Drawing.Point(0, 0);
             this.formUsuarios.Name = "formUsuarios";
-            this.formUsuarios.Size = new System.Drawing.Size(286, 632);
+            this.formUsuarios.Size = new System.Drawing.Size(294, 632);
             this.formUsuarios.TabIndex = 27;
             // 
             // textBox1
@@ -396,102 +488,80 @@ namespace CapaPresentacion
             this.textNombreCompleto.Size = new System.Drawing.Size(172, 22);
             this.textNombreCompleto.TabIndex = 34;
             // 
-            // txtFechaNac
+            // txtDia
             // 
-            this.txtFechaNac.Location = new System.Drawing.Point(34, 388);
-            this.txtFechaNac.Name = "txtFechaNac";
-            this.txtFechaNac.Size = new System.Drawing.Size(206, 22);
-            this.txtFechaNac.TabIndex = 60;
+            this.txtDia.ForeColor = System.Drawing.Color.Gray;
+            this.txtDia.Location = new System.Drawing.Point(34, 388);
+            this.txtDia.Name = "txtDia";
+            this.txtDia.Size = new System.Drawing.Size(60, 22);
+            this.txtDia.TabIndex = 60;
+            this.txtDia.Text = "dd";
+            this.txtDia.TextChanged += new System.EventHandler(this.txtDia_TextChanged);
+            this.txtDia.Enter += new System.EventHandler(this.txtDia_Enter);
+            this.txtDia.Leave += new System.EventHandler(this.txtDia_Leave);
             // 
-            // btnSeleccionar
+            // txtIndice
             // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 40;
+            this.txtIndice.Location = new System.Drawing.Point(195, 12);
+            this.txtIndice.Name = "txtIndice";
+            this.txtIndice.Size = new System.Drawing.Size(33, 22);
+            this.txtIndice.TabIndex = 61;
+            this.txtIndice.Text = "-1";
             // 
-            // id
+            // txtMes
             // 
-            this.id.HeaderText = "Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
+            this.txtMes.ForeColor = System.Drawing.Color.Gray;
+            this.txtMes.Location = new System.Drawing.Point(121, 388);
+            this.txtMes.Name = "txtMes";
+            this.txtMes.Size = new System.Drawing.Size(60, 22);
+            this.txtMes.TabIndex = 62;
+            this.txtMes.Text = "mm";
+            this.txtMes.Enter += new System.EventHandler(this.txtMes_Enter);
+            this.txtMes.Leave += new System.EventHandler(this.txtMes_Leave);
             // 
-            // DNI
+            // txtAnio
             // 
-            this.DNI.HeaderText = "DNI";
-            this.DNI.MinimumWidth = 6;
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
+            this.txtAnio.ForeColor = System.Drawing.Color.Gray;
+            this.txtAnio.Location = new System.Drawing.Point(207, 388);
+            this.txtAnio.Name = "txtAnio";
+            this.txtAnio.Size = new System.Drawing.Size(60, 22);
+            this.txtAnio.TabIndex = 63;
+            this.txtAnio.Text = "yyyy";
+            this.txtAnio.Enter += new System.EventHandler(this.txtAnio_Enter);
+            this.txtAnio.Leave += new System.EventHandler(this.txtAnio_Leave);
             // 
-            // NombreCompleto
+            // label1
             // 
-            this.NombreCompleto.HeaderText = "Nombre Completo";
-            this.NombreCompleto.MinimumWidth = 6;
-            this.NombreCompleto.Name = "NombreCompleto";
-            this.NombreCompleto.ReadOnly = true;
-            this.NombreCompleto.Width = 150;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(102, 390);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 17);
+            this.label1.TabIndex = 64;
+            this.label1.Text = "/";
             // 
-            // Correo
+            // label4
             // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.MinimumWidth = 6;
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            this.Correo.Width = 140;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.MinimumWidth = 6;
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 125;
-            // 
-            // Domicilio
-            // 
-            this.Domicilio.HeaderText = "Domicilio";
-            this.Domicilio.MinimumWidth = 6;
-            this.Domicilio.Name = "Domicilio";
-            this.Domicilio.ReadOnly = true;
-            this.Domicilio.Width = 125;
-            // 
-            // FechaNacimiento
-            // 
-            this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
-            this.FechaNacimiento.MinimumWidth = 6;
-            this.FechaNacimiento.Name = "FechaNacimiento";
-            this.FechaNacimiento.ReadOnly = true;
-            this.FechaNacimiento.Width = 150;
-            // 
-            // EstadoValor
-            // 
-            this.EstadoValor.HeaderText = "EstadoValor";
-            this.EstadoValor.MinimumWidth = 6;
-            this.EstadoValor.Name = "EstadoValor";
-            this.EstadoValor.ReadOnly = true;
-            this.EstadoValor.Visible = false;
-            this.EstadoValor.Width = 125;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Visible = false;
-            this.Estado.Width = 125;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Location = new System.Drawing.Point(189, 389);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(12, 17);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "/";
             // 
             // form_Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1245, 632);
-            this.Controls.Add(this.txtFechaNac);
-            this.Controls.Add(this.iconButton2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtAnio);
+            this.Controls.Add(this.txtMes);
+            this.Controls.Add(this.txtIndice);
+            this.Controls.Add(this.txtDia);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBusqueda);
@@ -531,7 +601,7 @@ namespace CapaPresentacion
         }
 
         #endregion
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnEditar;
         private System.Windows.Forms.DataGridView dgvData;
         private FontAwesome.Sharp.IconButton btnLimpiar;
         private FontAwesome.Sharp.IconButton btnBusqueda;
@@ -561,7 +631,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox textCorreo;
         private System.Windows.Forms.TextBox textDNI;
         private System.Windows.Forms.TextBox textNombreCompleto;
-        private System.Windows.Forms.TextBox txtFechaNac;
+        private System.Windows.Forms.TextBox txtDia;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
@@ -572,5 +642,10 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.TextBox txtIndice;
+        private System.Windows.Forms.TextBox txtMes;
+        private System.Windows.Forms.TextBox txtAnio;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }

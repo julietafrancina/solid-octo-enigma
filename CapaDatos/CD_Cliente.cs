@@ -54,10 +54,102 @@ namespace CapaDatos
 
             }
 
-
             return lista;
 
+        }
+    
+    
+        public int Registrar(Cliente obj, out string Mensaje)
+        {
+            int idClienteGenerado = 0;
+            Mensaje = string.Empty;
+
+
+            try 
+            {
+
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+
+                    SqlCommand cmd = new SqlCommand("sp_RegistrarCliente", oconexion);
+                    cmd.Parameters.AddWithValue("NombreCompleto", obj.nombreCompleto);
+                    cmd.Parameters.AddWithValue("Documento", obj.dni);
+                    cmd.Parameters.AddWithValue("Correo", obj.correo);
+                    cmd.Parameters.AddWithValue("Telefono", obj.telefono);
+                    cmd.Parameters.AddWithValue("Domicilio", obj.domicilio);
+                    cmd.Parameters.AddWithValue("FechaNacimiento", obj.fechaNacimiento);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    idClienteGenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+
+                }
+
+            }
+            catch(Exception ex) 
+            {
+
+                idClienteGenerado = 0;
+                Mensaje = ex.Message;
+
+            }
+
+
+            return idClienteGenerado;
 
         }
+
+
+        public bool Editar(Cliente obj, out string Mensaje)
+        {
+
+            bool respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+
+                    SqlCommand cmd = new SqlCommand("sp_ModificarCliente", oconexion);
+                    cmd.Parameters.AddWithValue("IdCliente", obj.idCliente);
+                    cmd.Parameters.AddWithValue("NombreCompleto", obj.nombreCompleto);
+                    cmd.Parameters.AddWithValue("Documento", obj.dni);
+                    cmd.Parameters.AddWithValue("Correo", obj.correo);
+                    cmd.Parameters.AddWithValue("Telefono", obj.telefono);
+                    cmd.Parameters.AddWithValue("Domicilio", obj.domicilio);
+                    cmd.Parameters.AddWithValue("FechaNacimiento", obj.fechaNacimiento);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+
+                }
+
+            }
+            catch(Exception ex)
+            {
+                respuesta = false;
+                Mensaje = ex.Message;
+            }
+
+
+            return respuesta;
+        }
+
+
     }
 }
