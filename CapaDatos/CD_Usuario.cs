@@ -50,12 +50,54 @@ namespace CapaDatos
 
                     }
                 }
+
                 catch (Exception)
                 {
                     lista = new List<Usuario>();
                 }
+
             }
             return lista;
+        }
+
+        public int Registrar(Usuario obj, out string Mensaje)
+        {
+            int idUsuarioGenerado = 0;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIO", oconexion);
+                    //parámetros de entrada
+                    cmd.Parameters.AddWithValue("dni", obj.dni);
+                    cmd.Parameters.AddWithValue("nombre_completo", obj.nombreCompleto);
+                    cmd.Parameters.AddWithValue("correo", obj.correo);
+                    cmd.Parameters.AddWithValue("contraseña", obj.contraseña);
+                    cmd.Parameters.AddWithValue("rol_id", obj.orol.id_rol);
+
+                    //parámetros de salida
+                    cmd.Parameters.Add("id_usuario_resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    idUsuarioGenerado = Convert.ToInt32(cmd.Parameters["id_usuario_resultado"].Value);
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                idUsuarioGenerado = 0;
+                Mensaje = ex.Message;
+            }
+
+            return idUsuarioGenerado;
         }
     }
 }
