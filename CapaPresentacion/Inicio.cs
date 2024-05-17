@@ -21,6 +21,15 @@ namespace SistemaDeVentas
         {
             InitializeComponent();
         }
+
+        public Inicio(Usuario obj_usuario = null)
+        {
+            if(obj_usuario == null)
+            {
+                usuarioact = new Usuario() { nombreCompleto = "Admin predefinido", idUsuario = 1 }
+            else
+                    usuarioact = obj_usuario;
+        }
         private void Abrir_formulario(IconMenuItem menu, Form formulario )
         {
             if(menuactivo != null)
@@ -94,6 +103,16 @@ namespace SistemaDeVentas
         {
             Abrir_formulario(menufactura)sender, new Form_Factura());
 
+        }
+
+        private void sub_remito_ver_Click(object sender, EventArgs e)
+        {
+            Abrir_formulario(menuremito)sender, new Form_Remito());
+        }
+
+        private void sub_clientes_ver_Click(object sender, EventArgs e)
+        {
+            Abrir_formulario(menuclientes)sender, new Form_Clientes());
         }
     }
 }
