@@ -94,45 +94,6 @@ namespace SistemaDeVentas
         {
 
         }
-
-        private void iconMenuItem2_Click(object sender, EventArgs e)
-        {
-            Abrir_formulario(menumantenedor)sender, new Form_Producto());
-        }
-        private void menuUsuarios_Click(object sender, EventArgs e)
-        {
-            Abrir_formulario(IconMenuItem)sender, new Form_Usuario());
-        }
-
-        private void sub_cat_Click(object sender, EventArgs e)
-        {
-            Abrir_formulario(menumantenedor)sender, new Form_Categoria());
-        }
-
-        private void sub_detalle_Click(object sender, EventArgs e)
-        {
-            Abrir_formulario(menuprevta)sender, new Form_Prevta());
-        }
-
-        private void sub_fact_detalle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sub_fact_detalle_Click_1(object sender, EventArgs e)
-        {
-            Abrir_formulario(menufactura)sender, new Form_Factura());
-
-        }
-
-        private void sub_remito_ver_Click(object sender, EventArgs e)
-        {
-            Abrir_formulario(menuremito)sender, new Form_Remito());
-        }
-
-        private void sub_clientes_ver_Click(object sender, EventArgs e)
-        {
-            Abrir_formulario(menuclientes)sender, new Form_Clientes());
-        }
+        
     }
 }

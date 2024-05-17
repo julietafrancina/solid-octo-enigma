@@ -35,10 +35,7 @@ namespace SistemaDeVentas
             this.menuUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.menuArtículos = new FontAwesome.Sharp.IconMenuItem();
             this.menuPreventas = new FontAwesome.Sharp.IconMenuItem();
-            this.sub_registar = new FontAwesome.Sharp.IconMenuItem();
-            this.sub_ver_detalle = new FontAwesome.Sharp.IconMenuItem();
             this.menuFacturas = new FontAwesome.Sharp.IconMenuItem();
-            this.sub_fact_detalle = new FontAwesome.Sharp.IconMenuItem();
             this.menuRemitos = new FontAwesome.Sharp.IconMenuItem();
             this.menuClientes = new FontAwesome.Sharp.IconMenuItem();
             this.menuAyuda = new FontAwesome.Sharp.IconMenuItem();
@@ -105,9 +102,6 @@ namespace SistemaDeVentas
             // menuPreventas
             // 
             this.menuPreventas.AutoSize = false;
-            this.menuPreventas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sub_registar,
-            this.sub_ver_detalle});
             this.menuPreventas.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuPreventas.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
             this.menuPreventas.IconColor = System.Drawing.Color.Black;
@@ -115,35 +109,14 @@ namespace SistemaDeVentas
             this.menuPreventas.IconSize = 50;
             this.menuPreventas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuPreventas.Name = "menuPreventas";
-            this.menuPreventas.Size = new System.Drawing.Size(152, 74);
+            this.menuPreventas.Size = new System.Drawing.Size(95, 74);
             this.menuPreventas.Text = "Preventas";
             this.menuPreventas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuPreventas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // sub_registar
-            // 
-            this.sub_registar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.sub_registar.IconColor = System.Drawing.Color.Black;
-            this.sub_registar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.sub_registar.Name = "sub_registar";
-            this.sub_registar.Size = new System.Drawing.Size(163, 26);
-            this.sub_registar.Text = "Registrar";
-            // 
-            // sub_ver_detalle
-            // 
-            this.sub_ver_detalle.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.sub_ver_detalle.IconColor = System.Drawing.Color.Black;
-            this.sub_ver_detalle.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.sub_ver_detalle.Name = "sub_ver_detalle";
-            this.sub_ver_detalle.Size = new System.Drawing.Size(163, 26);
-            this.sub_ver_detalle.Text = "Ver detalle";
-            this.sub_ver_detalle.Click += new System.EventHandler(this.sub_detalle_Click);
-            // 
             // menuFacturas
             // 
             this.menuFacturas.AutoSize = false;
-            this.menuFacturas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sub_fact_detalle});
             this.menuFacturas.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuFacturas.IconChar = FontAwesome.Sharp.IconChar.Archive;
             this.menuFacturas.IconColor = System.Drawing.Color.Black;
@@ -156,21 +129,9 @@ namespace SistemaDeVentas
             this.menuFacturas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuFacturas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // sub_fact_detalle
-            // 
-            this.sub_fact_detalle.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.sub_fact_detalle.IconColor = System.Drawing.Color.Black;
-            this.sub_fact_detalle.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.sub_fact_detalle.Name = "sub_fact_detalle";
-            this.sub_fact_detalle.Size = new System.Drawing.Size(224, 26);
-            this.sub_fact_detalle.Text = "Ver detalle";
-            this.sub_fact_detalle.Click += new System.EventHandler(this.sub_fact_detalle_Click_1);
-            // 
             // menuRemitos
             // 
             this.menuRemitos.AutoSize = false;
-            this.menuRemitos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sub_remito_ver});
             this.menuRemitos.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuRemitos.IconChar = FontAwesome.Sharp.IconChar.Truck;
             this.menuRemitos.IconColor = System.Drawing.Color.Black;
@@ -186,8 +147,6 @@ namespace SistemaDeVentas
             // menuClientes
             // 
             this.menuClientes.AutoSize = false;
-            this.menuClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sub_clientes_ver});
             this.menuClientes.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuClientes.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
             this.menuClientes.IconColor = System.Drawing.Color.Black;
@@ -195,7 +154,7 @@ namespace SistemaDeVentas
             this.menuClientes.IconSize = 50;
             this.menuClientes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuClientes.Name = "menuClientes";
-            this.menuClientes.Size = new System.Drawing.Size(152, 74);
+            this.menuClientes.Size = new System.Drawing.Size(95, 74);
             this.menuClientes.Text = "Clientes";
             this.menuClientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -286,26 +245,6 @@ namespace SistemaDeVentas
             this.lblUsuarioName.Size = new System.Drawing.Size(142, 20);
             this.lblUsuarioName.TabIndex = 7;
             this.lblUsuarioName.Text = "lblUsuarioName";
-            // 
-            // sub_remito_ver
-            // 
-            this.sub_remito_ver.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.sub_remito_ver.IconColor = System.Drawing.Color.Black;
-            this.sub_remito_ver.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.sub_remito_ver.Name = "sub_remito_ver";
-            this.sub_remito_ver.Size = new System.Drawing.Size(241, 26);
-            this.sub_remito_ver.Text = "Ver remitos generados";
-            this.sub_remito_ver.Click += new System.EventHandler(this.sub_remito_ver_Click);
-            // 
-            // sub_clientes_ver
-            // 
-            this.sub_clientes_ver.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.sub_clientes_ver.IconColor = System.Drawing.Color.Black;
-            this.sub_clientes_ver.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.sub_clientes_ver.Name = "sub_clientes_ver";
-            this.sub_clientes_ver.Size = new System.Drawing.Size(224, 26);
-            this.sub_clientes_ver.Text = "Ver clientes ";
-            this.sub_clientes_ver.Click += new System.EventHandler(this.sub_clientes_ver_Click);
             // 
             // Inicio
             // 
