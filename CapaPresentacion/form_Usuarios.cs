@@ -75,21 +75,47 @@ namespace CapaPresentacion
 
         }
 
+        //Registrar un usuario nuevo al hacer click en el botón 'Guardar'.
         private void bntGuardar_Click(object sender, EventArgs e)
         {
-            //dgvData.Rows.Add(new object[] {
-            //    "",
-            //    txtId.Text,
-            //    txtDNI.Text,
-            //    txtNombreCompleto.Text,
-            //    txtCorreo.Text,
-            //    txtClave.Text,
-            //    ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
-            //    ((OpcionCombo)cboRol.SelectedItem).Texto.ToString()
-            //});
+            string mensaje = string.Empty;
+            Usuario objusuario = new Usuario()
+            {
+                idUsuario = Convert.ToInt32(txtId.Text),
+                dni = Convert.ToInt32(txtDNI.Text),
+                nombreCompleto = txtNombreCompleto.Text,
+                correo = txtCorreo.Text,
+                contraseña = txtClave.Text,
+                orol = new Rol()
+                {
+                    id_rol = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor)
+                }
+            };
 
-            //limpiar();
+            int idUsuarioGenerado = new CN_Usuario().Registrar(objusuario, out mensaje);
+            if (idUsuarioGenerado != 0)
+            {
+                dgvData.Rows.Add(new object[]
+                {
+                    "",
+                    idUsuarioGenerado,
+                    txtDNI.Text,
+                    txtNombreCompleto.Text,
+                    txtCorreo.Text,
+                    txtClave.Text,
+                    ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
+                    ((OpcionCombo)cboRol.SelectedItem).Texto.ToString()
+                });
+
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show(mensaje);
+            }
         }
+
+        //Limpiar los campos una vez que se completó la operación
         private void limpiar()
         {
             txtIndice.Text = "-1";
@@ -102,6 +128,7 @@ namespace CapaPresentacion
             cboRol.SelectedIndex = 0;
         }
 
+        //Mostrar la tabla de usuarios.
         private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -122,6 +149,7 @@ namespace CapaPresentacion
             }
         }
 
+        //Al seleccionar un usuario de la tabla, pasar sus datos a los inputs de la izquierda.
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
@@ -154,6 +182,12 @@ namespace CapaPresentacion
         private void cboBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        //Limpiar los inputs al hacer click en el botón 'Limpiar'.
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
     }
 }

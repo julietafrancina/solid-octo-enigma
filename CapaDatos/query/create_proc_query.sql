@@ -80,6 +80,7 @@ CREATE PROC SP_ELIMINARUSUARIO
 	BEGIN
 		SET @respuesta = 0
 		SET @mensaje = ''
+		DECLARE @pasoreglas bit = 1
 
 		IF exists (
 			SELECT * FROM Preventa P
@@ -87,31 +88,23 @@ CREATE PROC SP_ELIMINARUSUARIO
 			WHERE U.id_usuario = @id_usuario
 			)
 			BEGIN
+				SET @pasoreglas = 0
 				SET @respuesta = 0
-				SET @mensaje = @mensaje + 'El usuario se encuentra relacionado a una preventa\n'
+				SET @mensaje = @mensaje + 'No se puede eliminar el usuario ya que está relacionado a una preventa\n'
 			END
 
-		IF not exists(SELECT * FROM Usuario WHERE dni = @dni and id_usuario != @id_usuario)
-		BEGIN
-			UPDATE Usuario SET
-				dni = @dni,
-				nombre_completo = @nombre_completo,
-				correo = @correo,
-				contraseña = @contraseña,
-				rol_id = @rol_id
-			WHERE id_usuario = @id_usuario
-
-			SET @respuesta = 1
-
+		IF (@pasoreglas = 1)
+			BEGIN
+				DELETE FROM Usuario WHERE id_usuario = @id_usuario
+				SET @respuesta = 1 
+			END
 	END
-	ELSE
-			SET @mensaje = 'El DNI debe ser único para cada usuario'
-END
 
 
 /*-------------ejecución de pruebas-------------*/
 
 
+/*
 DECLARE @respuesta_edicion bit
 DECLARE @mensaje_generado varchar(500)
 
@@ -121,3 +114,4 @@ SELECT @respuesta_edicion
 SELECT @mensaje_generado
 
 SELECT * FROM Usuario
+*/
