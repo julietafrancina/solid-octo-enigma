@@ -291,6 +291,35 @@ namespace CapaPresentacion
             }
         }
 
-        
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            if(Convert.ToInt32(txtId.Text) != 0)
+            {
+                if(MessageBox.Show("¿Desea eliminar el cliente", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    string mensaje = string.Empty;
+                    Cliente obj = new Cliente()
+                    {
+                        idCliente = Convert.ToInt32(txtId.Text)
+                    };
+
+                    bool respuesta = new CN_Cliente().Eliminar(obj, out mensaje);
+
+                    if (respuesta)
+                    {
+                        dgvData.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+
+                }
+            }
+
+        }
     }
 }
