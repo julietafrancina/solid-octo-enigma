@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -93,6 +94,11 @@ namespace SistemaDeVentas
         private void menuArtículos_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void menuAyuda_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidad;
 using CapaNegocio;
+using CapaPresentacion.Utilidades;
 
 namespace CapaPresentacion
 {
@@ -21,6 +22,21 @@ namespace CapaPresentacion
 
         private void form_Clientes_Load(object sender, EventArgs e)
         {
+
+            foreach (DataGridViewColumn columna in dgvData.Columns)
+            {
+
+                if (columna.Visible == true && columna.Name != "btnSeleccionar")
+                {
+                    cboBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                }
+
+            }
+            cboBusqueda.DisplayMember = "Texto";
+            cboBusqueda.ValueMember = "Value";
+            cboBusqueda.SelectedIndex = 0;
+
+
             List<Cliente> listaCliente = new CN_Cliente().listar();
 
             foreach (Cliente item in listaCliente)
@@ -296,7 +312,7 @@ namespace CapaPresentacion
 
             if(Convert.ToInt32(txtId.Text) != 0)
             {
-                if(MessageBox.Show("¿Desea eliminar el cliente", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if(MessageBox.Show("¿Desea eliminar el cliente?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     string mensaje = string.Empty;
@@ -320,6 +336,31 @@ namespace CapaPresentacion
                 }
             }
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtBusqueda.Text = "";
+            foreach(DataGridViewRow row in dgvData.Rows)
+            {
+                row.Visible = true;
+            }
+        }
+
+        private void btnBusqueda_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)cboBusqueda.SelectedItem).Valor.ToString();
+
+            if(dgvData.Rows.Count > 0)
+            {
+                foreach(DataGridViewRow row in dgvData.Rows)
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper()))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            }
         }
     }
 }

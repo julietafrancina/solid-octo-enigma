@@ -174,6 +174,7 @@ namespace SistemaDeVentas
             this.menuAyuda.Text = "Ayuda";
             this.menuAyuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuAyuda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuAyuda.Click += new System.EventHandler(this.menuAyuda_Click);
             // 
             // label1
             // 
