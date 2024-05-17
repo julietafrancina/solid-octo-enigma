@@ -55,53 +55,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form_Categoria.cs">
+    <Compile Include="form_Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Categoria.Designer.cs">
-      <DependentUpon>Form_Categoria.cs</DependentUpon>
+    <Compile Include="form_Clientes.Designer.cs">
+      <DependentUpon>form_Clientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Clientes.cs">
+    <Compile Include="form_Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Clientes.Designer.cs">
-      <DependentUpon>Form_Clientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Detalle_Factura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_Detalle_Factura.Designer.cs">
-      <DependentUpon>Form_Detalle_Factura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_detalle_prevta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_detalle_prevta.Designer.cs">
-      <DependentUpon>Form_detalle_prevta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Facturas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_Facturas.Designer.cs">
-      <DependentUpon>Form_Facturas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Preventa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_Preventa.Designer.cs">
-      <DependentUpon>Form_Preventa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Producto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_Producto.Designer.cs">
-      <DependentUpon>Form_Producto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Remito.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_Remito.Designer.cs">
-      <DependentUpon>Form_Remito.cs</DependentUpon>
+    <Compile Include="form_Usuarios.Designer.cs">
+      <DependentUpon>form_Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -117,14 +81,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form_Categoria.resx">
-      <DependentUpon>Form_Categoria.cs</DependentUpon>
+    <Compile Include="Utilidades\OpcionCombo.cs" />
+    <EmbeddedResource Include="form_Usuarios.resx">
+      <DependentUpon>form_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Preventa.resx">
-      <DependentUpon>Form_Preventa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_Producto.resx">
-      <DependentUpon>Form_Producto.cs</DependentUpon>
+    <EmbeddedResource Include="form_Clientes.resx">
+      <DependentUpon>form_Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -140,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -164,6 +127,15 @@
       <Project>{6d2f1eb1-5923-4db1-afb6-9841482fcb72}</Project>
       <Name>CapaNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\tabler_trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\tabler_trash-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\tabler_check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

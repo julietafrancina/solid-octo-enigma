@@ -75,6 +75,7 @@ namespace SistemaDeVentas
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(245, 22);
             this.txtDNI.TabIndex = 3;
+            this.txtDNI.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
             // 
             // label4
             // 
@@ -139,7 +140,7 @@ namespace SistemaDeVentas
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '•';
             this.txtClave.Size = new System.Drawing.Size(245, 22);
-            this.txtClave.TabIndex = 11;
+            this.txtClave.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -168,7 +169,7 @@ namespace SistemaDeVentas
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

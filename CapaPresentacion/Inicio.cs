@@ -8,69 +8,89 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidad;
+using CapaPresentacion;
 using FontAwesome.Sharp;
+
 
 namespace SistemaDeVentas
 {
     public partial class Inicio : Form
     {
-        private static Usuario usuarioact;
-        private static IconMenuItem menu_activo = null;
-        private static Form formulario_activo = null;
-        public Inicio()
+        private static Usuario usuarioActual;
+        private static IconMenuItem MenuActivo = null;
+        private static Form FormularioActivo = null;
+
+        public Inicio(Usuario usuario)
         {
+            usuarioActual = usuario;
+            //solución momentánea para no tener que loguearme cada vez que abro el sistema.
+            //if (usuario == null) usuarioActual = new Usuario()
+            //{
+            //    nombreCompleto = "Admin", idUsuario = 1
+            //};
+            //else
+            //{ 
+            //    usuarioActual = usuario;
+            //}
             InitializeComponent();
         }
 
-        public Inicio(Usuario obj_usuario = null)
+        private void Inicio_Load_1(object sender, EventArgs e)
         {
-            if(obj_usuario == null)
+            lblUsuarioName.Text = usuarioActual.nombreCompleto;
+
+            if (usuarioActual.orol.descripcion == "user")
             {
-                usuarioact = new Usuario() { nombreCompleto = "Admin predefinido", idUsuario = 1 }
-            else
-                    usuarioact = obj_usuario;
+                menuUsuarios.Visible = false;
+            }
+
         }
-        private void Abrir_formulario(IconMenuItem menu, Form formulario )
+
+
+        private void AbrirFormulario(IconMenuItem menu, Form formulario)
         {
-            if(menuactivo != null)
+
+            if(MenuActivo != null)
             {
-                menu_activo.BackColor = Color.White;
+                MenuActivo.BackColor = Color.White;
             }
+
             menu.BackColor = Color.Silver;
-            menu_activo = menu;
-            if (formulario_activo != null)
+            MenuActivo = menu;
+
+            if(FormularioActivo != null)
             {
-                formulario_activo.Close();
+                FormularioActivo.Close();
             }
-            formulario_activo = formulario;
+
+            FormularioActivo = formulario;
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.Dock = DockStyle.Fill;
-            formulario.BackColor = Color.SteelBlue;
+            formulario.BackColor = Color.LightGray;
+
             contenedor.Controls.Add(formulario);
             formulario.Show();
+
         }
-        private void Form1_Load(object sender, EventArgs e)
+        
+
+        private void menuClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Clientes());
+        }
+
+        private void contenedor_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void menuUsuarios_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Usuarios());
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconMenuItem5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void menuArtículos_Click(object sender, EventArgs e)
         {
 
         }

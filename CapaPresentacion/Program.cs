@@ -16,6 +16,8 @@ namespace CapaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //configuración para que el programa se abra directamente desde el form Inicio.
             Application.Run(new SistemaDeVentas.Login());
         }
     }
