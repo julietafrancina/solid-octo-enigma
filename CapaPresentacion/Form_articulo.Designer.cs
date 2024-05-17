@@ -44,6 +44,11 @@ namespace CapaPresentacion
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.Id_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,20 +165,63 @@ namespace CapaPresentacion
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(286, 44);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id_articulo,
+            this.codigo_articulo,
+            this.Rubro,
+            this.Marca,
+            this.Costo});
+            this.dataGridView1.Location = new System.Drawing.Point(291, 82);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(888, 527);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label5
             // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(286, 44);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(888, 71);
+            this.label5.Size = new System.Drawing.Size(888, 35);
             this.label5.TabIndex = 14;
             this.label5.Text = "Lista de artículos";
+            // 
+            // Id_articulo
+            // 
+            this.Id_articulo.HeaderText = "Id_articulo";
+            this.Id_articulo.MinimumWidth = 6;
+            this.Id_articulo.Name = "Id_articulo";
+            this.Id_articulo.Width = 125;
+            // 
+            // codigo_articulo
+            // 
+            this.codigo_articulo.HeaderText = "SKU";
+            this.codigo_articulo.MinimumWidth = 6;
+            this.codigo_articulo.Name = "codigo_articulo";
+            this.codigo_articulo.Width = 125;
+            // 
+            // Rubro
+            // 
+            this.Rubro.HeaderText = "Rubro";
+            this.Rubro.MinimumWidth = 6;
+            this.Rubro.Name = "Rubro";
+            this.Rubro.Width = 125;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.Width = 125;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            this.Costo.Width = 125;
             // 
             // Editar
             // 
@@ -221,5 +269,10 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_articulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_articulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
     }
 }
