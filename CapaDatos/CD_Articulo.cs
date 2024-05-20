@@ -31,6 +31,7 @@ namespace CapaDatos
                         {
                             bool valor= (bool)dr["baja"];
                             String b;
+                            //preg si es true=1 quiere decir que esta dado de baja
                             if (valor == true) {
                                 b = "Si";
                                 
