@@ -26,6 +26,8 @@ namespace CapaPresentacion
 
             foreach (Articulo art in lista_art) {
 
+
+
                 tabla_art.Rows.Add(new object[] {
                 "",
                 art.idArticulo,
@@ -95,6 +97,11 @@ namespace CapaPresentacion
         }
 
         private void textMarca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

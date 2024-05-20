@@ -51,7 +51,7 @@ namespace CapaPresentacion
             this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.textBaja = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CB_baja = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).BeginInit();
             this.SuspendLayout();
             // 
@@ -245,20 +245,21 @@ namespace CapaPresentacion
             this.textBaja.TabIndex = 16;
             this.textBaja.Text = "Baja";
             // 
-            // comboBox1
+            // CB_baja
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(45, 332);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(212, 24);
-            this.comboBox1.TabIndex = 17;
+            this.CB_baja.FormattingEnabled = true;
+            this.CB_baja.Location = new System.Drawing.Point(45, 332);
+            this.CB_baja.Name = "CB_baja";
+            this.CB_baja.Size = new System.Drawing.Size(212, 24);
+            this.CB_baja.TabIndex = 17;
+            this.CB_baja.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form_articulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 678);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CB_baja);
             this.Controls.Add(this.textBaja);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tabla_art);
@@ -308,6 +309,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
         private System.Windows.Forms.Label textBaja;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CB_baja;
     }
 }
