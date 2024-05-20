@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentacion
 {
-    partial class Editar
+    partial class Form_articulo
     {
         /// <summary>
         /// Required designer variable.
@@ -50,6 +50,8 @@ namespace CapaPresentacion
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBaja = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,6 +102,7 @@ namespace CapaPresentacion
             this.textMarca.Name = "textMarca";
             this.textMarca.Size = new System.Drawing.Size(212, 22);
             this.textMarca.TabIndex = 5;
+            this.textMarca.TextChanged += new System.EventHandler(this.textMarca_TextChanged);
             // 
             // textCosto
             // 
@@ -128,16 +131,17 @@ namespace CapaPresentacion
             // 
             // BtEditar
             // 
-            this.BtEditar.Location = new System.Drawing.Point(45, 329);
+            this.BtEditar.Location = new System.Drawing.Point(45, 381);
             this.BtEditar.Name = "BtEditar";
             this.BtEditar.Size = new System.Drawing.Size(97, 42);
             this.BtEditar.TabIndex = 9;
             this.BtEditar.Text = "Editar\r\n";
             this.BtEditar.UseVisualStyleBackColor = true;
+            this.BtEditar.Click += new System.EventHandler(this.BtEditar_Click);
             // 
             // btEliminar
             // 
-            this.btEliminar.Location = new System.Drawing.Point(160, 329);
+            this.btEliminar.Location = new System.Drawing.Point(160, 381);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(97, 42);
             this.btEliminar.TabIndex = 10;
@@ -147,7 +151,7 @@ namespace CapaPresentacion
             // byGuardar
             // 
             this.byGuardar.BackColor = System.Drawing.Color.LightGreen;
-            this.byGuardar.Location = new System.Drawing.Point(45, 389);
+            this.byGuardar.Location = new System.Drawing.Point(45, 442);
             this.byGuardar.Name = "byGuardar";
             this.byGuardar.Size = new System.Drawing.Size(205, 46);
             this.byGuardar.TabIndex = 11;
@@ -161,6 +165,7 @@ namespace CapaPresentacion
             this.textID.Name = "textID";
             this.textID.Size = new System.Drawing.Size(33, 22);
             this.textID.TabIndex = 12;
+            this.textID.TextChanged += new System.EventHandler(this.textID_TextChanged);
             // 
             // tabla_art
             // 
@@ -231,11 +236,30 @@ namespace CapaPresentacion
             this.label5.TabIndex = 14;
             this.label5.Text = "Lista de artículos";
             // 
-            // Editar
+            // textBaja
+            // 
+            this.textBaja.AutoSize = true;
+            this.textBaja.Location = new System.Drawing.Point(45, 312);
+            this.textBaja.Name = "textBaja";
+            this.textBaja.Size = new System.Drawing.Size(36, 17);
+            this.textBaja.TabIndex = 16;
+            this.textBaja.Text = "Baja";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(45, 332);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(212, 24);
+            this.comboBox1.TabIndex = 17;
+            // 
+            // Form_articulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 625);
+            this.ClientSize = new System.Drawing.Size(1126, 678);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBaja);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tabla_art);
             this.Controls.Add(this.textID);
@@ -251,7 +275,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.textSKU);
             this.Controls.Add(this.sku);
             this.Controls.Add(this.label1);
-            this.Name = "Editar";
+            this.Name = "Form_articulo";
             this.Text = "Editar";
             this.Load += new System.EventHandler(this.Form_articulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).EndInit();
@@ -283,5 +307,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
+        private System.Windows.Forms.Label textBaja;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

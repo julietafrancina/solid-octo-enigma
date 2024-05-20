@@ -13,9 +13,9 @@ using CapaNegocio;
 
 namespace CapaPresentacion
 {
-    public partial class Editar : Form
+    public partial class Form_articulo : Form
     {
-        public Editar()
+        public Form_articulo()
         {
             InitializeComponent();
         }
@@ -40,7 +40,7 @@ namespace CapaPresentacion
             private void label1_Click(object sender, EventArgs e)
             {
                 
-            }
+            };
 
             private void button1_Click(object sender, EventArgs e)
             {
@@ -83,6 +83,21 @@ namespace CapaPresentacion
             textMarca.Text = "";
             textCosto.Text = "";
         }
+
+        private void BtEditar_Click(object sender, EventArgs e)
+        {
+
         }
+
+        private void textID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textMarca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 
 }

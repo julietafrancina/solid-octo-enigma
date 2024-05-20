@@ -13,6 +13,6 @@ namespace CapaEntidad
         public string rubro { get; set; }
         public double costo { get; set; }
         public string marca { get; set; }
-        public bool baja { get; set; }
+        public String baja { get; set; }
     }
 }
