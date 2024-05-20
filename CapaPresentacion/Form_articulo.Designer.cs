@@ -41,15 +41,16 @@ namespace CapaPresentacion
             this.BtEditar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
             this.byGuardar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
+            this.textID = new System.Windows.Forms.TextBox();
+            this.tabla_art = new System.Windows.Forms.DataGridView();
             this.Id_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +61,6 @@ namespace CapaPresentacion
             this.label1.Size = new System.Drawing.Size(102, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle artículo";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // sku
             // 
@@ -134,7 +134,6 @@ namespace CapaPresentacion
             this.BtEditar.TabIndex = 9;
             this.BtEditar.Text = "Editar\r\n";
             this.BtEditar.UseVisualStyleBackColor = true;
-            this.BtEditar.Click += new System.EventHandler(this.button1_Click);
             // 
             // btEliminar
             // 
@@ -154,39 +153,32 @@ namespace CapaPresentacion
             this.byGuardar.TabIndex = 11;
             this.byGuardar.Text = "Guardar";
             this.byGuardar.UseVisualStyleBackColor = false;
+            this.byGuardar.Click += new System.EventHandler(this.byGuardar_Click);
             // 
-            // textBox1
+            // textID
             // 
-            this.textBox1.Location = new System.Drawing.Point(224, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(33, 22);
-            this.textBox1.TabIndex = 12;
+            this.textID.Location = new System.Drawing.Point(224, 29);
+            this.textID.Name = "textID";
+            this.textID.Size = new System.Drawing.Size(33, 22);
+            this.textID.TabIndex = 12;
             // 
-            // dataGridView1
+            // tabla_art
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabla_art.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabla_art.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id_articulo,
             this.codigo_articulo,
             this.Rubro,
             this.Marca,
-            this.Costo});
-            this.dataGridView1.Location = new System.Drawing.Point(291, 82);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(888, 527);
-            this.dataGridView1.TabIndex = 13;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(286, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(888, 35);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Lista de artículos";
+            this.Costo,
+            this.Baja});
+            this.tabla_art.Location = new System.Drawing.Point(291, 82);
+            this.tabla_art.Name = "tabla_art";
+            this.tabla_art.RowHeadersWidth = 51;
+            this.tabla_art.RowTemplate.Height = 24;
+            this.tabla_art.Size = new System.Drawing.Size(805, 537);
+            this.tabla_art.TabIndex = 13;
+            this.tabla_art.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_art_CellContentClick);
             // 
             // Id_articulo
             // 
@@ -223,14 +215,30 @@ namespace CapaPresentacion
             this.Costo.Name = "Costo";
             this.Costo.Width = 125;
             // 
+            // Baja
+            // 
+            this.Baja.HeaderText = "Baja";
+            this.Baja.MinimumWidth = 6;
+            this.Baja.Name = "Baja";
+            this.Baja.Width = 125;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(286, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(888, 35);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Lista de artículos";
+            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1211, 625);
+            this.ClientSize = new System.Drawing.Size(1126, 625);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tabla_art);
+            this.Controls.Add(this.textID);
             this.Controls.Add(this.byGuardar);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.BtEditar);
@@ -246,7 +254,7 @@ namespace CapaPresentacion
             this.Name = "Editar";
             this.Text = "Editar";
             this.Load += new System.EventHandler(this.Form_articulo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,13 +274,14 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button BtEditar;
         private System.Windows.Forms.Button btEliminar;
         private System.Windows.Forms.Button byGuardar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textID;
+        private System.Windows.Forms.DataGridView tabla_art;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_articulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo_articulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
     }
 }
