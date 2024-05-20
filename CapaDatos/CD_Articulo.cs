@@ -29,15 +29,26 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
+                            bool valor= (bool)dr["baja"];
+                            String b;
+                            if (valor == true) {
+                                b = "Si";
+                                
+                            }
+                            else {
+                                b = "No";
+                            }
+                                        
 
-                            lista.Add(new Articulo()
+                                lista.Add(new Articulo()
                             {
                                 idArticulo = Convert.ToInt32(dr["id_articulo"]),
                                 SKU = Convert.ToInt32(dr["sku"]),
                                 rubro = dr["rubro"].ToString(),
                                 marca = dr["marca"].ToString(),
-                                costo = dr["costo"].ToString(),
-                                baja = dr["baja"].ToString(),
+                                costo = Convert.ToDouble(dr["costo"]),
+                                baja = b,
+                                
                             });
                         }
 

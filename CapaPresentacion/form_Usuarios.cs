@@ -147,5 +147,10 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void txtDNI_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
