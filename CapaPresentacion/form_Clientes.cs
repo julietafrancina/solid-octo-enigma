@@ -115,29 +115,40 @@ namespace CapaPresentacion
         private void bntGuardar_Click(object sender, EventArgs e)
         {
 
-            string mensaje = string.Empty;
-
-            string fecha = txtDia.Text + "/" + txtMes.Text + "/" + txtAnio.Text;
-
-            Cliente obj = new Cliente()
+            if (txtDNI.Text == "")
             {
-                idCliente = Convert.ToInt32(txtId.Text),
-                dni = Convert.ToInt32(txtDNI.Text),
-                nombreCompleto = txtNombreCompleto.Text,
-                correo = txtCorreo.Text,
-                telefono = txtTelefono.Text,
-                domicilio = txtDomicilio.Text,
-                fechaNacimiento = Convert.ToDateTime(fecha)
-            };
-
-            if (obj.idCliente == 0)
+                MessageBox.Show("Es necesario el documento del Cliente.");
+            }
+            else if (txtDia.Text == "dd" || txtMes.Text == "mm" || txtAnio.Text == "yyyy")
+            {
+                MessageBox.Show("Es necesaria la fecha de nacimiento del Cliente.");
+            }
+            else
             {
 
-                int idgenerado = new CN_Cliente().Registrar(obj, out mensaje);
+                string mensaje = string.Empty;
 
-                if (idgenerado != 0)
+                string fecha = txtDia.Text + "/" + txtMes.Text + "/" + txtAnio.Text;
+
+                Cliente obj = new Cliente()
                 {
-                    dgvData.Rows.Add(new object[] {
+                    idCliente = Convert.ToInt32(txtId.Text),
+                    dni = Convert.ToInt32(txtDNI.Text),
+                    nombreCompleto = txtNombreCompleto.Text,
+                    correo = txtCorreo.Text,
+                    telefono = txtTelefono.Text,
+                    domicilio = txtDomicilio.Text,
+                    fechaNacimiento = Convert.ToDateTime(fecha)
+                };
+
+                if (obj.idCliente == 0)
+                {
+
+                    int idgenerado = new CN_Cliente().Registrar(obj, out mensaje);
+
+                    if (idgenerado != 0)
+                    {
+                        dgvData.Rows.Add(new object[] {
                         "",
                         idgenerado,
                         txtDNI.Text,
@@ -148,17 +159,20 @@ namespace CapaPresentacion
                         fecha
                     });
 
-                    limpiar();
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    MessageBox.Show("No se puede guardar nuevamente un cliente que ya existe.");
                 }
+
             }
-            else
-            {
-                MessageBox.Show("No se puede guardar nuevamente un cliente que ya existe.");
-            }
+            
             
         }
 
@@ -233,7 +247,11 @@ namespace CapaPresentacion
 
         private void txtDia_TextChanged(object sender, EventArgs e)
         {
-
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtDia.Text, "^[0-9]*$"))
+            {
+                txtDia.Text = string.Empty;
+                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void txtDomicilio_TextChanged(object sender, EventArgs e)
@@ -243,7 +261,11 @@ namespace CapaPresentacion
 
         private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
-
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtTelefono.Text, "^[0-9]*$"))
+            {
+                txtTelefono.Text = string.Empty;
+                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
 
@@ -360,6 +382,24 @@ namespace CapaPresentacion
                     else
                         row.Visible = false;
                 }
+            }
+        }
+
+        private void txtMes_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtMes.Text, "^[0-9]*$"))
+            {
+                txtMes.Text = string.Empty;
+                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void txtAnio_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtAnio.Text, "^[0-9]*$"))
+            {
+                txtAnio.Text = string.Empty;
+                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

@@ -21,36 +21,27 @@ namespace CapaNegocio
         public int Registrar(Cliente obj, out string Mensaje)
         {
             Mensaje = string.Empty;
-
-            if (obj.dni.ToString() == "")
-            {
-                Mensaje += "Es necesario el documento del Cliente\n";
-            }
-
+            
             if (obj.nombreCompleto == "")
             {
-                Mensaje += "Es necesario el nombre completo del Cliente\n";
+                Mensaje += "Es necesario el nombre completo del Cliente.\n";
             }
 
             if (obj.correo == "")
             {
-                Mensaje += "Es necesario el correo del Cliente\n";
+                Mensaje += "Es necesario el correo del Cliente.\n";
             }
 
             if (obj.telefono == "")
             {
-                Mensaje += "Es necesario el telefono del Cliente\n";
+                Mensaje += "Es necesario el teléfono del Cliente.\n";
             }
 
             if (obj.domicilio == "")
             {
-                Mensaje += "Es necesario el domicilio del Cliente\n";
+                Mensaje += "Es necesario el domicilio del Cliente.\n";
             }
 
-            if (obj.fechaNacimiento == null)
-            {
-                Mensaje += "Es necesaria la fecha de nacimiento del Cliente\n";
-            }
 
             if (Mensaje != string.Empty)
             {
@@ -81,12 +72,12 @@ namespace CapaNegocio
             {
                 Mensaje += "Es necesario el correo del Cliente\n";
             }
-
-            if (obj.telefono == "")
+            
+           if (obj.telefono == "")
             {
                 Mensaje += "Es necesario el telefono del Cliente\n";
             }
-
+            
             if (obj.domicilio == "")
             {
                 Mensaje += "Es necesario el domicilio del Cliente\n";

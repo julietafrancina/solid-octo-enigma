@@ -17,6 +17,10 @@ namespace CapaEntidad
         public string domicilio { get; set; }
         public DateTime fechaNacimiento { get; set; }
 
+
     }
+
+    
+
 
 }
