@@ -29,7 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.detalle_art = new System.Windows.Forms.Label();
             this.sku = new System.Windows.Forms.Label();
             this.textSKU = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +41,6 @@ namespace CapaPresentacion
             this.BtEditar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
             this.byGuardar = new System.Windows.Forms.Button();
-            this.textID = new System.Windows.Forms.TextBox();
             this.tabla_art = new System.Windows.Forms.DataGridView();
             this.Id_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,17 +51,20 @@ namespace CapaPresentacion
             this.label5 = new System.Windows.Forms.Label();
             this.textBaja = new System.Windows.Forms.Label();
             this.CB_baja = new System.Windows.Forms.ComboBox();
+            this.Cb_busqueda = new System.Windows.Forms.ComboBox();
+            this.text_buscar_por = new System.Windows.Forms.Label();
+            this.text_buscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // detalle_art
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Detalle artículo";
+            this.detalle_art.AutoSize = true;
+            this.detalle_art.Location = new System.Drawing.Point(42, 29);
+            this.detalle_art.Name = "detalle_art";
+            this.detalle_art.Size = new System.Drawing.Size(102, 17);
+            this.detalle_art.TabIndex = 0;
+            this.detalle_art.Text = "Detalle artículo";
             // 
             // sku
             // 
@@ -159,14 +161,6 @@ namespace CapaPresentacion
             this.byGuardar.UseVisualStyleBackColor = false;
             this.byGuardar.Click += new System.EventHandler(this.byGuardar_Click);
             // 
-            // textID
-            // 
-            this.textID.Location = new System.Drawing.Point(224, 29);
-            this.textID.Name = "textID";
-            this.textID.Size = new System.Drawing.Size(33, 22);
-            this.textID.TabIndex = 12;
-            this.textID.TextChanged += new System.EventHandler(this.textID_TextChanged);
-            // 
             // tabla_art
             // 
             this.tabla_art.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -230,11 +224,12 @@ namespace CapaPresentacion
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(286, 44);
+            this.label5.Location = new System.Drawing.Point(286, 29);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(888, 35);
+            this.label5.Size = new System.Drawing.Size(888, 50);
             this.label5.TabIndex = 14;
             this.label5.Text = "Lista de artículos";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBaja
             // 
@@ -247,23 +242,52 @@ namespace CapaPresentacion
             // 
             // CB_baja
             // 
+            this.CB_baja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_baja.FormattingEnabled = true;
             this.CB_baja.Location = new System.Drawing.Point(45, 332);
             this.CB_baja.Name = "CB_baja";
             this.CB_baja.Size = new System.Drawing.Size(212, 24);
-            this.CB_baja.TabIndex = 17;
-            this.CB_baja.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.CB_baja.TabIndex = 18;
+            this.CB_baja.SelectedIndexChanged += new System.EventHandler(this.CB_baja_SelectedIndexChanged);
+            // 
+            // Cb_busqueda
+            // 
+            this.Cb_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cb_busqueda.FormattingEnabled = true;
+            this.Cb_busqueda.Location = new System.Drawing.Point(703, 40);
+            this.Cb_busqueda.Name = "Cb_busqueda";
+            this.Cb_busqueda.Size = new System.Drawing.Size(161, 24);
+            this.Cb_busqueda.TabIndex = 19;
+            // 
+            // text_buscar_por
+            // 
+            this.text_buscar_por.AutoSize = true;
+            this.text_buscar_por.Location = new System.Drawing.Point(605, 43);
+            this.text_buscar_por.Name = "text_buscar_por";
+            this.text_buscar_por.Size = new System.Drawing.Size(81, 17);
+            this.text_buscar_por.TabIndex = 20;
+            this.text_buscar_por.Text = "Buscar por:";
+            this.text_buscar_por.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // text_buscar
+            // 
+            this.text_buscar.Location = new System.Drawing.Point(870, 42);
+            this.text_buscar.Name = "text_buscar";
+            this.text_buscar.Size = new System.Drawing.Size(176, 22);
+            this.text_buscar.TabIndex = 21;
             // 
             // Form_articulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 678);
+            this.ClientSize = new System.Drawing.Size(1156, 753);
+            this.Controls.Add(this.text_buscar);
+            this.Controls.Add(this.text_buscar_por);
+            this.Controls.Add(this.Cb_busqueda);
             this.Controls.Add(this.CB_baja);
             this.Controls.Add(this.textBaja);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tabla_art);
-            this.Controls.Add(this.textID);
             this.Controls.Add(this.byGuardar);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.BtEditar);
@@ -275,7 +299,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textSKU);
             this.Controls.Add(this.sku);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.detalle_art);
             this.Name = "Form_articulo";
             this.Text = "Editar";
             this.Load += new System.EventHandler(this.Form_articulo_Load);
@@ -287,7 +311,7 @@ namespace CapaPresentacion
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label detalle_art;
         private System.Windows.Forms.Label sku;
         private System.Windows.Forms.TextBox textSKU;
         private System.Windows.Forms.Label label2;
@@ -299,7 +323,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button BtEditar;
         private System.Windows.Forms.Button btEliminar;
         private System.Windows.Forms.Button byGuardar;
-        private System.Windows.Forms.TextBox textID;
         private System.Windows.Forms.DataGridView tabla_art;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_articulo;
@@ -310,5 +333,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
         private System.Windows.Forms.Label textBaja;
         private System.Windows.Forms.ComboBox CB_baja;
+        private System.Windows.Forms.ComboBox Cb_busqueda;
+        private System.Windows.Forms.Label text_buscar_por;
+        private System.Windows.Forms.TextBox text_buscar;
     }
 }

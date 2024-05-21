@@ -29,7 +29,7 @@ namespace CapaPresentacion
 
 
                 tabla_art.Rows.Add(new object[] {
-                "",
+              //  "",
                 art.idArticulo,
                 art.SKU,
                 art.rubro,
@@ -38,26 +38,16 @@ namespace CapaPresentacion
                 art.baja,
                 });
             }
+            CB_baja.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Si" });
+            CB_baja.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No" });
+            CB_baja.DisplayMember = "Texto";
+            CB_baja.ValueMember = "Valor";
+            CB_baja.SelectedIndex = 1;
+            Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Rubro" });
+            Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Marca" });
 
-            private void label1_Click(object sender, EventArgs e)
-            {
-                
-            };
 
-            private void button1_Click(object sender, EventArgs e)
-            {
 
-            }
-
-            private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-            {
-
-            }
-
-            private void textSKU_TextChanged(object sender, EventArgs e)
-            {
-
-            }
         }
 
         private void tabla_art_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -69,21 +59,26 @@ namespace CapaPresentacion
         {
             tabla_art.Rows.Add(new object[] {
                 "",
-                textID.Text,
                 textSKU.Text,
                 textRubro.Text,
                 textMarca.Text,
                 textCosto.Text,
-             });
+                ((OpcionCombo)CB_baja.SelectedItem).Valor.ToString(),
+                ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString(),
+
+
+
+             }) ;
             limpiar();
         }
         private void limpiar()
         {
-            textID.Text = "0";
+          
             textSKU.Text = "";
             textRubro.Text = "";
             textMarca.Text = "";
             textCosto.Text = "";
+            CB_baja.SelectedIndex = 1;
         }
 
         private void BtEditar_Click(object sender, EventArgs e)
@@ -102,6 +97,21 @@ namespace CapaPresentacion
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CB_baja_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
