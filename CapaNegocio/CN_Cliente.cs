@@ -58,11 +58,6 @@ namespace CapaNegocio
         {
             Mensaje = string.Empty;
 
-            if (obj.dni.ToString() == "")
-            {
-                Mensaje += "Es necesario el documento del Cliente\n";
-            }
-
             if (obj.nombreCompleto == "")
             {
                 Mensaje += "Es necesario el nombre completo del Cliente\n";
@@ -81,11 +76,6 @@ namespace CapaNegocio
             if (obj.domicilio == "")
             {
                 Mensaje += "Es necesario el domicilio del Cliente\n";
-            }
-
-            if (obj.fechaNacimiento == null)
-            {
-                Mensaje += "Es necesaria la fecha de nacimiento del Cliente\n";
             }
 
             if (Mensaje != string.Empty)

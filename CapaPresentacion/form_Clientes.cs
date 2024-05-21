@@ -193,47 +193,62 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            string mensaje = string.Empty;
 
-            string fecha = txtDia.Text + "/" + txtMes.Text + "/" + txtAnio.Text;
-
-            Cliente obj = new Cliente()
+            if (txtDNI.Text == "")
             {
-                idCliente = Convert.ToInt32(txtId.Text),
-                dni = Convert.ToInt32(txtDNI.Text),
-                nombreCompleto = txtNombreCompleto.Text,
-                correo = txtCorreo.Text,
-                telefono = txtTelefono.Text,
-                domicilio = txtDomicilio.Text,
-                fechaNacimiento = Convert.ToDateTime(fecha)
-            };
-
-            if (obj.idCliente != 0)
+                MessageBox.Show("Es necesario el documento del Cliente.");
+            }
+            else if (txtDia.Text == "dd" || txtMes.Text == "mm" || txtAnio.Text == "yyyy")
             {
-
-                bool resultado = new CN_Cliente().Editar(obj, out mensaje);
-
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
-                    row.Cells["Id"].Value = txtId.Text;
-                    row.Cells["DNI"].Value = txtDNI.Text;
-                    row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
-                    row.Cells["Correo"].Value = txtCorreo.Text;
-                    row.Cells["Telefono"].Value = txtTelefono.Text;
-                    row.Cells["FechaNacimiento"].Value = fecha;
-                    limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
-
+                MessageBox.Show("Es necesaria la fecha de nacimiento del Cliente.");
             }
             else
             {
-                MessageBox.Show("No se puede editar un cliente que no existe.");
+
+                string mensaje = string.Empty;
+
+                string fecha = txtDia.Text + "/" + txtMes.Text + "/" + txtAnio.Text;
+
+                Cliente obj = new Cliente()
+                {
+                    idCliente = Convert.ToInt32(txtId.Text),
+                    dni = Convert.ToInt32(txtDNI.Text),
+                    nombreCompleto = txtNombreCompleto.Text,
+                    correo = txtCorreo.Text,
+                    telefono = txtTelefono.Text,
+                    domicilio = txtDomicilio.Text,
+                    fechaNacimiento = Convert.ToDateTime(fecha)
+                };
+
+                if (obj.idCliente != 0)
+                {
+
+                    bool resultado = new CN_Cliente().Editar(obj, out mensaje);
+
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                        row.Cells["Id"].Value = txtId.Text;
+                        row.Cells["DNI"].Value = txtDNI.Text;
+                        row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
+                        row.Cells["Correo"].Value = txtCorreo.Text;
+                        row.Cells["Telefono"].Value = txtTelefono.Text;
+                        row.Cells["FechaNacimiento"].Value = fecha;
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("No se puede editar un cliente que no existe.");
+                }
+
             }
+            
         }
 
         private void txtDNI_TextChanged(object sender, EventArgs e)
@@ -247,11 +262,7 @@ namespace CapaPresentacion
 
         private void txtDia_TextChanged(object sender, EventArgs e)
         {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtDia.Text, "^[0-9]*$"))
-            {
-                txtDia.Text = string.Empty;
-                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+           
         }
 
         private void txtDomicilio_TextChanged(object sender, EventArgs e)
@@ -387,20 +398,12 @@ namespace CapaPresentacion
 
         private void txtMes_TextChanged(object sender, EventArgs e)
         {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtMes.Text, "^[0-9]*$"))
-            {
-                txtMes.Text = string.Empty;
-                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+
         }
 
         private void txtAnio_TextChanged(object sender, EventArgs e)
         {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtAnio.Text, "^[0-9]*$"))
-            {
-                txtAnio.Text = string.Empty;
-                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
         }
     }
 }
