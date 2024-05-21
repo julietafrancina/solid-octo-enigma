@@ -24,7 +24,7 @@ namespace CapaPresentacion
         {
             cboEstado.Items.Add(new OpcionCombo()
             {
-                Valor = 1,
+                Valor = 0,
                 Texto = "Activo"
             });
             cboEstado.Items.Add(new OpcionCombo()

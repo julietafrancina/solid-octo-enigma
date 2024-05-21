@@ -128,6 +128,7 @@ namespace SistemaDeVentas
             this.menuFacturas.Text = "Facturas";
             this.menuFacturas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuFacturas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuFacturas.Click += new System.EventHandler(this.menuFacturas_Click);
             // 
             // menuRemitos
             // 

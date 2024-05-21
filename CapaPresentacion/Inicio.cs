@@ -100,5 +100,10 @@ namespace SistemaDeVentas
         {
             
         }
+
+        private void menuFacturas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Facturas());
+        }
     }
 }
