@@ -29,8 +29,8 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.formUsuarios = new System.Windows.Forms.Label();
             this.usuarioDNI = new System.Windows.Forms.Label();
             this.usuarioNombreCompleto = new System.Windows.Forms.Label();
@@ -87,7 +87,7 @@ namespace CapaPresentacion
             // 
             this.usuarioDNI.AutoSize = true;
             this.usuarioDNI.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.usuarioDNI.Location = new System.Drawing.Point(31, 41);
+            this.usuarioDNI.Location = new System.Drawing.Point(32, 76);
             this.usuarioDNI.Name = "usuarioDNI";
             this.usuarioDNI.Size = new System.Drawing.Size(31, 17);
             this.usuarioDNI.TabIndex = 1;
@@ -97,7 +97,7 @@ namespace CapaPresentacion
             // 
             this.usuarioNombreCompleto.AutoSize = true;
             this.usuarioNombreCompleto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.usuarioNombreCompleto.Location = new System.Drawing.Point(31, 102);
+            this.usuarioNombreCompleto.Location = new System.Drawing.Point(32, 137);
             this.usuarioNombreCompleto.Name = "usuarioNombreCompleto";
             this.usuarioNombreCompleto.Size = new System.Drawing.Size(121, 17);
             this.usuarioNombreCompleto.TabIndex = 2;
@@ -107,7 +107,7 @@ namespace CapaPresentacion
             // 
             this.usuarioCorreo.AutoSize = true;
             this.usuarioCorreo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.usuarioCorreo.Location = new System.Drawing.Point(31, 165);
+            this.usuarioCorreo.Location = new System.Drawing.Point(32, 200);
             this.usuarioCorreo.Name = "usuarioCorreo";
             this.usuarioCorreo.Size = new System.Drawing.Size(51, 17);
             this.usuarioCorreo.TabIndex = 3;
@@ -115,28 +115,28 @@ namespace CapaPresentacion
             // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(34, 63);
+            this.txtDNI.Location = new System.Drawing.Point(35, 98);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(205, 22);
             this.txtDNI.TabIndex = 4;
             // 
             // txtNombreCompleto
             // 
-            this.txtNombreCompleto.Location = new System.Drawing.Point(34, 124);
+            this.txtNombreCompleto.Location = new System.Drawing.Point(35, 159);
             this.txtNombreCompleto.Name = "txtNombreCompleto";
             this.txtNombreCompleto.Size = new System.Drawing.Size(205, 22);
             this.txtNombreCompleto.TabIndex = 5;
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(34, 187);
+            this.txtCorreo.Location = new System.Drawing.Point(35, 222);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(205, 22);
             this.txtCorreo.TabIndex = 6;
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(33, 253);
+            this.txtClave.Location = new System.Drawing.Point(34, 288);
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(205, 22);
@@ -146,7 +146,7 @@ namespace CapaPresentacion
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(30, 231);
+            this.label1.Location = new System.Drawing.Point(31, 266);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 7;
@@ -154,7 +154,7 @@ namespace CapaPresentacion
             // 
             // txtConfirmarClave
             // 
-            this.txtConfirmarClave.Location = new System.Drawing.Point(33, 322);
+            this.txtConfirmarClave.Location = new System.Drawing.Point(34, 357);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.PasswordChar = '*';
             this.txtConfirmarClave.Size = new System.Drawing.Size(206, 22);
@@ -164,7 +164,7 @@ namespace CapaPresentacion
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(31, 300);
+            this.label2.Location = new System.Drawing.Point(32, 335);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 17);
             this.label2.TabIndex = 9;
@@ -174,7 +174,7 @@ namespace CapaPresentacion
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(30, 362);
+            this.label3.Location = new System.Drawing.Point(31, 397);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 17);
             this.label3.TabIndex = 11;
@@ -184,7 +184,7 @@ namespace CapaPresentacion
             // 
             this.cboRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRol.FormattingEnabled = true;
-            this.cboRol.Location = new System.Drawing.Point(34, 386);
+            this.cboRol.Location = new System.Drawing.Point(35, 421);
             this.cboRol.Name = "cboRol";
             this.cboRol.Size = new System.Drawing.Size(205, 24);
             this.cboRol.TabIndex = 12;
@@ -236,7 +236,7 @@ namespace CapaPresentacion
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(31, 13);
+            this.label5.Location = new System.Drawing.Point(31, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 17);
             this.label5.TabIndex = 18;
@@ -245,15 +245,15 @@ namespace CapaPresentacion
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.ColumnHeadersHeight = 40;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -268,14 +268,14 @@ namespace CapaPresentacion
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.Size = new System.Drawing.Size(847, 527);
@@ -352,7 +352,7 @@ namespace CapaPresentacion
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(205, 13);
+            this.txtId.Location = new System.Drawing.Point(205, 32);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(33, 22);
             this.txtId.TabIndex = 20;
@@ -474,7 +474,7 @@ namespace CapaPresentacion
             // 
             // txtIndice
             // 
-            this.txtIndice.Location = new System.Drawing.Point(166, 13);
+            this.txtIndice.Location = new System.Drawing.Point(166, 32);
             this.txtIndice.Name = "txtIndice";
             this.txtIndice.Size = new System.Drawing.Size(33, 22);
             this.txtIndice.TabIndex = 27;

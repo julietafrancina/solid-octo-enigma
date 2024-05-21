@@ -112,6 +112,7 @@ namespace SistemaDeVentas
             this.menuPreventas.Text = "Preventas";
             this.menuPreventas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuPreventas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuPreventas.Click += new System.EventHandler(this.menuPreventas_Click);
             // 
             // menuFacturas
             // 
