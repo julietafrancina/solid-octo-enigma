@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentacion
 {
-    partial class Form_Preventa
+    partial class form_Preventa
     {
         /// <summary>
         /// Required designer variable.
@@ -35,20 +35,20 @@ namespace CapaPresentacion
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(313, 204);
+            this.label1.Location = new System.Drawing.Point(359, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 17);
+            this.label1.Size = new System.Drawing.Size(102, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Formulario de preventa";
+            this.label1.Text = "HOLA MUNDO";
             // 
-            // Form_Preventa
+            // form_Preventa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Name = "Form_Preventa";
-            this.Text = "Form_Preventa";
+            this.Name = "form_Preventa";
+            this.Text = "form_Preventa";
             this.ResumeLayout(false);
             this.PerformLayout();
 

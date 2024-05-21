@@ -67,6 +67,12 @@
     <Compile Include="form_Clientes.Designer.cs">
       <DependentUpon>form_Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="form_Preventa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_Preventa.Designer.cs">
+      <DependentUpon>form_Preventa.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,8 +94,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\OpcionCombo.cs" />
+ HEAD
     <EmbeddedResource Include="Form_articulo.resx">
       <DependentUpon>Form_articulo.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="form_Preventa.resx">
+      <DependentUpon>form_Preventa.cs</DependentUpon>
+>>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
     </EmbeddedResource>
     <EmbeddedResource Include="form_Usuarios.resx">
       <DependentUpon>form_Usuarios.cs</DependentUpon>

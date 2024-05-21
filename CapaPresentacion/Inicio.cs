@@ -73,7 +73,14 @@ namespace SistemaDeVentas
             formulario.Show();
 
         }
-        
+        private void menuUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Usuarios());
+        }
+        private void menuPreventas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Preventa());
+        }
 
         private void menuClientes_Click(object sender, EventArgs e)
         {
@@ -85,6 +92,7 @@ namespace SistemaDeVentas
 
         }
 
+<<<<<<< HEAD
         private void menuUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Usuarios());
@@ -95,5 +103,8 @@ namespace SistemaDeVentas
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.Form_articulo());
         }
         
+=======
+    
+>>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
     }
 }

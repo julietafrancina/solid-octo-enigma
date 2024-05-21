@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidad;
+using CapaNegocio;
 
 namespace CapaPresentacion
 {
-    public partial class Form_Preventa : Form
+    public partial class form_Preventa : Form
     {
-        public Form_Preventa()
+        public form_Preventa()
         {
             InitializeComponent();
         }

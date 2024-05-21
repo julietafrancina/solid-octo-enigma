@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+	  HEAD
     <Compile Include="CN_Articulo.cs" />
     <Compile Include="CN_Cliente.cs" />
+=======
+    <Compile Include="CN_Preventa.cs" />
+>>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
     <Compile Include="CN_Rol.cs" />
     <Compile Include="CN_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

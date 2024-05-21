@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaEntidad
-{
-    public class Rol
-    {
-        public string descripcion { get; set; }
-        public int id_rol { get; set; }
+using System.Data;
+using System.Data.SqlClient;
+using CapaEntidad;
 
+namespace CapaDatos
+{
+    public class CD_Preventa
+    {
     }
 }
