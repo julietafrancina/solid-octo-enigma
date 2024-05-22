@@ -13,6 +13,7 @@ namespace CapaEntidad
         public Double monto_total { get; set; }
         public int nro_operacion { get; set; }
         public Sucursal sucursal_id { get; set; }
+        public Preventa preventa_id { get; set; }
         public Estado estado_id { get; set; }
     }
 }

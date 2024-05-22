@@ -10,6 +10,7 @@ namespace CapaEntidad
     {
         public int idRemito { get; set; }
         public Sucursal Sucursal_id { get; set; }
+        public Factura Factura_id { get; set; }
         public Estado Estado_id { get; set; }
         public string letra { get; set; }
         public string tipoRemito { get; set; }
