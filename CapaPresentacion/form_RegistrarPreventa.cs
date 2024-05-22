@@ -13,16 +13,11 @@ using FontAwesome.Sharp;
 
 namespace CapaPresentacion
 {
-    public partial class form_Preventa : Form
+    public partial class form_RegistrarPreventa : Form
     {
-        public form_Preventa()
+        public form_RegistrarPreventa()
         {
             InitializeComponent();
-        }
-        private void btnRegistrarPreventa_Click(object sender, EventArgs e)
-        {
-            form_RegistrarPreventa registrarPreventa = new form_RegistrarPreventa();
-            registrarPreventa.Show(); // O usa form2.ShowDialog() si deseas que sea modal
         }
     }
 }

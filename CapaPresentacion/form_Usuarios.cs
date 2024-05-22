@@ -19,7 +19,6 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
         private void form_Usuarios_Load(object sender, EventArgs e)
         {
             List<Rol> listaRol = new CN_Rol().listar();
