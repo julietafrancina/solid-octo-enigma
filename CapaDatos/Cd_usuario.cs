@@ -47,6 +47,7 @@ namespace CapaDatos
 
                     }
                 }
+
                 catch (Exception)
                 {
                     lista = new List<Usuario>();
@@ -92,6 +93,8 @@ namespace CapaDatos
                 idUsuarioGenerado = 0;
                 mensaje = ex.Message;
             }
+            return lista;
+        }
 
             return idUsuarioGenerado;
         }
