@@ -10,9 +10,6 @@ using System.Windows.Forms;
 using CapaNegocio;
 using CapaEntidad;
 
-using CapaNegocio;
-using CapaEntidad;
-
 namespace SistemaDeVentas
 {
     public partial class Login : Form

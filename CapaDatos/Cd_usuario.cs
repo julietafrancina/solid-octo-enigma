@@ -41,32 +41,16 @@ namespace CapaDatos
                                 nombreCompleto = dr["nombre_completo"].ToString(),
                                 correo = dr["correo"].ToString(),
                                 contraseña = dr["contraseña"].ToString(),
-<<<<<<< HEAD
-                                orol = new Rol(){id_rol = Convert.ToInt32(dr["id_rol"]), descripcion = dr["descripcion"].ToString()}
-                            }); 
-=======
-                                orol = new Rol()
-                                {
-                                    id_rol = Convert.ToInt32(dr["id_rol"]),
-                                    descripcion = dr["descripcion"].ToString()
-                                }
+                                orol = new Rol() { id_rol = Convert.ToInt32(dr["id_rol"]), descripcion = dr["descripcion"].ToString() }
                             });
->>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
                         }
 
                     }
                 }
-
                 catch (Exception)
                 {
                     lista = new List<Usuario>();
                 }
-
-<<<<<<< HEAD
-
-                
-=======
->>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
             }
             return lista;
         }

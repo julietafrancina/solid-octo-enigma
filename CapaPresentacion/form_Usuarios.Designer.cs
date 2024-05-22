@@ -60,30 +60,20 @@ namespace CapaPresentacion
             this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-<<<<<<< HEAD
-            this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-=======
->>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
+            //this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtId = new System.Windows.Forms.TextBox();
             this.ttlUsuarios = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
-<<<<<<< HEAD
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            //this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.bntGuardar = new FontAwesome.Sharp.IconButton();
-=======
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
-            this.btnBusqueda = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.btnLimpiar = new FontAwesome.Sharp.IconButton();
-            this.bntGuardar = new FontAwesome.Sharp.IconButton();
             this.txtIndice = new System.Windows.Forms.TextBox();
->>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -374,14 +364,12 @@ namespace CapaPresentacion
             // 
             // ttlUsuarios
             // 
-<<<<<<< HEAD
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Visible = false;
-            this.Estado.Width = 125;
-=======
+            //this.Estado.HeaderText = "Estado";
+            //this.Estado.MinimumWidth = 6;
+            //this.Estado.Name = "Estado";
+            //this.Estado.ReadOnly = true;
+            //this.Estado.Visible = false;
+            //this.Estado.Width = 125;
             this.ttlUsuarios.AutoSize = true;
             this.ttlUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ttlUsuarios.Location = new System.Drawing.Point(323, 45);
@@ -501,7 +489,6 @@ namespace CapaPresentacion
             this.txtIndice.Size = new System.Drawing.Size(33, 22);
             this.txtIndice.TabIndex = 27;
             this.txtIndice.Text = "-1";
->>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
             // 
             // txtId
             // 
@@ -564,20 +551,6 @@ namespace CapaPresentacion
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
-            // btnBusqueda
-            // 
-            this.btnBusqueda.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBusqueda.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnBusqueda.IconColor = System.Drawing.Color.Black;
-            this.btnBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBusqueda.IconSize = 20;
-            this.btnBusqueda.Location = new System.Drawing.Point(1036, 13);
-            this.btnBusqueda.Name = "btnBusqueda";
-            this.btnBusqueda.Size = new System.Drawing.Size(64, 54);
-            this.btnBusqueda.TabIndex = 25;
-            this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBusqueda.UseVisualStyleBackColor = false;
-            // 
             // iconButton3
             // 
             this.iconButton3.BackColor = System.Drawing.SystemColors.Control;
@@ -596,18 +569,18 @@ namespace CapaPresentacion
             // 
             // iconButton2
             // 
-            this.iconButton2.BackColor = System.Drawing.SystemColors.Control;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(33, 500);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(97, 42);
-            this.iconButton2.TabIndex = 16;
-            this.iconButton2.Text = "Editar";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            //this.iconButton2.BackColor = System.Drawing.SystemColors.Control;
+            //this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            //this.iconButton2.IconColor = System.Drawing.Color.Black;
+            //this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            //this.iconButton2.IconSize = 20;
+            //this.iconButton2.Location = new System.Drawing.Point(33, 500);
+            //this.iconButton2.Name = "iconButton2";
+            //this.iconButton2.Size = new System.Drawing.Size(97, 42);
+            //this.iconButton2.TabIndex = 16;
+            //this.iconButton2.Text = "Editar";
+            //this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            //this.iconButton2.UseVisualStyleBackColor = false;
             // 
             // bntGuardar
             // 

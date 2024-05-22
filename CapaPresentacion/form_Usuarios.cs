@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CapaPresentacion.Utilidades;
-using CapaEntidad;
+﻿using CapaEntidad;
 using CapaNegocio;
+using CapaPresentacion.Utilidades;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
@@ -165,10 +160,7 @@ namespace CapaPresentacion
                     txtNombreCompleto.Text = dgvData.Rows[indice].Cells["NombreCompleto"].Value.ToString();
                     txtCorreo.Text = dgvData.Rows[indice].Cells["Correo"].Value.ToString();
                     txtClave.Text = dgvData.Rows[indice].Cells["Contraseña"].Value.ToString();
-<<<<<<< HEAD
                     txtConfirmarClave.Text = dgvData.Rows[indice].Cells["Contraseña"].Value.ToString();
-=======
->>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
 
                     foreach (OpcionCombo oc in cboRol.Items)
                     {
@@ -183,30 +175,24 @@ namespace CapaPresentacion
             }
         }
 
-<<<<<<< HEAD
         private void txtDNI_TextChanged(object sender, EventArgs e)
-=======
+        { }
         private void cboBusqueda_SelectedIndexChanged(object sender, EventArgs e)
->>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
         {
 
         }
-
-<<<<<<< HEAD
         private void iconButton3_Click(object sender, EventArgs e)
         {
 
         }
 
         private void txtId_TextChanged(object sender, EventArgs e)
-        {
+        { }
 
-=======
         //Limpiar los inputs al hacer click en el botón 'Limpiar'.
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();
->>>>>>> ec6864b9cd4e8a82716ea787ea98490c662c8a80
         }
     }
 }
