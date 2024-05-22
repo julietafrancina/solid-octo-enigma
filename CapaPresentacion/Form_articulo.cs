@@ -29,7 +29,8 @@ namespace CapaPresentacion
 
 
                 tabla_art.Rows.Add(new object[] {
-                // "",
+              //  "",
+                art.idArticulo,
                 art.SKU,
                 art.rubro,
                 art.marca,
