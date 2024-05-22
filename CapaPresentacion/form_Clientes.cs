@@ -168,8 +168,26 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("No se puede guardar nuevamente un cliente que ya existe.");
+                    bool resultado = new CN_Cliente().Editar(obj, out mensaje);
+
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                        row.Cells["Id"].Value = txtId.Text;
+                        row.Cells["DNI"].Value = txtDNI.Text;
+                        row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
+                        row.Cells["Correo"].Value = txtCorreo.Text;
+                        row.Cells["Telefono"].Value = txtTelefono.Text;
+                        row.Cells["Domicilio"].Value = txtDomicilio.Text;
+                        row.Cells["FechaNacimiento"].Value = fecha;
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
+
 
             }
             
@@ -191,65 +209,6 @@ namespace CapaPresentacion
             txtAnio.Text = "";
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-
-            if (txtDNI.Text == "")
-            {
-                MessageBox.Show("Es necesario el documento del Cliente.");
-            }
-            else if (txtDia.Text == "dd" || txtMes.Text == "mm" || txtAnio.Text == "yyyy")
-            {
-                MessageBox.Show("Es necesaria la fecha de nacimiento del Cliente.");
-            }
-            else
-            {
-
-                string mensaje = string.Empty;
-
-                string fecha = txtDia.Text + "/" + txtMes.Text + "/" + txtAnio.Text;
-
-                Cliente obj = new Cliente()
-                {
-                    idCliente = Convert.ToInt32(txtId.Text),
-                    dni = Convert.ToInt32(txtDNI.Text),
-                    nombreCompleto = txtNombreCompleto.Text,
-                    correo = txtCorreo.Text,
-                    telefono = txtTelefono.Text,
-                    domicilio = txtDomicilio.Text,
-                    fechaNacimiento = Convert.ToDateTime(fecha)
-                };
-
-                if (obj.idCliente != 0)
-                {
-
-                    bool resultado = new CN_Cliente().Editar(obj, out mensaje);
-
-                    if (resultado)
-                    {
-                        DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
-                        row.Cells["Id"].Value = txtId.Text;
-                        row.Cells["DNI"].Value = txtDNI.Text;
-                        row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
-                        row.Cells["Correo"].Value = txtCorreo.Text;
-                        row.Cells["Telefono"].Value = txtTelefono.Text;
-                        row.Cells["FechaNacimiento"].Value = fecha;
-                        limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje);
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("No se puede editar un cliente que no existe.");
-                }
-
-            }
-            
-        }
 
         private void txtDNI_TextChanged(object sender, EventArgs e)
         {
@@ -409,6 +368,21 @@ namespace CapaPresentacion
         private void cboBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnEraser_Click(object sender, EventArgs e)
+        {
+            txtDNI.Text = "";
+            txtNombreCompleto.Text = "";
+            txtCorreo.Text = "";
+            txtTelefono.Text = "";
+            txtDomicilio.Text = "";
+            txtAnio.Text = "yyyy";
+            txtAnio.ForeColor = System.Drawing.Color.Gray;
+            txtMes.Text = "mm";
+            txtMes.ForeColor = System.Drawing.Color.Gray;
+            txtDia.Text = "dd";
+            txtDia.ForeColor = System.Drawing.Color.Gray;
         }
     }
 }
