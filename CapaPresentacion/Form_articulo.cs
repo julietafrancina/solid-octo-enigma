@@ -30,7 +30,6 @@ namespace CapaPresentacion
 
                 tabla_art.Rows.Add(new object[] {
               //  "",
-                art.idArticulo,
                 art.SKU,
                 art.rubro,
                 art.marca,
@@ -43,11 +42,13 @@ namespace CapaPresentacion
             CB_baja.DisplayMember = "Texto";
             CB_baja.ValueMember = "Valor";
             CB_baja.SelectedIndex = 1;
+
             Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Rubro" });
             Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Marca" });
-
-
-
+            Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "SKU" });
+            Cb_busqueda.SelectedIndex = 0;
+            Cb_busqueda.DisplayMember = "Texto";
+            Cb_busqueda.ValueMember = "Valor";
         }
 
         private void tabla_art_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -58,15 +59,12 @@ namespace CapaPresentacion
         private void byGuardar_Click(object sender, EventArgs e)
         {
             tabla_art.Rows.Add(new object[] {
-                "",
+                //"",
                 textSKU.Text,
                 textRubro.Text,
                 textMarca.Text,
                 textCosto.Text,
-                ((OpcionCombo)CB_baja.SelectedItem).Valor.ToString(),
                 ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString(),
-
-
 
              }) ;
             limpiar();
@@ -83,6 +81,7 @@ namespace CapaPresentacion
 
         private void BtEditar_Click(object sender, EventArgs e)
         {
+            tabla_art.Rows.Clear();
 
         }
 
@@ -114,6 +113,46 @@ namespace CapaPresentacion
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textSKU_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void textCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void textRubro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es una letra o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                // Si no es una letra ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void textMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es una letra o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                // Si no es una letra ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
         }
     }
 

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
+using CapaPresentacion;
+
 
 namespace CapaDatos
 {
@@ -43,7 +45,6 @@ namespace CapaDatos
 
                                 lista.Add(new Articulo()
                             {
-                                idArticulo = Convert.ToInt32(dr["id_articulo"]),
                                 SKU = Convert.ToInt32(dr["sku"]),
                                 rubro = dr["rubro"].ToString(),
                                 marca = dr["marca"].ToString(),
@@ -64,5 +65,30 @@ namespace CapaDatos
 
 
             }
+        public void guardar_bd()
+        {
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena)){
+
+                oconexion.Open();
+
+                foreach (tabla_art row in tabla_art.Rows)
+                {
+                    // Ignorar las filas nuevas que aún no se han guardado
+                    if (row.IsNewRow) continue;
+
+                    // Obtener los valores de las celdas de la fila
+                    string column1Value = row.Cells[0].Value?.ToString();
+                    string column2Value = row.Cells[1].Value?.ToString();
+
+
+                }
+
+
+
+
+
+
+        }
+
         }
 }
