@@ -22,7 +22,7 @@ namespace CapaPresentacion
         private void btnRegistrarPreventa_Click(object sender, EventArgs e)
         {
             form_RegistrarPreventa registrarPreventa = new form_RegistrarPreventa();
-            registrarPreventa.Show(); // O usa form2.ShowDialog() si deseas que sea modal
+            registrarPreventa.Show();
         }
     }
 }

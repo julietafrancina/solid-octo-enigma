@@ -29,14 +29,19 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtIndice = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.ttlUsuarios = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.dgvPreventas = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDarDeBaja = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.bntGenerarFactura = new FontAwesome.Sharp.IconButton();
@@ -54,26 +59,19 @@ namespace CapaPresentacion
             this.preventaBaja = new System.Windows.Forms.Label();
             this.dgvArticulosPreventa = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBaja = new System.Windows.Forms.TextBox();
             this.grpArticulos = new System.Windows.Forms.GroupBox();
             this.DetallePreventa = new System.Windows.Forms.Label();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.btnRegistrarPreventa = new FontAwesome.Sharp.IconButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtBaja = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosPreventa)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,20 +80,12 @@ namespace CapaPresentacion
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtIndice
-            // 
-            this.txtIndice.Location = new System.Drawing.Point(211, 20);
-            this.txtIndice.Name = "txtIndice";
-            this.txtIndice.Size = new System.Drawing.Size(33, 22);
-            this.txtIndice.TabIndex = 53;
-            this.txtIndice.Text = "-1";
-            // 
             // txtBusqueda
             // 
             this.txtBusqueda.Location = new System.Drawing.Point(15, 62);
             this.txtBusqueda.MinimumSize = new System.Drawing.Size(4, 24);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(176, 24);
+            this.txtBusqueda.Size = new System.Drawing.Size(176, 22);
             this.txtBusqueda.TabIndex = 50;
             // 
             // cboBusqueda
@@ -120,26 +110,18 @@ namespace CapaPresentacion
             this.ttlUsuarios.TabIndex = 47;
             this.ttlUsuarios.Text = "Preventas";
             // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(250, 20);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(33, 22);
-            this.txtId.TabIndex = 46;
-            this.txtId.Text = "0";
-            // 
             // dgvPreventas
             // 
             this.dgvPreventas.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPreventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPreventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvPreventas.ColumnHeadersHeight = 40;
             this.dgvPreventas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -153,24 +135,80 @@ namespace CapaPresentacion
             this.dgvPreventas.MultiSelect = false;
             this.dgvPreventas.Name = "dgvPreventas";
             this.dgvPreventas.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPreventas.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPreventas.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvPreventas.RowHeadersWidth = 51;
             this.dgvPreventas.RowTemplate.Height = 40;
             this.dgvPreventas.Size = new System.Drawing.Size(858, 307);
             this.dgvPreventas.TabIndex = 45;
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 40;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Fecha";
+            this.Monto.MinimumWidth = 6;
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            this.Monto.Width = 125;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Width = 170;
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            this.Sucursal.Width = 150;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Monto";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 125;
+            // 
+            // NroOperacion
+            // 
+            this.NroOperacion.HeaderText = "NroOperacion";
+            this.NroOperacion.MinimumWidth = 6;
+            this.NroOperacion.Name = "NroOperacion";
+            this.NroOperacion.ReadOnly = true;
+            this.NroOperacion.Width = 125;
+            // 
+            // Baja
+            // 
+            this.Baja.HeaderText = "Baja";
+            this.Baja.MinimumWidth = 6;
+            this.Baja.Name = "Baja";
+            this.Baja.ReadOnly = true;
+            this.Baja.Width = 70;
+            // 
             // btnDarDeBaja
             // 
-            this.btnDarDeBaja.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDarDeBaja.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnDarDeBaja.IconChar = FontAwesome.Sharp.IconChar.Cancel;
-            this.btnDarDeBaja.IconColor = System.Drawing.Color.Black;
+            this.btnDarDeBaja.IconColor = System.Drawing.Color.Firebrick;
             this.btnDarDeBaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDarDeBaja.IconSize = 20;
             this.btnDarDeBaja.Location = new System.Drawing.Point(14, 82);
@@ -198,9 +236,9 @@ namespace CapaPresentacion
             // 
             // bntGenerarFactura
             // 
-            this.bntGenerarFactura.BackColor = System.Drawing.Color.LightGreen;
+            this.bntGenerarFactura.BackColor = System.Drawing.SystemColors.Control;
             this.bntGenerarFactura.IconChar = FontAwesome.Sharp.IconChar.ArrowRight;
-            this.bntGenerarFactura.IconColor = System.Drawing.Color.Black;
+            this.bntGenerarFactura.IconColor = System.Drawing.Color.CadetBlue;
             this.bntGenerarFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bntGenerarFactura.IconSize = 25;
             this.bntGenerarFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -325,8 +363,8 @@ namespace CapaPresentacion
             this.Articulo,
             this.Rubro,
             this.Marca,
-            this.Costo,
-            this.SKU});
+            this.SKU,
+            this.Costo});
             this.dgvArticulosPreventa.Location = new System.Drawing.Point(15, 31);
             this.dgvArticulosPreventa.Name = "dgvArticulosPreventa";
             this.dgvArticulosPreventa.RowHeadersWidth = 51;
@@ -355,6 +393,14 @@ namespace CapaPresentacion
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de la Preventa";
             // 
+            // txtBaja
+            // 
+            this.txtBaja.Enabled = false;
+            this.txtBaja.Location = new System.Drawing.Point(693, 46);
+            this.txtBaja.Name = "txtBaja";
+            this.txtBaja.Size = new System.Drawing.Size(164, 22);
+            this.txtBaja.TabIndex = 55;
+            // 
             // grpArticulos
             // 
             this.grpArticulos.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -377,97 +423,6 @@ namespace CapaPresentacion
             this.DetallePreventa.Size = new System.Drawing.Size(149, 20);
             this.DetallePreventa.TabIndex = 59;
             this.DetallePreventa.Text = "Detalle Preventa";
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 40;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Fecha";
-            this.Monto.MinimumWidth = 6;
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
-            this.Monto.Width = 125;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 6;
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Width = 170;
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.MinimumWidth = 6;
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.ReadOnly = true;
-            this.Sucursal.Width = 150;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Monto";
-            this.Fecha.MinimumWidth = 6;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 125;
-            // 
-            // NroOperacion
-            // 
-            this.NroOperacion.HeaderText = "NroOperacion";
-            this.NroOperacion.MinimumWidth = 6;
-            this.NroOperacion.Name = "NroOperacion";
-            this.NroOperacion.ReadOnly = true;
-            this.NroOperacion.Width = 125;
-            // 
-            // Baja
-            // 
-            this.Baja.HeaderText = "Baja";
-            this.Baja.MinimumWidth = 6;
-            this.Baja.Name = "Baja";
-            this.Baja.ReadOnly = true;
-            this.Baja.Width = 70;
-            // 
-            // Articulo
-            // 
-            this.Articulo.HeaderText = "Artículo";
-            this.Articulo.MinimumWidth = 6;
-            this.Articulo.Name = "Articulo";
-            this.Articulo.Width = 175;
-            // 
-            // Rubro
-            // 
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            this.Rubro.Width = 170;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.Width = 170;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
-            this.Costo.Width = 150;
-            // 
-            // SKU
-            // 
-            this.SKU.HeaderText = "SKU";
-            this.SKU.MinimumWidth = 6;
-            this.SKU.Name = "SKU";
-            this.SKU.Width = 125;
             // 
             // groupBox2
             // 
@@ -499,11 +454,11 @@ namespace CapaPresentacion
             // 
             // btnRegistrarPreventa
             // 
-            this.btnRegistrarPreventa.BackColor = System.Drawing.Color.LightGreen;
+            this.btnRegistrarPreventa.BackColor = System.Drawing.SystemColors.Control;
             this.btnRegistrarPreventa.IconChar = FontAwesome.Sharp.IconChar.Add;
-            this.btnRegistrarPreventa.IconColor = System.Drawing.Color.Black;
-            this.btnRegistrarPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRegistrarPreventa.IconSize = 25;
+            this.btnRegistrarPreventa.IconColor = System.Drawing.Color.LimeGreen;
+            this.btnRegistrarPreventa.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnRegistrarPreventa.IconSize = 30;
             this.btnRegistrarPreventa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegistrarPreventa.Location = new System.Drawing.Point(938, 666);
             this.btnRegistrarPreventa.Name = "btnRegistrarPreventa";
@@ -512,6 +467,7 @@ namespace CapaPresentacion
             this.btnRegistrarPreventa.Text = "Registrar nueva\r\npreventa\r\n";
             this.btnRegistrarPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRegistrarPreventa.UseVisualStyleBackColor = false;
+            this.btnRegistrarPreventa.Click += new System.EventHandler(this.btnRegistrarPreventa_Click);
             // 
             // groupBox3
             // 
@@ -526,14 +482,6 @@ namespace CapaPresentacion
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Buscar por";
             // 
-            // txtBaja
-            // 
-            this.txtBaja.Enabled = false;
-            this.txtBaja.Location = new System.Drawing.Point(693, 46);
-            this.txtBaja.Name = "txtBaja";
-            this.txtBaja.Size = new System.Drawing.Size(164, 22);
-            this.txtBaja.TabIndex = 55;
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -542,6 +490,41 @@ namespace CapaPresentacion
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1153, 753);
             this.label1.TabIndex = 62;
+            // 
+            // Articulo
+            // 
+            this.Articulo.HeaderText = "Artículo";
+            this.Articulo.MinimumWidth = 6;
+            this.Articulo.Name = "Articulo";
+            this.Articulo.Width = 175;
+            // 
+            // Rubro
+            // 
+            this.Rubro.HeaderText = "Rubro";
+            this.Rubro.MinimumWidth = 6;
+            this.Rubro.Name = "Rubro";
+            this.Rubro.Width = 170;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.Width = 170;
+            // 
+            // SKU
+            // 
+            this.SKU.HeaderText = "SKU";
+            this.SKU.MinimumWidth = 6;
+            this.SKU.Name = "SKU";
+            this.SKU.Width = 125;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            this.Costo.Width = 150;
             // 
             // form_Preventa
             // 
@@ -554,9 +537,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.DetallePreventa);
             this.Controls.Add(this.grpArticulos);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtIndice);
             this.Controls.Add(this.ttlUsuarios);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvPreventas);
             this.Controls.Add(this.formDetallePreventa);
             this.Controls.Add(this.label1);
@@ -577,12 +558,9 @@ namespace CapaPresentacion
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtIndice;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.ComboBox cboBusqueda;
         private System.Windows.Forms.Label ttlUsuarios;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.DataGridView dgvPreventas;
         private FontAwesome.Sharp.IconButton btnDarDeBaja;
         private FontAwesome.Sharp.IconButton btnLimpiar;
@@ -610,16 +588,16 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroOperacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Articulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SKU;
         private System.Windows.Forms.GroupBox groupBox2;
         private FontAwesome.Sharp.IconButton btnBusqueda;
         private System.Windows.Forms.TextBox txtBaja;
         private FontAwesome.Sharp.IconButton btnRegistrarPreventa;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Articulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SKU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
     }
 }
