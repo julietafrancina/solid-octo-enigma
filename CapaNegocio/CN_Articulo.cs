@@ -17,5 +17,21 @@ namespace CapaNegocio
         {
             return objcd_art.listar();
         }
+
+      /*  public int guardar_bd(Articulo obj, out string Mensaje) {
+
+            Mensaje = string.Empty;
+            if (Mensaje != string.Empty){
+                return 0;
+            }
+            else{
+                return objcd_art.guardar_bd(obj);
+            }
+
+            
+
+
+        }*/
+
     }
 }

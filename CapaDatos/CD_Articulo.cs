@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
-using CapaPresentacion;
+//using CapaPresentacion;
 
 
 namespace CapaDatos
 {
-    public class CD_Articulo{
+    public class CD_Articulo
+    {
 
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
-            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena)){
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
 
                 try
                 {
@@ -31,32 +33,36 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
-                            bool valor= (bool)dr["baja"];
+                            bool valor = (bool)dr["baja"];
                             String b;
                             //preg si es true=1 quiere decir que esta dado de baja
-                            if (valor == true) {
+                            if (valor == true)
+                            {
                                 b = "Si";
-                                
+
                             }
-                            else {
+                            else
+                            {
                                 b = "No";
                             }
-                                        
 
-                                lista.Add(new Articulo()
+
+                            lista.Add(new Articulo()
                             {
                                 SKU = Convert.ToInt32(dr["sku"]),
                                 rubro = dr["rubro"].ToString(),
                                 marca = dr["marca"].ToString(),
+                                descripcion= dr["descripcion"].ToString(),
                                 costo = Convert.ToDouble(dr["costo"]),
                                 baja = b,
-                                
+
                             });
                         }
 
                     }
 
-                }catch (Exception)
+                }
+                catch (Exception)
                 {
                     lista = new List<Articulo>();
                 }
@@ -64,10 +70,11 @@ namespace CapaDatos
             return lista;
 
 
-            }
-        public void guardar_bd()
+        }
+        /*public int guardar_bd(Articulo obj)
         {
-            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena)){
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
 
                 oconexion.Open();
 
@@ -81,14 +88,15 @@ namespace CapaDatos
                     string column2Value = row.Cells[1].Value?.ToString();
 
 
-                }
+                }*/
 
 
 
 
 
+
+            }
 
         }
-
-        }
-}
+   // }
+//}

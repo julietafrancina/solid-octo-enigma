@@ -60,8 +60,6 @@ namespace CapaPresentacion
             this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtId = new System.Windows.Forms.TextBox();
             this.ttlUsuarios = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,7 +68,6 @@ namespace CapaPresentacion
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            //this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.bntGuardar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             this.txtIndice = new System.Windows.Forms.TextBox();
@@ -356,20 +353,15 @@ namespace CapaPresentacion
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(205, 32);
+            this.txtId.Location = new System.Drawing.Point(205, 13);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(33, 22);
             this.txtId.TabIndex = 20;
             this.txtId.Text = "0";
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // ttlUsuarios
             // 
-            //this.Estado.HeaderText = "Estado";
-            //this.Estado.MinimumWidth = 6;
-            //this.Estado.Name = "Estado";
-            //this.Estado.ReadOnly = true;
-            //this.Estado.Visible = false;
-            //this.Estado.Width = 125;
             this.ttlUsuarios.AutoSize = true;
             this.ttlUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ttlUsuarios.Location = new System.Drawing.Point(323, 45);
@@ -407,19 +399,21 @@ namespace CapaPresentacion
             this.txtBusqueda.Size = new System.Drawing.Size(197, 22);
             this.txtBusqueda.TabIndex = 24;
             // 
-            // btnLimpiarBuscador
+            // btnLimpiar
             // 
-            this.btnLimpiarBuscador.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLimpiarBuscador.IconSize = 20;
-            this.btnLimpiarBuscador.Location = new System.Drawing.Point(1111, 13);
-            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
-            this.btnLimpiarBuscador.Size = new System.Drawing.Size(62, 54);
-            this.btnLimpiarBuscador.TabIndex = 26;
-            this.btnLimpiarBuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiar.IconSize = 20;
+            this.btnLimpiar.Location = new System.Drawing.Point(1111, 13);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(62, 54);
+            this.btnLimpiar.TabIndex = 26;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnBusqueda
             // 
@@ -434,122 +428,7 @@ namespace CapaPresentacion
             this.btnBusqueda.TabIndex = 25;
             this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBusqueda.UseVisualStyleBackColor = false;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.BackColor = System.Drawing.SystemColors.Control;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Cancel;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 20;
-            this.iconButton3.Location = new System.Drawing.Point(144, 500);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(95, 42);
-            this.iconButton3.TabIndex = 17;
-            this.iconButton3.Text = "Eliminar";
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.iconButton3.UseVisualStyleBackColor = false;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLimpiar.IconSize = 20;
-            this.btnLimpiar.Location = new System.Drawing.Point(33, 500);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(97, 42);
-            this.btnLimpiar.TabIndex = 16;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // bntGuardar
-            // 
-            this.bntGuardar.BackColor = System.Drawing.Color.LightGreen;
-            this.bntGuardar.IconChar = FontAwesome.Sharp.IconChar.SadCry;
-            this.bntGuardar.IconColor = System.Drawing.Color.Black;
-            this.bntGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.bntGuardar.IconSize = 25;
-            this.bntGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bntGuardar.Location = new System.Drawing.Point(34, 559);
-            this.bntGuardar.Name = "bntGuardar";
-            this.bntGuardar.Size = new System.Drawing.Size(205, 46);
-            this.bntGuardar.TabIndex = 15;
-            this.bntGuardar.Text = "Guardar";
-            this.bntGuardar.UseVisualStyleBackColor = false;
-            this.bntGuardar.Click += new System.EventHandler(this.bntGuardar_Click);
-            // 
-            // txtIndice
-            // 
-            this.txtIndice.Location = new System.Drawing.Point(166, 32);
-            this.txtIndice.Name = "txtIndice";
-            this.txtIndice.Size = new System.Drawing.Size(33, 22);
-            this.txtIndice.TabIndex = 27;
-            this.txtIndice.Text = "-1";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(205, 13);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(33, 22);
-            this.txtId.TabIndex = 20;
-            this.txtId.Text = "0";
-            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
-            // 
-            // ttlUsuarios
-            // 
-            this.ttlUsuarios.AutoSize = true;
-            this.ttlUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ttlUsuarios.Location = new System.Drawing.Point(323, 45);
-            this.ttlUsuarios.Margin = new System.Windows.Forms.Padding(0);
-            this.ttlUsuarios.Name = "ttlUsuarios";
-            this.ttlUsuarios.Size = new System.Drawing.Size(84, 20);
-            this.ttlUsuarios.TabIndex = 21;
-            this.ttlUsuarios.Text = "Usuarios";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(713, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 17);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Buscar por:";
-            // 
-            // cboBusqueda
-            // 
-            this.cboBusqueda.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.cboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBusqueda.FormattingEnabled = true;
-            this.cboBusqueda.Location = new System.Drawing.Point(815, 13);
-            this.cboBusqueda.Name = "cboBusqueda";
-            this.cboBusqueda.Size = new System.Drawing.Size(197, 24);
-            this.cboBusqueda.TabIndex = 23;
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Location = new System.Drawing.Point(815, 43);
-            this.txtBusqueda.MinimumSize = new System.Drawing.Size(4, 24);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(197, 22);
-            this.txtBusqueda.TabIndex = 24;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.btnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLimpiar.IconSize = 20;
-            this.btnLimpiar.Location = new System.Drawing.Point(1111, 13);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(62, 54);
-            this.btnLimpiar.TabIndex = 26;
-            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
             // 
             // iconButton3
             // 
@@ -567,21 +446,6 @@ namespace CapaPresentacion
             this.iconButton3.UseVisualStyleBackColor = false;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
-            // iconButton2
-            // 
-            //this.iconButton2.BackColor = System.Drawing.SystemColors.Control;
-            //this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            //this.iconButton2.IconColor = System.Drawing.Color.Black;
-            //this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            //this.iconButton2.IconSize = 20;
-            //this.iconButton2.Location = new System.Drawing.Point(33, 500);
-            //this.iconButton2.Name = "iconButton2";
-            //this.iconButton2.Size = new System.Drawing.Size(97, 42);
-            //this.iconButton2.TabIndex = 16;
-            //this.iconButton2.Text = "Editar";
-            //this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            //this.iconButton2.UseVisualStyleBackColor = false;
-            // 
             // bntGuardar
             // 
             this.bntGuardar.BackColor = System.Drawing.Color.LightGreen;
@@ -597,6 +461,29 @@ namespace CapaPresentacion
             this.bntGuardar.Text = "Guardar";
             this.bntGuardar.UseVisualStyleBackColor = false;
             this.bntGuardar.Click += new System.EventHandler(this.bntGuardar_Click);
+            // 
+            // btnLimpiarBuscador
+            // 
+            this.btnLimpiarBuscador.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarBuscador.IconSize = 20;
+            this.btnLimpiarBuscador.Location = new System.Drawing.Point(1111, 13);
+            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
+            this.btnLimpiarBuscador.Size = new System.Drawing.Size(62, 54);
+            this.btnLimpiarBuscador.TabIndex = 26;
+            this.btnLimpiarBuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
+            this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
+            // 
+            // txtIndice
+            // 
+            this.txtIndice.Location = new System.Drawing.Point(166, 32);
+            this.txtIndice.Name = "txtIndice";
+            this.txtIndice.Size = new System.Drawing.Size(33, 22);
+            this.txtIndice.TabIndex = 27;
+            this.txtIndice.Text = "-1";
             // 
             // form_Usuarios
             // 

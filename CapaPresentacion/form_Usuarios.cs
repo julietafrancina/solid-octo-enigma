@@ -194,5 +194,15 @@ namespace CapaPresentacion
         {
             limpiar();
         }
+
+        private void btnBusqueda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiarBuscador_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

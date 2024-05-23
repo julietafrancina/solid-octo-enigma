@@ -33,6 +33,7 @@ namespace CapaPresentacion
                 art.SKU,
                 art.rubro,
                 art.marca,
+                art.descripcion,
                 art.costo,
                 art.baja,
                 });
@@ -58,16 +59,26 @@ namespace CapaPresentacion
 
         private void byGuardar_Click(object sender, EventArgs e)
         {
+            string mensaje = string.Empty;
+            Articulo art = new Articulo();
+            
+            
             tabla_art.Rows.Add(new object[] {
+
                 //"",
                 textSKU.Text,
                 textRubro.Text,
                 textMarca.Text,
+                textDesc.Text,
                 textCosto.Text,
                 ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString(),
 
              }) ;
+
+         //   int idgenerado = new CN_Articulo().guardar_bd(art, out mensaje);
+            //guardar_bd();
             limpiar();
+            
         }
         private void limpiar()
         {
@@ -76,6 +87,7 @@ namespace CapaPresentacion
             textRubro.Text = "";
             textMarca.Text = "";
             textCosto.Text = "";
+            textDesc.Text = "";
             CB_baja.SelectedIndex = 1;
         }
 
@@ -153,6 +165,16 @@ namespace CapaPresentacion
                 // Si no es una letra ni una tecla de control, cancelar el evento
                 e.Handled = true;
             }
+        }
+
+        private void text_buscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
