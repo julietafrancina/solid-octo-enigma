@@ -74,18 +74,23 @@ namespace SistemaDeVentas
             formulario.Show();
 
         }
-        
+        private void menuUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Usuarios());
+        }
+        private void menuPreventas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Preventa());
+        }
 
         private void menuClientes_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Clientes());
         }
 
-        private void contenedor_Paint(object sender, PaintEventArgs e)
-        {
+       
 
-        }
-
+    
         private void menuUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Usuarios());

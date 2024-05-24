@@ -113,6 +113,7 @@ namespace SistemaDeVentas
             this.menuPreventas.Text = "Preventas";
             this.menuPreventas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuPreventas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuPreventas.Click += new System.EventHandler(this.menuPreventas_Click);
             // 
             // menuFacturas
             // 
@@ -197,7 +198,7 @@ namespace SistemaDeVentas
             this.contenedor.Name = "contenedor";
             this.contenedor.Size = new System.Drawing.Size(1167, 389);
             this.contenedor.TabIndex = 3;
-            this.contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.contenedor_Paint);
+           
             // 
             // menuTitulo
             // 

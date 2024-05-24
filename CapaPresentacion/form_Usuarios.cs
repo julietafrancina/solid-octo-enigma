@@ -19,24 +19,8 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
         private void form_Usuarios_Load(object sender, EventArgs e)
         {
-            cboEstado.Items.Add(new OpcionCombo()
-            {
-                Valor = 0,
-                Texto = "Activo"
-            });
-            cboEstado.Items.Add(new OpcionCombo()
-            {
-                Valor = 1,
-                Texto = "Inactivo"
-            });
-
-            cboEstado.DisplayMember = "Texto";
-            cboEstado.ValueMember = "Valor";
-            cboEstado.SelectedIndex = 0;
-
             List<Rol> listaRol = new CN_Rol().listar();
 
             foreach (Rol item in listaRol)
@@ -52,43 +36,88 @@ namespace CapaPresentacion
             cboRol.ValueMember = "Valor";
             cboRol.SelectedIndex = 0;
 
+
             //Mostrar todos los usuarios en la tabla 
             List<Usuario> listaUsuario = new CN_Usuario().listar();
 
             foreach (Usuario item in listaUsuario)
             {
-                dgvData.Rows.Add(new object[] {
-                "",
-                item.idUsuario,
-                item.dni,
-                item.nombreCompleto,
-                item.correo,
-                item.contraseña,
-                item.orol.id_rol,
-                item.orol.descripcion
+                dgvData.Rows.Add(new object[]
+                {
+                    "",
+                    item.idUsuario,
+                    item.dni,
+                    item.nombreCompleto,
+                    item.correo,
+                    item.contraseña,
+                    item.orol.id_rol,
+                    item.orol.descripcion
                 });
+            }
+
+
+            //para que en el combo de búsqueda me aparezcan los nombres de las columnas visibles
+            foreach (DataGridViewColumn columna in dgvData.Columns)
+            {
+                if (columna.Visible == true && columna.Name != "btnSeleccionar")
+                {
+                    cboBusqueda.Items.Add(new OpcionCombo()
+                    {
+                        Texto = columna.HeaderText,
+                        Valor = columna.Name
+                    });
+                }
+            }
+            cboBusqueda.DisplayMember = "Texto";
+            cboBusqueda.ValueMember = "Valor";
+            cboBusqueda.SelectedIndex = 0;
+
+        }
+
+        //Registrar un usuario nuevo al hacer click en el botón 'Guardar'.
+        private void bntGuardar_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+            Usuario objusuario = new Usuario()
+            {
+                idUsuario = Convert.ToInt32(txtId.Text),
+                dni = Convert.ToInt32(txtDNI.Text),
+                nombreCompleto = txtNombreCompleto.Text,
+                correo = txtCorreo.Text,
+                contraseña = txtClave.Text,
+                orol = new Rol()
+                {
+                    id_rol = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor)
+                }
+            };
+
+            int idUsuarioGenerado = new CN_Usuario().Registrar(objusuario, out mensaje);
+            if (idUsuarioGenerado != 0)
+            {
+                dgvData.Rows.Add(new object[]
+                {
+                    "",
+                    idUsuarioGenerado,
+                    txtDNI.Text,
+                    txtNombreCompleto.Text,
+                    txtCorreo.Text,
+                    txtClave.Text,
+                    ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
+                    ((OpcionCombo)cboRol.SelectedItem).Texto.ToString()
+                });
+
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show(mensaje);
             }
         }
 
-        private void bntGuardar_Click(object sender, EventArgs e)
-        {
-            dgvData.Rows.Add(new object[] {
-                "",
-                txtId.Text,
-                txtDNI.Text,
-                txtNombreCompleto.Text,
-                txtCorreo.Text,
-                txtClave.Text,
-                ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
-                ((OpcionCombo)cboRol.SelectedItem).Texto.ToString(),
-                ((OpcionCombo)cboEstado.SelectedItem).Valor.ToString(),
-                ((OpcionCombo)cboEstado.SelectedItem).Texto.ToString()
-            });
-
-            limpiar();
-        }
+        //Limpiar los campos una vez que se completó la operación
         private void limpiar()
         {
+            txtIndice.Text = "-1";
             txtId.Text = "0";
             txtDNI.Text = "";
             txtNombreCompleto.Text = "";
@@ -96,9 +125,9 @@ namespace CapaPresentacion
             txtClave.Text = "";
             txtConfirmarClave.Text = "";
             cboRol.SelectedIndex = 0;
-            cboEstado.SelectedIndex = 0;
         }
 
+        //Mostrar la tabla de usuarios.
         private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -119,6 +148,7 @@ namespace CapaPresentacion
             }
         }
 
+        //Al seleccionar un usuario de la tabla, pasar sus datos a los inputs de la izquierda.
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
@@ -128,12 +158,12 @@ namespace CapaPresentacion
                 if (indice >= 0)
                 {
                     //hacemos que el valor de la columna id lo pinte en txtId
+                    txtIndice.Text = indice.ToString();
                     txtId.Text = dgvData.Rows[indice].Cells["id"].Value.ToString();
                     txtDNI.Text = dgvData.Rows[indice].Cells["DNI"].Value.ToString();
                     txtNombreCompleto.Text = dgvData.Rows[indice].Cells["NombreCompleto"].Value.ToString();
                     txtCorreo.Text = dgvData.Rows[indice].Cells["Correo"].Value.ToString();
                     txtClave.Text = dgvData.Rows[indice].Cells["Contraseña"].Value.ToString();
-                    txtConfirmarClave.Text = dgvData.Rows[indice].Cells["Contraseña"].Value.ToString();
 
                     foreach (OpcionCombo oc in cboRol.Items)
                     {
@@ -151,6 +181,17 @@ namespace CapaPresentacion
         private void cboRol_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Limpiar los inputs al hacer click en el botón 'Limpiar'.
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
     }
 }

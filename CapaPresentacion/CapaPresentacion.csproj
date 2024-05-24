@@ -61,6 +61,18 @@
     <Compile Include="form_Clientes.Designer.cs">
       <DependentUpon>form_Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="form_Preventa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_Preventa.Designer.cs">
+      <DependentUpon>form_Preventa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_RegistrarPreventa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_RegistrarPreventa.Designer.cs">
+      <DependentUpon>form_RegistrarPreventa.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_Facturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +100,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\OpcionCombo.cs" />
+    <EmbeddedResource Include="form_Preventa.resx">
+      <DependentUpon>form_Preventa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_RegistrarPreventa.resx">
+      <DependentUpon>form_RegistrarPreventa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_Facturas.resx">
       <DependentUpon>form_Facturas.cs</DependentUpon>
     </EmbeddedResource>

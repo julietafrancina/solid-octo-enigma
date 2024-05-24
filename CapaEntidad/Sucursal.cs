@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace CapaEntidad
 {
     public class Sucursal{
+        public int id_suc { get; set; }
         public string desc { get; set; }
         public string telefono { get; set; }
-        public int id_suc { get; set; }
     }
 }
