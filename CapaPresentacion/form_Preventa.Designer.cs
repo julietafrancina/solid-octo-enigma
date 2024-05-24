@@ -29,20 +29,12 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.cboBusqueda = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.txtBusquedaPreventa = new System.Windows.Forms.TextBox();
+            this.cboBusquedaPreventa = new System.Windows.Forms.ComboBox();
             this.ttlUsuarios = new System.Windows.Forms.Label();
             this.dgvPreventas = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.idPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDarDeBaja = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.bntGenerarFactura = new FontAwesome.Sharp.IconButton();
@@ -69,10 +61,22 @@ namespace CapaPresentacion
             this.grpArticulos = new System.Windows.Forms.GroupBox();
             this.DetallePreventa = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnBusqueda = new FontAwesome.Sharp.IconButton();
+            this.btnBusquedaPreventa = new FontAwesome.Sharp.IconButton();
             this.btnRegistrarPreventa = new FontAwesome.Sharp.IconButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtUsuarioPreventa = new System.Windows.Forms.TextBox();
+            this.Usuario = new System.Windows.Forms.Label();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.idPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosPreventa)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -81,23 +85,23 @@ namespace CapaPresentacion
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtBusqueda
+            // txtBusquedaPreventa
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(15, 62);
-            this.txtBusqueda.MinimumSize = new System.Drawing.Size(4, 24);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(176, 22);
-            this.txtBusqueda.TabIndex = 50;
+            this.txtBusquedaPreventa.Location = new System.Drawing.Point(15, 62);
+            this.txtBusquedaPreventa.MinimumSize = new System.Drawing.Size(4, 24);
+            this.txtBusquedaPreventa.Name = "txtBusquedaPreventa";
+            this.txtBusquedaPreventa.Size = new System.Drawing.Size(176, 22);
+            this.txtBusquedaPreventa.TabIndex = 50;
             // 
-            // cboBusqueda
+            // cboBusquedaPreventa
             // 
-            this.cboBusqueda.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.cboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBusqueda.FormattingEnabled = true;
-            this.cboBusqueda.Location = new System.Drawing.Point(15, 32);
-            this.cboBusqueda.Name = "cboBusqueda";
-            this.cboBusqueda.Size = new System.Drawing.Size(176, 24);
-            this.cboBusqueda.TabIndex = 49;
+            this.cboBusquedaPreventa.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cboBusquedaPreventa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBusquedaPreventa.FormattingEnabled = true;
+            this.cboBusquedaPreventa.Location = new System.Drawing.Point(15, 32);
+            this.cboBusquedaPreventa.Name = "cboBusquedaPreventa";
+            this.cboBusquedaPreventa.Size = new System.Drawing.Size(176, 24);
+            this.cboBusquedaPreventa.TabIndex = 49;
             // 
             // ttlUsuarios
             // 
@@ -114,15 +118,15 @@ namespace CapaPresentacion
             // dgvPreventas
             // 
             this.dgvPreventas.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPreventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPreventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPreventas.ColumnHeadersHeight = 40;
             this.dgvPreventas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -132,89 +136,26 @@ namespace CapaPresentacion
             this.Sucursal,
             this.Monto,
             this.NroOperacion,
-            this.Baja});
-            this.dgvPreventas.Location = new System.Drawing.Point(27, 421);
+            this.Baja,
+            this.UsuarioPreventa});
+            this.dgvPreventas.Location = new System.Drawing.Point(41, 421);
             this.dgvPreventas.MultiSelect = false;
             this.dgvPreventas.Name = "dgvPreventas";
             this.dgvPreventas.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPreventas.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPreventas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPreventas.RowHeadersWidth = 51;
             this.dgvPreventas.RowTemplate.Height = 40;
-            this.dgvPreventas.Size = new System.Drawing.Size(858, 307);
+            this.dgvPreventas.Size = new System.Drawing.Size(994, 307);
             this.dgvPreventas.TabIndex = 45;
             this.dgvPreventas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPreventas_CellContentClick);
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 40;
-            // 
-            // idPreventa
-            // 
-            this.idPreventa.HeaderText = "idPreventa";
-            this.idPreventa.MinimumWidth = 6;
-            this.idPreventa.Name = "idPreventa";
-            this.idPreventa.ReadOnly = true;
-            this.idPreventa.Visible = false;
-            this.idPreventa.Width = 125;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.MinimumWidth = 6;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 125;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 6;
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Width = 170;
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.MinimumWidth = 6;
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.ReadOnly = true;
-            this.Sucursal.Width = 150;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.MinimumWidth = 6;
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
-            this.Monto.Width = 125;
-            // 
-            // NroOperacion
-            // 
-            this.NroOperacion.HeaderText = "NroOperacion";
-            this.NroOperacion.MinimumWidth = 6;
-            this.NroOperacion.Name = "NroOperacion";
-            this.NroOperacion.ReadOnly = true;
-            this.NroOperacion.Width = 125;
-            // 
-            // Baja
-            // 
-            this.Baja.HeaderText = "Baja";
-            this.Baja.MinimumWidth = 6;
-            this.Baja.Name = "Baja";
-            this.Baja.ReadOnly = true;
-            this.Baja.Width = 70;
+            this.dgvPreventas.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvPreventa_CellPainting);
             // 
             // btnDarDeBaja
             // 
@@ -238,13 +179,14 @@ namespace CapaPresentacion
             this.btnLimpiar.IconColor = System.Drawing.Color.Black;
             this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiar.IconSize = 20;
-            this.btnLimpiar.Location = new System.Drawing.Point(909, 24);
+            this.btnLimpiar.Location = new System.Drawing.Point(1064, 24);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(176, 44);
             this.btnLimpiar.TabIndex = 42;
             this.btnLimpiar.Text = "Limpiar campos";
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // bntGenerarFactura
             // 
@@ -264,9 +206,9 @@ namespace CapaPresentacion
             // 
             // txtNroOperacion
             // 
+            this.txtNroOperacion.Enabled = false;
             this.txtNroOperacion.Location = new System.Drawing.Point(354, 46);
             this.txtNroOperacion.Name = "txtNroOperacion";
-            this.txtNroOperacion.PasswordChar = '*';
             this.txtNroOperacion.Size = new System.Drawing.Size(165, 22);
             this.txtNroOperacion.TabIndex = 38;
             // 
@@ -300,6 +242,7 @@ namespace CapaPresentacion
             // 
             // txtSucursal
             // 
+            this.txtSucursal.Enabled = false;
             this.txtSucursal.Location = new System.Drawing.Point(524, 46);
             this.txtSucursal.Name = "txtSucursal";
             this.txtSucursal.Size = new System.Drawing.Size(164, 22);
@@ -307,6 +250,7 @@ namespace CapaPresentacion
             // 
             // txtNombreCliente
             // 
+            this.txtNombreCliente.Enabled = false;
             this.txtNombreCliente.Location = new System.Drawing.Point(184, 46);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(164, 22);
@@ -314,6 +258,8 @@ namespace CapaPresentacion
             // 
             // txtFecha
             // 
+            this.txtFecha.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtFecha.Enabled = false;
             this.txtFecha.Location = new System.Drawing.Point(14, 46);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(164, 22);
@@ -355,14 +301,14 @@ namespace CapaPresentacion
             this.formDetallePreventa.Dock = System.Windows.Forms.DockStyle.Top;
             this.formDetallePreventa.Location = new System.Drawing.Point(0, 0);
             this.formDetallePreventa.Name = "formDetallePreventa";
-            this.formDetallePreventa.Size = new System.Drawing.Size(1153, 370);
+            this.formDetallePreventa.Size = new System.Drawing.Size(1304, 370);
             this.formDetallePreventa.TabIndex = 28;
             // 
             // preventaBaja
             // 
             this.preventaBaja.AutoSize = true;
             this.preventaBaja.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.preventaBaja.Location = new System.Drawing.Point(690, 20);
+            this.preventaBaja.Location = new System.Drawing.Point(860, 20);
             this.preventaBaja.Name = "preventaBaja";
             this.preventaBaja.Size = new System.Drawing.Size(36, 17);
             this.preventaBaja.TabIndex = 54;
@@ -381,7 +327,7 @@ namespace CapaPresentacion
             this.dgvArticulosPreventa.Name = "dgvArticulosPreventa";
             this.dgvArticulosPreventa.RowHeadersWidth = 51;
             this.dgvArticulosPreventa.RowTemplate.Height = 24;
-            this.dgvArticulosPreventa.Size = new System.Drawing.Size(843, 143);
+            this.dgvArticulosPreventa.Size = new System.Drawing.Size(993, 143);
             this.dgvArticulosPreventa.TabIndex = 56;
             // 
             // Articulo
@@ -422,6 +368,8 @@ namespace CapaPresentacion
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox1.Controls.Add(this.txtUsuarioPreventa);
+            this.groupBox1.Controls.Add(this.Usuario);
             this.groupBox1.Controls.Add(this.txtBaja);
             this.groupBox1.Controls.Add(this.txtNroOperacion);
             this.groupBox1.Controls.Add(this.preventaNroOperacion);
@@ -435,7 +383,7 @@ namespace CapaPresentacion
             this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Location = new System.Drawing.Point(27, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1108, 85);
+            this.groupBox1.Size = new System.Drawing.Size(1262, 85);
             this.groupBox1.TabIndex = 57;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de la Preventa";
@@ -443,7 +391,7 @@ namespace CapaPresentacion
             // txtBaja
             // 
             this.txtBaja.Enabled = false;
-            this.txtBaja.Location = new System.Drawing.Point(693, 46);
+            this.txtBaja.Location = new System.Drawing.Point(863, 46);
             this.txtBaja.Name = "txtBaja";
             this.txtBaja.Size = new System.Drawing.Size(164, 22);
             this.txtBaja.TabIndex = 55;
@@ -454,7 +402,7 @@ namespace CapaPresentacion
             this.grpArticulos.Controls.Add(this.dgvArticulosPreventa);
             this.grpArticulos.Location = new System.Drawing.Point(27, 166);
             this.grpArticulos.Name = "grpArticulos";
-            this.grpArticulos.Size = new System.Drawing.Size(875, 190);
+            this.grpArticulos.Size = new System.Drawing.Size(1027, 190);
             this.grpArticulos.TabIndex = 58;
             this.grpArticulos.TabStop = false;
             this.grpArticulos.Text = "Artículos de la Preventa";
@@ -478,26 +426,26 @@ namespace CapaPresentacion
             this.groupBox2.Controls.Add(this.bntGenerarFactura);
             this.groupBox2.Controls.Add(this.txtMonto);
             this.groupBox2.Controls.Add(this.preventaMonto);
-            this.groupBox2.Location = new System.Drawing.Point(922, 164);
+            this.groupBox2.Location = new System.Drawing.Point(1077, 166);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(212, 191);
             this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
             // 
-            // btnBusqueda
+            // btnBusquedaPreventa
             // 
-            this.btnBusqueda.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBusqueda.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnBusqueda.IconColor = System.Drawing.Color.Black;
-            this.btnBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBusqueda.IconSize = 20;
-            this.btnBusqueda.Location = new System.Drawing.Point(15, 102);
-            this.btnBusqueda.Name = "btnBusqueda";
-            this.btnBusqueda.Size = new System.Drawing.Size(176, 42);
-            this.btnBusqueda.TabIndex = 44;
-            this.btnBusqueda.Text = "Buscar";
-            this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBusqueda.UseVisualStyleBackColor = false;
+            this.btnBusquedaPreventa.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBusquedaPreventa.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnBusquedaPreventa.IconColor = System.Drawing.Color.Black;
+            this.btnBusquedaPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBusquedaPreventa.IconSize = 20;
+            this.btnBusquedaPreventa.Location = new System.Drawing.Point(15, 102);
+            this.btnBusquedaPreventa.Name = "btnBusquedaPreventa";
+            this.btnBusquedaPreventa.Size = new System.Drawing.Size(176, 42);
+            this.btnBusquedaPreventa.TabIndex = 44;
+            this.btnBusquedaPreventa.Text = "Buscar";
+            this.btnBusquedaPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBusquedaPreventa.UseVisualStyleBackColor = false;
             // 
             // btnRegistrarPreventa
             // 
@@ -507,7 +455,7 @@ namespace CapaPresentacion
             this.btnRegistrarPreventa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnRegistrarPreventa.IconSize = 30;
             this.btnRegistrarPreventa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrarPreventa.Location = new System.Drawing.Point(938, 666);
+            this.btnRegistrarPreventa.Location = new System.Drawing.Point(1078, 666);
             this.btnRegistrarPreventa.Name = "btnRegistrarPreventa";
             this.btnRegistrarPreventa.Size = new System.Drawing.Size(176, 62);
             this.btnRegistrarPreventa.TabIndex = 44;
@@ -519,10 +467,10 @@ namespace CapaPresentacion
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox3.Controls.Add(this.btnBusqueda);
-            this.groupBox3.Controls.Add(this.txtBusqueda);
-            this.groupBox3.Controls.Add(this.cboBusqueda);
-            this.groupBox3.Location = new System.Drawing.Point(921, 421);
+            this.groupBox3.Controls.Add(this.btnBusquedaPreventa);
+            this.groupBox3.Controls.Add(this.txtBusquedaPreventa);
+            this.groupBox3.Controls.Add(this.cboBusquedaPreventa);
+            this.groupBox3.Location = new System.Drawing.Point(1063, 421);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(212, 162);
             this.groupBox3.TabIndex = 61;
@@ -535,14 +483,114 @@ namespace CapaPresentacion
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1153, 753);
+            this.label1.Size = new System.Drawing.Size(1304, 753);
             this.label1.TabIndex = 62;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(131, 384);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(41, 22);
+            this.txtId.TabIndex = 63;
+            // 
+            // txtUsuarioPreventa
+            // 
+            this.txtUsuarioPreventa.Enabled = false;
+            this.txtUsuarioPreventa.Location = new System.Drawing.Point(694, 46);
+            this.txtUsuarioPreventa.Name = "txtUsuarioPreventa";
+            this.txtUsuarioPreventa.Size = new System.Drawing.Size(164, 22);
+            this.txtUsuarioPreventa.TabIndex = 57;
+            // 
+            // Usuario
+            // 
+            this.Usuario.AutoSize = true;
+            this.Usuario.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Usuario.Location = new System.Drawing.Point(691, 20);
+            this.Usuario.Name = "Usuario";
+            this.Usuario.Size = new System.Drawing.Size(57, 17);
+            this.Usuario.TabIndex = 56;
+            this.Usuario.Text = "Usuario";
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 40;
+            // 
+            // idPreventa
+            // 
+            this.idPreventa.HeaderText = "idPreventa";
+            this.idPreventa.MinimumWidth = 6;
+            this.idPreventa.Name = "idPreventa";
+            this.idPreventa.ReadOnly = true;
+            this.idPreventa.Visible = false;
+            this.idPreventa.Width = 125;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 170;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Width = 190;
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            this.Sucursal.Width = 150;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.MinimumWidth = 6;
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            this.Monto.Width = 150;
+            // 
+            // NroOperacion
+            // 
+            this.NroOperacion.HeaderText = "NroOperacion";
+            this.NroOperacion.MinimumWidth = 6;
+            this.NroOperacion.Name = "NroOperacion";
+            this.NroOperacion.ReadOnly = true;
+            this.NroOperacion.Width = 155;
+            // 
+            // Baja
+            // 
+            this.Baja.HeaderText = "Baja";
+            this.Baja.MinimumWidth = 6;
+            this.Baja.Name = "Baja";
+            this.Baja.ReadOnly = true;
+            this.Baja.Width = 70;
+            // 
+            // UsuarioPreventa
+            // 
+            this.UsuarioPreventa.HeaderText = "Usuario";
+            this.UsuarioPreventa.MinimumWidth = 6;
+            this.UsuarioPreventa.Name = "UsuarioPreventa";
+            this.UsuarioPreventa.ReadOnly = true;
+            this.UsuarioPreventa.Visible = false;
+            this.UsuarioPreventa.Width = 125;
             // 
             // form_Preventa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 753);
+            this.ClientSize = new System.Drawing.Size(1304, 753);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnRegistrarPreventa);
             this.Controls.Add(this.groupBox2);
@@ -571,8 +619,8 @@ namespace CapaPresentacion
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtBusqueda;
-        private System.Windows.Forms.ComboBox cboBusqueda;
+        private System.Windows.Forms.TextBox txtBusquedaPreventa;
+        private System.Windows.Forms.ComboBox cboBusquedaPreventa;
         private System.Windows.Forms.Label ttlUsuarios;
         private System.Windows.Forms.DataGridView dgvPreventas;
         private FontAwesome.Sharp.IconButton btnDarDeBaja;
@@ -595,7 +643,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.GroupBox grpArticulos;
         private System.Windows.Forms.Label DetallePreventa;
         private System.Windows.Forms.GroupBox groupBox2;
-        private FontAwesome.Sharp.IconButton btnBusqueda;
+        private FontAwesome.Sharp.IconButton btnBusquedaPreventa;
         private System.Windows.Forms.TextBox txtBaja;
         private FontAwesome.Sharp.IconButton btnRegistrarPreventa;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -605,6 +653,9 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtUsuarioPreventa;
+        private System.Windows.Forms.Label Usuario;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPreventa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
@@ -613,5 +664,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroOperacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioPreventa;
     }
 }
