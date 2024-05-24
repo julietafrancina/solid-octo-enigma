@@ -212,11 +212,7 @@ namespace CapaPresentacion
 
         private void txtDNI_TextChanged(object sender, EventArgs e)
         {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtDNI.Text, "^[0-9]*$"))
-            {
-                txtDNI.Text = string.Empty;
-                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
         }
 
         private void txtDia_TextChanged(object sender, EventArgs e)
@@ -231,11 +227,7 @@ namespace CapaPresentacion
 
         private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtTelefono.Text, "^[0-9]*$"))
-            {
-                txtTelefono.Text = string.Empty;
-                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
         }
 
 
@@ -383,6 +375,56 @@ namespace CapaPresentacion
             txtMes.ForeColor = System.Drawing.Color.Gray;
             txtDia.Text = "dd";
             txtDia.ForeColor = System.Drawing.Color.Gray;
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void txtDia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void txtMes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void txtAnio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
         }
     }
 }

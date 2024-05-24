@@ -29,12 +29,23 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIndice = new System.Windows.Forms.TextBox();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Letra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -46,12 +57,11 @@ namespace CapaPresentacion
             this.label5 = new System.Windows.Forms.Label();
             this.bntGuardar = new FontAwesome.Sharp.IconButton();
             this.facturaPreventa = new System.Windows.Forms.Label();
-            this.facturaSucursal = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtNroOperacion = new System.Windows.Forms.TextBox();
             this.facturaNroOp = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.txtNombreCompleto = new System.Windows.Forms.TextBox();
-            this.txtDNI = new System.Windows.Forms.TextBox();
+            this.txtMontoTotal = new System.Windows.Forms.TextBox();
+            this.txtLetra = new System.Windows.Forms.TextBox();
+            this.txtNumero = new System.Windows.Forms.TextBox();
             this.facturaMonto = new System.Windows.Forms.Label();
             this.facturaLetra = new System.Windows.Forms.Label();
             this.facturaNro = new System.Windows.Forms.Label();
@@ -64,15 +74,8 @@ namespace CapaPresentacion
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.cboBoxSucursal = new System.Windows.Forms.ComboBox();
             this.cboBoxPreventa = new System.Windows.Forms.ComboBox();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Letra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtEstado = new System.Windows.Forms.Label();
+            this.txtSucursal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +95,6 @@ namespace CapaPresentacion
             this.txtIndice.Size = new System.Drawing.Size(33, 22);
             this.txtIndice.TabIndex = 97;
             this.txtIndice.Text = "-1";
-            this.txtIndice.Visible = false;
             // 
             // btnEditar
             // 
@@ -101,13 +103,14 @@ namespace CapaPresentacion
             this.btnEditar.IconColor = System.Drawing.Color.Black;
             this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEditar.IconSize = 20;
-            this.btnEditar.Location = new System.Drawing.Point(29, 462);
+            this.btnEditar.Location = new System.Drawing.Point(29, 466);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(114, 42);
             this.btnEditar.TabIndex = 85;
-            this.btnEditar.Text = "Editar";
+            this.btnEditar.Text = "Limpiar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // dgvData
             // 
@@ -115,15 +118,15 @@ namespace CapaPresentacion
             this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.ColumnHeadersHeight = 40;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -133,25 +136,126 @@ namespace CapaPresentacion
             this.MontoTotal,
             this.NroOperacion,
             this.IdSucursal,
+            this.DescripcionSucursal,
             this.IdPreventa,
-            this.Estado});
+            this.IdEstado,
+            this.DescEstado});
             this.dgvData.Location = new System.Drawing.Point(329, 78);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.Size = new System.Drawing.Size(888, 527);
             this.dgvData.TabIndex = 88;
+            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.FillWeight = 5.868263F;
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 40;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // Numero
+            // 
+            this.Numero.FillWeight = 64.14292F;
+            this.Numero.HeaderText = "Numero";
+            this.Numero.MinimumWidth = 6;
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
+            this.Numero.Width = 125;
+            // 
+            // Letra
+            // 
+            this.Letra.FillWeight = 169.8403F;
+            this.Letra.HeaderText = "Letra";
+            this.Letra.MinimumWidth = 6;
+            this.Letra.Name = "Letra";
+            this.Letra.ReadOnly = true;
+            this.Letra.Width = 50;
+            // 
+            // MontoTotal
+            // 
+            this.MontoTotal.FillWeight = 85.60435F;
+            this.MontoTotal.HeaderText = "Monto Total";
+            this.MontoTotal.MinimumWidth = 6;
+            this.MontoTotal.Name = "MontoTotal";
+            this.MontoTotal.ReadOnly = true;
+            this.MontoTotal.Width = 140;
+            // 
+            // NroOperacion
+            // 
+            this.NroOperacion.FillWeight = 100.0715F;
+            this.NroOperacion.HeaderText = "Nro. Operación";
+            this.NroOperacion.MinimumWidth = 6;
+            this.NroOperacion.Name = "NroOperacion";
+            this.NroOperacion.ReadOnly = true;
+            this.NroOperacion.Width = 125;
+            // 
+            // IdSucursal
+            // 
+            this.IdSucursal.FillWeight = 106.2491F;
+            this.IdSucursal.HeaderText = "ID Sucursal";
+            this.IdSucursal.MinimumWidth = 6;
+            this.IdSucursal.Name = "IdSucursal";
+            this.IdSucursal.ReadOnly = true;
+            this.IdSucursal.Visible = false;
+            this.IdSucursal.Width = 125;
+            // 
+            // DescripcionSucursal
+            // 
+            this.DescripcionSucursal.HeaderText = "Descripción Sucursal";
+            this.DescripcionSucursal.MinimumWidth = 6;
+            this.DescripcionSucursal.Name = "DescripcionSucursal";
+            this.DescripcionSucursal.ReadOnly = true;
+            this.DescripcionSucursal.Width = 175;
+            // 
+            // IdPreventa
+            // 
+            this.IdPreventa.FillWeight = 168.2236F;
+            this.IdPreventa.HeaderText = "ID Preventa";
+            this.IdPreventa.MinimumWidth = 6;
+            this.IdPreventa.Name = "IdPreventa";
+            this.IdPreventa.ReadOnly = true;
+            this.IdPreventa.Width = 150;
+            // 
+            // IdEstado
+            // 
+            this.IdEstado.HeaderText = "ID Estado";
+            this.IdEstado.MinimumWidth = 6;
+            this.IdEstado.Name = "IdEstado";
+            this.IdEstado.ReadOnly = true;
+            this.IdEstado.Visible = false;
+            this.IdEstado.Width = 125;
+            // 
+            // DescEstado
+            // 
+            this.DescEstado.HeaderText = "Estado";
+            this.DescEstado.MinimumWidth = 6;
+            this.DescEstado.Name = "DescEstado";
+            this.DescEstado.ReadOnly = true;
+            this.DescEstado.Width = 125;
             // 
             // btnLimpiar
             // 
@@ -220,9 +324,9 @@ namespace CapaPresentacion
             this.ttlClientes.Location = new System.Drawing.Point(325, 45);
             this.ttlClientes.Margin = new System.Windows.Forms.Padding(0);
             this.ttlClientes.Name = "ttlClientes";
-            this.ttlClientes.Size = new System.Drawing.Size(78, 20);
+            this.ttlClientes.Size = new System.Drawing.Size(83, 20);
             this.ttlClientes.TabIndex = 90;
-            this.ttlClientes.Text = "Clientes";
+            this.ttlClientes.Text = "Facturas";
             // 
             // txtId
             // 
@@ -231,7 +335,6 @@ namespace CapaPresentacion
             this.txtId.Size = new System.Drawing.Size(33, 22);
             this.txtId.TabIndex = 89;
             this.txtId.Text = "0";
-            this.txtId.Visible = false;
             // 
             // btnEliminar
             // 
@@ -240,7 +343,7 @@ namespace CapaPresentacion
             this.btnEliminar.IconColor = System.Drawing.Color.Black;
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 20;
-            this.btnEliminar.Location = new System.Drawing.Point(149, 462);
+            this.btnEliminar.Location = new System.Drawing.Point(149, 466);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(114, 42);
             this.btnEliminar.TabIndex = 86;
@@ -267,7 +370,7 @@ namespace CapaPresentacion
             this.bntGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bntGuardar.IconSize = 25;
             this.bntGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bntGuardar.Location = new System.Drawing.Point(30, 521);
+            this.bntGuardar.Location = new System.Drawing.Point(30, 525);
             this.bntGuardar.Name = "bntGuardar";
             this.bntGuardar.Size = new System.Drawing.Size(233, 46);
             this.bntGuardar.TabIndex = 84;
@@ -278,59 +381,52 @@ namespace CapaPresentacion
             // 
             this.facturaPreventa.AutoSize = true;
             this.facturaPreventa.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.facturaPreventa.Location = new System.Drawing.Point(27, 382);
+            this.facturaPreventa.Location = new System.Drawing.Point(27, 295);
             this.facturaPreventa.Name = "facturaPreventa";
             this.facturaPreventa.Size = new System.Drawing.Size(65, 17);
             this.facturaPreventa.TabIndex = 83;
             this.facturaPreventa.Text = "Preventa";
             // 
-            // facturaSucursal
+            // txtNroOperacion
             // 
-            this.facturaSucursal.AutoSize = true;
-            this.facturaSucursal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.facturaSucursal.Location = new System.Drawing.Point(26, 307);
-            this.facturaSucursal.Name = "facturaSucursal";
-            this.facturaSucursal.Size = new System.Drawing.Size(63, 17);
-            this.facturaSucursal.TabIndex = 81;
-            this.facturaSucursal.Text = "Sucursal";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(29, 253);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(232, 22);
-            this.txtTelefono.TabIndex = 80;
+            this.txtNroOperacion.BackColor = System.Drawing.Color.White;
+            this.txtNroOperacion.Location = new System.Drawing.Point(30, 252);
+            this.txtNroOperacion.Name = "txtNroOperacion";
+            this.txtNroOperacion.ReadOnly = true;
+            this.txtNroOperacion.Size = new System.Drawing.Size(232, 22);
+            this.txtNroOperacion.TabIndex = 80;
             // 
             // facturaNroOp
             // 
             this.facturaNroOp.AutoSize = true;
             this.facturaNroOp.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.facturaNroOp.Location = new System.Drawing.Point(26, 231);
+            this.facturaNroOp.Location = new System.Drawing.Point(27, 230);
             this.facturaNroOp.Name = "facturaNroOp";
             this.facturaNroOp.Size = new System.Drawing.Size(105, 17);
             this.facturaNroOp.TabIndex = 79;
             this.facturaNroOp.Text = "Nro. Operación";
             // 
-            // txtCorreo
+            // txtMontoTotal
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(30, 187);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(232, 22);
-            this.txtCorreo.TabIndex = 78;
+            this.txtMontoTotal.Location = new System.Drawing.Point(30, 187);
+            this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.Size = new System.Drawing.Size(232, 22);
+            this.txtMontoTotal.TabIndex = 78;
             // 
-            // txtNombreCompleto
+            // txtLetra
             // 
-            this.txtNombreCompleto.Location = new System.Drawing.Point(30, 124);
-            this.txtNombreCompleto.Name = "txtNombreCompleto";
-            this.txtNombreCompleto.Size = new System.Drawing.Size(232, 22);
-            this.txtNombreCompleto.TabIndex = 75;
+            this.txtLetra.Location = new System.Drawing.Point(30, 124);
+            this.txtLetra.Name = "txtLetra";
+            this.txtLetra.Size = new System.Drawing.Size(232, 22);
+            this.txtLetra.TabIndex = 75;
             // 
-            // txtDNI
+            // txtNumero
             // 
-            this.txtDNI.Location = new System.Drawing.Point(30, 63);
-            this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(232, 22);
-            this.txtDNI.TabIndex = 71;
+            this.txtNumero.Location = new System.Drawing.Point(30, 63);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(232, 22);
+            this.txtNumero.TabIndex = 71;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // facturaMonto
             // 
@@ -417,7 +513,7 @@ namespace CapaPresentacion
             // 
             this.cboBoxSucursal.BackColor = System.Drawing.Color.White;
             this.cboBoxSucursal.FormattingEnabled = true;
-            this.cboBoxSucursal.Location = new System.Drawing.Point(29, 327);
+            this.cboBoxSucursal.Location = new System.Drawing.Point(30, 315);
             this.cboBoxSucursal.Name = "cboBoxSucursal";
             this.cboBoxSucursal.Size = new System.Drawing.Size(232, 24);
             this.cboBoxSucursal.TabIndex = 99;
@@ -426,96 +522,39 @@ namespace CapaPresentacion
             // 
             this.cboBoxPreventa.BackColor = System.Drawing.Color.White;
             this.cboBoxPreventa.FormattingEnabled = true;
-            this.cboBoxPreventa.Location = new System.Drawing.Point(31, 402);
+            this.cboBoxPreventa.Location = new System.Drawing.Point(30, 378);
             this.cboBoxPreventa.Name = "cboBoxPreventa";
             this.cboBoxPreventa.Size = new System.Drawing.Size(232, 24);
             this.cboBoxPreventa.TabIndex = 100;
             // 
-            // btnSeleccionar
+            // txtEstado
             // 
-            this.btnSeleccionar.FillWeight = 5.868263F;
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 40;
+            this.txtEstado.AutoSize = true;
+            this.txtEstado.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEstado.Location = new System.Drawing.Point(27, 358);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(52, 17);
+            this.txtEstado.TabIndex = 101;
+            this.txtEstado.Text = "Estado";
             // 
-            // id
+            // txtSucursal
             // 
-            this.id.HeaderText = "Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // Numero
-            // 
-            this.Numero.FillWeight = 64.14292F;
-            this.Numero.HeaderText = "Numero";
-            this.Numero.MinimumWidth = 6;
-            this.Numero.Name = "Numero";
-            this.Numero.ReadOnly = true;
-            this.Numero.Width = 125;
-            // 
-            // Letra
-            // 
-            this.Letra.FillWeight = 169.8403F;
-            this.Letra.HeaderText = "Letra";
-            this.Letra.MinimumWidth = 6;
-            this.Letra.Name = "Letra";
-            this.Letra.ReadOnly = true;
-            this.Letra.Width = 150;
-            // 
-            // MontoTotal
-            // 
-            this.MontoTotal.FillWeight = 85.60435F;
-            this.MontoTotal.HeaderText = "Monto Total";
-            this.MontoTotal.MinimumWidth = 6;
-            this.MontoTotal.Name = "MontoTotal";
-            this.MontoTotal.ReadOnly = true;
-            this.MontoTotal.Width = 140;
-            // 
-            // NroOperacion
-            // 
-            this.NroOperacion.FillWeight = 100.0715F;
-            this.NroOperacion.HeaderText = "Nro. Operación";
-            this.NroOperacion.MinimumWidth = 6;
-            this.NroOperacion.Name = "NroOperacion";
-            this.NroOperacion.ReadOnly = true;
-            this.NroOperacion.Width = 125;
-            // 
-            // IdSucursal
-            // 
-            this.IdSucursal.FillWeight = 106.2491F;
-            this.IdSucursal.HeaderText = "ID Sucursal";
-            this.IdSucursal.MinimumWidth = 6;
-            this.IdSucursal.Name = "IdSucursal";
-            this.IdSucursal.ReadOnly = true;
-            this.IdSucursal.Width = 125;
-            // 
-            // IdPreventa
-            // 
-            this.IdPreventa.FillWeight = 168.2236F;
-            this.IdPreventa.HeaderText = "ID Preventa";
-            this.IdPreventa.MinimumWidth = 6;
-            this.IdPreventa.Name = "IdPreventa";
-            this.IdPreventa.ReadOnly = true;
-            this.IdPreventa.Width = 150;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 125;
+            this.txtSucursal.BackColor = System.Drawing.Color.White;
+            this.txtSucursal.ForeColor = System.Drawing.Color.Gray;
+            this.txtSucursal.Location = new System.Drawing.Point(31, 421);
+            this.txtSucursal.Name = "txtSucursal";
+            this.txtSucursal.ReadOnly = true;
+            this.txtSucursal.Size = new System.Drawing.Size(232, 22);
+            this.txtSucursal.TabIndex = 102;
+            this.txtSucursal.Text = "Sucursal";
             // 
             // form_Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1245, 632);
+            this.Controls.Add(this.txtSucursal);
+            this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.cboBoxPreventa);
             this.Controls.Add(this.cboBoxSucursal);
             this.Controls.Add(this.txtIndice);
@@ -532,12 +571,11 @@ namespace CapaPresentacion
             this.Controls.Add(this.label5);
             this.Controls.Add(this.bntGuardar);
             this.Controls.Add(this.facturaPreventa);
-            this.Controls.Add(this.facturaSucursal);
-            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.txtNroOperacion);
             this.Controls.Add(this.facturaNroOp);
-            this.Controls.Add(this.txtCorreo);
-            this.Controls.Add(this.txtNombreCompleto);
-            this.Controls.Add(this.txtDNI);
+            this.Controls.Add(this.txtMontoTotal);
+            this.Controls.Add(this.txtLetra);
+            this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.facturaMonto);
             this.Controls.Add(this.facturaLetra);
             this.Controls.Add(this.facturaNro);
@@ -551,6 +589,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.label1);
             this.Name = "form_Facturas";
             this.Text = "form_Facturas";
+            this.Load += new System.EventHandler(this.form_Facturas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -574,12 +613,11 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label5;
         private FontAwesome.Sharp.IconButton bntGuardar;
         private System.Windows.Forms.Label facturaPreventa;
-        private System.Windows.Forms.Label facturaSucursal;
-        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtNroOperacion;
         private System.Windows.Forms.Label facturaNroOp;
-        private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.TextBox txtNombreCompleto;
-        private System.Windows.Forms.TextBox txtDNI;
+        private System.Windows.Forms.TextBox txtMontoTotal;
+        private System.Windows.Forms.TextBox txtLetra;
+        private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label facturaMonto;
         private System.Windows.Forms.Label facturaLetra;
         private System.Windows.Forms.Label facturaNro;
@@ -592,6 +630,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ComboBox cboBoxSucursal;
         private System.Windows.Forms.ComboBox cboBoxPreventa;
+        private System.Windows.Forms.Label txtEstado;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
@@ -599,7 +638,10 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn MontoTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroOperacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdSucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionSucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdPreventa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescEstado;
+        private System.Windows.Forms.TextBox txtSucursal;
     }
 }

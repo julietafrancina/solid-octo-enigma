@@ -88,14 +88,17 @@ namespace SistemaDeVentas
 
         private void txtDNI_TextChanged(object sender, EventArgs e)
         {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtDNI.Text, "^[0-9]*$"))
+           
+        }
+       
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                txtDNI.Text = string.Empty;
-                MessageBox.Show("Solo ingrese números por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
             }
         }
-
-
-
     }
 }
