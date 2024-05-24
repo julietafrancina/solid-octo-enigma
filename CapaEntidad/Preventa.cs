@@ -17,6 +17,7 @@ namespace CapaEntidad
         public double monto { get; set; }
         public bool baja { get; set; }
         public int nroOperacion { get; set; }
+        public List<Articulo> articulos = new List<Articulo>();
 
     }
 }

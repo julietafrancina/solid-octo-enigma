@@ -147,5 +147,10 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void cboRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

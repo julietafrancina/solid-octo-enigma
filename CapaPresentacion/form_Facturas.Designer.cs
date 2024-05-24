@@ -29,11 +29,11 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIndice = new System.Windows.Forms.TextBox();
-            this.btnEditar = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiarDatos = new FontAwesome.Sharp.IconButton();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,6 @@ namespace CapaPresentacion
             this.label6 = new System.Windows.Forms.Label();
             this.ttlClientes = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.label5 = new System.Windows.Forms.Label();
             this.bntGuardar = new FontAwesome.Sharp.IconButton();
             this.facturaPreventa = new System.Windows.Forms.Label();
@@ -72,8 +71,8 @@ namespace CapaPresentacion
             this.textNombreCompleto = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.cboBoxSucursal = new System.Windows.Forms.ComboBox();
             this.cboBoxPreventa = new System.Windows.Forms.ComboBox();
+            this.cboBoxEstado = new System.Windows.Forms.ComboBox();
             this.txtEstado = new System.Windows.Forms.Label();
             this.txtSucursal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -96,21 +95,21 @@ namespace CapaPresentacion
             this.txtIndice.TabIndex = 97;
             this.txtIndice.Text = "-1";
             // 
-            // btnEditar
+            // btnLimpiarDatos
             // 
-            this.btnEditar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnEditar.IconColor = System.Drawing.Color.Black;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditar.IconSize = 20;
-            this.btnEditar.Location = new System.Drawing.Point(29, 466);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(114, 42);
-            this.btnEditar.TabIndex = 85;
-            this.btnEditar.Text = "Limpiar";
-            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.btnLimpiarDatos.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiarDatos.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnLimpiarDatos.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarDatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarDatos.IconSize = 20;
+            this.btnLimpiarDatos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiarDatos.Location = new System.Drawing.Point(29, 466);
+            this.btnLimpiarDatos.Name = "btnLimpiarDatos";
+            this.btnLimpiarDatos.Size = new System.Drawing.Size(233, 42);
+            this.btnLimpiarDatos.TabIndex = 85;
+            this.btnLimpiarDatos.Text = "Limpiar";
+            this.btnLimpiarDatos.UseVisualStyleBackColor = false;
+            this.btnLimpiarDatos.Click += new System.EventHandler(this.btnLimpiarDatos_Click);
             // 
             // dgvData
             // 
@@ -118,15 +117,15 @@ namespace CapaPresentacion
             this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvData.ColumnHeadersHeight = 40;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -144,14 +143,14 @@ namespace CapaPresentacion
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.Size = new System.Drawing.Size(888, 527);
@@ -271,6 +270,7 @@ namespace CapaPresentacion
             this.btnLimpiar.TabIndex = 95;
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnBusqueda
             // 
@@ -286,6 +286,7 @@ namespace CapaPresentacion
             this.btnBusqueda.TabIndex = 94;
             this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBusqueda.UseVisualStyleBackColor = false;
+            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
             // 
             // txtBusqueda
             // 
@@ -335,21 +336,6 @@ namespace CapaPresentacion
             this.txtId.Size = new System.Drawing.Size(33, 22);
             this.txtId.TabIndex = 89;
             this.txtId.Text = "0";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Cancel;
-            this.btnEliminar.IconColor = System.Drawing.Color.Black;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.IconSize = 20;
-            this.btnEliminar.Location = new System.Drawing.Point(149, 466);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(114, 42);
-            this.btnEliminar.TabIndex = 86;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -408,6 +394,7 @@ namespace CapaPresentacion
             // 
             // txtMontoTotal
             // 
+            this.txtMontoTotal.BackColor = System.Drawing.Color.White;
             this.txtMontoTotal.Location = new System.Drawing.Point(30, 187);
             this.txtMontoTotal.Name = "txtMontoTotal";
             this.txtMontoTotal.Size = new System.Drawing.Size(232, 22);
@@ -415,6 +402,7 @@ namespace CapaPresentacion
             // 
             // txtLetra
             // 
+            this.txtLetra.BackColor = System.Drawing.Color.White;
             this.txtLetra.Location = new System.Drawing.Point(30, 124);
             this.txtLetra.Name = "txtLetra";
             this.txtLetra.Size = new System.Drawing.Size(232, 22);
@@ -422,6 +410,7 @@ namespace CapaPresentacion
             // 
             // txtNumero
             // 
+            this.txtNumero.BackColor = System.Drawing.Color.White;
             this.txtNumero.Location = new System.Drawing.Point(30, 63);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(232, 22);
@@ -509,23 +498,24 @@ namespace CapaPresentacion
             this.textBox2.Size = new System.Drawing.Size(172, 22);
             this.textBox2.TabIndex = 74;
             // 
-            // cboBoxSucursal
-            // 
-            this.cboBoxSucursal.BackColor = System.Drawing.Color.White;
-            this.cboBoxSucursal.FormattingEnabled = true;
-            this.cboBoxSucursal.Location = new System.Drawing.Point(30, 315);
-            this.cboBoxSucursal.Name = "cboBoxSucursal";
-            this.cboBoxSucursal.Size = new System.Drawing.Size(232, 24);
-            this.cboBoxSucursal.TabIndex = 99;
-            // 
             // cboBoxPreventa
             // 
             this.cboBoxPreventa.BackColor = System.Drawing.Color.White;
             this.cboBoxPreventa.FormattingEnabled = true;
-            this.cboBoxPreventa.Location = new System.Drawing.Point(30, 378);
+            this.cboBoxPreventa.Location = new System.Drawing.Point(30, 315);
             this.cboBoxPreventa.Name = "cboBoxPreventa";
             this.cboBoxPreventa.Size = new System.Drawing.Size(232, 24);
-            this.cboBoxPreventa.TabIndex = 100;
+            this.cboBoxPreventa.TabIndex = 99;
+            // 
+            // cboBoxEstado
+            // 
+            this.cboBoxEstado.BackColor = System.Drawing.Color.White;
+            this.cboBoxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBoxEstado.FormattingEnabled = true;
+            this.cboBoxEstado.Location = new System.Drawing.Point(30, 378);
+            this.cboBoxEstado.Name = "cboBoxEstado";
+            this.cboBoxEstado.Size = new System.Drawing.Size(232, 24);
+            this.cboBoxEstado.TabIndex = 100;
             // 
             // txtEstado
             // 
@@ -555,10 +545,10 @@ namespace CapaPresentacion
             this.ClientSize = new System.Drawing.Size(1245, 632);
             this.Controls.Add(this.txtSucursal);
             this.Controls.Add(this.txtEstado);
+            this.Controls.Add(this.cboBoxEstado);
             this.Controls.Add(this.cboBoxPreventa);
-            this.Controls.Add(this.cboBoxSucursal);
             this.Controls.Add(this.txtIndice);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnLimpiarDatos);
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBusqueda);
@@ -567,7 +557,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ttlClientes);
             this.Controls.Add(this.txtId);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.bntGuardar);
             this.Controls.Add(this.facturaPreventa);
@@ -600,7 +589,7 @@ namespace CapaPresentacion
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIndice;
-        private FontAwesome.Sharp.IconButton btnEditar;
+        private FontAwesome.Sharp.IconButton btnLimpiarDatos;
         private System.Windows.Forms.DataGridView dgvData;
         private FontAwesome.Sharp.IconButton btnLimpiar;
         private FontAwesome.Sharp.IconButton btnBusqueda;
@@ -609,7 +598,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label ttlClientes;
         private System.Windows.Forms.TextBox txtId;
-        private FontAwesome.Sharp.IconButton btnEliminar;
         private System.Windows.Forms.Label label5;
         private FontAwesome.Sharp.IconButton bntGuardar;
         private System.Windows.Forms.Label facturaPreventa;
@@ -628,8 +616,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox textNombreCompleto;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox cboBoxSucursal;
         private System.Windows.Forms.ComboBox cboBoxPreventa;
+        private System.Windows.Forms.ComboBox cboBoxEstado;
         private System.Windows.Forms.Label txtEstado;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
