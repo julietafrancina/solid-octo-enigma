@@ -70,6 +70,23 @@ namespace CapaPresentacion
             cboBoxEstado.ValueMember = "Valor";
             cboBoxEstado.SelectedIndex = 1;
 
+            List<Preventa> listaPreventas = new CN_Preventa().listar();
+
+            foreach (Preventa item in listaPreventas)
+            {
+                if(item.baja == false)
+                {
+                    cboBoxPreventa.Items.Add(new OpcionCombo()
+                    {
+                        Valor = item.idPreventa,
+                        Texto = "ID: " + item.idPreventa.ToString() + " -  Nro. Op.: " + item.nroOperacion.ToString()
+                    });
+                }
+            }
+
+            cboBoxPreventa.DisplayMember = "Texto";
+            cboBoxPreventa.ValueMember = "Valor";
+
         }
 
         private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -139,6 +156,16 @@ namespace CapaPresentacion
                         }
                     }
 
+                    foreach (OpcionCombo oc in cboBoxPreventa.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["idPreventa"].Value))
+                        {
+                            int indice_combo = cboBoxPreventa.Items.IndexOf(oc);
+                            cboBoxPreventa.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+
                 }
             }
 
@@ -177,6 +204,27 @@ namespace CapaPresentacion
             {
                 row.Visible = true;
             }
+        }
+
+        private void cboBoxPreventa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OpcionCombo opcionSeleccionada = (OpcionCombo)cboBoxPreventa.SelectedItem;
+            
+            int valor = Convert.ToInt32(opcionSeleccionada.Valor);
+
+            List<Preventa> listaPreventas = new CN_Preventa().listar();
+
+            foreach (Preventa item in listaPreventas)
+            {
+                if (item.idPreventa == valor)
+                {
+                    txtNroOperacion.Text = item.nroOperacion.ToString();
+                    txtSucursal.Text = item.osucursal.desc;
+                    txtSucursal.ForeColor = System.Drawing.Color.Black;
+                }
+            }
+            
+            
         }
     }
 }
