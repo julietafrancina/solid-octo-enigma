@@ -79,10 +79,7 @@ namespace SistemaDeVentas
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Clientes());
         }
 
-        private void contenedor_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
     
     }

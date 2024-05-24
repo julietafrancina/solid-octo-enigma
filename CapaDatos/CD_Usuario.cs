@@ -8,7 +8,6 @@ using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
 
-
 namespace CapaDatos
 {
     public class CD_Usuario
@@ -55,7 +54,6 @@ namespace CapaDatos
                 {
                     lista = new List<Usuario>();
                 }
-
             }
             return lista;
         }
