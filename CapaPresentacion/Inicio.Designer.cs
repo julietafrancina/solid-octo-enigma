@@ -198,7 +198,6 @@ namespace SistemaDeVentas
             this.contenedor.Name = "contenedor";
             this.contenedor.Size = new System.Drawing.Size(1167, 389);
             this.contenedor.TabIndex = 3;
-           
             // 
             // menuTitulo
             // 
