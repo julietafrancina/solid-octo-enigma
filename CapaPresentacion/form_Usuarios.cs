@@ -61,17 +61,22 @@ namespace CapaPresentacion
             {
                 if (columna.Visible == true && columna.Name != "btnSeleccionar")
                 {
-                    cboBusqueda.Items.Add(new OpcionCombo()
+                    cboBusquedaUsuario.Items.Add(new OpcionCombo()
                     {
                         Texto = columna.HeaderText,
                         Valor = columna.Name
                     });
                 }
             }
-            cboBusqueda.DisplayMember = "Texto";
-            cboBusqueda.ValueMember = "Valor";
-            cboBusqueda.SelectedIndex = 0;
+            cboBusquedaUsuario.DisplayMember = "Texto";
+            cboBusquedaUsuario.ValueMember = "Valor";
+            cboBusquedaUsuario.SelectedIndex = 0;
+        }
 
+        //Filtro buscador
+        private void filtrarDatos()
+        {
+            string filtro;
         }
 
         //Registrar un usuario nuevo al hacer click en el botón 'Guardar'.
@@ -178,15 +183,39 @@ namespace CapaPresentacion
             }
         }
 
-        private void cboBusqueda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         //Limpiar los inputs al hacer click en el botón 'Limpiar'.
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();
+        }
+
+        private void btnBusquedaUsuario_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)cboBusquedaUsuario.SelectedItem).Valor.ToString();
+
+            if (dgvData.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtBusquedaUsuario.Text.Trim().ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiarBusquedaUsuario_Click(object sender, EventArgs e)
+        {
+            txtBusquedaUsuario.Text = "";
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                row.Visible = true;
+            }
         }
     }
 }

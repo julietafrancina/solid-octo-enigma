@@ -41,6 +41,22 @@ namespace CapaPresentacion
                     item.ousuario.nombreCompleto
                 });
             }
+
+            //para que en el combo de búsqueda me aparezcan los nombres de las columnas visibles
+            foreach (DataGridViewColumn columna in dgvPreventas.Columns)
+            {
+                if (columna.Visible == true && columna.Name != "btnSeleccionar")
+                {
+                    cboBusquedaPreventa.Items.Add(new OpcionCombo()
+                    {
+                        Texto = columna.HeaderText,
+                        Valor = columna.Name
+                    });
+                }
+            }
+            cboBusquedaPreventa.DisplayMember = "Texto";
+            cboBusquedaPreventa.ValueMember = "Valor";
+            cboBusquedaPreventa.SelectedIndex = 0;
         }
 
         //Para que diga Sí en vez de True
@@ -123,5 +139,33 @@ namespace CapaPresentacion
             limpiar();
         }
 
+        private void btnBusquedaPreventa_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)cboBusquedaPreventa.SelectedItem).Valor.ToString();
+
+            if (dgvPreventas.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvPreventas.Rows)
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtBusquedaPreventa.Text.Trim().ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void btnRestablecerBusquedaPreventa_Click(object sender, EventArgs e)
+        {
+            txtBusquedaPreventa.Text = "";
+            foreach (DataGridViewRow row in dgvPreventas.Rows)
+            {
+                row.Visible = true;
+            }
+        }
     }
 }
