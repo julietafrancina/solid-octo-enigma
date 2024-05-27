@@ -45,6 +45,7 @@
     <Compile Include="CN_Cliente.cs" />
     <Compile Include="CN_Estado.cs" />
     <Compile Include="CN_Preventa.cs" />
+    <Compile Include="CN_Remito.cs" />
     <Compile Include="CN_Rol.cs" />
     <Compile Include="CN_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

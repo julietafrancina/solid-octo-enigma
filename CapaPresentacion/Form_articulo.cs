@@ -60,7 +60,7 @@ namespace CapaPresentacion
         private void byGuardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
-            Articulo art = new Articulo();
+            Remito re = new Remito();
             
             
             tabla_art.Rows.Add(new object[] {
