@@ -73,6 +73,12 @@
     <Compile Include="form_Preventa.Designer.cs">
       <DependentUpon>form_Preventa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Remtio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Remtio.Designer.cs">
+      <DependentUpon>Form_Remtio.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,9 +102,12 @@
     <Compile Include="Utilidades\OpcionCombo.cs" />
     <EmbeddedResource Include="Form_articulo.resx">
       <DependentUpon>Form_articulo.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_Preventa.resx">
       <DependentUpon>form_Preventa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Remtio.resx">
+      <DependentUpon>Form_Remtio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_Usuarios.resx">
       <DependentUpon>form_Usuarios.cs</DependentUpon>

@@ -176,6 +176,11 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void textCosto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

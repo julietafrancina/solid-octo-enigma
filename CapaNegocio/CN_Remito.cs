@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
+using CapaEntidad;
 
 namespace CapaNegocio
 {
-    public class CN_Estado
+    public class CN_Remito
     {
-        private CD_Estado objcd_Estado = new CD_Estado();
+        private CD_Remito objcd_re = new CD_Remito();
 
-        public List<Estado> listar()
+        public List<Remito> listar()
         {
-            return objcd_Estado.listar();
+            return objcd_re.listar();
         }
     }
 }
