@@ -10,11 +10,11 @@ namespace CapaNegocio
 {
     public class CN_Remito
     {
-      //  private CD_Remito objcd_re = new CD_Remito();
+        private CD_Remito objcd_re = new CD_Remito();
 
-     /*   public List<Remito> listar()
+        public List<Remito> listar()
         {
-            //return objcd_re.listar();
-        }*/
+            return objcd_re.listar();
+        }
     }
 }

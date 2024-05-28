@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentacion
 {
-    partial class Form_Remtio
+    partial class Form_Remito
     {
         /// <summary>
         /// Required designer variable.

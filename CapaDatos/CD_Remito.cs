@@ -9,33 +9,34 @@ using System.Data.SqlClient;
 
 namespace CapaDatos
 {
-    /* public class CD_Remito
+     public class CD_Remito
      {
 
-         public void CargarDatos()
-         {
-             string connectionString = "Server=your_server;Database=your_database;User Id=your_user_id;Password=your_password;";
-             string query = "SELECT ColumnName FROM YourTable WHERE ConditionColumn = SomeValue";
+        /*public void CargarDatos()
+        {
+            string connectionString = "Server=your_server;Database=your_database;User Id=your_user_id;Password=your_password;";
+            string query = "SELECT ColumnName FROM YourTable WHERE ConditionColumn = SomeValue";
 
-             using (SqlConnection connection = new SqlConnection(connectionString))
-             {
-                 try
-                 {
-                     connection.Open();
-                     using (SqlCommand command = new SqlCommand(query, connection))
-                     {
-                         SqlDataReader reader = command.ExecuteReader();
-                         if (reader.Read())
-                         {
-                             textNroOp.Text = reader["nro_op"].ToString();
-                         }
-                     }
-                 }
-                 catch (Exception ex)
-                 {
-                     MessageBox.Show("Error al cargar los datos: " + ex.Message);
-                 }
-             }
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            textNroOp.Text = reader["nro_op"].ToString();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
+                }
+            }
+        }*/
              public List<Remito> listar()
          {
              List<Remito> lista = new List<Remito>();
@@ -61,12 +62,12 @@ namespace CapaDatos
                              //preg si es true=1 quiere decir que esta confirmado
                              if (valor == true)
                              {
-                                 e = "";
+                                 e = "Si";
 
                              }
                              else
                              {
-                                 b = "No";
+                                 e = "No";
                              }
                              lista.Add(new Remito()
                              {
@@ -74,10 +75,12 @@ namespace CapaDatos
                                  nroOperacion = Convert.ToInt32(dr["nroOperacion"]),
                                  letra = dr["letra"].ToString(),
                                  tipoRemito = dr["tipo"].ToString(),
-                                 Estado_id = dr[Estado.descripcion].ToString(),
+                                 Estado_id = e,
+                                 factura = dr["factura_id"].ToString(),
+
                              }) ;
                          }
-
+                         
 
                      }
                  }
@@ -90,5 +93,4 @@ namespace CapaDatos
          }
      }
  }
-    */
-}
+    

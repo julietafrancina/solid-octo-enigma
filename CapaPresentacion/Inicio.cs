@@ -101,5 +101,10 @@ namespace SistemaDeVentas
         {
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.Form_articulo());
         }
+
+        private void menuRemitos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.Form_Remito());
+        }
     }
 }

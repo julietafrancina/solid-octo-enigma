@@ -144,6 +144,7 @@ namespace SistemaDeVentas
             this.menuRemitos.Text = "Remitos";
             this.menuRemitos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuRemitos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuRemitos.Click += new System.EventHandler(this.menuRemitos_Click);
             // 
             // menuClientes
             // 

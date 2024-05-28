@@ -14,54 +14,55 @@ using System.Data.SqlClient;
 
 namespace CapaPresentacion
 {
-    public partial class Form_Remtio : Form
+    public partial class Form_Remito : Form
     {
-        public Form_Remtio()
+        public Form_Remito()
         {
             InitializeComponent();
          //   CargarDatos();
         }
+
+    
+
         /*private void CargarDatos()
-        {
+{
 
-            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-            {
-                try
-                {
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("select * from Factura");
+   using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+   {
+       try
+       {
+           StringBuilder query = new StringBuilder();
+           query.AppendLine("select * from Factura");
 
-                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-                    cmd.CommandType = CommandType.Text;
+           SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+           cmd.CommandType = CommandType.Text;
 
-                    oconexion.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            textNroOp.Text = dr["nro_op"].ToString();
-                            textSucursal.Text = dr["sucursal_id"];
-                        }
-                    }
+           oconexion.Open();
+           using (SqlDataReader dr = cmd.ExecuteReader())
+           {
+               while (dr.Read())
+               {
+                   textNroOp.Text = dr["nro_op"].ToString();
+                   textSucursal.Text = dr["sucursal_id"];
+               }
+           }
 
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
-                }
-            }
-        }
-        */
+       }
+       catch (Exception ex)
+       {
+           MessageBox.Show("Error al cargar los datos: " + ex.Message);
+       }
+   }
+}
+*/
 
         private void Form_remito_Load(object sender, EventArgs e)
         {
-          //  List<Remito> lista_remito = new CN_Remito().listar();
+            List<Remito> lista_remito = new CN_Remito().listar();
 
-           /* foreach (Remito rem in lista_remito)
+            foreach (Remito rem in lista_remito)
             {
-
-
 
                 tabla_rem.Rows.Add(new object[] {
               //  "",
@@ -74,13 +75,18 @@ namespace CapaPresentacion
                 rem.factura,
                 });
             }
-          /*  CB_baja.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Si" });
-            CB_baja.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No" });
-            CB_baja.DisplayMember = "Texto";
-            CB_baja.ValueMember = "Valor";
-            CB_baja.SelectedIndex = 1;*/
+            CB_estado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Si" });
+            CB_estado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No" });
+            CB_estado.DisplayMember = "Texto";
+            CB_estado.ValueMember = "Valor";
+            CB_estado.SelectedIndex = 1;
+            CB_tipo.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Original" });
+            CB_tipo.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Duplicado" });
+            CB_tipo.DisplayMember = "Texto";
+            CB_tipo.ValueMember = "Valor";
+            CB_tipo.SelectedIndex = 1;
         }
-       private void btnBusqueda_Click(object sender, EventArgs e)
+        private void btnBusqueda_Click(object sender, EventArgs e)
         {
 
         }
