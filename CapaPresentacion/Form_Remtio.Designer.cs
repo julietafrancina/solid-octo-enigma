@@ -269,7 +269,7 @@ namespace CapaPresentacion
             this.btEliminarRem.Name = "btEliminarRem";
             this.btEliminarRem.Size = new System.Drawing.Size(97, 42);
             this.btEliminarRem.TabIndex = 40;
-            this.btEliminarRem.Text = "Eliminar";
+            this.btEliminarRem.Text = "Cancelar";
             this.btEliminarRem.UseVisualStyleBackColor = true;
             // 
             // btGuardarRem
@@ -288,6 +288,8 @@ namespace CapaPresentacion
             this.textNro.Name = "textNro";
             this.textNro.Size = new System.Drawing.Size(212, 22);
             this.textNro.TabIndex = 42;
+            this.textNro.TextChanged += new System.EventHandler(this.textNro_TextChanged);
+            this.textNro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNro_KeyPress);
             // 
             // label1
             // 

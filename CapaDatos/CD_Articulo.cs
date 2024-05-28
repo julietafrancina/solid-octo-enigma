@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
-//using CapaPresentacion;
 
 
 namespace CapaDatos
@@ -33,17 +32,17 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
-                            bool valor = (bool)dr["baja"];
-                            String b;
-                            //preg si es true=1 quiere decir que esta dado de baja
+                            bool valor = (bool)dr["activo"];
+                            String a;
+                            //preg si es true=1 quiere decir que esta activo
                             if (valor == true)
                             {
-                                b = "Si";
+                                a = "Si";
 
                             }
                             else
                             {
-                                b = "No";
+                                a = "No";
                             }
 
 
@@ -54,7 +53,7 @@ namespace CapaDatos
                                 marca = dr["marca"].ToString(),
                                 descripcion= dr["descripcion"].ToString(),
                                 costo = Convert.ToDouble(dr["costo"]),
-                                baja = b,
+                                activo = a,
 
                             });
                         }

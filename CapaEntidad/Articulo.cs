@@ -14,6 +14,6 @@ namespace CapaEntidad
         public double costo { get; set; }
         public string descripcion { get; set; }
         public string marca { get; set; }
-        public String baja { get; set; }
+        public String activo { get; set; }
     }
 }

@@ -11,9 +11,9 @@ namespace CapaNegocio
     {
         private CD_Estado objcd_Estado = new CD_Estado();
 
-        public List<Estado> listar()
+       /* public List<Estado> listar()
         {
             return objcd_Estado.listar();
-        }
+        }*/
     }
 }

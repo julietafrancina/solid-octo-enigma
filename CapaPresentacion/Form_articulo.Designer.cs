@@ -42,12 +42,6 @@ namespace CapaPresentacion
             this.btEliminar = new System.Windows.Forms.Button();
             this.byGuardar = new System.Windows.Forms.Button();
             this.tabla_art = new System.Windows.Forms.DataGridView();
-            this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.textBaja = new System.Windows.Forms.Label();
             this.CB_baja = new System.Windows.Forms.ComboBox();
@@ -57,6 +51,12 @@ namespace CapaPresentacion
             this.textDesc = new System.Windows.Forms.TextBox();
             this.Desc = new System.Windows.Forms.Label();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
+            this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +117,7 @@ namespace CapaPresentacion
             this.textCosto.Location = new System.Drawing.Point(45, 357);
             this.textCosto.Name = "textCosto";
             this.textCosto.Size = new System.Drawing.Size(212, 22);
-            this.textCosto.TabIndex = 6;
+            this.textCosto.TabIndex = 7;
             this.textCosto.TextChanged += new System.EventHandler(this.textCosto_TextChanged);
             this.textCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textCosto_KeyPress);
             // 
@@ -141,9 +141,9 @@ namespace CapaPresentacion
             // 
             // BtLimpiar
             // 
-            this.BtLimpiar.Location = new System.Drawing.Point(45, 472);
+            this.BtLimpiar.Location = new System.Drawing.Point(45, 481);
             this.BtLimpiar.Name = "BtLimpiar";
-            this.BtLimpiar.Size = new System.Drawing.Size(97, 42);
+            this.BtLimpiar.Size = new System.Drawing.Size(205, 49);
             this.BtLimpiar.TabIndex = 9;
             this.BtLimpiar.Text = "Limpiar";
             this.BtLimpiar.UseVisualStyleBackColor = true;
@@ -151,17 +151,17 @@ namespace CapaPresentacion
             // 
             // btEliminar
             // 
-            this.btEliminar.Location = new System.Drawing.Point(160, 472);
+            this.btEliminar.Location = new System.Drawing.Point(45, 588);
             this.btEliminar.Name = "btEliminar";
-            this.btEliminar.Size = new System.Drawing.Size(97, 42);
+            this.btEliminar.Size = new System.Drawing.Size(205, 53);
             this.btEliminar.TabIndex = 10;
-            this.btEliminar.Text = "Eliminar";
+            this.btEliminar.Text = "Dar de baja";
             this.btEliminar.UseVisualStyleBackColor = true;
             // 
             // byGuardar
             // 
             this.byGuardar.BackColor = System.Drawing.Color.LightGreen;
-            this.byGuardar.Location = new System.Drawing.Point(45, 530);
+            this.byGuardar.Location = new System.Drawing.Point(45, 536);
             this.byGuardar.Name = "byGuardar";
             this.byGuardar.Size = new System.Drawing.Size(205, 46);
             this.byGuardar.TabIndex = 11;
@@ -178,7 +178,7 @@ namespace CapaPresentacion
             this.Marca,
             this.Descripción,
             this.Costo,
-            this.Baja});
+            this.Activo});
             this.tabla_art.Location = new System.Drawing.Point(291, 82);
             this.tabla_art.Name = "tabla_art";
             this.tabla_art.RowHeadersWidth = 51;
@@ -186,48 +186,6 @@ namespace CapaPresentacion
             this.tabla_art.Size = new System.Drawing.Size(805, 537);
             this.tabla_art.TabIndex = 13;
             this.tabla_art.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_art_CellContentClick);
-            // 
-            // codigo_articulo
-            // 
-            this.codigo_articulo.HeaderText = "SKU";
-            this.codigo_articulo.MinimumWidth = 6;
-            this.codigo_articulo.Name = "codigo_articulo";
-            this.codigo_articulo.Width = 125;
-            // 
-            // Rubro
-            // 
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            this.Rubro.Width = 125;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.Width = 125;
-            // 
-            // Descripción
-            // 
-            this.Descripción.HeaderText = "Descripción";
-            this.Descripción.MinimumWidth = 6;
-            this.Descripción.Name = "Descripción";
-            this.Descripción.Width = 125;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
-            this.Costo.Width = 125;
-            // 
-            // Baja
-            // 
-            this.Baja.HeaderText = "Baja";
-            this.Baja.MinimumWidth = 6;
-            this.Baja.Name = "Baja";
-            this.Baja.Width = 125;
             // 
             // label5
             // 
@@ -244,9 +202,9 @@ namespace CapaPresentacion
             this.textBaja.AutoSize = true;
             this.textBaja.Location = new System.Drawing.Point(42, 394);
             this.textBaja.Name = "textBaja";
-            this.textBaja.Size = new System.Drawing.Size(36, 17);
+            this.textBaja.Size = new System.Drawing.Size(46, 17);
             this.textBaja.TabIndex = 16;
-            this.textBaja.Text = "Baja";
+            this.textBaja.Text = "Activo";
             // 
             // CB_baja
             // 
@@ -290,7 +248,7 @@ namespace CapaPresentacion
             this.textDesc.Location = new System.Drawing.Point(45, 285);
             this.textDesc.Name = "textDesc";
             this.textDesc.Size = new System.Drawing.Size(212, 22);
-            this.textDesc.TabIndex = 22;
+            this.textDesc.TabIndex = 6;
             this.textDesc.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Desc
@@ -315,6 +273,48 @@ namespace CapaPresentacion
             this.btnBusqueda.TabIndex = 26;
             this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBusqueda.UseVisualStyleBackColor = false;
+            // 
+            // codigo_articulo
+            // 
+            this.codigo_articulo.HeaderText = "SKU";
+            this.codigo_articulo.MinimumWidth = 6;
+            this.codigo_articulo.Name = "codigo_articulo";
+            this.codigo_articulo.Width = 125;
+            // 
+            // Rubro
+            // 
+            this.Rubro.HeaderText = "Rubro";
+            this.Rubro.MinimumWidth = 6;
+            this.Rubro.Name = "Rubro";
+            this.Rubro.Width = 125;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.Width = 125;
+            // 
+            // Descripción
+            // 
+            this.Descripción.HeaderText = "Descripción";
+            this.Descripción.MinimumWidth = 6;
+            this.Descripción.Name = "Descripción";
+            this.Descripción.Width = 125;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            this.Costo.Width = 125;
+            // 
+            // Activo
+            // 
+            this.Activo.HeaderText = "Activo";
+            this.Activo.MinimumWidth = 6;
+            this.Activo.Name = "Activo";
+            this.Activo.Width = 125;
             // 
             // Form_articulo
             // 
@@ -375,12 +375,12 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox text_buscar;
         private System.Windows.Forms.TextBox textDesc;
         private System.Windows.Forms.Label Desc;
+        private FontAwesome.Sharp.IconButton btnBusqueda;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo_articulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
-        private FontAwesome.Sharp.IconButton btnBusqueda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
     }
 }

@@ -35,14 +35,14 @@ namespace CapaPresentacion
                 art.marca,
                 art.descripcion,
                 art.costo,
-                art.baja,
+                art.activo,
                 });
             }
             CB_baja.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Si" });
             CB_baja.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No" });
             CB_baja.DisplayMember = "Texto";
             CB_baja.ValueMember = "Valor";
-            CB_baja.SelectedIndex = 1;
+            CB_baja.SelectedIndex = 0;
 
             Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Rubro" });
             Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Marca" });
@@ -88,7 +88,7 @@ namespace CapaPresentacion
             textMarca.Text = "";
             textCosto.Text = "";
             textDesc.Text = "";
-            CB_baja.SelectedIndex = 1;
+            CB_baja.SelectedIndex = 0;
         }
 
         private void BtEditar_Click(object sender, EventArgs e)

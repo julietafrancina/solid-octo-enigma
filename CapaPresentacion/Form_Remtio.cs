@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using CapaPresentacion.Utilidades;
 using CapaEntidad;
 using CapaNegocio;
-using CapaDatos;
+using System.Data.SqlClient;
 
 namespace CapaPresentacion
 {
@@ -19,9 +19,9 @@ namespace CapaPresentacion
         public Form_Remtio()
         {
             InitializeComponent();
-            CargarDatos();
+         //   CargarDatos();
         }
-        private void CargarDatos()
+        /*private void CargarDatos()
         {
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
@@ -29,7 +29,7 @@ namespace CapaPresentacion
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select * from Articulo");
+                    query.AppendLine("select * from Factura");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -44,19 +44,21 @@ namespace CapaPresentacion
                         }
                     }
 
-                        
-                    }
+
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al cargar los datos: " + ex.Message);
                 }
             }
-            
+        }
+        */
+
         private void Form_remito_Load(object sender, EventArgs e)
         {
-            List<Remito> lista_remito = new CN_Remito().listar();
+          //  List<Remito> lista_remito = new CN_Remito().listar();
 
-            foreach (Remito rem in lista_remito)
+           /* foreach (Remito rem in lista_remito)
             {
 
 
@@ -64,7 +66,7 @@ namespace CapaPresentacion
                 tabla_rem.Rows.Add(new object[] {
               //  "",
                 rem.nroOperacion,
-                rem.Sucursal_id, 
+                rem.Sucursal_id,
                 rem.letra,
                 rem.tipoRemito,
                 rem.Estado_id,
@@ -72,17 +74,33 @@ namespace CapaPresentacion
                 rem.factura,
                 });
             }
-            CB_baja.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Si" });
+          /*  CB_baja.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Si" });
             CB_baja.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No" });
             CB_baja.DisplayMember = "Texto";
             CB_baja.ValueMember = "Valor";
-            CB_baja.SelectedIndex = 1;
-            private void btnBusqueda_Click(object sender, EventArgs e)
+            CB_baja.SelectedIndex = 1;*/
+        }
+       private void btnBusqueda_Click(object sender, EventArgs e)
         {
 
         }
 
         private void textNro_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CB_estado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabla_rem_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textNro_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verifico si la tecla presionada es un nro o una tecla de control
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -91,15 +109,7 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
-
-        private void CB_estado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
-        private void tabla_rem_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
     }
