@@ -29,23 +29,12 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIndice = new System.Windows.Forms.TextBox();
             this.btnLimpiarDatos = new FontAwesome.Sharp.IconButton();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Letra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripcionSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -75,6 +64,17 @@ namespace CapaPresentacion
             this.cboBoxEstado = new System.Windows.Forms.ComboBox();
             this.txtEstado = new System.Windows.Forms.Label();
             this.txtSucursal = new System.Windows.Forms.TextBox();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Letra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,15 +117,15 @@ namespace CapaPresentacion
             this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.ColumnHeadersHeight = 40;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -143,118 +143,20 @@ namespace CapaPresentacion
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.Size = new System.Drawing.Size(888, 527);
             this.dgvData.TabIndex = 88;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.FillWeight = 5.868263F;
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 40;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // Numero
-            // 
-            this.Numero.FillWeight = 64.14292F;
-            this.Numero.HeaderText = "Numero";
-            this.Numero.MinimumWidth = 6;
-            this.Numero.Name = "Numero";
-            this.Numero.ReadOnly = true;
-            this.Numero.Width = 125;
-            // 
-            // Letra
-            // 
-            this.Letra.FillWeight = 169.8403F;
-            this.Letra.HeaderText = "Letra";
-            this.Letra.MinimumWidth = 6;
-            this.Letra.Name = "Letra";
-            this.Letra.ReadOnly = true;
-            this.Letra.Width = 50;
-            // 
-            // MontoTotal
-            // 
-            this.MontoTotal.FillWeight = 85.60435F;
-            this.MontoTotal.HeaderText = "Monto Total";
-            this.MontoTotal.MinimumWidth = 6;
-            this.MontoTotal.Name = "MontoTotal";
-            this.MontoTotal.ReadOnly = true;
-            this.MontoTotal.Width = 140;
-            // 
-            // NroOperacion
-            // 
-            this.NroOperacion.FillWeight = 100.0715F;
-            this.NroOperacion.HeaderText = "Nro. Operación";
-            this.NroOperacion.MinimumWidth = 6;
-            this.NroOperacion.Name = "NroOperacion";
-            this.NroOperacion.ReadOnly = true;
-            this.NroOperacion.Width = 125;
-            // 
-            // IdSucursal
-            // 
-            this.IdSucursal.FillWeight = 106.2491F;
-            this.IdSucursal.HeaderText = "ID Sucursal";
-            this.IdSucursal.MinimumWidth = 6;
-            this.IdSucursal.Name = "IdSucursal";
-            this.IdSucursal.ReadOnly = true;
-            this.IdSucursal.Visible = false;
-            this.IdSucursal.Width = 125;
-            // 
-            // DescripcionSucursal
-            // 
-            this.DescripcionSucursal.HeaderText = "Descripción Sucursal";
-            this.DescripcionSucursal.MinimumWidth = 6;
-            this.DescripcionSucursal.Name = "DescripcionSucursal";
-            this.DescripcionSucursal.ReadOnly = true;
-            this.DescripcionSucursal.Width = 175;
-            // 
-            // IdPreventa
-            // 
-            this.IdPreventa.FillWeight = 168.2236F;
-            this.IdPreventa.HeaderText = "ID Preventa";
-            this.IdPreventa.MinimumWidth = 6;
-            this.IdPreventa.Name = "IdPreventa";
-            this.IdPreventa.ReadOnly = true;
-            this.IdPreventa.Width = 150;
-            // 
-            // IdEstado
-            // 
-            this.IdEstado.HeaderText = "ID Estado";
-            this.IdEstado.MinimumWidth = 6;
-            this.IdEstado.Name = "IdEstado";
-            this.IdEstado.ReadOnly = true;
-            this.IdEstado.Visible = false;
-            this.IdEstado.Width = 125;
-            // 
-            // DescEstado
-            // 
-            this.DescEstado.HeaderText = "Estado";
-            this.DescEstado.MinimumWidth = 6;
-            this.DescEstado.Name = "DescEstado";
-            this.DescEstado.ReadOnly = true;
-            this.DescEstado.Width = 125;
             // 
             // btnLimpiar
             // 
@@ -362,6 +264,7 @@ namespace CapaPresentacion
             this.bntGuardar.TabIndex = 84;
             this.bntGuardar.Text = "Guardar";
             this.bntGuardar.UseVisualStyleBackColor = false;
+            this.bntGuardar.Click += new System.EventHandler(this.bntGuardar_Click);
             // 
             // facturaPreventa
             // 
@@ -540,6 +443,104 @@ namespace CapaPresentacion
             this.txtSucursal.TabIndex = 102;
             this.txtSucursal.Text = "Sucursal";
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.FillWeight = 5.868263F;
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 40;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // Numero
+            // 
+            this.Numero.FillWeight = 64.14292F;
+            this.Numero.HeaderText = "Número";
+            this.Numero.MinimumWidth = 6;
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
+            this.Numero.Width = 125;
+            // 
+            // Letra
+            // 
+            this.Letra.FillWeight = 169.8403F;
+            this.Letra.HeaderText = "Letra";
+            this.Letra.MinimumWidth = 6;
+            this.Letra.Name = "Letra";
+            this.Letra.ReadOnly = true;
+            this.Letra.Width = 50;
+            // 
+            // MontoTotal
+            // 
+            this.MontoTotal.FillWeight = 85.60435F;
+            this.MontoTotal.HeaderText = "Monto Total";
+            this.MontoTotal.MinimumWidth = 6;
+            this.MontoTotal.Name = "MontoTotal";
+            this.MontoTotal.ReadOnly = true;
+            this.MontoTotal.Width = 140;
+            // 
+            // NroOperacion
+            // 
+            this.NroOperacion.FillWeight = 100.0715F;
+            this.NroOperacion.HeaderText = "Nro. Operación";
+            this.NroOperacion.MinimumWidth = 6;
+            this.NroOperacion.Name = "NroOperacion";
+            this.NroOperacion.ReadOnly = true;
+            this.NroOperacion.Width = 125;
+            // 
+            // IdSucursal
+            // 
+            this.IdSucursal.FillWeight = 106.2491F;
+            this.IdSucursal.HeaderText = "ID Sucursal";
+            this.IdSucursal.MinimumWidth = 6;
+            this.IdSucursal.Name = "IdSucursal";
+            this.IdSucursal.ReadOnly = true;
+            this.IdSucursal.Visible = false;
+            this.IdSucursal.Width = 125;
+            // 
+            // DescripcionSucursal
+            // 
+            this.DescripcionSucursal.HeaderText = "Descripción Sucursal";
+            this.DescripcionSucursal.MinimumWidth = 6;
+            this.DescripcionSucursal.Name = "DescripcionSucursal";
+            this.DescripcionSucursal.ReadOnly = true;
+            this.DescripcionSucursal.Width = 175;
+            // 
+            // IdPreventa
+            // 
+            this.IdPreventa.FillWeight = 168.2236F;
+            this.IdPreventa.HeaderText = "ID Preventa";
+            this.IdPreventa.MinimumWidth = 6;
+            this.IdPreventa.Name = "IdPreventa";
+            this.IdPreventa.ReadOnly = true;
+            this.IdPreventa.Width = 150;
+            // 
+            // IdEstado
+            // 
+            this.IdEstado.HeaderText = "ID Estado";
+            this.IdEstado.MinimumWidth = 6;
+            this.IdEstado.Name = "IdEstado";
+            this.IdEstado.ReadOnly = true;
+            this.IdEstado.Visible = false;
+            this.IdEstado.Width = 125;
+            // 
+            // DescEstado
+            // 
+            this.DescEstado.HeaderText = "Estado";
+            this.DescEstado.MinimumWidth = 6;
+            this.DescEstado.Name = "DescEstado";
+            this.DescEstado.ReadOnly = true;
+            this.DescEstado.Width = 125;
+            // 
             // form_Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -579,7 +580,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Name = "form_Facturas";
-            this.Text = "form_Facturas";
+            this.Text = "Facturas";
             this.Load += new System.EventHandler(this.form_Facturas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
@@ -621,6 +622,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.ComboBox cboBoxPreventa;
         private System.Windows.Forms.ComboBox cboBoxEstado;
         private System.Windows.Forms.Label txtEstado;
+        private System.Windows.Forms.TextBox txtSucursal;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
@@ -632,6 +634,5 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn IdPreventa;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescEstado;
-        private System.Windows.Forms.TextBox txtSucursal;
     }
 }

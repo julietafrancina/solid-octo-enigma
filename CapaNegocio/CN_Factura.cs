@@ -18,5 +18,12 @@ namespace CapaNegocio
             return objcd_Factura.listar();
         }
 
+        public int Registrar(Factura obj, out string Mensaje)
+        {
+            Mensaje = string.Empty;
+
+            return objcd_Factura.Registrar(obj,out Mensaje);
+        }
+
     }
 }

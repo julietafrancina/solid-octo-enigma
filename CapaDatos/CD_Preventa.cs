@@ -82,5 +82,49 @@ namespace CapaDatos
             }
             return lista;
         }
+
+
+        //public List<Preventa> listarActivas()
+        //{
+        //    List<Preventa> lista = new List<Preventa>();
+
+        //    using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+        //    {
+        //        try
+        //        {
+
+        //            SqlCommand cmd = new SqlCommand("sp_TraerPreventasActivas", oconexion);
+        //            cmd.CommandType = CommandType.Text;
+
+        //            oconexion.Open();
+        //            using (SqlDataReader dr = cmd.ExecuteReader())
+        //            {
+        //                while (dr.Read())
+        //                {
+
+        //                    lista.Add(new Preventa()
+        //                    {
+        //                        
+                                
+        //                    });
+        //                }
+
+        //            }
+        //        }
+        //        catch (Exception)
+        //        {
+        //            lista = new List<Preventa>();
+        //        }
+
+
+
+        //    }
+
+        //    return lista;
+
+        //}
+
+
+
     }
 }

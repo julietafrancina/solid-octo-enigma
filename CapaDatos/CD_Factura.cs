@@ -20,14 +20,8 @@ namespace CapaDatos
             {
                 try
                 {
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT f.id_factura, f.sucursal_id, f.letra, f.nro, f.monto_total, f.nro_op, " +
-                                    "f.estado, f.preventa_id, s.descripcion as descS, s.telefono, e.descripcion as descE " +
-                                    "FROM Factura f");
-                    query.AppendLine("INNER JOIN Sucursal s ON f.sucursal_id = s.id_sucursal");
-                    query.AppendLine("INNER JOIN Estado e ON f.estado = e.id_estado");
 
-                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    SqlCommand cmd = new SqlCommand("sp_TraerFacturas", oconexion);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -66,5 +60,55 @@ namespace CapaDatos
 
         }
 
+
+        public int Registrar(Factura obj, out string Mensaje)
+        {
+            int idFacturaGenerada = 0;
+            Mensaje = string.Empty;
+
+            try
+            {
+
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+
+                    SqlCommand cmd = new SqlCommand("sp_RegistrarFactura", oconexion);
+                    cmd.Parameters.AddWithValue("Sucursal_ID", obj.sucursal_id.id_suc);
+                    cmd.Parameters.AddWithValue("Letra", obj.letra);
+                    cmd.Parameters.AddWithValue("Numero", obj.nro);
+                    cmd.Parameters.AddWithValue("MontoTotal", obj.monto_total);
+                    cmd.Parameters.AddWithValue("NumeroOperacion", obj.nro_operacion);
+                    cmd.Parameters.AddWithValue("Estado_ID", obj.estado_id.id_estado);
+                    cmd.Parameters.AddWithValue("Preventa_ID", obj.preventa_id.idPreventa);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    idFacturaGenerada = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                idFacturaGenerada = 0;
+                Mensaje = ex.Message;
+
+            }
+
+
+            return idFacturaGenerada;
+
+        }
+
+
+
     }
+
 }

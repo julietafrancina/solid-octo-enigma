@@ -123,6 +123,8 @@ namespace CapaPresentacion
             txtSucursal.Text = "Sucursal";
             txtSucursal.ForeColor = System.Drawing.Color.Gray;
             cboBoxEstado.SelectedIndex = 1;
+            cboBoxPreventa.SelectedIndex = -1;
+            cboBoxPreventa.Enabled = true;
         }
 
     private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -145,6 +147,7 @@ namespace CapaPresentacion
                     txtNroOperacion.Text = dgvData.Rows[indice].Cells["NroOperacion"].Value.ToString();
                     txtSucursal.Text = dgvData.Rows[indice].Cells["DescripcionSucursal"].Value.ToString();
                     txtSucursal.ForeColor = System.Drawing.Color.Black;
+                    cboBoxPreventa.Enabled = false;
 
                     foreach (OpcionCombo oc in cboBoxEstado.Items)
                     {
@@ -209,22 +212,118 @@ namespace CapaPresentacion
         private void cboBoxPreventa_SelectedIndexChanged(object sender, EventArgs e)
         {
             OpcionCombo opcionSeleccionada = (OpcionCombo)cboBoxPreventa.SelectedItem;
-            
-            int valor = Convert.ToInt32(opcionSeleccionada.Valor);
 
-            List<Preventa> listaPreventas = new CN_Preventa().listar();
+            if(opcionSeleccionada != null)
+            { 
+                int valor = Convert.ToInt32(opcionSeleccionada.Valor);
 
-            foreach (Preventa item in listaPreventas)
-            {
-                if (item.idPreventa == valor)
+                List<Preventa> listaPreventas = new CN_Preventa().listar();
+
+                foreach (Preventa item in listaPreventas)
                 {
-                    txtNroOperacion.Text = item.nroOperacion.ToString();
-                    txtSucursal.Text = item.osucursal.desc;
-                    txtSucursal.ForeColor = System.Drawing.Color.Black;
+                    if (item.idPreventa == valor)
+                    {
+                        txtNroOperacion.Text = item.nroOperacion.ToString();
+                        txtSucursal.Text = item.osucursal.desc;
+                        txtSucursal.ForeColor = System.Drawing.Color.Black;
+                    }
                 }
             }
-            
-            
+
         }
+
+        private void bntGuardar_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+            List<Preventa> listaPreventas = new CN_Preventa().listar();
+
+            int idAuxiliar = 0;
+            foreach (Preventa item in listaPreventas)
+            {
+                if (item.idPreventa == Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor))
+                {
+                    idAuxiliar = item.osucursal.id_suc;
+                    break;
+                }
+            }
+
+            Factura obj = new Factura()
+            {
+                nro = Convert.ToInt32(txtNumero.Text),
+                nro_operacion = Convert.ToInt32(txtNroOperacion.Text),
+                letra = txtLetra.Text,
+                monto_total = Convert.ToDouble(txtMontoTotal.Text),
+                estado_id = new Estado() { id_estado = Convert.ToInt32(((OpcionCombo)cboBoxEstado.SelectedItem).Valor) },
+                preventa_id = new Preventa() { idPreventa = Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor) },
+                sucursal_id = new Sucursal() { id_suc = idAuxiliar}
+            };
+
+            if (obj.id_factura == 0)
+            {
+
+                int idgenerado = new CN_Factura().Registrar(obj, out mensaje);
+
+                if (idgenerado != 0)
+                {
+                    dgvData.Rows.Add(new object[] {
+                        "",
+                        idgenerado,
+                        txtNumero.Text,
+                        txtLetra.Text,
+                        txtMontoTotal.Text,
+                        txtNroOperacion.Text,
+                        "",
+                        txtSucursal.Text,
+                        ((OpcionCombo)cboBoxPreventa.SelectedItem).Valor,
+                        ((OpcionCombo)cboBoxEstado.SelectedItem).Valor,
+                        ((OpcionCombo)cboBoxEstado.SelectedItem).Texto
+                    });
+
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+            }
+          /*else
+            {
+                bool resultado = new CN_Factura().Editar(obj, out mensaje);
+
+                if (resultado)
+                {
+                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                    row.Cells["Id"].Value = txtId.Text;
+                    row.Cells["DNI"].Value = txtDNI.Text;
+                    row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
+                    row.Cells["Correo"].Value = txtCorreo.Text;
+                    row.Cells["Telefono"].Value = txtTelefono.Text;
+                    row.Cells["Domicilio"].Value = txtDomicilio.Text;
+                    row.Cells["FechaNacimiento"].Value = fecha;
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+            }*/
+        }
+
+
+        private void limpiar()
+        {
+            txtIndice.Text = "-1";
+            txtId.Text = "0";
+            txtNumero.Text = "";
+            txtNroOperacion.Text = "";
+            txtLetra.Text = "";
+            txtMontoTotal.Text = "";
+            txtSucursal.Text = "Sucursal";
+            cboBoxEstado.SelectedIndex = 0;
+            cboBoxPreventa.SelectedIndex = -1;
+        }
+
+
+
     }
 }
