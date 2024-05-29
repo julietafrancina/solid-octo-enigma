@@ -55,21 +55,6 @@ namespace CapaPresentacion
                 });
             }
 
-            List<Estado> listaEstado = new CN_Estado().listar();
-
-            foreach (Estado item in listaEstado)
-            {
-                cboBoxEstado.Items.Add(new OpcionCombo()
-                {
-                    Valor = item.id_estado,
-                    Texto = item.descripcion
-                });
-            }
-
-            cboBoxEstado.DisplayMember = "Texto";
-            cboBoxEstado.ValueMember = "Valor";
-            cboBoxEstado.SelectedIndex = 1;
-
             List<Preventa> listaPreventas = new CN_Preventa().listar();
 
             foreach (Preventa item in listaPreventas)
@@ -122,12 +107,11 @@ namespace CapaPresentacion
             txtNroOperacion.Text = "";
             txtSucursal.Text = "Sucursal";
             txtSucursal.ForeColor = System.Drawing.Color.Gray;
-            cboBoxEstado.SelectedIndex = 1;
             cboBoxPreventa.SelectedIndex = -1;
             cboBoxPreventa.Enabled = true;
         }
 
-    private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
@@ -148,16 +132,6 @@ namespace CapaPresentacion
                     txtSucursal.Text = dgvData.Rows[indice].Cells["DescripcionSucursal"].Value.ToString();
                     txtSucursal.ForeColor = System.Drawing.Color.Black;
                     cboBoxPreventa.Enabled = false;
-
-                    foreach (OpcionCombo oc in cboBoxEstado.Items)
-                    {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["idEstado"].Value))
-                        {
-                            int indice_combo = cboBoxEstado.Items.IndexOf(oc);
-                            cboBoxEstado.SelectedIndex = indice_combo;
-                            break;
-                        }
-                    }
 
                     foreach (OpcionCombo oc in cboBoxPreventa.Items)
                     {
@@ -234,38 +208,47 @@ namespace CapaPresentacion
 
         private void bntGuardar_Click(object sender, EventArgs e)
         {
-            string mensaje = string.Empty;
-            List<Preventa> listaPreventas = new CN_Preventa().listar();
 
-            int idAuxiliar = 0;
-            foreach (Preventa item in listaPreventas)
+            if (txtNumero.Text == "" || txtLetra.Text == "" || txtMontoTotal.Text == "" || cboBoxPreventa.SelectedIndex == -1)
             {
-                if (item.idPreventa == Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor))
-                {
-                    idAuxiliar = item.osucursal.id_suc;
-                    break;
-                }
+                MessageBox.Show("Rellene los datos de la factura por favor.");
             }
-
-            Factura obj = new Factura()
-            {
-                nro = Convert.ToInt32(txtNumero.Text),
-                nro_operacion = Convert.ToInt32(txtNroOperacion.Text),
-                letra = txtLetra.Text,
-                monto_total = Convert.ToDouble(txtMontoTotal.Text),
-                estado_id = new Estado() { id_estado = Convert.ToInt32(((OpcionCombo)cboBoxEstado.SelectedItem).Valor) },
-                preventa_id = new Preventa() { idPreventa = Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor) },
-                sucursal_id = new Sucursal() { id_suc = idAuxiliar}
-            };
-
-            if (obj.id_factura == 0)
+            else
             {
 
-                int idgenerado = new CN_Factura().Registrar(obj, out mensaje);
+                string mensaje = string.Empty;
+                List<Preventa> listaPreventas = new CN_Preventa().listar();
 
-                if (idgenerado != 0)
+                int idAuxiliar = 0;
+                foreach (Preventa item in listaPreventas)
                 {
-                    dgvData.Rows.Add(new object[] {
+                    if (item.idPreventa == Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor))
+                    {
+                        idAuxiliar = item.osucursal.id_suc;
+                        break;
+                    }
+                }
+
+                Factura obj = new Factura()
+                {
+                    id_factura = Convert.ToInt32(txtId.Text),
+                    nro = Convert.ToInt32(txtNumero.Text),
+                    nro_operacion = Convert.ToInt32(txtNroOperacion.Text),
+                    letra = txtLetra.Text,
+                    monto_total = Convert.ToDouble(txtMontoTotal.Text),
+                    estado_id = new Estado() { id_estado = 1 },
+                    preventa_id = new Preventa() { idPreventa = Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor) },
+                    sucursal_id = new Sucursal() { id_suc = idAuxiliar }
+                };
+
+                if (obj.id_factura == 0)
+                {
+
+                    int idgenerado = new CN_Factura().Registrar(obj, out mensaje);
+
+                    if (idgenerado != 0)
+                    {
+                        dgvData.Rows.Add(new object[] {
                         "",
                         idgenerado,
                         txtNumero.Text,
@@ -275,38 +258,24 @@ namespace CapaPresentacion
                         "",
                         txtSucursal.Text,
                         ((OpcionCombo)cboBoxPreventa.SelectedItem).Valor,
-                        ((OpcionCombo)cboBoxEstado.SelectedItem).Valor,
-                        ((OpcionCombo)cboBoxEstado.SelectedItem).Texto
+                        1,
+                        "Confirmado"
                     });
 
-                    limpiar();
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    MessageBox.Show("Ya se encuentra registrado este número de factura.");
                 }
-            }
-          /*else
-            {
-                bool resultado = new CN_Factura().Editar(obj, out mensaje);
 
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
-                    row.Cells["Id"].Value = txtId.Text;
-                    row.Cells["DNI"].Value = txtDNI.Text;
-                    row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
-                    row.Cells["Correo"].Value = txtCorreo.Text;
-                    row.Cells["Telefono"].Value = txtTelefono.Text;
-                    row.Cells["Domicilio"].Value = txtDomicilio.Text;
-                    row.Cells["FechaNacimiento"].Value = fecha;
-                    limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
-            }*/
+            }
+            
         }
 
 
@@ -315,15 +284,69 @@ namespace CapaPresentacion
             txtIndice.Text = "-1";
             txtId.Text = "0";
             txtNumero.Text = "";
+            txtNumero.ReadOnly = false;
             txtNroOperacion.Text = "";
             txtLetra.Text = "";
+            txtLetra.ReadOnly = false;
             txtMontoTotal.Text = "";
+            txtMontoTotal.ReadOnly = false;
             txtSucursal.Text = "Sucursal";
-            cboBoxEstado.SelectedIndex = 0;
+            txtSucursal.ForeColor = System.Drawing.Color.Gray;
             cboBoxPreventa.SelectedIndex = -1;
+            cboBoxPreventa.Enabled = true;
         }
 
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            
+
+            if (txtId.Text == "0")
+            {
+                MessageBox.Show("No se puede anular una factura que no existe.");
+            }
+            else
+            {
+
+                string mensaje = string.Empty;
+                List<Preventa> listaPreventas = new CN_Preventa().listar();
+
+                int idAuxiliar = 0;
+                foreach (Preventa item in listaPreventas)
+                {
+                    if (item.idPreventa == Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor))
+                    {
+                        idAuxiliar = item.osucursal.id_suc;
+                        break;
+                    }
+                }
+
+                Factura obj = new Factura()
+                {
+                    id_factura = Convert.ToInt32(txtId.Text),
+                    nro = Convert.ToInt32(txtNumero.Text),
+                    nro_operacion = Convert.ToInt32(txtNroOperacion.Text),
+                    letra = txtLetra.Text,
+                    monto_total = Convert.ToDouble(txtMontoTotal.Text),
+                    estado_id = new Estado() { id_estado = 1 },
+                    preventa_id = new Preventa() { idPreventa = Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor) },
+                    sucursal_id = new Sucursal() { id_suc = idAuxiliar }
+                };
 
 
+                bool resultado = new CN_Factura().Editar(obj, out mensaje);
+
+                if (resultado)
+                {
+                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                    row.Cells["DescEstado"].Value = "Anulado";
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+
+            }
+        }
     }
 }
