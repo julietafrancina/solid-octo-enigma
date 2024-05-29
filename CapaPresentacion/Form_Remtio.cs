@@ -11,6 +11,7 @@ using CapaPresentacion.Utilidades;
 using CapaEntidad;
 using CapaNegocio;
 using System.Data.SqlClient;
+using CapaDatos;
 
 namespace CapaPresentacion
 {
@@ -19,50 +20,57 @@ namespace CapaPresentacion
         public Form_Remito()
         {
             InitializeComponent();
-         //   CargarDatos();
+            this.Load += new EventHandler(DLoad); 
         }
 
-    
+        private void DLoad(object sender, EventArgs e)
+        {
+            CargarDatos();
+            textL.Text = "R";
+        }
 
-        /*private void CargarDatos()
-{
+        private void CargarDatos()
+         {
 
-   using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-   {
-       try
-       {
-           StringBuilder query = new StringBuilder();
-           query.AppendLine("select * from Factura");
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+              {
 
-           SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-           cmd.CommandType = CommandType.Text;
+                 try
+                 {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select Factura.nrop_op as operacion, Sucursal.descripcion as nombre"+
+                    "from Factura inner join Sucursal on Factura.sucursal_id = Sucursal.id_sucursal");
 
-           oconexion.Open();
-           using (SqlDataReader dr = cmd.ExecuteReader())
-           {
-               while (dr.Read())
-               {
-                   textNroOp.Text = dr["nro_op"].ToString();
-                   textSucursal.Text = dr["sucursal_id"];
-               }
-           }
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            textNroOp.Text = Convert.ToString(dr["nro_op"]);
+                            textSucursal.Text = dr["sucursal_id"].ToString();
+                            textL.Text = "R";
+                        }
+                     }
 
 
-       }
-       catch (Exception ex)
-       {
-           MessageBox.Show("Error al cargar los datos: " + ex.Message);
-       }
-   }
-}
-*/
+                 }
+                 catch (Exception ex)
+                 {
+                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
+                 }
+              }
+        }
+
 
         private void limpiar()
         {
 
             textNroOp.Text = "";
             textSucursal.Text = "";
-            textL.Text = "";
+            textL.Text = "R";
             textNro.Text = "";
             CB_tipo.SelectedIndex = 0;
             CB_estado.SelectedIndex = 0;
@@ -107,16 +115,27 @@ namespace CapaPresentacion
             tabla_rem.Rows.Add(new object[] {
 
                 //"",
-                textNroOp.Text = "",
-                textSucursal.Text = "",
-                textL.Text = "",
-                textNro.Text = "",
+                textNroOp.Text, 
+                textSucursal.Text,
+                textL.Text,
                 ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString(),
                 ((OpcionCombo)CB_estado.SelectedItem).Texto.ToString(),
+                textNro.Text,
              });
+            if (tabla_rem.Rows.Count > 0)
+            {
+                DataGridViewRow lastRow = tabla_rem.Rows[tabla_rem.Rows.Count - 1];
+                GenerarRemito(lastRow);
+            }
             limpiar();
 
 
+        }
+
+        private void GenerarRemito(DataGridViewRow lastRow)
+        {
+
+            throw new NotImplementedException();
         }
 
         private void Form_Remito_Load(object sender, EventArgs e)
@@ -149,6 +168,18 @@ namespace CapaPresentacion
             CB_tipo.DisplayMember = "Texto";
             CB_tipo.ValueMember = "Valor";
             CB_tipo.SelectedIndex = 0;
+        }
+
+        private void BtLimpiarRem_Click(object sender, EventArgs e)
+        {
+            tabla_rem.Rows.Clear();
+        }
+
+        private void btEliminarRem_Click(object sender, EventArgs e)
+        {
+            //damos de baja (estado anulado) el remito 
+
+           // tabla_rem.SelectedRows.
         }
     }
 

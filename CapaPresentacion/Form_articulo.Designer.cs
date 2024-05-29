@@ -158,6 +158,7 @@ namespace CapaPresentacion
             this.btEliminar.TabIndex = 10;
             this.btEliminar.Text = "Dar de baja";
             this.btEliminar.UseVisualStyleBackColor = true;
+            this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
             // byGuardar
             // 

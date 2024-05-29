@@ -12,32 +12,8 @@ namespace CapaDatos
      public class CD_Remito
      {
 
-        /*public void CargarDatos()
-        {
-            string connectionString = "Server=your_server;Database=your_database;User Id=your_user_id;Password=your_password;";
-            string query = "SELECT ColumnName FROM YourTable WHERE ConditionColumn = SomeValue";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        SqlDataReader reader = command.ExecuteReader();
-                        if (reader.Read())
-                        {
-                            textNroOp.Text = reader["nro_op"].ToString();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
-                }
-            }
-        }*/
-             public List<Remito> listar()
+        
+        public List<Remito> listar()
          {
              List<Remito> lista = new List<Remito>();
              using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
