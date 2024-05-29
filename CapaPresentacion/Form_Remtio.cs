@@ -57,35 +57,17 @@ namespace CapaPresentacion
 }
 */
 
-        private void Form_remito_Load(object sender, EventArgs e)
+        private void limpiar()
         {
-            List<Remito> lista_remito = new CN_Remito().listar();
 
-            foreach (Remito rem in lista_remito)
-            {
-
-                tabla_rem.Rows.Add(new object[] {
-              //  "",
-                rem.nroOperacion,
-                rem.Sucursal_id,
-                rem.letra,
-                rem.tipoRemito,
-                rem.Estado_id,
-                rem.numero,
-                rem.factura,
-                });
-            }
-            CB_estado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Si" });
-            CB_estado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No" });
-            CB_estado.DisplayMember = "Texto";
-            CB_estado.ValueMember = "Valor";
-            CB_estado.SelectedIndex = 1;
-            CB_tipo.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Original" });
-            CB_tipo.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Duplicado" });
-            CB_tipo.DisplayMember = "Texto";
-            CB_tipo.ValueMember = "Valor";
-            CB_tipo.SelectedIndex = 1;
+            textNroOp.Text = "";
+            textSucursal.Text = "";
+            textL.Text = "";
+            textNro.Text = "";
+            CB_tipo.SelectedIndex = 0;
+            CB_estado.SelectedIndex = 0;
         }
+
         private void btnBusqueda_Click(object sender, EventArgs e)
         {
 
@@ -114,6 +96,59 @@ namespace CapaPresentacion
                 // Si no es un número ni una tecla de control, cancelar el evento
                 e.Handled = true;
             }
+        }
+
+        private void btGuardarRem_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+            Remito re = new Remito();
+
+
+            tabla_rem.Rows.Add(new object[] {
+
+                //"",
+                textNroOp.Text = "",
+                textSucursal.Text = "",
+                textL.Text = "",
+                textNro.Text = "",
+                ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString(),
+                ((OpcionCombo)CB_estado.SelectedItem).Texto.ToString(),
+             });
+            limpiar();
+
+
+        }
+
+        private void Form_Remito_Load(object sender, EventArgs e)
+        {
+            List<Remito> lista_remito = new CN_Remito().listar();
+
+            foreach (Remito rem in lista_remito)
+            {
+
+                tabla_rem.Rows.Add(new object[] {
+              //  "",
+                rem.nroOperacion,
+                rem.Sucursal_id,
+                rem.letra,
+                rem.tipoRemito,
+                rem.Estado_id,
+                rem.numero,
+                rem.factura,
+                });
+            }
+            CB_estado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Confirmado" });
+            CB_estado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Anulado" });
+            CB_estado.DisplayMember = "Texto";
+            CB_estado.ValueMember = "Valor";
+            CB_estado.SelectedIndex = 0;
+
+            CB_tipo.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Original" });
+            CB_tipo.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Duplicado" });
+            CB_tipo.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Triplicado" });
+            CB_tipo.DisplayMember = "Texto";
+            CB_tipo.ValueMember = "Valor";
+            CB_tipo.SelectedIndex = 0;
         }
     }
 

@@ -140,7 +140,7 @@ namespace CapaPresentacion
             // text_buscar_nroOp
             // 
             this.text_buscar_nroOp.AutoSize = true;
-            this.text_buscar_nroOp.Location = new System.Drawing.Point(683, 57);
+            this.text_buscar_nroOp.Location = new System.Drawing.Point(655, 53);
             this.text_buscar_nroOp.Name = "text_buscar_nroOp";
             this.text_buscar_nroOp.Size = new System.Drawing.Size(193, 17);
             this.text_buscar_nroOp.TabIndex = 21;
@@ -281,6 +281,7 @@ namespace CapaPresentacion
             this.btGuardarRem.TabIndex = 41;
             this.btGuardarRem.Text = "Guardar";
             this.btGuardarRem.UseVisualStyleBackColor = false;
+            this.btGuardarRem.Click += new System.EventHandler(this.btGuardarRem_Click);
             // 
             // textNro
             // 
@@ -309,7 +310,7 @@ namespace CapaPresentacion
             this.CB_tipo.Size = new System.Drawing.Size(212, 24);
             this.CB_tipo.TabIndex = 44;
             // 
-            // Form_Remtio
+            // Form_Remito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -335,8 +336,9 @@ namespace CapaPresentacion
             this.Controls.Add(this.text_buscar_nroOp);
             this.Controls.Add(this.label_lista);
             this.Controls.Add(this.tabla_rem);
-            this.Name = "Form_Remtio";
+            this.Name = "Form_Remito";
             this.Text = "Form_Remtio";
+            this.Load += new System.EventHandler(this.Form_Remito_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabla_rem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -60,7 +60,7 @@ namespace CapaPresentacion
         private void byGuardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
-            Remito re = new Remito();
+            Articulo art = new Articulo();
             
             
             tabla_art.Rows.Add(new object[] {
@@ -178,6 +178,16 @@ namespace CapaPresentacion
         }
 
         private void textCosto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cb_busqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textSKU_TextChanged(object sender, EventArgs e)
         {
 
         }

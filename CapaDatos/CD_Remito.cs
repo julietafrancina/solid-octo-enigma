@@ -56,28 +56,29 @@ namespace CapaDatos
                      {
                          while (dr.Read())
                          {
-                             bool valor = (bool)dr["estado_id"];
+                             int valor = Convert.ToInt32(dr["estado_id"]);
                              String e;
 
                              //preg si es true=1 quiere decir que esta confirmado
-                             if (valor == true)
+                             if (valor == 1)
                              {
-                                 e = "Si";
+                                 e = "Confirmado";
 
                              }
                              else
                              {
-                                 e = "No";
+                                 e = "Anulado";
                              }
                              lista.Add(new Remito()
                              {
-                                 numero = Convert.ToInt32(dr["numero"]),
-                                 nroOperacion = Convert.ToInt32(dr["nroOperacion"]),
+                                 idRemito = Convert.ToInt32(dr["id_remito"]),
+                                 numero = Convert.ToInt32(dr["nro"]),
+                                 nroOperacion = Convert.ToInt32(dr["nro_op"]),
                                  letra = dr["letra"].ToString(),
                                  tipoRemito = dr["tipo"].ToString(),
                                  Estado_id = e,
                                  factura = dr["factura_id"].ToString(),
-
+                                 Sucursal_id = new Sucursal()
                              }) ;
                          }
                          
