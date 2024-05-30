@@ -70,6 +70,8 @@ namespace CapaDatos
 
 
         }
+
+
         /*public int guardar_bd(Articulo obj)
         {
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))

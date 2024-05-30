@@ -42,12 +42,6 @@ namespace CapaPresentacion
             this.btEliminar = new System.Windows.Forms.Button();
             this.byGuardar = new System.Windows.Forms.Button();
             this.tabla_art = new System.Windows.Forms.DataGridView();
-            this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.textBaja = new System.Windows.Forms.Label();
             this.CB_baja = new System.Windows.Forms.ComboBox();
@@ -57,6 +51,12 @@ namespace CapaPresentacion
             this.textDesc = new System.Windows.Forms.TextBox();
             this.Desc = new System.Windows.Forms.Label();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
+            this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,6 +173,9 @@ namespace CapaPresentacion
             // 
             // tabla_art
             // 
+            this.tabla_art.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabla_art.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabla_art.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo_articulo,
@@ -188,48 +191,6 @@ namespace CapaPresentacion
             this.tabla_art.Size = new System.Drawing.Size(805, 537);
             this.tabla_art.TabIndex = 13;
             this.tabla_art.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_art_CellContentClick);
-            // 
-            // codigo_articulo
-            // 
-            this.codigo_articulo.HeaderText = "SKU";
-            this.codigo_articulo.MinimumWidth = 6;
-            this.codigo_articulo.Name = "codigo_articulo";
-            this.codigo_articulo.Width = 125;
-            // 
-            // Rubro
-            // 
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            this.Rubro.Width = 125;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.Width = 125;
-            // 
-            // Descripción
-            // 
-            this.Descripción.HeaderText = "Descripción";
-            this.Descripción.MinimumWidth = 6;
-            this.Descripción.Name = "Descripción";
-            this.Descripción.Width = 125;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
-            this.Costo.Width = 125;
-            // 
-            // Activo
-            // 
-            this.Activo.HeaderText = "Activo";
-            this.Activo.MinimumWidth = 6;
-            this.Activo.Name = "Activo";
-            this.Activo.Width = 125;
             // 
             // label5
             // 
@@ -262,6 +223,7 @@ namespace CapaPresentacion
             // 
             // Cb_busqueda
             // 
+            this.Cb_busqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Cb_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cb_busqueda.FormattingEnabled = true;
             this.Cb_busqueda.Location = new System.Drawing.Point(703, 40);
@@ -272,6 +234,7 @@ namespace CapaPresentacion
             // 
             // text_buscar_por
             // 
+            this.text_buscar_por.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.text_buscar_por.AutoSize = true;
             this.text_buscar_por.Location = new System.Drawing.Point(605, 43);
             this.text_buscar_por.Name = "text_buscar_por";
@@ -282,6 +245,7 @@ namespace CapaPresentacion
             // 
             // text_buscar
             // 
+            this.text_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.text_buscar.Location = new System.Drawing.Point(870, 42);
             this.text_buscar.Name = "text_buscar";
             this.text_buscar.Size = new System.Drawing.Size(176, 22);
@@ -307,6 +271,7 @@ namespace CapaPresentacion
             // 
             // btnBusqueda
             // 
+            this.btnBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBusqueda.BackColor = System.Drawing.SystemColors.Control;
             this.btnBusqueda.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
             this.btnBusqueda.IconColor = System.Drawing.Color.Black;
@@ -318,6 +283,48 @@ namespace CapaPresentacion
             this.btnBusqueda.TabIndex = 26;
             this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBusqueda.UseVisualStyleBackColor = false;
+            // 
+            // codigo_articulo
+            // 
+            this.codigo_articulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.codigo_articulo.HeaderText = "SKU";
+            this.codigo_articulo.MinimumWidth = 6;
+            this.codigo_articulo.Name = "codigo_articulo";
+            // 
+            // Rubro
+            // 
+            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Rubro.HeaderText = "Rubro";
+            this.Rubro.MinimumWidth = 6;
+            this.Rubro.Name = "Rubro";
+            // 
+            // Marca
+            // 
+            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            // 
+            // Descripción
+            // 
+            this.Descripción.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripción.HeaderText = "Descripción";
+            this.Descripción.MinimumWidth = 6;
+            this.Descripción.Name = "Descripción";
+            // 
+            // Costo
+            // 
+            this.Costo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            // 
+            // Activo
+            // 
+            this.Activo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Activo.HeaderText = "Activo";
+            this.Activo.MinimumWidth = 6;
+            this.Activo.Name = "Activo";
             // 
             // Form_articulo
             // 

@@ -52,9 +52,9 @@ namespace CapaDatos
                                  nroOperacion = Convert.ToInt32(dr["nro_op"]),
                                  letra = dr["letra"].ToString(),
                                  tipoRemito = dr["tipo"].ToString(),
-                                 Estado_id = e,
-                                 factura = dr["factura_id"].ToString(),
-                                 Sucursal_id = new Sucursal()
+                                 Estado_id = new Estado() {descripcion = e},
+                                 Factura_id = new Factura() {id_factura = Convert.ToInt32(dr["factura_id"])},
+                                 Sucursal_id = new Sucursal() { id_suc = Convert.ToInt32(dr["sucursal_id"])}
                              }) ;
                          }
                          

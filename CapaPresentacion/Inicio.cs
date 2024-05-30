@@ -92,7 +92,7 @@ namespace SistemaDeVentas
 
         private void menuArtículos_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.Form_articulo());
         }
 
         private void menuAyuda_Click(object sender, EventArgs e)
@@ -103,7 +103,6 @@ namespace SistemaDeVentas
         private void menuFacturas_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Facturas());
-            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.Form_articulo());
         }
 
         private void menuRemitos_Click(object sender, EventArgs e)

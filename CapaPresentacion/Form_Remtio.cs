@@ -151,9 +151,9 @@ namespace CapaPresentacion
                 rem.Sucursal_id,
                 rem.letra,
                 rem.tipoRemito,
-                rem.Estado_id,
+                rem.Estado_id.descripcion,
                 rem.numero,
-                rem.factura,
+                rem.Factura_id.nro_operacion,
                 });
             }
             CB_estado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Confirmado" });

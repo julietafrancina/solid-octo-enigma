@@ -62,6 +62,9 @@ namespace CapaPresentacion
             // 
             // tabla_rem
             // 
+            this.tabla_rem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabla_rem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabla_rem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nro_operación,
@@ -90,8 +93,9 @@ namespace CapaPresentacion
             // 
             // text_buscar_nroOp
             // 
+            this.text_buscar_nroOp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.text_buscar_nroOp.AutoSize = true;
-            this.text_buscar_nroOp.Location = new System.Drawing.Point(655, 53);
+            this.text_buscar_nroOp.Location = new System.Drawing.Point(657, 52);
             this.text_buscar_nroOp.Name = "text_buscar_nroOp";
             this.text_buscar_nroOp.Size = new System.Drawing.Size(193, 17);
             this.text_buscar_nroOp.TabIndex = 21;
@@ -99,6 +103,7 @@ namespace CapaPresentacion
             // 
             // text_buscar
             // 
+            this.text_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.text_buscar.Location = new System.Drawing.Point(882, 52);
             this.text_buscar.Name = "text_buscar";
             this.text_buscar.Size = new System.Drawing.Size(176, 22);
@@ -106,6 +111,7 @@ namespace CapaPresentacion
             // 
             // btnBusquedaRemito
             // 
+            this.btnBusquedaRemito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBusquedaRemito.BackColor = System.Drawing.SystemColors.Control;
             this.btnBusquedaRemito.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
             this.btnBusquedaRemito.IconColor = System.Drawing.Color.Black;
@@ -265,53 +271,53 @@ namespace CapaPresentacion
             // 
             // Nro_operación
             // 
+            this.Nro_operación.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Nro_operación.HeaderText = "Nro_operación";
             this.Nro_operación.MinimumWidth = 6;
             this.Nro_operación.Name = "Nro_operación";
-            this.Nro_operación.Width = 125;
             // 
             // Sucursal
             // 
+            this.Sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Sucursal.HeaderText = "Sucursal";
             this.Sucursal.MinimumWidth = 6;
             this.Sucursal.Name = "Sucursal";
-            this.Sucursal.Width = 125;
             // 
             // Letra
             // 
+            this.Letra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Letra.HeaderText = "Letra";
             this.Letra.MinimumWidth = 6;
             this.Letra.Name = "Letra";
-            this.Letra.Width = 125;
             // 
             // Tipo
             // 
+            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.MinimumWidth = 6;
             this.Tipo.Name = "Tipo";
-            this.Tipo.Width = 125;
             // 
             // Estado
             // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Estado.HeaderText = "Estado";
             this.Estado.MinimumWidth = 6;
             this.Estado.Name = "Estado";
-            this.Estado.Width = 125;
             // 
             // nro
             // 
+            this.nro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nro.HeaderText = "Nro";
             this.nro.MinimumWidth = 6;
             this.nro.Name = "nro";
-            this.nro.Width = 125;
             // 
             // Factura
             // 
+            this.Factura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Factura.HeaderText = "Nro factura";
             this.Factura.MinimumWidth = 6;
             this.Factura.Name = "Factura";
             this.Factura.Visible = false;
-            this.Factura.Width = 125;
             // 
             // Form_Remito
             // 
