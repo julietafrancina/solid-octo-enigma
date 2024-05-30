@@ -29,8 +29,8 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.formUsuarios = new System.Windows.Forms.Label();
             this.usuarioDNI = new System.Windows.Forms.Label();
             this.usuarioNombreCompleto = new System.Windows.Forms.Label();
@@ -63,10 +63,10 @@ namespace CapaPresentacion
             this.txtId = new System.Windows.Forms.TextBox();
             this.ttlUsuarios = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cboBusqueda = new System.Windows.Forms.ComboBox();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
-            this.btnBusqueda = new FontAwesome.Sharp.IconButton();
+            this.cboBusquedaUsuario = new System.Windows.Forms.ComboBox();
+            this.txtBusquedaUsuario = new System.Windows.Forms.TextBox();
+            this.btnLimpiarBusquedaUsuario = new FontAwesome.Sharp.IconButton();
+            this.btnBusquedaUsuario = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.bntGuardar = new FontAwesome.Sharp.IconButton();
@@ -246,15 +246,15 @@ namespace CapaPresentacion
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvData.ColumnHeadersHeight = 40;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -269,14 +269,14 @@ namespace CapaPresentacion
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.Size = new System.Drawing.Size(846, 527);
@@ -379,52 +379,53 @@ namespace CapaPresentacion
             this.label6.TabIndex = 22;
             this.label6.Text = "Buscar por:";
             // 
-            // cboBusqueda
+            // cboBusquedaUsuario
             // 
-            this.cboBusqueda.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.cboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBusqueda.FormattingEnabled = true;
-            this.cboBusqueda.Location = new System.Drawing.Point(815, 13);
-            this.cboBusqueda.Name = "cboBusqueda";
-            this.cboBusqueda.Size = new System.Drawing.Size(197, 24);
-            this.cboBusqueda.TabIndex = 23;
-            this.cboBusqueda.SelectedIndexChanged += new System.EventHandler(this.cboBusqueda_SelectedIndexChanged);
+            this.cboBusquedaUsuario.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cboBusquedaUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBusquedaUsuario.FormattingEnabled = true;
+            this.cboBusquedaUsuario.Location = new System.Drawing.Point(815, 13);
+            this.cboBusquedaUsuario.Name = "cboBusquedaUsuario";
+            this.cboBusquedaUsuario.Size = new System.Drawing.Size(197, 24);
+            this.cboBusquedaUsuario.TabIndex = 23;
             // 
-            // txtBusqueda
+            // txtBusquedaUsuario
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(815, 43);
-            this.txtBusqueda.MinimumSize = new System.Drawing.Size(4, 24);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(197, 22);
-            this.txtBusqueda.TabIndex = 24;
+            this.txtBusquedaUsuario.Location = new System.Drawing.Point(815, 43);
+            this.txtBusquedaUsuario.MinimumSize = new System.Drawing.Size(4, 24);
+            this.txtBusquedaUsuario.Name = "txtBusquedaUsuario";
+            this.txtBusquedaUsuario.Size = new System.Drawing.Size(197, 22);
+            this.txtBusquedaUsuario.TabIndex = 24;
             // 
-            // btnLimpiarBuscador
+            // btnLimpiarBusquedaUsuario
             // 
-            this.btnLimpiarBuscador.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLimpiarBuscador.IconSize = 20;
-            this.btnLimpiarBuscador.Location = new System.Drawing.Point(1111, 13);
-            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
-            this.btnLimpiarBuscador.Size = new System.Drawing.Size(62, 54);
-            this.btnLimpiarBuscador.TabIndex = 26;
-            this.btnLimpiarBuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
+            this.btnLimpiarBusquedaUsuario.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiarBusquedaUsuario.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnLimpiarBusquedaUsuario.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarBusquedaUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarBusquedaUsuario.IconSize = 20;
+            this.btnLimpiarBusquedaUsuario.Location = new System.Drawing.Point(1111, 13);
+            this.btnLimpiarBusquedaUsuario.Name = "btnLimpiarBusquedaUsuario";
+            this.btnLimpiarBusquedaUsuario.Size = new System.Drawing.Size(62, 54);
+            this.btnLimpiarBusquedaUsuario.TabIndex = 26;
+            this.btnLimpiarBusquedaUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiarBusquedaUsuario.UseVisualStyleBackColor = false;
+            this.btnLimpiarBusquedaUsuario.Click += new System.EventHandler(this.btnLimpiarBusquedaUsuario_Click);
             // 
-            // btnBusqueda
+            // btnBusquedaUsuario
             // 
-            this.btnBusqueda.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBusqueda.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnBusqueda.IconColor = System.Drawing.Color.Black;
-            this.btnBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBusqueda.IconSize = 20;
-            this.btnBusqueda.Location = new System.Drawing.Point(1036, 13);
-            this.btnBusqueda.Name = "btnBusqueda";
-            this.btnBusqueda.Size = new System.Drawing.Size(64, 54);
-            this.btnBusqueda.TabIndex = 25;
-            this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBusqueda.UseVisualStyleBackColor = false;
+            this.btnBusquedaUsuario.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBusquedaUsuario.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnBusquedaUsuario.IconColor = System.Drawing.Color.Black;
+            this.btnBusquedaUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBusquedaUsuario.IconSize = 20;
+            this.btnBusquedaUsuario.Location = new System.Drawing.Point(1036, 13);
+            this.btnBusquedaUsuario.Name = "btnBusquedaUsuario";
+            this.btnBusquedaUsuario.Size = new System.Drawing.Size(64, 54);
+            this.btnBusquedaUsuario.TabIndex = 25;
+            this.btnBusquedaUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBusquedaUsuario.UseVisualStyleBackColor = false;
+            this.btnBusquedaUsuario.Click += new System.EventHandler(this.btnBusquedaUsuario_Click);
             // 
             // iconButton3
             // 
@@ -488,10 +489,10 @@ namespace CapaPresentacion
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1211, 625);
             this.Controls.Add(this.txtIndice);
-            this.Controls.Add(this.btnLimpiarBuscador);
-            this.Controls.Add(this.btnBusqueda);
-            this.Controls.Add(this.txtBusqueda);
-            this.Controls.Add(this.cboBusqueda);
+            this.Controls.Add(this.btnLimpiarBusquedaUsuario);
+            this.Controls.Add(this.btnBusquedaUsuario);
+            this.Controls.Add(this.txtBusquedaUsuario);
+            this.Controls.Add(this.cboBusquedaUsuario);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ttlUsuarios);
             this.Controls.Add(this.txtId);
@@ -551,10 +552,10 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label ttlUsuarios;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cboBusqueda;
-        private System.Windows.Forms.TextBox txtBusqueda;
-        private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
-        private FontAwesome.Sharp.IconButton btnBusqueda;
+        private System.Windows.Forms.ComboBox cboBusquedaUsuario;
+        private System.Windows.Forms.TextBox txtBusquedaUsuario;
+        private FontAwesome.Sharp.IconButton btnLimpiarBusquedaUsuario;
+        private FontAwesome.Sharp.IconButton btnBusquedaUsuario;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
