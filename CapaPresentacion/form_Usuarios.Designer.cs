@@ -119,6 +119,7 @@ namespace CapaPresentacion
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(205, 22);
             this.txtDNI.TabIndex = 4;
+            this.txtDNI.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
             // 
             // txtNombreCompleto
             // 
@@ -285,22 +286,26 @@ namespace CapaPresentacion
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 40;
+            this.btnLimpiarBuscador.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarBuscador.IconSize = 20;
+            this.btnLimpiarBuscador.Location = new System.Drawing.Point(1111, 13);
+            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
+            this.btnLimpiarBuscador.Size = new System.Drawing.Size(62, 54);
+            this.btnLimpiarBuscador.TabIndex = 26;
+            this.btnLimpiarBuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
+            this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
             // 
-            // id
+            // txtIndice
             // 
-            this.id.HeaderText = "idUsuario";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // DNI
+            this.txtIndice.Location = new System.Drawing.Point(166, 32);
+            this.txtIndice.Name = "txtIndice";
+            this.txtIndice.Size = new System.Drawing.Size(33, 22);
+            this.txtIndice.TabIndex = 27;
+            this.txtIndice.Text = "-1";
             // 
             this.DNI.HeaderText = "DNI";
             this.DNI.MinimumWidth = 6;

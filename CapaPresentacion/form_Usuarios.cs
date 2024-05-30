@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CapaPresentacion.Utilidades;
-using CapaEntidad;
+﻿using CapaEntidad;
 using CapaNegocio;
+using CapaPresentacion.Utilidades;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
@@ -216,6 +211,36 @@ namespace CapaPresentacion
             {
                 row.Visible = true;
             }
+        }
+
+        private void txtDNI_TextChanged(object sender, EventArgs e)
+        { }
+        private void cboBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        { }
+
+        //Limpiar los inputs al hacer click en el botón 'Limpiar'.
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
+        }
+
+        private void btnBusqueda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiarBuscador_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
