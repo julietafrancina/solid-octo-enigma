@@ -38,7 +38,7 @@ namespace CapaPresentacion
                  try
                  {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select Factura.nrop_op as operacion, Sucursal.descripcion as nombre"+
+                    query.AppendLine("select Factura.nro_op as operacion, Sucursal.descripcion as nombre"+
                     "from Factura inner join Sucursal on Factura.sucursal_id = Sucursal.id_sucursal");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
@@ -49,8 +49,8 @@ namespace CapaPresentacion
                     {
                         while (dr.Read())
                         {
-                            textNroOp.Text = Convert.ToString(dr["nro_op"]);
-                            textSucursal.Text = dr["sucursal_id"].ToString();
+                            textNroOp.Text = Convert.ToString(dr["operacion"]);
+                            textSucursal.Text = dr["nombre"].ToString();
                             textL.Text = "R";
                         }
                      }
@@ -110,7 +110,12 @@ namespace CapaPresentacion
         {
             string mensaje = string.Empty;
             Remito re = new Remito();
-
+            re.nroOperacion = Convert.ToInt32(textNroOp.Text);
+            re.Sucursal_id = textSucursal.Text;
+            re.letra = textL.Text;
+            re.tipoRemito = ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString();
+            re.Estado_id = ((OpcionCombo)CB_estado.SelectedItem).Texto.ToString();
+            re.numero = Convert.ToInt32(textNro.Text);
 
             tabla_rem.Rows.Add(new object[] {
 
@@ -125,18 +130,13 @@ namespace CapaPresentacion
             if (tabla_rem.Rows.Count > 0)
             {
                 DataGridViewRow lastRow = tabla_rem.Rows[tabla_rem.Rows.Count - 1];
-                GenerarRemito(lastRow);
+                genRemito(re);
             }
             limpiar();
 
 
         }
 
-        private void GenerarRemito(DataGridViewRow lastRow)
-        {
-
-            throw new NotImplementedException();
-        }
 
         private void Form_Remito_Load(object sender, EventArgs e)
         {

@@ -12,6 +12,10 @@ namespace CapaNegocio
     {
         private CD_Remito objcd_re = new CD_Remito();
 
+        public void genRemito(Remito r)
+        {
+            GenerarRemito(r);
+        }
         public List<Remito> listar()
         {
             return objcd_re.listar();
