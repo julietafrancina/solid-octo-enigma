@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
 
+
 namespace CapaDatos
 {
     public class CD_Usuario
@@ -40,11 +41,7 @@ namespace CapaDatos
                                 nombreCompleto = dr["nombre_completo"].ToString(),
                                 correo = dr["correo"].ToString(),
                                 contraseña = dr["contraseña"].ToString(),
-                                orol = new Rol()
-                                {
-                                    id_rol = Convert.ToInt32(dr["id_rol"]),
-                                    descripcion = dr["descripcion"].ToString()
-                                }
+                                orol = new Rol() { id_rol = Convert.ToInt32(dr["id_rol"]), descripcion = dr["descripcion"].ToString() }
                             });
                         }
 
@@ -96,7 +93,6 @@ namespace CapaDatos
                 idUsuarioGenerado = 0;
                 mensaje = ex.Message;
             }
-
             return idUsuarioGenerado;
         }
 
