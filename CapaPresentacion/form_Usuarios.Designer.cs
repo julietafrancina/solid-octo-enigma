@@ -188,7 +188,6 @@ namespace CapaPresentacion
             this.cboRol.Name = "cboRol";
             this.cboRol.Size = new System.Drawing.Size(205, 24);
             this.cboRol.TabIndex = 12;
-            this.cboRol.SelectedIndexChanged += new System.EventHandler(this.cboRol_SelectedIndexChanged);
             // 
             // textBox1
             // 
