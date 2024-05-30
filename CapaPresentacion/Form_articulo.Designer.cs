@@ -39,7 +39,6 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.BtLimpiar = new System.Windows.Forms.Button();
-            this.btEliminar = new System.Windows.Forms.Button();
             this.byGuardar = new System.Windows.Forms.Button();
             this.tabla_art = new System.Windows.Forms.DataGridView();
             this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +56,7 @@ namespace CapaPresentacion
             this.textDesc = new System.Windows.Forms.TextBox();
             this.Desc = new System.Windows.Forms.Label();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,16 +149,6 @@ namespace CapaPresentacion
             this.BtLimpiar.Text = "Limpiar";
             this.BtLimpiar.UseVisualStyleBackColor = true;
             this.BtLimpiar.Click += new System.EventHandler(this.BtEditar_Click);
-            // 
-            // btEliminar
-            // 
-            this.btEliminar.Location = new System.Drawing.Point(45, 588);
-            this.btEliminar.Name = "btEliminar";
-            this.btEliminar.Size = new System.Drawing.Size(205, 53);
-            this.btEliminar.TabIndex = 10;
-            this.btEliminar.Text = "Dar de baja";
-            this.btEliminar.UseVisualStyleBackColor = true;
-            this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
             // byGuardar
             // 
@@ -264,7 +254,7 @@ namespace CapaPresentacion
             // 
             this.Cb_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cb_busqueda.FormattingEnabled = true;
-            this.Cb_busqueda.Location = new System.Drawing.Point(703, 40);
+            this.Cb_busqueda.Location = new System.Drawing.Point(648, 37);
             this.Cb_busqueda.Name = "Cb_busqueda";
             this.Cb_busqueda.Size = new System.Drawing.Size(161, 24);
             this.Cb_busqueda.TabIndex = 19;
@@ -273,7 +263,7 @@ namespace CapaPresentacion
             // text_buscar_por
             // 
             this.text_buscar_por.AutoSize = true;
-            this.text_buscar_por.Location = new System.Drawing.Point(605, 43);
+            this.text_buscar_por.Location = new System.Drawing.Point(561, 40);
             this.text_buscar_por.Name = "text_buscar_por";
             this.text_buscar_por.Size = new System.Drawing.Size(81, 17);
             this.text_buscar_por.TabIndex = 20;
@@ -282,7 +272,7 @@ namespace CapaPresentacion
             // 
             // text_buscar
             // 
-            this.text_buscar.Location = new System.Drawing.Point(870, 42);
+            this.text_buscar.Location = new System.Drawing.Point(815, 39);
             this.text_buscar.Name = "text_buscar";
             this.text_buscar.Size = new System.Drawing.Size(176, 22);
             this.text_buscar.TabIndex = 21;
@@ -312,18 +302,34 @@ namespace CapaPresentacion
             this.btnBusqueda.IconColor = System.Drawing.Color.Black;
             this.btnBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBusqueda.IconSize = 20;
-            this.btnBusqueda.Location = new System.Drawing.Point(1052, 33);
+            this.btnBusqueda.Location = new System.Drawing.Point(997, 33);
             this.btnBusqueda.Name = "btnBusqueda";
             this.btnBusqueda.Size = new System.Drawing.Size(44, 46);
             this.btnBusqueda.TabIndex = 26;
             this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBusqueda.UseVisualStyleBackColor = false;
             // 
+            // btnLimpiarBuscador
+            // 
+            this.btnLimpiarBuscador.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarBuscador.IconSize = 20;
+            this.btnLimpiarBuscador.Location = new System.Drawing.Point(1053, 33);
+            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
+            this.btnLimpiarBuscador.Size = new System.Drawing.Size(43, 46);
+            this.btnLimpiarBuscador.TabIndex = 49;
+            this.btnLimpiarBuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
+            this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
+            // 
             // Form_articulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1156, 753);
+            this.Controls.Add(this.btnLimpiarBuscador);
             this.Controls.Add(this.btnBusqueda);
             this.Controls.Add(this.Desc);
             this.Controls.Add(this.textDesc);
@@ -335,7 +341,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tabla_art);
             this.Controls.Add(this.byGuardar);
-            this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.BtLimpiar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -367,7 +372,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtLimpiar;
-        private System.Windows.Forms.Button btEliminar;
         private System.Windows.Forms.Button byGuardar;
         private System.Windows.Forms.DataGridView tabla_art;
         private System.Windows.Forms.Label label5;
@@ -385,5 +389,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
+        private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
     }
 }

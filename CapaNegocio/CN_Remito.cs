@@ -12,9 +12,10 @@ namespace CapaNegocio
     {
         private CD_Remito objcd_re = new CD_Remito();
 
-        public void genRemito(Remito r)
+        public int genRemito(Remito r, out string Mensaje)
         {
-            GenerarRemito(r);
+            Mensaje = String.Empty;
+           return objcd_re.GenerarRemito(r, out Mensaje);
         }
         public List<Remito> listar()
         {

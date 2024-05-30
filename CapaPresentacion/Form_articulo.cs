@@ -90,8 +90,55 @@ namespace CapaPresentacion
             textDesc.Text = "";
             CB_baja.SelectedIndex = 0;
         }
+        private void BuscarArticulo()
+        {
+            // Obtener el valor seleccionado del ComboBox
+            string valorBusqueda = Cb_busqueda.SelectedItem?.ToString().Trim();
 
-        private void BtEditar_Click(object sender, EventArgs e)
+            if (!string.IsNullOrEmpty(valorBusqueda))
+            {
+                bool encontrado = false;
+
+                string[] columnasParaBuscar = { "codigo_articulo", "Rubro", "Marca" }; 
+
+                foreach (DataGridViewRow row in tabla_art.Rows)
+                {
+                    bool filaCoincide = false;
+
+                    foreach (string columna in columnasParaBuscar)
+                    {
+                        if (row.Cells[sku].Value != null &&
+                            row.Cells[sku].Value.ToString().Trim() == valorBusqueda)
+                        {
+                            filaCoincide = true;
+                            break;
+                        }
+                    }
+
+                    if (filaCoincide)
+                    {
+                        row.Selected = true;
+                        row.Visible = true; // Asegurarse de que la fila sea visible
+                        encontrado = true;
+                    }
+                    else
+                    {
+                        row.Visible = false; // Ocultar las filas que no coinciden
+                    }
+                }
+
+                if (!encontrado)
+                {
+                    MessageBox.Show("Valor no encontrado.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione un valor.");
+            }
+        }
+    
+    private void BtEditar_Click(object sender, EventArgs e)
         {
             tabla_art.Rows.Clear();
 
@@ -195,6 +242,11 @@ namespace CapaPresentacion
         private void btEliminar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLimpiarBuscador_Click(object sender, EventArgs e)
+        {
+            text_buscar.Text = "";
         }
     }
 

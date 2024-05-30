@@ -94,7 +94,7 @@ namespace CapaDatos
                                  tipoRemito = dr["tipo"].ToString(),
                                  Estado_id = e,
                                  factura = dr["factura_id"].ToString(),
-                                 Sucursal_id = new Sucursal()
+                                 Sucursal_id = dr["sucursal_id"].ToString(),
                              }) ;
                          }
                          
