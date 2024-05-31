@@ -119,12 +119,12 @@ namespace CapaPresentacion
             re.Estado_id = textEstado.Text;
             re.numero = Convert.ToInt32(textNro.Text);
 
+            int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
+
             if (re.nroOperacion == 0)
             {
 
-            }
-
-            tabla_rem.Rows.Add(new object[] {
+                tabla_rem.Rows.Add(new object[] {
 
                 //"",
                 textNroOp.Text,
@@ -134,10 +134,7 @@ namespace CapaPresentacion
                 textEstado.Text,
                 textNro.Text,
              });
-
-
-            //genRemito(re, out Mensaje);
-
+            }
             limpiar();
 
 

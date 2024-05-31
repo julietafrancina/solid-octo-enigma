@@ -263,7 +263,7 @@ namespace CapaPresentacion
             // text_buscar_por
             // 
             this.text_buscar_por.AutoSize = true;
-            this.text_buscar_por.Location = new System.Drawing.Point(561, 40);
+            this.text_buscar_por.Location = new System.Drawing.Point(536, 44);
             this.text_buscar_por.Name = "text_buscar_por";
             this.text_buscar_por.Size = new System.Drawing.Size(81, 17);
             this.text_buscar_por.TabIndex = 20;
@@ -308,6 +308,7 @@ namespace CapaPresentacion
             this.btnBusqueda.TabIndex = 26;
             this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBusqueda.UseVisualStyleBackColor = false;
+            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
             // 
             // btnLimpiarBuscador
             // 
