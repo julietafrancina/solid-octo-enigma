@@ -131,7 +131,7 @@ namespace CapaPresentacion
             this.txtTotalAPagar.MinimumSize = new System.Drawing.Size(4, 32);
             this.txtTotalAPagar.Name = "txtTotalAPagar";
             this.txtTotalAPagar.PasswordChar = '*';
-            this.txtTotalAPagar.Size = new System.Drawing.Size(176, 32);
+            this.txtTotalAPagar.Size = new System.Drawing.Size(176, 22);
             this.txtTotalAPagar.TabIndex = 36;
             // 
             // totalAPagar
