@@ -18,6 +18,8 @@ namespace CapaPresentacion
         public Form_articulo()
         {
             InitializeComponent();
+            text_buscar.TextChanged += new EventHandler(this.text_buscar_TextChanged);
+            Cb_busqueda.SelectedIndexChanged += new EventHandler(this.Cb_busqueda_SelectedIndexChanged);
         }
 
         private void Form_articulo_Load(object sender, EventArgs e)
@@ -103,61 +105,43 @@ namespace CapaPresentacion
         {
             //Cb_busqueda; "codigo_articulo", "Rubro", "Marca"
             // Obtener el valor del ComboBox y el TextBox
-            string valorBusqueda = Cb_busqueda.SelectedItem?.ToString().Trim();
-            string textoBusqueda = text_buscar.Text.Trim();
+            // Obtén el nombre de la columna seleccionada en el ComboBox
+            string columnaFiltro = ((OpcionCombo)Cb_busqueda.SelectedItem)?.Texto;
+            
 
-            if (!string.IsNullOrEmpty(valorBusqueda) && !string.IsNullOrEmpty(textoBusqueda))
+            if (string.IsNullOrEmpty(columnaFiltro))
             {
-                // Verificar si DataSource del DataGridView es una DataTable
-                if (tabla_art.DataSource is DataTable dataTable)
+                MessageBox.Show("Por favor, seleccione una columna para buscar.");
+                return;
+            }
+
+            // Obtén el texto de búsqueda ingresado en el TextBox
+            string textoBusqueda = text_buscar.Text.Trim().ToUpper();
+
+            // Verifica si hay filas en el DataGridView
+            if (tabla_art.Rows.Count > 0)
+            {
+                // Itera sobre las filas del DataGridView
+                foreach (DataGridViewRow row in tabla_art.Rows)
                 {
-                    string columnaFiltro = valorBusqueda; // Suponiendo que valorBusqueda es el nombre de la columna
-                    bool encontrado = false;
-
-                    // Verificar si la columna existe en la DataTable
-                    if (dataTable.Columns.Contains(columnaFiltro))
+                    // Verifica que la celda no sea nula y que contenga el texto de búsqueda
+                    if (row.Cells[columnaFiltro].Value != null)
                     {
-                        foreach (DataGridViewRow row in tabla_art.Rows)
-                        {
-                            // Verificar que la celda no sea nula
-                            if (row.Cells[columnaFiltro].Value != null)
-                            {
-                                if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(textoBusqueda.Trim().ToUpper()))
-                                {
-                                    row.Visible = true;
-                                    encontrado = true;
-                                }
-                                else
-                                {
-                                    row.Visible = false;
-                                }
-                            }
-                            else
-                            {
-                                row.Visible = false;
-                            }
-                        }
-
-                        if (!encontrado)
-                        {
-                            MessageBox.Show("Valor no encontrado.");
-                        }
+                        string valorCelda = row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper();
+                        row.Visible = valorCelda.Contains(textoBusqueda);
                     }
                     else
                     {
-                        MessageBox.Show($"La columna '{columnaFiltro}' no existe en la tabla.");
+                        row.Visible = true;
                     }
-                }
-                else
-                {
-                    MessageBox.Show("El origen de datos no es una DataTable.");
                 }
             }
             else
             {
-                MessageBox.Show("Por favor seleccione un valor y ingrese texto para buscar.");
+                MessageBox.Show("No hay filas en el DataGridView.");
             }
         }
+    
 
 
         private void BtEditar_Click(object sender, EventArgs e)
@@ -238,7 +222,7 @@ namespace CapaPresentacion
 
         private void text_buscar_TextChanged(object sender, EventArgs e)
         {
-
+            BuscarArticulo();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -253,7 +237,7 @@ namespace CapaPresentacion
 
         private void Cb_busqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            BuscarArticulo();
         }
 
         private void textSKU_TextChanged(object sender, EventArgs e)
@@ -274,8 +258,8 @@ namespace CapaPresentacion
 
         private void btnBusqueda_Click(object sender, EventArgs e)
         {
-            //BuscarArticulo();
-            string columnaFiltro = ((OpcionCombo)Cb_busqueda.SelectedItem).Texto.ToString();
+            BuscarArticulo();
+            /*string columnaFiltro = ((OpcionCombo)Cb_busqueda.SelectedItem).Texto.ToString();
 
             if (tabla_art.Rows.Count > 0)
             {
@@ -290,7 +274,7 @@ namespace CapaPresentacion
                         row.Visible = false;
 
                 }
-            }
+            }*/
 
         }
 
