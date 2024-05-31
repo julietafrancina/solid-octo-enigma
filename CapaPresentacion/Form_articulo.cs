@@ -63,8 +63,17 @@ namespace CapaPresentacion
             string mensaje = string.Empty;
             Articulo art = new Articulo();
 
+            art.SKU = Convert.ToInt32(textSKU.Text);
+            art.rubro = textRubro.Text;
+            art.marca = textMarca.Text;
+            art.descripcion = textDesc.Text;
+            art.costo = Convert.ToDouble( textCosto.Text);
+            art.activo= ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString();
+            int idgenerado = new CN_Articulo().guardar_bd(art, out mensaje);
 
-            tabla_art.Rows.Add(new object[] {
+            if (idgenerado == 0)
+            {
+                tabla_art.Rows.Add(new object[] {
 
                 //"",
                 textSKU.Text,
@@ -75,9 +84,8 @@ namespace CapaPresentacion
                 ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString(),
 
              });
-
-            //   int idgenerado = new CN_Articulo().guardar_bd(art, out mensaje);
-            //guardar_bd();
+            }
+                      
             limpiar();
 
         }

@@ -274,6 +274,11 @@ namespace CapaPresentacion
             text_buscar.Text = "";
             tabla_rem.Rows.Clear();
         }
+
+        private void CB_fact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
