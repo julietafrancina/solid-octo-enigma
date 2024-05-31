@@ -555,7 +555,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.grpArticulos);
             this.Controls.Add(this.groupBox1);
             this.Name = "form_RegistrarPreventa";
-            this.Text = "form_RegistrarPreventa";
+            this.Text = "Registro de Preventas";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.grpArticulos.ResumeLayout(false);

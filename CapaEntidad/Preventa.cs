@@ -18,6 +18,7 @@ namespace CapaEntidad
         public Cliente ocliente { get; set; }
 
         //agregar un atributo que sea una lista de objetos para los artículos
+        public List<Articulo> articulos = new List<Articulo>();
 
     }
 }

@@ -96,11 +96,12 @@ namespace CapaPresentacion
                 }
             };
 
-            int idUsuarioGenerado = new CN_Usuario().Registrar(objusuario, out mensaje);
-            if (idUsuarioGenerado != 0)
-            {
-                dgvData.Rows.Add(new object[]
+            if(objusuario.idUsuario == 0) {
+                int idUsuarioGenerado = new CN_Usuario().Registrar(objusuario, out mensaje);
+                if (idUsuarioGenerado != 0)
                 {
+                    dgvData.Rows.Add(new object[]
+                    {
                     "",
                     idUsuarioGenerado,
                     txtDNI.Text,
@@ -109,14 +110,36 @@ namespace CapaPresentacion
                     txtClave.Text,
                     ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
                     ((OpcionCombo)cboRol.SelectedItem).Texto.ToString()
-                });
+                    });
 
-                limpiar();
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
             }
             else
             {
-                MessageBox.Show(mensaje);
+                bool resultado = new CN_Usuario().Editar(objusuario, out mensaje);
+
+                if (resultado)
+                {
+                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                    row.Cells["Id"].Value = txtId.Text;
+                    row.Cells["DNI"].Value = txtDNI.Text;
+                    row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
+                    row.Cells["Correo"].Value = txtCorreo.Text;
+                    row.Cells["Rol"].Value = ((OpcionCombo)cboRol.SelectedItem).Texto.ToString();
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
             }
+
+            
         }
 
         //Limpiar los campos una vez que se completó la operación

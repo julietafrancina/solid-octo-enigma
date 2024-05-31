@@ -33,7 +33,7 @@ namespace SistemaDeVentas
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.menuUsuarios = new FontAwesome.Sharp.IconMenuItem();
-            this.menuMantenedor = new FontAwesome.Sharp.IconMenuItem();
+            this.menuArtículos = new FontAwesome.Sharp.IconMenuItem();
             this.menuPreventas = new FontAwesome.Sharp.IconMenuItem();
             this.menuFacturas = new FontAwesome.Sharp.IconMenuItem();
             this.menuRemitos = new FontAwesome.Sharp.IconMenuItem();
@@ -55,7 +55,7 @@ namespace SistemaDeVentas
             this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuUsuarios,
-            this.menuMantenedor,
+            this.menuArtículos,
             this.menuPreventas,
             this.menuFacturas,
             this.menuRemitos,
@@ -83,20 +83,21 @@ namespace SistemaDeVentas
             this.menuUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuUsuarios.Click += new System.EventHandler(this.menuUsuarios_Click);
             // 
-            // menuMantenedor
+            // menuArtículos
             // 
-            this.menuMantenedor.AutoSize = false;
-            this.menuMantenedor.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.menuMantenedor.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.menuMantenedor.IconColor = System.Drawing.Color.Black;
-            this.menuMantenedor.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.menuMantenedor.IconSize = 50;
-            this.menuMantenedor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuMantenedor.Name = "menuMantenedor";
-            this.menuMantenedor.Size = new System.Drawing.Size(95, 74);
-            this.menuMantenedor.Text = "Mantenedor";
-            this.menuMantenedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.menuMantenedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuArtículos.AutoSize = false;
+            this.menuArtículos.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuArtículos.IconChar = FontAwesome.Sharp.IconChar.Barcode;
+            this.menuArtículos.IconColor = System.Drawing.Color.Black;
+            this.menuArtículos.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.menuArtículos.IconSize = 50;
+            this.menuArtículos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuArtículos.Name = "menuArtículos";
+            this.menuArtículos.Size = new System.Drawing.Size(95, 74);
+            this.menuArtículos.Text = "Artículos";
+            this.menuArtículos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.menuArtículos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuArtículos.Click += new System.EventHandler(this.menuArtículos_Click);
             // 
             // menuPreventas
             // 
@@ -128,6 +129,7 @@ namespace SistemaDeVentas
             this.menuFacturas.Text = "Facturas";
             this.menuFacturas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuFacturas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuFacturas.Click += new System.EventHandler(this.menuFacturas_Click);
             // 
             // menuRemitos
             // 
@@ -143,6 +145,7 @@ namespace SistemaDeVentas
             this.menuRemitos.Text = "Remitos";
             this.menuRemitos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuRemitos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuRemitos.Click += new System.EventHandler(this.menuRemitos_Click);
             // 
             // menuClientes
             // 
@@ -174,6 +177,7 @@ namespace SistemaDeVentas
             this.menuAyuda.Text = "Ayuda";
             this.menuAyuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.menuAyuda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuAyuda.Click += new System.EventHandler(this.menuAyuda_Click);
             // 
             // label1
             // 
@@ -195,7 +199,6 @@ namespace SistemaDeVentas
             this.contenedor.Name = "contenedor";
             this.contenedor.Size = new System.Drawing.Size(1167, 389);
             this.contenedor.TabIndex = 3;
-           
             // 
             // menuTitulo
             // 
@@ -278,7 +281,7 @@ namespace SistemaDeVentas
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconMenuItem menuUsuarios;
-        private FontAwesome.Sharp.IconMenuItem menuMantenedor;
+        private FontAwesome.Sharp.IconMenuItem menuArtículos;
         private FontAwesome.Sharp.IconMenuItem menuPreventas;
         private FontAwesome.Sharp.IconMenuItem menuFacturas;
         private FontAwesome.Sharp.IconMenuItem menuRemitos;

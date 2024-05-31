@@ -76,6 +76,7 @@ namespace SistemaDeVentas
             this.txtDNI.Size = new System.Drawing.Size(245, 22);
             this.txtDNI.TabIndex = 3;
             this.txtDNI.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // label4
             // 
