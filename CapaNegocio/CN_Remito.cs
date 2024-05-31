@@ -12,6 +12,13 @@ namespace CapaNegocio
     {
         private CD_Remito objcd_re = new CD_Remito();
 
+        private CD_Remito obj_rf = new CD_Remito();
+
+        public List<int> ObtenerFactura()
+        {
+            return obj_rf.ObtenerIdsFactura();
+        }
+
         public int genRemito(Remito r, out string Mensaje)
         {
             Mensaje = String.Empty;

@@ -61,7 +61,7 @@ namespace CapaPresentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
+                   // MessageBox.Show("Error al cargar los datos: " + ex.Message);
                 }
             }
         }
@@ -166,6 +166,20 @@ namespace CapaPresentacion
             CB_tipo.DisplayMember = "Texto";
             CB_tipo.ValueMember = "Valor";
             CB_tipo.SelectedIndex = 0;
+        }
+        private void CargarComboBoxFactura()
+        {
+
+            List<int> obj_rf = new CN_Remito().ObtenerFactura();
+
+            // Limpiar ComboBox antes de cargar los IDs
+            CB_fact.Items.Clear();
+
+            // Agregar los IDs al ComboBox
+            foreach (int idFactura in obj_rf)
+            {
+                CB_fact.Items.Add(idFactura);
+            }
         }
 
         private void BtLimpiarRem_Click(object sender, EventArgs e)

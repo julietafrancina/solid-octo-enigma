@@ -108,6 +108,29 @@ namespace CapaDatos
              }
              return lista;
          }
-     }
- }
+        public List<int> ObtenerIdsFactura()
+        {
+            List<int> idsFactura = new List<int>();
+
+            // Conectarse a la base de datos y ejecutar la consulta SQL
+            using (SqlConnection oconexion = new SqlConnection("connection_string"))
+            {
+                string query = "SELECT id_factura FROM Factura";
+                SqlCommand cmd = new SqlCommand(query, oconexion);
+
+                oconexion.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                // Leer los resultados y agregar los IDs a la lista
+                while (reader.Read())
+                {
+                    idsFactura.Add(reader.GetInt32(0)); // Suponiendo que el ID está en la primera columna (0-index)
+                }
+            }
+
+            return idsFactura;
+        }
+    }
+}
+ 
     
