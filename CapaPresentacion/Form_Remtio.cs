@@ -21,6 +21,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.Load += new EventHandler(DLoad);
+            CargarComboBoxFactura();
         }
 
         private void DLoad(object sender, EventArgs e)
