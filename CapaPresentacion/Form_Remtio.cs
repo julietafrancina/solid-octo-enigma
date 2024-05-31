@@ -272,6 +272,7 @@ namespace CapaPresentacion
         private void btnLimpiarBuscador_Click(object sender, EventArgs e)
         {
             text_buscar.Text = "";
+            tabla_rem.Rows.Clear();
         }
     }
 
