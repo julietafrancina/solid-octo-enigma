@@ -51,7 +51,7 @@ namespace CapaDatos
                                 SKU = Convert.ToInt32(dr["sku"]),
                                 rubro = dr["rubro"].ToString(),
                                 marca = dr["marca"].ToString(),
-                                descripcion= dr["descripcion"].ToString(),
+                                descripcion = dr["descripcion"].ToString(),
                                 costo = Convert.ToDouble(dr["costo"]),
                                 activo = a,
 
@@ -70,34 +70,49 @@ namespace CapaDatos
 
 
         }
-
-
-        /*public int guardar_bd(Articulo obj)
+        public int guardar_bd(Articulo obj, out string Mensaje)
         {
-            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            int id_new_art = 0;
+            Mensaje = string.Empty;
+
+            try
             {
-
-                oconexion.Open();
-
-                foreach (tabla_art row in tabla_art.Rows)
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    // Ignorar las filas nuevas que aún no se han guardado
-                    if (row.IsNewRow) continue;
+                    SqlCommand cmd = new SqlCommand("sp_ingresarArt", oconexion);
 
-                    // Obtener los valores de las celdas de la fila
-                    string column1Value = row.Cells[0].Value?.ToString();
-                    string column2Value = row.Cells[1].Value?.ToString();
+                    cmd.Parameters.AddWithValue("sku", obj.SKU);
+                    cmd.Parameters.AddWithValue("rubro", obj.rubro);
+                    cmd.Parameters.AddWithValue("marca", obj.marca);
+                    cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
+                    cmd.Parameters.AddWithValue("costo", obj.costo);
+                    cmd.Parameters.AddWithValue("baja", obj.activo);
+                    cmd.Parameters.AddWithValue("id_new_art", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
 
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                }*/
+                    oconexion.Open();
 
+                    cmd.ExecuteNonQuery();
 
+                    id_new_art = Convert.ToInt32(cmd.Parameters["id_rem_gen"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
-
-
-
+                }
+            }
+            catch (Exception ex)
+            {
+                id_new_art = 0;
+                Mensaje = ex.Message;
             }
 
+
+            return id_new_art;
+
         }
-   // }
-//}
+    }
+
+        
+   
+}

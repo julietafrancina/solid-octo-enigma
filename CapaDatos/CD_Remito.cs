@@ -12,7 +12,47 @@ namespace CapaDatos
      public class CD_Remito
      {
 
-        
+         public int GenerarRemito(Remito re, out string Mensaje)
+      {
+            int id_rem_gen = 0;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_generarRemito", oconexion);
+                    
+                    cmd.Parameters.AddWithValue("nro_op", re.nroOperacion);
+                    cmd.Parameters.AddWithValue("letra", re.letra);
+                    cmd.Parameters.AddWithValue("tipo", re.tipoRemito);
+                    cmd.Parameters.AddWithValue("nro", re.numero);
+                    cmd.Parameters.AddWithValue("sucursal", re.Sucursal_id);
+                    cmd.Parameters.AddWithValue("factura", re.factura);
+                    cmd.Parameters.AddWithValue("estado", re.Estado_id);
+                    cmd.Parameters.AddWithValue("id_rem_gen", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    id_rem_gen = Convert.ToInt32(cmd.Parameters["id_rem_gen"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+
+                }
+            }
+            catch(Exception ex)
+            {
+                id_rem_gen = 0;
+                Mensaje = ex.Message;
+            }
+
+
+            return id_rem_gen;
+      }
         public List<Remito> listar()
          {
              List<Remito> lista = new List<Remito>();
@@ -52,9 +92,9 @@ namespace CapaDatos
                                  nroOperacion = Convert.ToInt32(dr["nro_op"]),
                                  letra = dr["letra"].ToString(),
                                  tipoRemito = dr["tipo"].ToString(),
-                                 Estado_id = new Estado() {descripcion = e},
-                                 Factura_id = new Factura() {id_factura = Convert.ToInt32(dr["factura_id"])},
-                                 Sucursal_id = new Sucursal() { id_suc = Convert.ToInt32(dr["sucursal_id"])}
+                                 Estado_id = e,
+                                 factura = dr["factura_id"].ToString(),
+                                 Sucursal_id = dr["sucursal_id"].ToString(),
                              }) ;
                          }
                          
@@ -68,6 +108,29 @@ namespace CapaDatos
              }
              return lista;
          }
-     }
- }
+        public List<int> ObtenerIdsFactura()
+        {
+            List<int> idsFactura = new List<int>();
+
+            // Conectarse a la base de datos y ejecutar la consulta SQL
+            using (SqlConnection oconexion = new SqlConnection("connection_string"))
+            {
+                string query = "SELECT id_factura FROM Factura";
+                SqlCommand cmd = new SqlCommand(query, oconexion);
+
+                oconexion.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                // Leer los resultados y agregar los IDs a la lista
+                while (reader.Read())
+                {
+                    idsFactura.Add(reader.GetInt32(0)); // Suponiendo que el ID está en la primera columna (0-index)
+                }
+            }
+
+            return idsFactura;
+        }
+    }
+}
+ 
     

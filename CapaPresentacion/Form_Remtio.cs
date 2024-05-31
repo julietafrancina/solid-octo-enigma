@@ -20,25 +20,26 @@ namespace CapaPresentacion
         public Form_Remito()
         {
             InitializeComponent();
-            this.Load += new EventHandler(DLoad); 
+            this.Load += new EventHandler(DLoad);
         }
 
         private void DLoad(object sender, EventArgs e)
         {
             CargarDatos();
             textL.Text = "R";
+            textEstado.Text = "Confirmado";
         }
 
         private void CargarDatos()
-         {
+        {
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-              {
+            {
 
-                 try
-                 {
+                try
+                {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select Factura.nrop_op as operacion, Sucursal.descripcion as nombre"+
+                    query.AppendLine("select Factura.nro_op as operacion, Sucursal.descripcion as nombre" +
                     "from Factura inner join Sucursal on Factura.sucursal_id = Sucursal.id_sucursal");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
@@ -49,19 +50,20 @@ namespace CapaPresentacion
                     {
                         while (dr.Read())
                         {
-                            textNroOp.Text = Convert.ToString(dr["nro_op"]);
-                            textSucursal.Text = dr["sucursal_id"].ToString();
+                            textNroOp.Text = Convert.ToString(dr["operacion"]);
+                            textSucursal.Text = dr["nombre"].ToString();
                             textL.Text = "R";
+                            textEstado.Text = "Confirmado";
                         }
-                     }
+                    }
 
 
-                 }
-                 catch (Exception ex)
-                 {
-                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
-                 }
-              }
+                }
+                catch (Exception ex)
+                {
+                   // MessageBox.Show("Error al cargar los datos: " + ex.Message);
+                }
+            }
         }
 
 
@@ -73,7 +75,7 @@ namespace CapaPresentacion
             textL.Text = "R";
             textNro.Text = "";
             CB_tipo.SelectedIndex = 0;
-            CB_estado.SelectedIndex = 0;
+            textEstado.Text = "Confirmado";
         }
 
         private void btnBusqueda_Click(object sender, EventArgs e)
@@ -83,7 +85,7 @@ namespace CapaPresentacion
 
         private void textNro_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void CB_estado_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,35 +110,36 @@ namespace CapaPresentacion
 
         private void btGuardarRem_Click(object sender, EventArgs e)
         {
-            string mensaje = string.Empty;
+            string Mensaje = string.Empty;
             Remito re = new Remito();
+            re.nroOperacion = Convert.ToInt32(textNroOp.Text);
+            re.Sucursal_id = textSucursal.Text;
+            re.letra = textL.Text;
+            re.tipoRemito = ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString();
+            re.Estado_id = textEstado.Text;
+            re.numero = Convert.ToInt32(textNro.Text);
 
+            int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
 
-            tabla_rem.Rows.Add(new object[] {
+            if (re.nroOperacion == 0)
+            {
+
+                tabla_rem.Rows.Add(new object[] {
 
                 //"",
-                textNroOp.Text, 
+                textNroOp.Text,
                 textSucursal.Text,
                 textL.Text,
                 ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString(),
-                ((OpcionCombo)CB_estado.SelectedItem).Texto.ToString(),
+                textEstado.Text,
                 textNro.Text,
              });
-            if (tabla_rem.Rows.Count > 0)
-            {
-                DataGridViewRow lastRow = tabla_rem.Rows[tabla_rem.Rows.Count - 1];
-                GenerarRemito(lastRow);
             }
             limpiar();
 
 
         }
 
-        private void GenerarRemito(DataGridViewRow lastRow)
-        {
-
-            throw new NotImplementedException();
-        }
 
         private void Form_Remito_Load(object sender, EventArgs e)
         {
@@ -156,11 +159,6 @@ namespace CapaPresentacion
                 rem.Factura_id.nro_operacion,
                 });
             }
-            CB_estado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Confirmado" });
-            CB_estado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Anulado" });
-            CB_estado.DisplayMember = "Texto";
-            CB_estado.ValueMember = "Valor";
-            CB_estado.SelectedIndex = 0;
 
             CB_tipo.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Original" });
             CB_tipo.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Duplicado" });
@@ -168,6 +166,20 @@ namespace CapaPresentacion
             CB_tipo.DisplayMember = "Texto";
             CB_tipo.ValueMember = "Valor";
             CB_tipo.SelectedIndex = 0;
+        }
+        private void CargarComboBoxFactura()
+        {
+
+            List<int> obj_rf = new CN_Remito().ObtenerFactura();
+
+            // Limpiar ComboBox antes de cargar los IDs
+            CB_fact.Items.Clear();
+
+            // Agregar los IDs al ComboBox
+            foreach (int idFactura in obj_rf)
+            {
+                CB_fact.Items.Add(idFactura);
+            }
         }
 
         private void BtLimpiarRem_Click(object sender, EventArgs e)
@@ -179,9 +191,95 @@ namespace CapaPresentacion
         {
             //damos de baja (estado anulado) el remito 
 
-           // tabla_rem.SelectedRows.
+            // tabla_rem.SelectedRows.
+        }
+
+        private void textL_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es una letra o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                // Si no es una letra ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void CB_tipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBusquedaRemito_Click(object sender, EventArgs e)
+        {
+            BuscarRemito();
+
+        }
+        private void BuscarRemito()
+        {
+            string textoBusqueda = text_buscar.Text.Trim();
+
+            if (!string.IsNullOrEmpty(textoBusqueda))
+            {
+                bool encontrado = false;
+
+                foreach (DataGridViewRow row in tabla_rem.Rows)
+                {
+                    // Verificar si la celda de la columna específica contiene el texto de búsqueda
+                    if (row.Cells["Nro_operación"].Value != null &&
+                        row.Cells["Nro_operación"].Value.ToString().Trim() == textoBusqueda)
+                    {
+                        row.Selected = true;
+                        row.Visible = true; // Asegurarse de que la fila sea visible
+                        encontrado = true;
+                        break; // Detener la búsqueda después de encontrar la primera coincidencia
+                    }
+                    else
+                    {
+                        row.Visible = false; // Ocultar las filas que no coinciden
+                    }
+                }
+
+                if (!encontrado)
+                {
+                    MessageBox.Show("Número no encontrado.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor ingrese un número.");
+            }
+        }
+        private void text_buscar_TextChanged(object sender, KeyPressEventArgs e)
+        {
+           
+        }
+
+        private void text_buscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void btnLimpiarBuscador_Click(object sender, EventArgs e)
+        {
+            text_buscar.Text = "";
+            tabla_rem.Rows.Clear();
+        }
+
+        private void CB_fact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
 
-    }
+}
