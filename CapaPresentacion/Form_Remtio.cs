@@ -154,9 +154,9 @@ namespace CapaPresentacion
                 rem.Sucursal_id,
                 rem.letra,
                 rem.tipoRemito,
-                rem.Estado_id.descripcion,
+                rem.Estado_id,
                 rem.numero,
-                rem.Factura_id.nro_operacion,
+                rem.factura,
                 });
             }
 
@@ -269,15 +269,10 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnLimpiarBuscador_Click(object sender, EventArgs e)
+        private void btnLimpiarBuscador_Click_1(object sender, EventArgs e)
         {
             text_buscar.Text = "";
             tabla_rem.Rows.Clear();
-        }
-
-        private void CB_fact_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 
