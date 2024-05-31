@@ -131,7 +131,7 @@ namespace CapaPresentacion
             this.txtTotalAPagar.MinimumSize = new System.Drawing.Size(4, 32);
             this.txtTotalAPagar.Name = "txtTotalAPagar";
             this.txtTotalAPagar.PasswordChar = '*';
-            this.txtTotalAPagar.Size = new System.Drawing.Size(176, 32);
+            this.txtTotalAPagar.Size = new System.Drawing.Size(176, 22);
             this.txtTotalAPagar.TabIndex = 36;
             // 
             // totalAPagar
@@ -555,7 +555,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.grpArticulos);
             this.Controls.Add(this.groupBox1);
             this.Name = "form_RegistrarPreventa";
-            this.Text = "form_RegistrarPreventa";
+            this.Text = "Registro de Preventas";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.grpArticulos.ResumeLayout(false);
