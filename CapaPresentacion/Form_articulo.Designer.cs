@@ -51,7 +51,7 @@ namespace CapaPresentacion
             this.Desc = new System.Windows.Forms.Label();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
-            this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -165,7 +165,7 @@ namespace CapaPresentacion
             // 
             this.tabla_art.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabla_art.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigo_articulo,
+            this.Codigo,
             this.Rubro,
             this.Marca,
             this.Descripción,
@@ -283,12 +283,12 @@ namespace CapaPresentacion
             this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
             this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
             // 
-            // codigo_articulo
+            // Codigo
             // 
-            this.codigo_articulo.HeaderText = "codigo_articulo";
-            this.codigo_articulo.MinimumWidth = 6;
-            this.codigo_articulo.Name = "codigo_articulo";
-            this.codigo_articulo.Width = 125;
+            this.Codigo.HeaderText = "SKU";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.Width = 125;
             // 
             // Rubro
             // 
@@ -385,7 +385,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label Desc;
         private FontAwesome.Sharp.IconButton btnBusqueda;
         private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_articulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
