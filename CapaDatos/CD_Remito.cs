@@ -113,9 +113,9 @@ namespace CapaDatos
             List<int> idsFactura = new List<int>();
 
             // Conectarse a la base de datos y ejecutar la consulta SQL
-            using (SqlConnection oconexion = new SqlConnection("connection_string"))
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
-                string query = "SELECT id_factura FROM Factura";
+                string query = "SELECT id_factura, sucursal_id FROM Factura";
                 SqlCommand cmd = new SqlCommand(query, oconexion);
 
                 oconexion.Open();

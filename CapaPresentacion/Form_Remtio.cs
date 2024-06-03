@@ -22,6 +22,7 @@ namespace CapaPresentacion
             InitializeComponent();
             this.Load += new EventHandler(DLoad);
             CargarComboBoxFactura();
+            CB_fact.SelectedIndexChanged += new EventHandler(CB_fact_SelectedIndexChanged);
         }
 
         private void DLoad(object sender, EventArgs e)
@@ -29,6 +30,26 @@ namespace CapaPresentacion
             CargarDatos();
             textL.Text = "R";
             textEstado.Text = "Confirmado";
+            CB_fact.Text = "Seleccione:";
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "SELECT id_factura, nro_op FROM Factura";
+                SqlCommand command = new SqlCommand(query, oconexion);
+
+                oconexion.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    CB_fact.Items.Add(new OpcionCombo()
+                    {
+                        Valor = Convert.ToInt32(reader["nro_op"]),
+                        Texto = reader["id_factura"].ToString()
+                    });
+                }
+
+                reader.Close();
+            }
         }
 
         private void CargarDatos()
@@ -167,6 +188,28 @@ namespace CapaPresentacion
             CB_tipo.DisplayMember = "Texto";
             CB_tipo.ValueMember = "Valor";
             CB_tipo.SelectedIndex = 0;
+
+            //string connectionString = "your_connection_string_here";
+
+          /*  using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "SELECT id_factura, nro_op FROM Factura";
+                SqlCommand command = new SqlCommand(query, oconexion);
+
+                oconexion.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    CB_fact.Items.Add(new OpcionCombo()
+                    {
+                        Valor = reader["nro_op"],
+                        Texto = reader["id_factura"].ToString()
+                    }); 
+                }
+
+                reader.Close();
+            }*/
         }
         private void CargarComboBoxFactura()
         {
@@ -278,7 +321,30 @@ namespace CapaPresentacion
 
         private void CB_fact_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (CB_fact.SelectedItem != null && CB_fact.SelectedItem is OpcionCombo selectedValue)
+            {
+                
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    string query = "SELECT Factura.nro_op, Sucursal.descripcion " +
+                                   "FROM Factura " +
+                                   "INNER JOIN Sucursal ON Factura.sucursal_id = Sucursal.id_sucursal " +
+                                   "WHERE Factura.id_factura = @id_factura";
+                    SqlCommand command = new SqlCommand(query, oconexion);
+                    command.Parameters.AddWithValue("@id_factura", selectedValue.Valor);
 
+                    oconexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        textNroOp.Text = reader["nro_op"].ToString();
+                        textSucursal.Text = reader["descripcion"].ToString();
+                    }
+
+                    reader.Close();
+                }
+            }
         }
     }
 
