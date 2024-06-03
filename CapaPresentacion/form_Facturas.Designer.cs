@@ -29,12 +29,23 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIndice = new System.Windows.Forms.TextBox();
             this.btnLimpiarDatos = new FontAwesome.Sharp.IconButton();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Letra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -64,17 +75,6 @@ namespace CapaPresentacion
             this.txtSucursal = new System.Windows.Forms.TextBox();
             this.btnAnular = new FontAwesome.Sharp.IconButton();
             this.btnGenerarRemito = new FontAwesome.Sharp.IconButton();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Letra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripcionSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,15 +119,15 @@ namespace CapaPresentacion
             this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvData.ColumnHeadersHeight = 50;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -145,20 +145,120 @@ namespace CapaPresentacion
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.Size = new System.Drawing.Size(888, 527);
             this.dgvData.TabIndex = 88;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.FillWeight = 5.868263F;
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 40;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // Numero
+            // 
+            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Numero.FillWeight = 70.215F;
+            this.Numero.HeaderText = "Número";
+            this.Numero.MinimumWidth = 6;
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
+            // 
+            // Letra
+            // 
+            this.Letra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Letra.FillWeight = 45F;
+            this.Letra.HeaderText = "Letra";
+            this.Letra.MinimumWidth = 6;
+            this.Letra.Name = "Letra";
+            this.Letra.ReadOnly = true;
+            // 
+            // MontoTotal
+            // 
+            this.MontoTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MontoTotal.FillWeight = 85F;
+            this.MontoTotal.HeaderText = "Monto Total";
+            this.MontoTotal.MinimumWidth = 6;
+            this.MontoTotal.Name = "MontoTotal";
+            this.MontoTotal.ReadOnly = true;
+            // 
+            // NroOperacion
+            // 
+            this.NroOperacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NroOperacion.FillWeight = 85F;
+            this.NroOperacion.HeaderText = "Nro. Operación";
+            this.NroOperacion.MinimumWidth = 6;
+            this.NroOperacion.Name = "NroOperacion";
+            this.NroOperacion.ReadOnly = true;
+            // 
+            // IdSucursal
+            // 
+            this.IdSucursal.FillWeight = 106.2491F;
+            this.IdSucursal.HeaderText = "ID Sucursal";
+            this.IdSucursal.MinimumWidth = 6;
+            this.IdSucursal.Name = "IdSucursal";
+            this.IdSucursal.ReadOnly = true;
+            this.IdSucursal.Visible = false;
+            this.IdSucursal.Width = 125;
+            // 
+            // DescripcionSucursal
+            // 
+            this.DescripcionSucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DescripcionSucursal.FillWeight = 110F;
+            this.DescripcionSucursal.HeaderText = "Descripción Sucursal";
+            this.DescripcionSucursal.MinimumWidth = 6;
+            this.DescripcionSucursal.Name = "DescripcionSucursal";
+            this.DescripcionSucursal.ReadOnly = true;
+            // 
+            // IdPreventa
+            // 
+            this.IdPreventa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IdPreventa.FillWeight = 70.215F;
+            this.IdPreventa.HeaderText = "ID Preventa";
+            this.IdPreventa.MinimumWidth = 6;
+            this.IdPreventa.Name = "IdPreventa";
+            this.IdPreventa.ReadOnly = true;
+            // 
+            // IdEstado
+            // 
+            this.IdEstado.HeaderText = "ID Estado";
+            this.IdEstado.MinimumWidth = 6;
+            this.IdEstado.Name = "IdEstado";
+            this.IdEstado.ReadOnly = true;
+            this.IdEstado.Visible = false;
+            this.IdEstado.Width = 125;
+            // 
+            // DescEstado
+            // 
+            this.DescEstado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DescEstado.FillWeight = 70.215F;
+            this.DescEstado.HeaderText = "Estado";
+            this.DescEstado.MinimumWidth = 6;
+            this.DescEstado.Name = "DescEstado";
+            this.DescEstado.ReadOnly = true;
             // 
             // btnLimpiar
             // 
@@ -303,6 +403,7 @@ namespace CapaPresentacion
             this.txtMontoTotal.BackColor = System.Drawing.Color.White;
             this.txtMontoTotal.Location = new System.Drawing.Point(30, 187);
             this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.ReadOnly = true;
             this.txtMontoTotal.Size = new System.Drawing.Size(232, 22);
             this.txtMontoTotal.TabIndex = 3;
             // 
@@ -310,9 +411,11 @@ namespace CapaPresentacion
             // 
             this.txtLetra.BackColor = System.Drawing.Color.White;
             this.txtLetra.Location = new System.Drawing.Point(30, 124);
+            this.txtLetra.MaxLength = 1;
             this.txtLetra.Name = "txtLetra";
             this.txtLetra.Size = new System.Drawing.Size(232, 22);
             this.txtLetra.TabIndex = 2;
+            this.txtLetra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLetra_KeyPress);
             // 
             // txtNumero
             // 
@@ -459,106 +562,6 @@ namespace CapaPresentacion
             this.btnGenerarRemito.Text = "Generar remito";
             this.btnGenerarRemito.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnGenerarRemito.UseVisualStyleBackColor = false;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.FillWeight = 5.868263F;
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 40;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // Numero
-            // 
-            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Numero.FillWeight = 70.215F;
-            this.Numero.HeaderText = "Número";
-            this.Numero.MinimumWidth = 6;
-            this.Numero.Name = "Numero";
-            this.Numero.ReadOnly = true;
-            // 
-            // Letra
-            // 
-            this.Letra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Letra.FillWeight = 45F;
-            this.Letra.HeaderText = "Letra";
-            this.Letra.MinimumWidth = 6;
-            this.Letra.Name = "Letra";
-            this.Letra.ReadOnly = true;
-            // 
-            // MontoTotal
-            // 
-            this.MontoTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MontoTotal.FillWeight = 85F;
-            this.MontoTotal.HeaderText = "Monto Total";
-            this.MontoTotal.MinimumWidth = 6;
-            this.MontoTotal.Name = "MontoTotal";
-            this.MontoTotal.ReadOnly = true;
-            // 
-            // NroOperacion
-            // 
-            this.NroOperacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NroOperacion.FillWeight = 85F;
-            this.NroOperacion.HeaderText = "Nro. Operación";
-            this.NroOperacion.MinimumWidth = 6;
-            this.NroOperacion.Name = "NroOperacion";
-            this.NroOperacion.ReadOnly = true;
-            // 
-            // IdSucursal
-            // 
-            this.IdSucursal.FillWeight = 106.2491F;
-            this.IdSucursal.HeaderText = "ID Sucursal";
-            this.IdSucursal.MinimumWidth = 6;
-            this.IdSucursal.Name = "IdSucursal";
-            this.IdSucursal.ReadOnly = true;
-            this.IdSucursal.Visible = false;
-            this.IdSucursal.Width = 125;
-            // 
-            // DescripcionSucursal
-            // 
-            this.DescripcionSucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DescripcionSucursal.FillWeight = 110F;
-            this.DescripcionSucursal.HeaderText = "Descripción Sucursal";
-            this.DescripcionSucursal.MinimumWidth = 6;
-            this.DescripcionSucursal.Name = "DescripcionSucursal";
-            this.DescripcionSucursal.ReadOnly = true;
-            // 
-            // IdPreventa
-            // 
-            this.IdPreventa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdPreventa.FillWeight = 70.215F;
-            this.IdPreventa.HeaderText = "ID Preventa";
-            this.IdPreventa.MinimumWidth = 6;
-            this.IdPreventa.Name = "IdPreventa";
-            this.IdPreventa.ReadOnly = true;
-            // 
-            // IdEstado
-            // 
-            this.IdEstado.HeaderText = "ID Estado";
-            this.IdEstado.MinimumWidth = 6;
-            this.IdEstado.Name = "IdEstado";
-            this.IdEstado.ReadOnly = true;
-            this.IdEstado.Visible = false;
-            this.IdEstado.Width = 125;
-            // 
-            // DescEstado
-            // 
-            this.DescEstado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DescEstado.FillWeight = 70.215F;
-            this.DescEstado.HeaderText = "Estado";
-            this.DescEstado.MinimumWidth = 6;
-            this.DescEstado.Name = "DescEstado";
-            this.DescEstado.ReadOnly = true;
             // 
             // form_Facturas
             // 

@@ -71,7 +71,7 @@ namespace CapaDatos
                 {
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIO", oconexion);
                     //parámetros de entrada
-                    cmd.Parameters.AddWithValue("dni", obj.dni);
+                    cmd.Parameters.AddWithValue("dni", obj.dni.ToString());
                     cmd.Parameters.AddWithValue("nombre_completo", obj.nombreCompleto);
                     cmd.Parameters.AddWithValue("correo", obj.correo);
                     cmd.Parameters.AddWithValue("contraseña", obj.contraseña);
@@ -113,7 +113,7 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", oconexion);
                     //parámetros de entrada
                     cmd.Parameters.AddWithValue("id_usuario", obj.idUsuario);
-                    cmd.Parameters.AddWithValue("dni", obj.dni);
+                    cmd.Parameters.AddWithValue("dni", obj.dni.ToString());
                     cmd.Parameters.AddWithValue("nombre_completo", obj.nombreCompleto);
                     cmd.Parameters.AddWithValue("correo", obj.correo);
                     cmd.Parameters.AddWithValue("contraseña", obj.contraseña);
@@ -121,11 +121,12 @@ namespace CapaDatos
 
                     //parámetros de salida
                     cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
+
                     cmd.ExecuteNonQuery();
 
                     respuesta = Convert.ToBoolean(cmd.Parameters["respuesta"].Value);
@@ -158,7 +159,7 @@ namespace CapaDatos
 
                     //parámetros de salida
                     cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
