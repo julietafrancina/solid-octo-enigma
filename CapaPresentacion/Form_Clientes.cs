@@ -117,11 +117,11 @@ namespace CapaPresentacion
 
             if (txtDNI.Text == "")
             {
-                MessageBox.Show("Es necesario el documento del Cliente.");
+                MessageBox.Show("Es necesario el documento del Cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (txtDia.Text == "dd" || txtMes.Text == "mm" || txtAnio.Text == "yyyy")
             {
-                MessageBox.Show("Es necesaria la fecha de nacimiento del Cliente.");
+                MessageBox.Show("Es necesaria la fecha de nacimiento del Cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -163,7 +163,7 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        MessageBox.Show(mensaje);
+                        MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
                 else
@@ -184,7 +184,7 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        MessageBox.Show(mensaje);
+                        MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
 

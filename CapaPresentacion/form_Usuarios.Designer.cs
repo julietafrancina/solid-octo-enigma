@@ -52,6 +52,14 @@ namespace CapaPresentacion
             this.textDNI = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtId = new System.Windows.Forms.TextBox();
             this.ttlUsuarios = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,14 +71,6 @@ namespace CapaPresentacion
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.bntGuardar = new FontAwesome.Sharp.IconButton();
             this.txtIndice = new System.Windows.Forms.TextBox();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -286,6 +286,73 @@ namespace CapaPresentacion
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 40;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "idUsuario";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // DNI
+            // 
+            this.DNI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DNI.HeaderText = "DNI";
+            this.DNI.MinimumWidth = 6;
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            // 
+            // NombreCompleto
+            // 
+            this.NombreCompleto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NombreCompleto.HeaderText = "Nombre Completo";
+            this.NombreCompleto.MinimumWidth = 6;
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.ReadOnly = true;
+            // 
+            // Correo
+            // 
+            this.Correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Correo.HeaderText = "Correo";
+            this.Correo.MinimumWidth = 6;
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            // 
+            // Contraseña
+            // 
+            this.Contraseña.HeaderText = "Contraseña";
+            this.Contraseña.MinimumWidth = 6;
+            this.Contraseña.Name = "Contraseña";
+            this.Contraseña.ReadOnly = true;
+            this.Contraseña.Visible = false;
+            this.Contraseña.Width = 125;
+            // 
+            // idRol
+            // 
+            this.idRol.HeaderText = "idRol";
+            this.idRol.MinimumWidth = 6;
+            this.idRol.Name = "idRol";
+            this.idRol.ReadOnly = true;
+            this.idRol.Visible = false;
+            this.idRol.Width = 125;
+            // 
+            // Rol
+            // 
+            this.Rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Rol.HeaderText = "Rol";
+            this.Rol.MinimumWidth = 6;
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            // 
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(205, 32);
@@ -421,73 +488,6 @@ namespace CapaPresentacion
             this.txtIndice.Size = new System.Drawing.Size(33, 22);
             this.txtIndice.TabIndex = 27;
             this.txtIndice.Text = "-1";
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 40;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "idUsuario";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // DNI
-            // 
-            this.DNI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DNI.HeaderText = "DNI";
-            this.DNI.MinimumWidth = 6;
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // NombreCompleto
-            // 
-            this.NombreCompleto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombreCompleto.HeaderText = "Nombre Completo";
-            this.NombreCompleto.MinimumWidth = 6;
-            this.NombreCompleto.Name = "NombreCompleto";
-            this.NombreCompleto.ReadOnly = true;
-            // 
-            // Correo
-            // 
-            this.Correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Correo.HeaderText = "Correo";
-            this.Correo.MinimumWidth = 6;
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            // 
-            // Contraseña
-            // 
-            this.Contraseña.HeaderText = "Contraseña";
-            this.Contraseña.MinimumWidth = 6;
-            this.Contraseña.Name = "Contraseña";
-            this.Contraseña.ReadOnly = true;
-            this.Contraseña.Visible = false;
-            this.Contraseña.Width = 125;
-            // 
-            // idRol
-            // 
-            this.idRol.HeaderText = "idRol";
-            this.idRol.MinimumWidth = 6;
-            this.idRol.Name = "idRol";
-            this.idRol.ReadOnly = true;
-            this.idRol.Visible = false;
-            this.idRol.Width = 125;
-            // 
-            // Rol
-            // 
-            this.Rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Rol.HeaderText = "Rol";
-            this.Rol.MinimumWidth = 6;
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
             // 
             // form_Usuarios
             // 

@@ -18,5 +18,11 @@ namespace CapaNegocio
         {
             return objcd_preventa.listar();
         }
+
+        public List<Preventa> listarPrevsAFacturar()
+        {
+            return objcd_preventa.listarPrevsAFacturar();
+        }
+
     }
 }

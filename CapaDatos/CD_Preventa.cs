@@ -84,45 +84,56 @@ namespace CapaDatos
         }
 
 
-        //public List<Preventa> listarActivas()
-        //{
-        //    List<Preventa> lista = new List<Preventa>();
+        public List<Preventa> listarPrevsAFacturar()
+        {
 
-        //    using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        //    {
-        //        try
-        //        {
+            List<Preventa> lista = new List<Preventa>();
 
-        //            SqlCommand cmd = new SqlCommand("sp_TraerPreventasActivas", oconexion);
-        //            cmd.CommandType = CommandType.Text;
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
 
-        //            oconexion.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader())
-        //            {
-        //                while (dr.Read())
-        //                {
+                    SqlCommand cmd = new SqlCommand("sp_TraerPreventasAFacturar", oconexion);
+                    cmd.CommandType = CommandType.Text;
 
-        //                    lista.Add(new Preventa()
-        //                    {
-        //                        
-                                
-        //                    });
-        //                }
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
 
-        //            }
-        //        }
-        //        catch (Exception)
-        //        {
-        //            lista = new List<Preventa>();
-        //        }
+                            lista.Add(new Preventa()
+                            {
+                                idPreventa = Convert.ToInt32(dr["id_preventa"]),
+                                fecha = Convert.ToDateTime(dr["fecha"]),
+                                baja = Convert.ToBoolean(dr["baja"]),
+                                monto = Convert.ToDouble(dr["monto"]),
+                                nroOperacion = Convert.ToInt32(dr["nro_operacion"]),
+                                osucursal = new Sucursal()
+                                {
+                                    id_suc = Convert.ToInt32(dr["sucursal_id"]),
+                                    desc = dr["descripcion"].ToString()
+                                },
+                                ousuario = new Usuario() { idUsuario = Convert.ToInt32(dr["usuario_id"])},
+                                ocliente = new Cliente() { idCliente = Convert.ToInt32(dr["cliente_id"])}
+                            });
+                        }
+
+                    }
+                }
+                catch (Exception)
+                {
+                    lista = new List<Preventa>();
+                }
 
 
 
-        //    }
+            }
 
-        //    return lista;
+            return lista;
 
-        //}
+        }
 
 
 

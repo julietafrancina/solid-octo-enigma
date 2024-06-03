@@ -55,22 +55,7 @@ namespace CapaPresentacion
                 });
             }
 
-            List<Preventa> listaPreventas = new CN_Preventa().listar();
-
-            foreach (Preventa item in listaPreventas)
-            {
-                if(item.baja == false)
-                {
-                    cboBoxPreventa.Items.Add(new OpcionCombo()
-                    {
-                        Valor = item.idPreventa,
-                        Texto = "ID: " + item.idPreventa.ToString() + " -  Nro. Op.: " + item.nroOperacion.ToString()
-                    });
-                }
-            }
-
-            cboBoxPreventa.DisplayMember = "Texto";
-            cboBoxPreventa.ValueMember = "Valor";
+            cargarPreventasCBO();
 
         }
 
@@ -103,7 +88,6 @@ namespace CapaPresentacion
             txtLetra.Text = "";
             txtLetra.ReadOnly = false;
             txtMontoTotal.Text = "";
-            txtMontoTotal.ReadOnly = false;
             txtNroOperacion.Text = "";
             txtSucursal.Text = "Sucursal";
             txtSucursal.ForeColor = System.Drawing.Color.Gray;
@@ -200,6 +184,7 @@ namespace CapaPresentacion
                         txtNroOperacion.Text = item.nroOperacion.ToString();
                         txtSucursal.Text = item.osucursal.desc;
                         txtSucursal.ForeColor = System.Drawing.Color.Black;
+                        txtMontoTotal.Text = item.monto.ToString();
                     }
                 }
             }
@@ -211,7 +196,7 @@ namespace CapaPresentacion
 
             if (txtNumero.Text == "" || txtLetra.Text == "" || txtMontoTotal.Text == "" || cboBoxPreventa.SelectedIndex == -1)
             {
-                MessageBox.Show("Rellene los datos de la factura por favor.");
+                MessageBox.Show("Rellene los datos de la factura por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -263,15 +248,16 @@ namespace CapaPresentacion
                     });
 
                         limpiar();
+                        cargarPreventasCBO();
                     }
                     else
                     {
-                        MessageBox.Show(mensaje);
+                        MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ya se encuentra registrado este número de factura.");
+                    MessageBox.Show("Ya se encuentra registrado este número de factura.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
             }
@@ -289,7 +275,6 @@ namespace CapaPresentacion
             txtLetra.Text = "";
             txtLetra.ReadOnly = false;
             txtMontoTotal.Text = "";
-            txtMontoTotal.ReadOnly = false;
             txtSucursal.Text = "Sucursal";
             txtSucursal.ForeColor = System.Drawing.Color.Gray;
             cboBoxPreventa.SelectedIndex = -1;
@@ -302,34 +287,17 @@ namespace CapaPresentacion
 
             if (txtId.Text == "0")
             {
-                MessageBox.Show("No se puede anular una factura que no existe.");
+                MessageBox.Show("No se puede anular una factura que no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
 
                 string mensaje = string.Empty;
-                List<Preventa> listaPreventas = new CN_Preventa().listar();
-
-                int idAuxiliar = 0;
-                foreach (Preventa item in listaPreventas)
-                {
-                    if (item.idPreventa == Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor))
-                    {
-                        idAuxiliar = item.osucursal.id_suc;
-                        break;
-                    }
-                }
 
                 Factura obj = new Factura()
                 {
                     id_factura = Convert.ToInt32(txtId.Text),
                     nro = Convert.ToInt32(txtNumero.Text),
-                    nro_operacion = Convert.ToInt32(txtNroOperacion.Text),
-                    letra = txtLetra.Text,
-                    monto_total = Convert.ToDouble(txtMontoTotal.Text),
-                    estado_id = new Estado() { id_estado = 1 },
-                    preventa_id = new Preventa() { idPreventa = Convert.ToInt32(((OpcionCombo)cboBoxPreventa.SelectedItem).Valor) },
-                    sucursal_id = new Sucursal() { id_suc = idAuxiliar }
                 };
 
 
@@ -340,13 +308,48 @@ namespace CapaPresentacion
                     DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
                     row.Cells["DescEstado"].Value = "Anulado";
                     limpiar();
+                    cargarPreventasCBO();
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
             }
         }
+
+        private void txtLetra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es una letra o una tecla de control 
+            if (e.KeyChar != 'A' && e.KeyChar != 'B' && !char.IsControl(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+
+        private void cargarPreventasCBO()
+        {
+            cboBoxPreventa.Items.Clear();
+
+            List<Preventa> listaPreventas = new CN_Preventa().listarPrevsAFacturar();
+
+            foreach (Preventa item in listaPreventas)
+            {
+                if (item.baja == false)
+                {
+                    cboBoxPreventa.Items.Add(new OpcionCombo()
+                    {
+                        Valor = item.idPreventa,
+                        Texto = "ID: " + item.idPreventa.ToString() + " -  Nro. Op.: " + item.nroOperacion.ToString()
+                    });
+                }
+            }
+
+            cboBoxPreventa.DisplayMember = "Texto";
+            cboBoxPreventa.ValueMember = "Valor";
+        }
+
     }
 }
