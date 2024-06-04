@@ -83,48 +83,39 @@ namespace CapaDatos
             return lista;
         }
 
+        public List<Articulo> listarArticulosPreventa(Preventa obj)
+        {
+            List<Articulo> lista = new List<Articulo>();
 
-        //public List<Preventa> listarActivas()
-        //{
-        //    List<Preventa> lista = new List<Preventa>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand("SP_ARTICULOSPREVENTA", oconexion);
+                cmd.Parameters.AddWithValue("id_preventa", obj.idPreventa);
 
-        //    using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        //    {
-        //        try
-        //        {
+                cmd.CommandType = CommandType.StoredProcedure;
 
-        //            SqlCommand cmd = new SqlCommand("sp_TraerPreventasActivas", oconexion);
-        //            cmd.CommandType = CommandType.Text;
+                oconexion.Open();
+                cmd.ExecuteNonQuery();
 
-        //            oconexion.Open();
-        //            using (SqlDataReader dr = cmd.ExecuteReader())
-        //            {
-        //                while (dr.Read())
-        //                {
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
 
-        //                    lista.Add(new Preventa()
-        //                    {
-        //                        
-                                
-        //                    });
-        //                }
+                        lista.Add(new Articulo()
+                        {
+                            idArticulo = Convert.ToInt32(dr["id_articulo"]),
+                            SKU = Convert.ToInt32(dr["SKU"]),
+                            descripcion = dr["descripcion"].ToString(),
+                            rubro = dr["rubro"].ToString(),
+                            marca = dr["marca"].ToString(),
+                            costo = Convert.ToDouble(dr["costo"])
+                        });
+                    }
 
-        //            }
-        //        }
-        //        catch (Exception)
-        //        {
-        //            lista = new List<Preventa>();
-        //        }
-
-
-
-        //    }
-
-        //    return lista;
-
-        //}
-
-
-
+                }
+            }
+            return lista;
+        }
     }
 }

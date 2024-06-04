@@ -24,10 +24,10 @@ ALTER PROC SP_REGISTRARUSUARIO
 			VALUES (@dni, @nombre_completo, @correo, @contraseña, @rol_id)
 
 			SET @id_usuario_resultado = SCOPE_IDENTITY()
-	END
-	ELSE
+		END
+		ELSE
 			SET @mensaje = 'El DNI debe ser único para cada usuario'
-END
+	END
 GO
 
 

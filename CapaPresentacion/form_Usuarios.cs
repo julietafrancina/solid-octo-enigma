@@ -96,7 +96,7 @@ namespace CapaPresentacion
                 }
             };
 
-            if(objusuario.idUsuario == 0) {
+            if (objusuario.idUsuario == 0) {
                 int idUsuarioGenerado = new CN_Usuario().Registrar(objusuario, out mensaje);
                 if (idUsuarioGenerado != 0)
                 {

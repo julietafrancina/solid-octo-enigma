@@ -51,3 +51,23 @@ VALUES
 	(CONVERT(DATETIME, '2024-05-21 14:30:00', 120), 219999, 0, 0002, 2, 2, 2),
 	(CONVERT(DATETIME, '2024-05-21 15:30:00', 120), 49000, 1, 0003, 3, 5, 3);
 
+INSERT INTO Articulo (SKU, rubro, costo, marca, baja, descripcion)
+VALUES
+	(207443, 'Heladeras', 739999, 'Drean', 0, 'Heladera Drean HDR320F00N Ciclica 314L Negra'),
+	(205196, 'Heladeras', 1355999, 'Samsung', 0, 'Heladera Samsung 382L Rt38K5932Sl Silver C/D N/F'),
+	(205794, 'Depiladoras', 63399, 'Phillips', 0, 'Depiladora Philips Bre225/00 Satinelle Essential'),
+	(701657, 'Smartwatchs', 493999, 'Samsung', 0, 'Smartwatch Samsung Galaxy Watch6 40mm Black R930'),
+	(505416, 'Smart TV', 679999, 'Samsung', 0, 'Smart TV SAMSUNG 50" CU7000 4K HDR BT HDMI USB'),
+	(206599, 'Batidoras', 179999, 'Peabody', 0, 'Batidora Peabody Planet. Pe-Bm101 1000W 4L Cl/Vs'),
+	(208119, 'Cafeteras', 789999, 'Smartlife', 0, 'Cafetera Smartlife Expresso Sl-Ecg5020 C/Molinillo'),
+	(505498, 'Auriculares', 97999, 'JBL', 0, 'Auricular Jbl Tune 520bt On Ear Cl/Vs');
+
+INSERT INTO ItemPrevArt (prev_id, prevsuc_id, art_id)
+VALUES 
+	(6, 1, 2),
+	(6, 1, 5),
+	(7, 2, 1),
+	(8, 3, 6),
+	(8, 3, 3),
+	(8, 3, 7);
+

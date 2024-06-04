@@ -18,5 +18,12 @@ namespace CapaNegocio
         {
             return objcd_preventa.listar();
         }
+
+        //Llamo al método MostrarArticulosPreventa
+        public List<Articulo> listarArticulosPreventa(Preventa obj)
+        {
+            return objcd_preventa.listarArticulosPreventa(obj);
+        }
     }
+
 }

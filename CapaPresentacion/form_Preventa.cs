@@ -112,7 +112,7 @@ namespace CapaPresentacion
             }
         }
 
-        //Al seleccionar un usuario de la tabla, pasar sus datos a los inputs de la izquierda.
+        //Al seleccionar un usuario de la tabla, pasar sus datos a los inputs del detalle.
         private void dgvPreventas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvPreventas.Columns[e.ColumnIndex].Name == "btnSeleccionar")
@@ -129,7 +129,46 @@ namespace CapaPresentacion
                     txtSucursal.Text = dgvPreventas.Rows[indice].Cells["Sucursal"].Value.ToString();
                     txtBaja.Text = dgvPreventas.Rows[indice].Cells["Baja"].Value.ToString();
                     txtUsuarioPreventa.Text = dgvPreventas.Rows[indice].Cells["UsuarioPreventa"].Value.ToString();
+
+                    List<Articulo> listaArticulosPreventa = new CN_Preventa().listarArticulosPreventa(new Preventa()
+                    {
+                        idPreventa = Convert.ToInt32(dgvPreventas.Rows[indice].Cells["idPreventa"].Value)
+                    });
+
+                    dgvArticulosPreventa.Rows.Clear();
+
+                    foreach (Articulo item in listaArticulosPreventa)
+                    {
+                        dgvArticulosPreventa.Rows.Add(new object[]
+                        {
+                            item.idArticulo, //no visible en la tabla
+                            item.descripcion,
+                            item.rubro,
+                            item.marca,
+                            item.SKU,
+                            item.costo
+                        });
+                    }
+                }  
+
+                decimal sumaTotal = 0;
+
+                foreach (DataGridViewRow row in dgvArticulosPreventa.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        var valorCelda = row.Cells["Costo"].Value;
+                        if (valorCelda != null)
+                        {
+                            if (decimal.TryParse(valorCelda.ToString(), out decimal costo))
+                            {
+                                sumaTotal += costo;
+                            }
+                        }
+                    }
                 }
+
+                txtMonto.Text = sumaTotal.ToString("N2");
             }
         }
 

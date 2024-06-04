@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    public class Item_Preventa_Por_Articulo
+    public class ItemPrevArt
     {
         public int idPreventaPorArticulo { get; set; }
-        public Preventa Preventa_id { get; set; }
-        public Articulo Articulo_id { get; set; }
-
+        public Preventa opreventa { get; set; }
+        public Articulo oarticulo { get; set; }
     }
 }
