@@ -42,6 +42,17 @@ namespace CapaPresentacion
 
             foreach (Usuario item in listaUsuario)
             {
+
+                string act = "";
+                if (item.activo)
+                {
+                    act = "Si";
+                }
+                else
+                {
+                    act = "No";
+                }
+
                 dgvData.Rows.Add(new object[]
                 {
                     "",
@@ -51,7 +62,8 @@ namespace CapaPresentacion
                     item.correo,
                     item.contraseña,
                     item.orol.id_rol,
-                    item.orol.descripcion
+                    item.orol.descripcion,
+                    act
                 });
             }
 
@@ -73,72 +85,85 @@ namespace CapaPresentacion
             cboBusquedaUsuario.SelectedIndex = 0;
         }
 
-        //Filtro buscador
-        private void filtrarDatos()
-        {
-            string filtro;
-        }
 
         //Registrar un usuario nuevo al hacer click en el botón 'Guardar'.
         private void bntGuardar_Click(object sender, EventArgs e)
         {
-            string mensaje = string.Empty;
-            Usuario objusuario = new Usuario()
+            if(txtDNI.Text == "")
             {
-                idUsuario = Convert.ToInt32(txtId.Text),
-                dni = Convert.ToInt32(txtDNI.Text),
-                nombreCompleto = txtNombreCompleto.Text,
-                correo = txtCorreo.Text,
-                contraseña = txtClave.Text,
-                orol = new Rol()
-                {
-                    id_rol = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor)
-                }
-            };
-
-            if(objusuario.idUsuario == 0) {
-                int idUsuarioGenerado = new CN_Usuario().Registrar(objusuario, out mensaje);
-                if (idUsuarioGenerado != 0)
-                {
-                    dgvData.Rows.Add(new object[]
-                    {
-                    "",
-                    idUsuarioGenerado,
-                    txtDNI.Text,
-                    txtNombreCompleto.Text,
-                    txtCorreo.Text,
-                    txtClave.Text,
-                    ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
-                    ((OpcionCombo)cboRol.SelectedItem).Texto.ToString()
-                    });
-
-                    limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
+                MessageBox.Show("Se requiere el DNI del usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                bool resultado = new CN_Usuario().Editar(objusuario, out mensaje);
-
-                if (resultado)
+                if (txtClave.Text == txtConfirmarClave.Text)
                 {
-                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
-                    row.Cells["Id"].Value = txtId.Text;
-                    row.Cells["DNI"].Value = txtDNI.Text;
-                    row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
-                    row.Cells["Correo"].Value = txtCorreo.Text;
-                    row.Cells["Rol"].Value = ((OpcionCombo)cboRol.SelectedItem).Texto.ToString();
-                    limpiar();
+
+                    string mensaje = string.Empty;
+                    Usuario objusuario = new Usuario()
+                    {
+                        idUsuario = Convert.ToInt32(txtId.Text),
+                        dni = Convert.ToInt32(txtDNI.Text),
+                        nombreCompleto = txtNombreCompleto.Text,
+                        correo = txtCorreo.Text,
+                        contraseña = txtClave.Text,
+                        orol = new Rol()
+                        {
+                            id_rol = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor)
+                        }
+                    };
+
+                    if (objusuario.idUsuario == 0)
+                    {
+                        int idUsuarioGenerado = new CN_Usuario().Registrar(objusuario, out mensaje);
+                        if (idUsuarioGenerado != 0)
+                        {
+                            dgvData.Rows.Add(new object[]
+                            {
+                            "",
+                            idUsuarioGenerado,
+                            txtDNI.Text,
+                            txtNombreCompleto.Text,
+                            txtCorreo.Text,
+                            txtClave.Text,
+                            ((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
+                            ((OpcionCombo)cboRol.SelectedItem).Texto.ToString(),
+                            "Sí"
+                            });
+
+                            limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        bool resultado = new CN_Usuario().Editar(objusuario, out mensaje);
+
+                        if (resultado)
+                        {
+                            DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                            row.Cells["Id"].Value = txtId.Text;
+                            row.Cells["DNI"].Value = txtDNI.Text;
+                            row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
+                            row.Cells["Correo"].Value = txtCorreo.Text;
+                            row.Cells["Rol"].Value = ((OpcionCombo)cboRol.SelectedItem).Texto.ToString();
+                            limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    MessageBox.Show("Confirme la contraseña para continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-
+            
             
         }
 
@@ -241,5 +266,54 @@ namespace CapaPresentacion
             }
         }
 
+        private void btnDarBaja_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text == "0")
+            {
+                MessageBox.Show("No se puede dar de baja un usuario que no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                if (txtDNI.Text != dgvData.Rows[Convert.ToInt32(txtIndice.Text)].Cells["DNI"].Value.ToString())
+                {
+                    MessageBox.Show("DNI de usuario incorrecto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    if (txtClave.Text == txtConfirmarClave.Text)
+                    {
+
+                        string mensaje = string.Empty;
+
+                        Usuario obj = new Usuario()
+                        {
+                            idUsuario = Convert.ToInt32(txtId.Text),
+                            dni = Convert.ToInt32(txtDNI.Text),
+                        };
+
+
+                        bool resultado = new CN_Usuario().DarBaja(obj, out mensaje);
+
+                        if (resultado)
+                        {
+                            DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                            row.Cells["Activo"].Value = "No";
+                            limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Confirme la contraseña para continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+
+
+            }
+        }
     }
 }
