@@ -175,7 +175,7 @@ namespace CapaPresentacion
             { 
                 int valor = Convert.ToInt32(opcionSeleccionada.Valor);
 
-                List<Preventa> listaPreventas = new CN_Preventa().listar();
+                List<Preventa> listaPreventas = new CN_Preventa().listarPrevsAFacturar();
 
                 foreach (Preventa item in listaPreventas)
                 {

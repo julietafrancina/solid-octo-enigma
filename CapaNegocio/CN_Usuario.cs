@@ -24,14 +24,14 @@ namespace CapaNegocio
             //Validaciones
             mensaje = string.Empty;
 
-            if (obj.dni == 0)
-            {
-                mensaje += "Es necesario el DNI del usuario.\n";
-            }
-
             if (obj.nombreCompleto == "")
             {
                 mensaje += "Es necesario el nombre del usuario.\n";
+            }
+
+            if (obj.correo == "")
+            {
+                mensaje += "Es necesario el correo del usuario.\n";
             }
 
             if (obj.contraseña == "")
@@ -54,14 +54,14 @@ namespace CapaNegocio
             //Validaciones
             mensaje = string.Empty;
 
-            if (obj.dni == 0)
-            {
-                mensaje += "Es necesario el DNI del usuario.\n";
-            }
-
             if (obj.nombreCompleto == "")
             {
                 mensaje += "Es necesario el nombre del usuario.\n";
+            }
+
+            if (obj.correo == "")
+            {
+                mensaje += "Es necesario el correo del usuario.\n";
             }
 
             if (obj.contraseña == "")
@@ -79,19 +79,19 @@ namespace CapaNegocio
             }
         }
 
-        public bool Eliminar(Usuario obj, out string mensaje)
+        public bool DarBaja(Usuario obj, out string mensaje)
         {
             //Validaciones
             mensaje = string.Empty;
 
-            if (obj.dni == 0)
-            {
-                mensaje += "Es necesario el DNI del usuario.\n";
-            }
-
             if (obj.nombreCompleto == "")
             {
                 mensaje += "Es necesario el nombre del usuario.\n";
+            }
+
+            if (obj.correo == "")
+            {
+                mensaje += "Es necesario el correo del usuario.\n";
             }
 
             if (obj.contraseña == "")
@@ -105,7 +105,7 @@ namespace CapaNegocio
             }
             else
             {
-                return objcd_usuario.Eliminar(obj, out mensaje);
+                return objcd_usuario.DarBaja(obj, out mensaje);
             }
         }
     }
