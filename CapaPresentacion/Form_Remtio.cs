@@ -216,14 +216,6 @@ namespace CapaPresentacion
 
             List<int> obj_rf = new CN_Remito().ObtenerFactura();
 
-           /* // Limpiar ComboBox antes de cargar los IDs
-            CB_fact.Items.Clear();
-
-            // Agregar los IDs al ComboBox
-            foreach (int idFactura in obj_rf)
-            {
-                CB_fact.Items.Add(idFactura);
-            }*/
         }
 
         private void BtLimpiarRem_Click(object sender, EventArgs e)
@@ -235,8 +227,60 @@ namespace CapaPresentacion
         {
             //damos de baja (estado anulado) el remito 
 
+            // Verifica que haya filas en el DataGridView
+            if (tabla_rem.Rows.Count > 0)
+            {
+                // Selecciona la última fila (recién agregada)
+                DataGridViewRow ultimaFila = tabla_rem.Rows[tabla_rem.Rows.Count - 1];
+
+                // Obtén el ID de la última fila  
+                int id = Convert.ToInt32(ultimaFila.Cells["Estado"].Value); // Cambia "id" por el nombre de la columna que almacena el ID
+
+                // Llama al método para cambiar el estado en la base de datos
+                Anular_bd(id, nuevoEstado);
+
+                // Actualiza el DataGridView para reflejar el cambio
+                ultimaFila.Cells["Estado"].Value = nuevoEstado; // Cambia "estado_id" por el nombre de la columna de estado
+                ultimaFila.Cells["Estado"].Value = "Anulado"; //ia "estado" por el nombre de la columna que muestra el estado
+            }
+                                               
+
             // tabla_rem.SelectedRows.
+            /* using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+             {
+                 string query = "UPDATE Remito SET estado_id  = 3 where id_remito = @id_remito
+                 SqlCommand command = new SqlCommand(query, oconexion);
+
+                 command.Parameters.AddWithValue("@id_remito", selectedValue.Valor);
+
+                 oconexion.Open();
+                 SqlDataReader reader = command.ExecuteReader();
+                 
+                if (reader.Reader()){
+
+                    
+            }
+      
+             */
         }
+        private void Anular_bd(int id, int nuevoEstado)
+        {
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "sp_CambiarEstado";
+                SqlCommand command = new SqlCommand(query, oconexion);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@nuevo_estado", nuevoEstado);
+
+                oconexion.Open();
+                command.ExecuteNonQuery();
+                oconexion.Close();
+            }
+        }
+
+        private const int nuevoEstado = 3;
 
         private void textL_TextChanged(object sender, EventArgs e)
         {
