@@ -62,7 +62,7 @@ namespace CapaDatos
                  try
                  {
                      StringBuilder query = new StringBuilder();
-                     query.AppendLine("select * from Remito");
+                     query.AppendLine("select *, Sucursal.descripcion as nombre from Remito inner join Sucursal on Remito.sucursal_id = Sucursal.id_sucursal");
 
                      SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                      cmd.CommandType = CommandType.Text;
@@ -94,7 +94,7 @@ namespace CapaDatos
                                  tipoRemito = dr["tipo"].ToString(),
                                  Estado_id = e,
                                  factura = dr["factura_id"].ToString(),
-                                 Sucursal_id = dr["sucursal_id"].ToString(),
+                                 Sucursal_id = dr["nombre"].ToString(),
                              }) ;
                          }
                          

@@ -309,7 +309,7 @@ namespace CapaPresentacion
             this.CB_tipo.Name = "CB_tipo";
             this.CB_tipo.Size = new System.Drawing.Size(212, 24);
             this.CB_tipo.TabIndex = 44;
-            this.CB_tipo.SelectedIndexChanged += new System.EventHandler(this.CB_tipo_SelectedIndexChanged);
+            this.CB_tipo.SelectedIndexChanged += new System.EventHandler(this.CB_fact_SelectedIndexChanged);
             // 
             // textEstado
             // 

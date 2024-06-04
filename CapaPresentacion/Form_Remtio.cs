@@ -33,7 +33,7 @@ namespace CapaPresentacion
             CB_fact.Text = "Seleccione:";
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
-                string query = "SELECT id_factura, nro_op FROM Factura";
+                string query = "SELECT id_factura FROM Factura";
                 SqlCommand command = new SqlCommand(query, oconexion);
 
                 oconexion.Open();
@@ -43,7 +43,7 @@ namespace CapaPresentacion
                 {
                     CB_fact.Items.Add(new OpcionCombo()
                     {
-                        Valor = Convert.ToInt32(reader["nro_op"]),
+                        Valor = Convert.ToInt32(reader["id_factura"]),
                         Texto = reader["id_factura"].ToString()
                     });
                 }
@@ -97,7 +97,7 @@ namespace CapaPresentacion
             textL.Text = "R";
             textNro.Text = "";
             CB_tipo.SelectedIndex = 0;
-            textEstado.Text = "Confirmado";
+            textEstado.Text = "Confirmado";   
         }
 
         private void btnBusqueda_Click(object sender, EventArgs e)
@@ -143,7 +143,7 @@ namespace CapaPresentacion
 
             int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
 
-            if (re.nroOperacion == 0)
+            if (re.nroOperacion != 0)
             {
 
                 tabla_rem.Rows.Add(new object[] {
@@ -216,14 +216,14 @@ namespace CapaPresentacion
 
             List<int> obj_rf = new CN_Remito().ObtenerFactura();
 
-            // Limpiar ComboBox antes de cargar los IDs
+           /* // Limpiar ComboBox antes de cargar los IDs
             CB_fact.Items.Clear();
 
             // Agregar los IDs al ComboBox
             foreach (int idFactura in obj_rf)
             {
                 CB_fact.Items.Add(idFactura);
-            }
+            }*/
         }
 
         private void BtLimpiarRem_Click(object sender, EventArgs e)
@@ -253,10 +253,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void CB_tipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnBusquedaRemito_Click(object sender, EventArgs e)
         {
