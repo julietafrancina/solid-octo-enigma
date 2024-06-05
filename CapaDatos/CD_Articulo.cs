@@ -87,6 +87,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
                     cmd.Parameters.AddWithValue("costo", obj.costo);
                     cmd.Parameters.AddWithValue("baja", obj.activo);
+
                     cmd.Parameters.AddWithValue("id_new_art", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
 

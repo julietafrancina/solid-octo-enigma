@@ -391,12 +391,12 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox textDesc;
         private System.Windows.Forms.Label Desc;
         private FontAwesome.Sharp.IconButton btnBusqueda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_articulo;
+        private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
-        private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
     }
 }

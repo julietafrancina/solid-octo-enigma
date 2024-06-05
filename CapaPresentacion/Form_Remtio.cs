@@ -21,6 +21,8 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.Load += new EventHandler(DLoad);
+            CargarComboBoxFactura();
+            CB_fact.SelectedIndexChanged += new EventHandler(CB_fact_SelectedIndexChanged);
         }
 
         private void DLoad(object sender, EventArgs e)
@@ -28,6 +30,26 @@ namespace CapaPresentacion
             CargarDatos();
             textL.Text = "R";
             textEstado.Text = "Confirmado";
+            CB_fact.Text = "Seleccione:";
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "SELECT id_factura FROM Factura";
+                SqlCommand command = new SqlCommand(query, oconexion);
+
+                oconexion.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    CB_fact.Items.Add(new OpcionCombo()
+                    {
+                        Valor = Convert.ToInt32(reader["id_factura"]),
+                        Texto = reader["id_factura"].ToString()
+                    });
+                }
+
+                reader.Close();
+            }
         }
 
         private void CargarDatos()
@@ -75,7 +97,7 @@ namespace CapaPresentacion
             textL.Text = "R";
             textNro.Text = "";
             CB_tipo.SelectedIndex = 0;
-            textEstado.Text = "Confirmado";
+            textEstado.Text = "Confirmado";   
         }
 
         private void btnBusqueda_Click(object sender, EventArgs e)
@@ -121,7 +143,7 @@ namespace CapaPresentacion
 
             int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
 
-            if (re.nroOperacion == 0)
+            if (re.nroOperacion != 0)
             {
 
                 tabla_rem.Rows.Add(new object[] {
@@ -166,20 +188,34 @@ namespace CapaPresentacion
             CB_tipo.DisplayMember = "Texto";
             CB_tipo.ValueMember = "Valor";
             CB_tipo.SelectedIndex = 0;
+
+            //string connectionString = "your_connection_string_here";
+
+          /*  using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "SELECT id_factura, nro_op FROM Factura";
+                SqlCommand command = new SqlCommand(query, oconexion);
+
+                oconexion.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    CB_fact.Items.Add(new OpcionCombo()
+                    {
+                        Valor = reader["nro_op"],
+                        Texto = reader["id_factura"].ToString()
+                    }); 
+                }
+
+                reader.Close();
+            }*/
         }
         private void CargarComboBoxFactura()
         {
 
             List<int> obj_rf = new CN_Remito().ObtenerFactura();
 
-            // Limpiar ComboBox antes de cargar los IDs
-            CB_fact.Items.Clear();
-
-            // Agregar los IDs al ComboBox
-            foreach (int idFactura in obj_rf)
-            {
-                CB_fact.Items.Add(idFactura);
-            }
         }
 
         private void BtLimpiarRem_Click(object sender, EventArgs e)
@@ -191,8 +227,60 @@ namespace CapaPresentacion
         {
             //damos de baja (estado anulado) el remito 
 
+            // Verifica que haya filas en el DataGridView
+            if (tabla_rem.Rows.Count > 0)
+            {
+                // Selecciona la última fila (recién agregada)
+                DataGridViewRow ultimaFila = tabla_rem.Rows[tabla_rem.Rows.Count - 1];
+
+                // Obtén el ID de la última fila  
+                int id = Convert.ToInt32(ultimaFila.Cells["Estado"].Value); // Cambia "id" por el nombre de la columna que almacena el ID
+
+                // Llama al método para cambiar el estado en la base de datos
+                Anular_bd(id, nuevoEstado);
+
+                // Actualiza el DataGridView para reflejar el cambio
+                ultimaFila.Cells["Estado"].Value = nuevoEstado; // Cambia "estado_id" por el nombre de la columna de estado
+                ultimaFila.Cells["Estado"].Value = "Anulado"; //ia "estado" por el nombre de la columna que muestra el estado
+            }
+                                               
+
             // tabla_rem.SelectedRows.
+            /* using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+             {
+                 string query = "UPDATE Remito SET estado_id  = 3 where id_remito = @id_remito
+                 SqlCommand command = new SqlCommand(query, oconexion);
+
+                 command.Parameters.AddWithValue("@id_remito", selectedValue.Valor);
+
+                 oconexion.Open();
+                 SqlDataReader reader = command.ExecuteReader();
+                 
+                if (reader.Reader()){
+
+                    
+            }
+      
+             */
         }
+        private void Anular_bd(int id, int nuevoEstado)
+        {
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "sp_CambiarEstado";
+                SqlCommand command = new SqlCommand(query, oconexion);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@nuevo_estado", nuevoEstado);
+
+                oconexion.Open();
+                command.ExecuteNonQuery();
+                oconexion.Close();
+            }
+        }
+
+        private const int nuevoEstado = 3;
 
         private void textL_TextChanged(object sender, EventArgs e)
         {
@@ -209,10 +297,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void CB_tipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnBusquedaRemito_Click(object sender, EventArgs e)
         {
@@ -273,6 +358,34 @@ namespace CapaPresentacion
         {
             text_buscar.Text = "";
             tabla_rem.Rows.Clear();
+        }
+
+        private void CB_fact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_fact.SelectedItem != null && CB_fact.SelectedItem is OpcionCombo selectedValue)
+            {
+                
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    string query = "SELECT Factura.nro_op, Sucursal.descripcion " +
+                                   "FROM Factura " +
+                                   "INNER JOIN Sucursal ON Factura.sucursal_id = Sucursal.id_sucursal " +
+                                   "WHERE Factura.id_factura = @id_factura";
+                    SqlCommand command = new SqlCommand(query, oconexion);
+                    command.Parameters.AddWithValue("@id_factura", selectedValue.Valor);
+
+                    oconexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        textNroOp.Text = reader["nro_op"].ToString();
+                        textSucursal.Text = reader["descripcion"].ToString();
+                    }
+
+                    reader.Close();
+                }
+            }
         }
     }
 

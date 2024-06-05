@@ -274,7 +274,7 @@ namespace CapaPresentacion
             this.btEliminarRem.Name = "btEliminarRem";
             this.btEliminarRem.Size = new System.Drawing.Size(104, 42);
             this.btEliminarRem.TabIndex = 40;
-            this.btEliminarRem.Text = "Cancelar";
+            this.btEliminarRem.Text = "Anular";
             this.btEliminarRem.UseVisualStyleBackColor = true;
             this.btEliminarRem.Click += new System.EventHandler(this.btEliminarRem_Click);
             // 
@@ -315,6 +315,7 @@ namespace CapaPresentacion
             this.CB_tipo.Name = "CB_tipo";
             this.CB_tipo.Size = new System.Drawing.Size(212, 24);
             this.CB_tipo.TabIndex = 44;
+            this.CB_tipo.SelectedIndexChanged += new System.EventHandler(this.CB_fact_SelectedIndexChanged);
             // 
             // textEstado
             // 
