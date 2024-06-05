@@ -23,6 +23,7 @@ namespace CapaPresentacion
             this.Load += new EventHandler(DLoad);
             CargarComboBoxFactura();
             CB_fact.SelectedIndexChanged += new EventHandler(CB_fact_SelectedIndexChanged);
+
         }
 
         private void DLoad(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace CapaPresentacion
             textL.Text = "R";
             textEstado.Text = "Confirmado";
             CB_fact.Text = "Seleccione:";
+
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 string query = "SELECT id_factura FROM Factura";
@@ -117,7 +119,35 @@ namespace CapaPresentacion
 
         private void tabla_rem_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (tabla_rem.Columns[e.ColumnIndex].Name == "boton")
+            {
+                int indice = e.RowIndex;
 
+                if (indice >= 0)
+                {
+                    //hacemos que el valor de la columna id lo pinte en txtId
+
+                    textNroOp.Text = tabla_rem.Rows[indice].Cells["Nro_operación"].Value.ToString();
+                    textSucursal.Text = tabla_rem.Rows[indice].Cells["Sucursal"].Value.ToString();
+                    textL.Text = tabla_rem.Rows[indice].Cells["Letra"].Value.ToString();
+                    textNro.Text = tabla_rem.Rows[indice].Cells["nro"].Value.ToString();
+                    textNro.ReadOnly = true;
+                    textEstado.Text = tabla_rem.Rows[indice].Cells["Estado"].Value.ToString();
+                   
+                    CB_tipo.Enabled = false;
+
+                    foreach (OpcionCombo oc in CB_tipo.Items)
+                    {
+                        if (oc.Texto.ToString() == tabla_rem.Rows[indice].Cells["Tipo"].Value.ToString()) 
+                        {
+                            int indice_combo = CB_tipo.Items.IndexOf(oc);
+                            CB_tipo.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+
+                }
+            }
         }
 
         private void textNro_KeyPress(object sender, KeyPressEventArgs e)
@@ -132,14 +162,16 @@ namespace CapaPresentacion
 
         private void btGuardarRem_Click(object sender, EventArgs e)
         {
+
             string Mensaje = string.Empty;
             Remito re = new Remito();
             re.nroOperacion = Convert.ToInt32(textNroOp.Text);
-            re.Sucursal_id = textSucursal.Text;
+            re.Sucursal_id = text_idsuc.Text;
             re.letra = textL.Text;
             re.tipoRemito = ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString();
-            re.Estado_id = textEstado.Text;
+            re.Estado_id = "1";
             re.numero = Convert.ToInt32(textNro.Text);
+            re.factura= ((OpcionCombo)CB_fact.SelectedItem).Texto.ToString();
 
             int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
 
@@ -171,7 +203,7 @@ namespace CapaPresentacion
             {
 
                 tabla_rem.Rows.Add(new object[] {
-              //  "",
+                 "",
                 rem.nroOperacion,
                 rem.Sucursal_id,
                 rem.letra,
@@ -367,7 +399,7 @@ namespace CapaPresentacion
                 
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    string query = "SELECT Factura.nro_op, Sucursal.descripcion " +
+                    string query = "SELECT Factura.nro_op, Sucursal.descripcion, Factura.sucursal_id " +
                                    "FROM Factura " +
                                    "INNER JOIN Sucursal ON Factura.sucursal_id = Sucursal.id_sucursal " +
                                    "WHERE Factura.id_factura = @id_factura";
@@ -381,12 +413,35 @@ namespace CapaPresentacion
                     {
                         textNroOp.Text = reader["nro_op"].ToString();
                         textSucursal.Text = reader["descripcion"].ToString();
+                        text_idsuc.Text = reader["sucursal_id"].ToString();
                     }
 
                     reader.Close();
                 }
             }
         }
+
+        private void tabla_rem_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            //boton seleccionar en tabla:
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 0)
+            {
+                //eventos del método
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                //para que el ícono quede centrado
+                var w = Properties.Resources.tabler_check.Width;
+                var h = Properties.Resources.tabler_check.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.tabler_check, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+    
     }
 
 
