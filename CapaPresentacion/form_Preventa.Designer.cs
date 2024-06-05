@@ -110,7 +110,7 @@ namespace CapaPresentacion
             this.ttlUsuarios.AutoSize = true;
             this.ttlUsuarios.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ttlUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ttlUsuarios.Location = new System.Drawing.Point(23, 385);
+            this.ttlUsuarios.Location = new System.Drawing.Point(24, 469);
             this.ttlUsuarios.Margin = new System.Windows.Forms.Padding(0);
             this.ttlUsuarios.Name = "ttlUsuarios";
             this.ttlUsuarios.Size = new System.Drawing.Size(93, 20);
@@ -140,7 +140,7 @@ namespace CapaPresentacion
             this.NroOperacion,
             this.Baja,
             this.UsuarioPreventa});
-            this.dgvPreventas.Location = new System.Drawing.Point(41, 421);
+            this.dgvPreventas.Location = new System.Drawing.Point(42, 505);
             this.dgvPreventas.MultiSelect = false;
             this.dgvPreventas.Name = "dgvPreventas";
             this.dgvPreventas.ReadOnly = true;
@@ -328,7 +328,7 @@ namespace CapaPresentacion
             this.formDetallePreventa.Dock = System.Windows.Forms.DockStyle.Top;
             this.formDetallePreventa.Location = new System.Drawing.Point(0, 0);
             this.formDetallePreventa.Name = "formDetallePreventa";
-            this.formDetallePreventa.Size = new System.Drawing.Size(1304, 370);
+            this.formDetallePreventa.Size = new System.Drawing.Size(1304, 441);
             this.formDetallePreventa.TabIndex = 28;
             // 
             // preventaBaja
@@ -343,6 +343,7 @@ namespace CapaPresentacion
             // 
             // dgvArticulosPreventa
             // 
+            this.dgvArticulosPreventa.AllowUserToAddRows = false;
             this.dgvArticulosPreventa.ColumnHeadersHeight = 40;
             this.dgvArticulosPreventa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idArticulo,
@@ -355,7 +356,7 @@ namespace CapaPresentacion
             this.dgvArticulosPreventa.Name = "dgvArticulosPreventa";
             this.dgvArticulosPreventa.RowHeadersWidth = 51;
             this.dgvArticulosPreventa.RowTemplate.Height = 24;
-            this.dgvArticulosPreventa.Size = new System.Drawing.Size(993, 143);
+            this.dgvArticulosPreventa.Size = new System.Drawing.Size(993, 194);
             this.dgvArticulosPreventa.TabIndex = 45;
             // 
             // idArticulo
@@ -472,7 +473,7 @@ namespace CapaPresentacion
             this.grpArticulos.Controls.Add(this.dgvArticulosPreventa);
             this.grpArticulos.Location = new System.Drawing.Point(27, 166);
             this.grpArticulos.Name = "grpArticulos";
-            this.grpArticulos.Size = new System.Drawing.Size(1027, 190);
+            this.grpArticulos.Size = new System.Drawing.Size(1027, 247);
             this.grpArticulos.TabIndex = 58;
             this.grpArticulos.TabStop = false;
             this.grpArticulos.Text = "Artículos de la Preventa";
@@ -498,7 +499,7 @@ namespace CapaPresentacion
             this.groupBox2.Controls.Add(this.preventaMonto);
             this.groupBox2.Location = new System.Drawing.Point(1077, 166);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(212, 191);
+            this.groupBox2.Size = new System.Drawing.Size(212, 247);
             this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
             // 
@@ -509,7 +510,7 @@ namespace CapaPresentacion
             this.btnDarDeBaja.IconColor = System.Drawing.Color.Firebrick;
             this.btnDarDeBaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDarDeBaja.IconSize = 20;
-            this.btnDarDeBaja.Location = new System.Drawing.Point(14, 82);
+            this.btnDarDeBaja.Location = new System.Drawing.Point(14, 131);
             this.btnDarDeBaja.Name = "btnDarDeBaja";
             this.btnDarDeBaja.Size = new System.Drawing.Size(176, 42);
             this.btnDarDeBaja.TabIndex = 43;
@@ -525,7 +526,7 @@ namespace CapaPresentacion
             this.bntGenerarFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bntGenerarFactura.IconSize = 25;
             this.bntGenerarFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bntGenerarFactura.Location = new System.Drawing.Point(14, 130);
+            this.bntGenerarFactura.Location = new System.Drawing.Point(14, 179);
             this.bntGenerarFactura.Name = "bntGenerarFactura";
             this.bntGenerarFactura.Size = new System.Drawing.Size(176, 46);
             this.bntGenerarFactura.TabIndex = 41;
@@ -539,7 +540,7 @@ namespace CapaPresentacion
             this.groupBox3.Controls.Add(this.btnBusquedaPreventa);
             this.groupBox3.Controls.Add(this.txtBusquedaPreventa);
             this.groupBox3.Controls.Add(this.cboBusquedaPreventa);
-            this.groupBox3.Location = new System.Drawing.Point(1063, 421);
+            this.groupBox3.Location = new System.Drawing.Point(1064, 505);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(212, 162);
             this.groupBox3.TabIndex = 61;
@@ -566,14 +567,14 @@ namespace CapaPresentacion
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(0, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1304, 753);
             this.label1.TabIndex = 62;
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(131, 384);
+            this.txtId.Location = new System.Drawing.Point(132, 468);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(41, 22);
             this.txtId.TabIndex = 63;
@@ -585,7 +586,7 @@ namespace CapaPresentacion
             this.btnRestablecerBusquedaPreventa.IconColor = System.Drawing.Color.Black;
             this.btnRestablecerBusquedaPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRestablecerBusquedaPreventa.IconSize = 20;
-            this.btnRestablecerBusquedaPreventa.Location = new System.Drawing.Point(1078, 571);
+            this.btnRestablecerBusquedaPreventa.Location = new System.Drawing.Point(1079, 655);
             this.btnRestablecerBusquedaPreventa.Name = "btnRestablecerBusquedaPreventa";
             this.btnRestablecerBusquedaPreventa.Size = new System.Drawing.Size(176, 44);
             this.btnRestablecerBusquedaPreventa.TabIndex = 58;
@@ -602,7 +603,7 @@ namespace CapaPresentacion
             this.btnRegistrarPreventa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnRegistrarPreventa.IconSize = 30;
             this.btnRegistrarPreventa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrarPreventa.Location = new System.Drawing.Point(1078, 666);
+            this.btnRegistrarPreventa.Location = new System.Drawing.Point(1079, 750);
             this.btnRegistrarPreventa.Name = "btnRegistrarPreventa";
             this.btnRegistrarPreventa.Size = new System.Drawing.Size(176, 62);
             this.btnRegistrarPreventa.TabIndex = 44;
@@ -615,7 +616,7 @@ namespace CapaPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1304, 753);
+            this.ClientSize = new System.Drawing.Size(1304, 852);
             this.Controls.Add(this.btnRestablecerBusquedaPreventa);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.groupBox3);

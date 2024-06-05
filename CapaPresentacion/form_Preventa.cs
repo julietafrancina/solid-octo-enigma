@@ -19,6 +19,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             dgvPreventas.CellFormatting += dgvPreventas_CellFormatting;
+            dgvArticulosPreventa.AllowUserToAddRows = false;
         }
 
         //Mostrar todas las preventas en el DataGridView

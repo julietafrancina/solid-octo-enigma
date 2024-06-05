@@ -74,10 +74,10 @@ namespace CapaPresentacion
         }
 
         //Filtro buscador
-        private void filtrarDatos()
-        {
-            string filtro;
-        }
+        //private void filtrarDatos()
+        //{
+        //    string filtro;
+        //}
 
         //Registrar un usuario nuevo al hacer click en el botón 'Guardar'.
         private void bntGuardar_Click(object sender, EventArgs e)

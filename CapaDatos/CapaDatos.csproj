@@ -48,6 +48,7 @@
     <Compile Include="CD_Factura.cs" />
     <Compile Include="CD_ItemPrevArt.cs" />
     <Compile Include="CD_Preventa.cs" />
+    <Compile Include="CD_RegistrarPreventa.cs" />
     <Compile Include="CD_Remito.cs" />
     <Compile Include="CD_Rol.cs" />
     <Compile Include="CD_Usuario.cs" />

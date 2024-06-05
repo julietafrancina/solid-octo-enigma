@@ -20,17 +20,8 @@ namespace CapaDatos
             {
                 try
                 {
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT p.id_preventa, p.fecha, p.monto, p.nro_operacion, p.baja, p.cliente_id, p.sucursal_id, p.usuario_id," +
-                        "c.id_cliente, c.nombre_completo as nomC, c.dni as dniC, c.correo, c.telefono as telC, c.domicilio, c.fecha_nac," +
-                        "s.id_sucursal, s.descripcion, s.telefono as telS," +
-                        "u.id_usuario, u.dni as dniU, u.nombre_completo as nomU " +
-                        "FROM preventa p");
-                    query.AppendLine("INNER JOIN cliente c on c.id_cliente = p.cliente_id");
-                    query.AppendLine("INNER JOIN sucursal s on s.id_sucursal = p.sucursal_id");
-                    query.AppendLine("INNER JOIN usuario u on u.id_usuario = p.usuario_id");
 
-                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_LISTARPREVENTAS", oconexion);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -101,7 +92,6 @@ namespace CapaDatos
                 {
                     while (dr.Read())
                     {
-
                         lista.Add(new Articulo()
                         {
                             idArticulo = Convert.ToInt32(dr["id_articulo"]),
