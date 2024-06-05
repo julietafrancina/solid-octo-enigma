@@ -32,6 +32,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("sucursal_id", Convert.ToInt32(re.Sucursal_id));
                     cmd.Parameters.AddWithValue("factura_id", Convert.ToInt32( re.factura));
                     cmd.Parameters.AddWithValue("estado_id", Convert.ToInt32(re.Estado_id));
+
                     cmd.Parameters.Add("id_remResult", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 

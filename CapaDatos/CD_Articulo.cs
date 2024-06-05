@@ -52,7 +52,7 @@ namespace CapaDatos
                                 rubro = dr["rubro"].ToString(),
                                 marca = dr["marca"].ToString(),
                                 descripcion = dr["descripcion"].ToString(),
-                                costo = Convert.ToDouble(dr["costo"]),
+                                costo = Convert.ToDecimal(dr["costo"]),
                                 activo = a,
 
                             });
@@ -81,11 +81,11 @@ namespace CapaDatos
                 {
                     SqlCommand cmd = new SqlCommand("sp_ingresarArt", oconexion);
 
-                    cmd.Parameters.AddWithValue("sku", obj.SKU);
+                    cmd.Parameters.AddWithValue("Codigo", obj.SKU);
                     cmd.Parameters.AddWithValue("rubro", obj.rubro);
                     cmd.Parameters.AddWithValue("marca", obj.marca);
                     cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
-                    cmd.Parameters.AddWithValue("costo", obj.costo);
+                    cmd.Parameters.AddWithValue("costo", Convert.ToDecimal(obj.costo));
                     cmd.Parameters.AddWithValue("baja", obj.activo);
 
                     cmd.Parameters.AddWithValue("id_new_art", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -97,7 +97,7 @@ namespace CapaDatos
 
                     cmd.ExecuteNonQuery();
 
-                    id_new_art = Convert.ToInt32(cmd.Parameters["id_rem_gen"].Value);
+                    id_new_art = Convert.ToInt32(cmd.Parameters["id_new_art"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
                 }

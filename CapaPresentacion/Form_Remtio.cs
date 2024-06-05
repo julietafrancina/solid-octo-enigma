@@ -180,7 +180,7 @@ namespace CapaPresentacion
 
                 tabla_rem.Rows.Add(new object[] {
 
-                //"",
+                "",
                 textNroOp.Text,
                 textSucursal.Text,
                 textL.Text,
@@ -314,7 +314,7 @@ namespace CapaPresentacion
 
         private const int nuevoEstado = 3;
 
-        private void textL_TextChanged(object sender, EventArgs e)
+        private void textL_TextChanged(object sender, EventArgs e)                                                                                                                                                                                                                                 
         {
 
         }

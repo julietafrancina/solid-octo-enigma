@@ -51,6 +51,7 @@ namespace CapaPresentacion
             this.Desc = new System.Windows.Forms.Label();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
+            this.Boton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -165,6 +166,7 @@ namespace CapaPresentacion
             // 
             this.tabla_art.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabla_art.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Boton,
             this.Codigo,
             this.Rubro,
             this.Marca,
@@ -178,6 +180,7 @@ namespace CapaPresentacion
             this.tabla_art.Size = new System.Drawing.Size(805, 537);
             this.tabla_art.TabIndex = 13;
             this.tabla_art.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_art_CellContentClick);
+            this.tabla_art.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tabla_art_CellPainting);
             // 
             // label5
             // 
@@ -283,6 +286,13 @@ namespace CapaPresentacion
             this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
             this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
             // 
+            // Boton
+            // 
+            this.Boton.HeaderText = "";
+            this.Boton.MinimumWidth = 6;
+            this.Boton.Name = "Boton";
+            this.Boton.Width = 40;
+            // 
             // Codigo
             // 
             this.Codigo.HeaderText = "SKU";
@@ -385,6 +395,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label Desc;
         private FontAwesome.Sharp.IconButton btnBusqueda;
         private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
+        private System.Windows.Forms.DataGridViewButtonColumn Boton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;

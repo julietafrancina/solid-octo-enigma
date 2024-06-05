@@ -323,7 +323,7 @@ namespace CapaPresentacion
             this.boton.Name = "boton";
             this.boton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.boton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.boton.Width = 125;
+            this.boton.Width = 40;
             // 
             // Nro_operación
             // 
