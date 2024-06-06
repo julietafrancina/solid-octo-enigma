@@ -506,6 +506,7 @@ namespace CapaPresentacion
             this.btnEraser.IconColor = System.Drawing.Color.Black;
             this.btnEraser.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEraser.IconSize = 20;
+            this.btnEraser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEraser.Location = new System.Drawing.Point(29, 445);
             this.btnEraser.Name = "btnEraser";
             this.btnEraser.Size = new System.Drawing.Size(114, 42);
@@ -555,6 +556,7 @@ namespace CapaPresentacion
             this.btnEliminar.IconColor = System.Drawing.Color.Black;
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 20;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Location = new System.Drawing.Point(149, 445);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(114, 42);
@@ -572,12 +574,14 @@ namespace CapaPresentacion
             this.bntGuardar.IconColor = System.Drawing.Color.Black;
             this.bntGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bntGuardar.IconSize = 25;
-            this.bntGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bntGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bntGuardar.Location = new System.Drawing.Point(30, 504);
             this.bntGuardar.Name = "bntGuardar";
             this.bntGuardar.Size = new System.Drawing.Size(233, 46);
             this.bntGuardar.TabIndex = 48;
             this.bntGuardar.Text = "Guardar";
+            this.bntGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bntGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.bntGuardar.UseVisualStyleBackColor = false;
             this.bntGuardar.Click += new System.EventHandler(this.bntGuardar_Click);
             // 

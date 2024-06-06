@@ -83,7 +83,7 @@ namespace CapaPresentacion
                 }
                 catch (Exception ex)
                 {
-                   // MessageBox.Show("Error al cargar los datos: " + ex.Message);
+                   //MessageBox.Show("Error al cargar los datos: " + ex.Message);
                 }
             }
         }
@@ -386,6 +386,66 @@ namespace CapaPresentacion
                     reader.Close();
                 }
             }
+        }
+
+        private void detalle_rem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nro_op_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textNroOp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textSuc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textSucursal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textLetra_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelTipo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CB_fact_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelestado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEstado_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

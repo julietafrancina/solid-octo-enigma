@@ -43,7 +43,7 @@ namespace CapaPresentacion
 
             Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Rubro" });
             Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Marca" });
-            Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Codigo" });
+            Cb_busqueda.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Código" });
             Cb_busqueda.SelectedIndex = 0;
             Cb_busqueda.DisplayMember = "Texto";
             Cb_busqueda.ValueMember = "Valor";

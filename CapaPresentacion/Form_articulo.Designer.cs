@@ -38,8 +38,6 @@ namespace CapaPresentacion
             this.textCosto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.BtLimpiar = new System.Windows.Forms.Button();
-            this.byGuardar = new System.Windows.Forms.Button();
             this.tabla_art = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.textBaja = new System.Windows.Forms.Label();
@@ -50,29 +48,35 @@ namespace CapaPresentacion
             this.textDesc = new System.Windows.Forms.TextBox();
             this.Desc = new System.Windows.Forms.Label();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
-            this.codigo_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
+            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
+            this.formUsuarios = new System.Windows.Forms.Label();
+            this.bntGuardar = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiarDatos = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).BeginInit();
             this.SuspendLayout();
             // 
             // detalle_art
             // 
             this.detalle_art.AutoSize = true;
-            this.detalle_art.Location = new System.Drawing.Point(42, 40);
+            this.detalle_art.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.detalle_art.ForeColor = System.Drawing.Color.DimGray;
+            this.detalle_art.Location = new System.Drawing.Point(25, 20);
             this.detalle_art.Name = "detalle_art";
-            this.detalle_art.Size = new System.Drawing.Size(102, 17);
+            this.detalle_art.Size = new System.Drawing.Size(103, 17);
             this.detalle_art.TabIndex = 0;
-            this.detalle_art.Text = "Detalle artículo";
+            this.detalle_art.Text = "Detalle Artículo";
             // 
             // sku
             // 
             this.sku.AutoSize = true;
-            this.sku.Location = new System.Drawing.Point(42, 82);
+            this.sku.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.sku.Location = new System.Drawing.Point(25, 62);
             this.sku.Name = "sku";
             this.sku.Size = new System.Drawing.Size(36, 17);
             this.sku.TabIndex = 1;
@@ -80,7 +84,7 @@ namespace CapaPresentacion
             // 
             // textSKU
             // 
-            this.textSKU.Location = new System.Drawing.Point(45, 102);
+            this.textSKU.Location = new System.Drawing.Point(28, 82);
             this.textSKU.Name = "textSKU";
             this.textSKU.Size = new System.Drawing.Size(212, 22);
             this.textSKU.TabIndex = 2;
@@ -90,7 +94,8 @@ namespace CapaPresentacion
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 140);
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(25, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 3;
@@ -98,7 +103,7 @@ namespace CapaPresentacion
             // 
             // textRubro
             // 
-            this.textRubro.Location = new System.Drawing.Point(45, 160);
+            this.textRubro.Location = new System.Drawing.Point(28, 140);
             this.textRubro.Name = "textRubro";
             this.textRubro.Size = new System.Drawing.Size(212, 22);
             this.textRubro.TabIndex = 4;
@@ -106,7 +111,7 @@ namespace CapaPresentacion
             // 
             // textMarca
             // 
-            this.textMarca.Location = new System.Drawing.Point(45, 220);
+            this.textMarca.Location = new System.Drawing.Point(28, 200);
             this.textMarca.Name = "textMarca";
             this.textMarca.Size = new System.Drawing.Size(212, 22);
             this.textMarca.TabIndex = 5;
@@ -115,7 +120,7 @@ namespace CapaPresentacion
             // 
             // textCosto
             // 
-            this.textCosto.Location = new System.Drawing.Point(45, 357);
+            this.textCosto.Location = new System.Drawing.Point(28, 327);
             this.textCosto.Name = "textCosto";
             this.textCosto.Size = new System.Drawing.Size(212, 22);
             this.textCosto.TabIndex = 7;
@@ -125,7 +130,8 @@ namespace CapaPresentacion
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 200);
+            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(25, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 17);
             this.label3.TabIndex = 7;
@@ -134,32 +140,12 @@ namespace CapaPresentacion
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 327);
+            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Location = new System.Drawing.Point(25, 307);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "Costo";
-            // 
-            // BtLimpiar
-            // 
-            this.BtLimpiar.Location = new System.Drawing.Point(45, 481);
-            this.BtLimpiar.Name = "BtLimpiar";
-            this.BtLimpiar.Size = new System.Drawing.Size(205, 49);
-            this.BtLimpiar.TabIndex = 9;
-            this.BtLimpiar.Text = "Limpiar";
-            this.BtLimpiar.UseVisualStyleBackColor = true;
-            this.BtLimpiar.Click += new System.EventHandler(this.BtEditar_Click);
-            // 
-            // byGuardar
-            // 
-            this.byGuardar.BackColor = System.Drawing.Color.LightGreen;
-            this.byGuardar.Location = new System.Drawing.Point(45, 536);
-            this.byGuardar.Name = "byGuardar";
-            this.byGuardar.Size = new System.Drawing.Size(205, 46);
-            this.byGuardar.TabIndex = 11;
-            this.byGuardar.Text = "Guardar";
-            this.byGuardar.UseVisualStyleBackColor = false;
-            this.byGuardar.Click += new System.EventHandler(this.byGuardar_Click);
             // 
             // tabla_art
             // 
@@ -168,7 +154,7 @@ namespace CapaPresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabla_art.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabla_art.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigo_articulo,
+            this.Código,
             this.Rubro,
             this.Marca,
             this.Descripción,
@@ -178,24 +164,25 @@ namespace CapaPresentacion
             this.tabla_art.Name = "tabla_art";
             this.tabla_art.RowHeadersWidth = 51;
             this.tabla_art.RowTemplate.Height = 24;
-            this.tabla_art.Size = new System.Drawing.Size(805, 537);
+            this.tabla_art.Size = new System.Drawing.Size(837, 575);
             this.tabla_art.TabIndex = 13;
             this.tabla_art.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_art_CellContentClick);
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(286, 29);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(287, 49);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(888, 50);
+            this.label5.Size = new System.Drawing.Size(177, 25);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Lista de artículos";
+            this.label5.Text = "Artículos";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBaja
             // 
             this.textBaja.AutoSize = true;
-            this.textBaja.Location = new System.Drawing.Point(42, 394);
+            this.textBaja.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBaja.Location = new System.Drawing.Point(25, 371);
             this.textBaja.Name = "textBaja";
             this.textBaja.Size = new System.Drawing.Size(46, 17);
             this.textBaja.TabIndex = 16;
@@ -205,7 +192,7 @@ namespace CapaPresentacion
             // 
             this.CB_baja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_baja.FormattingEnabled = true;
-            this.CB_baja.Location = new System.Drawing.Point(45, 414);
+            this.CB_baja.Location = new System.Drawing.Point(28, 391);
             this.CB_baja.Name = "CB_baja";
             this.CB_baja.Size = new System.Drawing.Size(212, 24);
             this.CB_baja.TabIndex = 18;
@@ -216,7 +203,7 @@ namespace CapaPresentacion
             this.Cb_busqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Cb_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cb_busqueda.FormattingEnabled = true;
-            this.Cb_busqueda.Location = new System.Drawing.Point(648, 37);
+            this.Cb_busqueda.Location = new System.Drawing.Point(830, 24);
             this.Cb_busqueda.Name = "Cb_busqueda";
             this.Cb_busqueda.Size = new System.Drawing.Size(161, 24);
             this.Cb_busqueda.TabIndex = 19;
@@ -226,7 +213,7 @@ namespace CapaPresentacion
             // 
             this.text_buscar_por.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.text_buscar_por.AutoSize = true;
-            this.text_buscar_por.Location = new System.Drawing.Point(536, 44);
+            this.text_buscar_por.Location = new System.Drawing.Point(727, 40);
             this.text_buscar_por.Name = "text_buscar_por";
             this.text_buscar_por.Size = new System.Drawing.Size(81, 17);
             this.text_buscar_por.TabIndex = 20;
@@ -236,15 +223,15 @@ namespace CapaPresentacion
             // text_buscar
             // 
             this.text_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.text_buscar.Location = new System.Drawing.Point(870, 42);
+            this.text_buscar.Location = new System.Drawing.Point(830, 52);
             this.text_buscar.Name = "text_buscar";
-            this.text_buscar.Size = new System.Drawing.Size(176, 22);
+            this.text_buscar.Size = new System.Drawing.Size(161, 22);
             this.text_buscar.TabIndex = 21;
             this.text_buscar.TextChanged += new System.EventHandler(this.text_buscar_TextChanged);
             // 
             // textDesc
             // 
-            this.textDesc.Location = new System.Drawing.Point(45, 285);
+            this.textDesc.Location = new System.Drawing.Point(28, 265);
             this.textDesc.Name = "textDesc";
             this.textDesc.Size = new System.Drawing.Size(212, 22);
             this.textDesc.TabIndex = 6;
@@ -253,7 +240,8 @@ namespace CapaPresentacion
             // Desc
             // 
             this.Desc.AutoSize = true;
-            this.Desc.Location = new System.Drawing.Point(42, 265);
+            this.Desc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Desc.Location = new System.Drawing.Point(25, 245);
             this.Desc.Name = "Desc";
             this.Desc.Size = new System.Drawing.Size(82, 17);
             this.Desc.TabIndex = 23;
@@ -267,9 +255,9 @@ namespace CapaPresentacion
             this.btnBusqueda.IconColor = System.Drawing.Color.Black;
             this.btnBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBusqueda.IconSize = 20;
-            this.btnBusqueda.Location = new System.Drawing.Point(997, 33);
+            this.btnBusqueda.Location = new System.Drawing.Point(997, 22);
             this.btnBusqueda.Name = "btnBusqueda";
-            this.btnBusqueda.Size = new System.Drawing.Size(44, 46);
+            this.btnBusqueda.Size = new System.Drawing.Size(64, 54);
             this.btnBusqueda.TabIndex = 26;
             this.btnBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBusqueda.UseVisualStyleBackColor = false;
@@ -277,25 +265,26 @@ namespace CapaPresentacion
             // 
             // btnLimpiarBuscador
             // 
+            this.btnLimpiarBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpiarBuscador.BackColor = System.Drawing.SystemColors.Control;
             this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
             this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
             this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiarBuscador.IconSize = 20;
-            this.btnLimpiarBuscador.Location = new System.Drawing.Point(1053, 33);
+            this.btnLimpiarBuscador.Location = new System.Drawing.Point(1067, 22);
             this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
-            this.btnLimpiarBuscador.Size = new System.Drawing.Size(43, 46);
+            this.btnLimpiarBuscador.Size = new System.Drawing.Size(64, 54);
             this.btnLimpiarBuscador.TabIndex = 49;
             this.btnLimpiarBuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
             this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
             // 
-            // codigo_articulo
+            // Código
             // 
-            this.codigo_articulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.codigo_articulo.HeaderText = "SKU";
-            this.codigo_articulo.MinimumWidth = 6;
-            this.codigo_articulo.Name = "codigo_articulo";
+            this.Código.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Código.HeaderText = "SKU";
+            this.Código.MinimumWidth = 6;
+            this.Código.Name = "Código";
             // 
             // Rubro
             // 
@@ -332,11 +321,58 @@ namespace CapaPresentacion
             this.Activo.MinimumWidth = 6;
             this.Activo.Name = "Activo";
             // 
+            // formUsuarios
+            // 
+            this.formUsuarios.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.formUsuarios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.formUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.formUsuarios.Name = "formUsuarios";
+            this.formUsuarios.Size = new System.Drawing.Size(268, 753);
+            this.formUsuarios.TabIndex = 67;
+            // 
+            // bntGuardar
+            // 
+            this.bntGuardar.BackColor = System.Drawing.Color.LightGreen;
+            this.bntGuardar.IconChar = FontAwesome.Sharp.IconChar.SadCry;
+            this.bntGuardar.IconColor = System.Drawing.Color.Black;
+            this.bntGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bntGuardar.IconSize = 25;
+            this.bntGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bntGuardar.Location = new System.Drawing.Point(27, 506);
+            this.bntGuardar.Name = "bntGuardar";
+            this.bntGuardar.Size = new System.Drawing.Size(213, 46);
+            this.bntGuardar.TabIndex = 106;
+            this.bntGuardar.Text = "Guardar";
+            this.bntGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bntGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.bntGuardar.UseVisualStyleBackColor = false;
+            this.bntGuardar.Click += new System.EventHandler(this.byGuardar_Click);
+            // 
+            // btnLimpiarDatos
+            // 
+            this.btnLimpiarDatos.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiarDatos.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnLimpiarDatos.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarDatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarDatos.IconSize = 20;
+            this.btnLimpiarDatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiarDatos.Location = new System.Drawing.Point(28, 454);
+            this.btnLimpiarDatos.Name = "btnLimpiarDatos";
+            this.btnLimpiarDatos.Size = new System.Drawing.Size(213, 46);
+            this.btnLimpiarDatos.TabIndex = 107;
+            this.btnLimpiarDatos.Text = "Limpiar";
+            this.btnLimpiarDatos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiarDatos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiarDatos.UseVisualStyleBackColor = false;
+            this.btnLimpiarDatos.Click += new System.EventHandler(this.BtEditar_Click);
+            // 
             // Form_articulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1156, 753);
+            this.Controls.Add(this.btnLimpiarDatos);
+            this.Controls.Add(this.bntGuardar);
             this.Controls.Add(this.btnLimpiarBuscador);
             this.Controls.Add(this.btnBusqueda);
             this.Controls.Add(this.Desc);
@@ -348,8 +384,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.textBaja);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tabla_art);
-            this.Controls.Add(this.byGuardar);
-            this.Controls.Add(this.BtLimpiar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textCosto);
@@ -359,6 +393,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.textSKU);
             this.Controls.Add(this.sku);
             this.Controls.Add(this.detalle_art);
+            this.Controls.Add(this.formUsuarios);
             this.Name = "Form_articulo";
             this.Text = "Editar";
             this.Load += new System.EventHandler(this.Form_articulo_Load);
@@ -379,8 +414,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox textCosto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button BtLimpiar;
-        private System.Windows.Forms.Button byGuardar;
         private System.Windows.Forms.DataGridView tabla_art;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label textBaja;
@@ -392,11 +425,14 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label Desc;
         private FontAwesome.Sharp.IconButton btnBusqueda;
         private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
+        private System.Windows.Forms.Label formUsuarios;
+        private FontAwesome.Sharp.IconButton bntGuardar;
+        private FontAwesome.Sharp.IconButton btnLimpiarDatos;
     }
 }
