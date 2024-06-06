@@ -39,6 +39,12 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabla_art = new System.Windows.Forms.DataGridView();
+            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.textBaja = new System.Windows.Forms.Label();
             this.CB_baja = new System.Windows.Forms.ComboBox();
@@ -49,12 +55,6 @@ namespace CapaPresentacion
             this.Desc = new System.Windows.Forms.Label();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
-            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formUsuarios = new System.Windows.Forms.Label();
             this.bntGuardar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarDatos = new FontAwesome.Sharp.IconButton();
@@ -168,6 +168,48 @@ namespace CapaPresentacion
             this.tabla_art.TabIndex = 13;
             this.tabla_art.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_art_CellContentClick);
             // 
+            // Código
+            // 
+            this.Código.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Código.HeaderText = "SKU";
+            this.Código.MinimumWidth = 6;
+            this.Código.Name = "Código";
+            // 
+            // Rubro
+            // 
+            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Rubro.HeaderText = "Rubro";
+            this.Rubro.MinimumWidth = 6;
+            this.Rubro.Name = "Rubro";
+            // 
+            // Marca
+            // 
+            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            // 
+            // Descripción
+            // 
+            this.Descripción.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripción.HeaderText = "Descripción";
+            this.Descripción.MinimumWidth = 6;
+            this.Descripción.Name = "Descripción";
+            // 
+            // Costo
+            // 
+            this.Costo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            // 
+            // Activo
+            // 
+            this.Activo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Activo.HeaderText = "Activo";
+            this.Activo.MinimumWidth = 6;
+            this.Activo.Name = "Activo";
+            // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,48 +320,6 @@ namespace CapaPresentacion
             this.btnLimpiarBuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
             this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
-            // 
-            // Código
-            // 
-            this.Código.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Código.HeaderText = "SKU";
-            this.Código.MinimumWidth = 6;
-            this.Código.Name = "Código";
-            // 
-            // Rubro
-            // 
-            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            // 
-            // Marca
-            // 
-            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            // 
-            // Descripción
-            // 
-            this.Descripción.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripción.HeaderText = "Descripción";
-            this.Descripción.MinimumWidth = 6;
-            this.Descripción.Name = "Descripción";
-            // 
-            // Costo
-            // 
-            this.Costo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
-            // 
-            // Activo
-            // 
-            this.Activo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Activo.HeaderText = "Activo";
-            this.Activo.MinimumWidth = 6;
-            this.Activo.Name = "Activo";
             // 
             // formUsuarios
             // 

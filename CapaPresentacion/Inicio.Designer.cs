@@ -261,9 +261,9 @@ namespace SistemaDeVentas
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.menuTitulo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
             this.Name = "Inicio";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.Inicio_Load_1);

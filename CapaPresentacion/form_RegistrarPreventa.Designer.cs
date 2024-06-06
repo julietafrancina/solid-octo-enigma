@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_RegistrarPreventa));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCancelarPreventa = new FontAwesome.Sharp.IconButton();
             this.bntCrearPreventa = new FontAwesome.Sharp.IconButton();
@@ -554,6 +555,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.RegistrarPreventa);
             this.Controls.Add(this.grpArticulos);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "form_RegistrarPreventa";
             this.Text = "Registro de Preventas";
             this.groupBox2.ResumeLayout(false);
