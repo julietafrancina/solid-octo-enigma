@@ -15,9 +15,13 @@ namespace CapaPresentacion
 {
     public partial class form_Preventa : Form
     {
-        public form_Preventa()
+        private static Usuario usuarioActual;
+        public form_Preventa(Usuario user)
         {
             InitializeComponent();
+
+            usuarioActual = user;
+
             dgvPreventas.CellFormatting += dgvPreventas_CellFormatting;
             dgvArticulosPreventa.AllowUserToAddRows = false;
         }
@@ -74,7 +78,7 @@ namespace CapaPresentacion
         //botón para abrir formulario de registrar nueva preventa
         private void btnRegistrarPreventa_Click(object sender, EventArgs e)
         {
-            form_RegistrarPreventa registrarPreventa = new form_RegistrarPreventa();
+            form_RegistrarPreventa registrarPreventa = new form_RegistrarPreventa(usuarioActual);
             registrarPreventa.Show();
         }
 

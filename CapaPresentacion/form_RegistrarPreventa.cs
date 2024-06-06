@@ -16,9 +16,13 @@ namespace CapaPresentacion
 {
     public partial class form_RegistrarPreventa : Form
     {
-        public form_RegistrarPreventa()
+        private static Usuario usuarioActual;
+        public form_RegistrarPreventa(Usuario user)
         {
             InitializeComponent();
+
+            usuarioActual = user;
+            txtIdUsuario.Text = usuarioActual.idUsuario.ToString();
         }
 
         private void limpiar()
@@ -30,6 +34,8 @@ namespace CapaPresentacion
         }
 
         private CN_RegistrarPreventa objcn_registrarPreventa = new CN_RegistrarPreventa();
+
+        //Buscar cliente por DNI
         private void btnBusquedaCliente_Click(object sender, EventArgs e)
         {
             string dni = txtDNICliente.Text.Trim();
@@ -38,6 +44,7 @@ namespace CapaPresentacion
 
             if (lista.Count > 0)
             {
+                txtIdCliente.Text = lista[0].idCliente.ToString();
                 txtNombreCliente.Text = lista[0].nombreCompleto;
                 txtTelefonoCliente.Text = lista[0].telefono;
                 txtDomicilioCliente.Text = lista[0].domicilio;
@@ -58,6 +65,7 @@ namespace CapaPresentacion
 
             if (listaArticulo.Count > 0)
             {
+
                 txtDescripcionArticulo.Text = listaArticulo[0].descripcion;
                 txtRubroArticulo.Text = listaArticulo[0].rubro;
                 txtMarcaArticulo.Text = listaArticulo[0].marca;
@@ -92,38 +100,82 @@ namespace CapaPresentacion
             row.Cells[1].Value = sku;
             row.Cells[2].Value = costo.ToString("F2");
             row.Cells[3].Value = cantidad;
-            row.Cells[4].Value = 0;
+
+            double valorCosto = Convert.ToDouble(row.Cells[2].Value);
+
+            row.Cells[4].Value = cantidad * valorCosto;
 
             dgvAgregarArticulosPreventa.Rows.Add(row);
 
             // Limpiar los campos de texto y resetear el NumericUpDown
+            txtSKUBusqueda.Clear();
             txtDescripcionArticulo.Clear();
             txtRubroArticulo.Clear();
             txtMarcaArticulo.Clear();
             txtCostoArticulo.Clear();
             nudCantidadArticulo.Value = 1; // Asumiendo que el valor mínimo es 1
-        }
 
-        private void dgvAgregarArticulosPreventa_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dgvAgregarArticulosPreventa.Columns["Costo"].Index ||
-            e.ColumnIndex == dgvAgregarArticulosPreventa.Columns["Cantidad"].Index)
+            decimal sumaTotal = 0;
+
+            foreach (DataGridViewRow filaArticulo in dgvAgregarArticulosPreventa.Rows)
             {
-                int rowIndex = e.RowIndex;
-
-                if (rowIndex >= 0 && rowIndex < dgvAgregarArticulosPreventa.Rows.Count)
+                if (!filaArticulo.IsNewRow)
                 {
-                    // Obtener el valor de 'Costo' y 'Cantidad' en la fila actual
-                    double costo = Convert.ToDouble(dgvAgregarArticulosPreventa.Rows[rowIndex].Cells["Costo"].Value);
-                    int cantidad = Convert.ToInt32(dgvAgregarArticulosPreventa.Rows[rowIndex].Cells["Cantidad"].Value);
-
-                    // Calcular el subtotal (costo * cantidad)
-                    double subtotal = costo * cantidad;
-
-                    // Actualizar el valor de 'Subtotal' en la misma fila
-                    dgvAgregarArticulosPreventa.Rows[rowIndex].Cells["Subtotal"].Value = subtotal.ToString("F2"); // Formatear el subtotal con dos decimales
+                    var valorCelda = filaArticulo.Cells["Subtotal"].Value;
+                    if (valorCelda != null)
+                    {
+                        if (decimal.TryParse(valorCelda.ToString(), out decimal subtotal))
+                        {
+                            sumaTotal += subtotal;
+                        }
+                    }
                 }
             }
+
+            txtTotalAPagar.Text = sumaTotal.ToString("N2");
+        }
+
+        private void bntCrearPreventa_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+            Preventa objregistrarPreventa = new Preventa()
+            {
+                fecha = Convert.ToDateTime(txtFechaPreventa.Text),
+                osucursal = new Sucursal()
+                {
+                    id_suc = Convert.ToInt32(txtIdSucursal.Text)
+                },
+                ousuario = new Usuario()
+                {
+                    idUsuario = Convert.ToInt32(txtIdUsuario.Text)
+                },
+                ocliente = new Cliente()
+                {
+                    idCliente = Convert.ToInt32(txtIdCliente.Text)
+                }
+            };
+
+            int idPreventaGenerada = new CN_RegistrarPreventa().registrarPreventa(objregistrarPreventa, out mensaje);
+            //if (idPreventaGenerada != 0)
+            //{
+            //    form_Preventa.dgvPreventas.Rows.Add(new object[]
+            //{
+            //"",
+            //idUsuarioGenerado,
+            //txtDNI.Text,
+            //txtNombreCompleto.Text,
+            //txtCorreo.Text,
+            //txtClave.Text,
+            //((OpcionCombo)cboRol.SelectedItem).Valor.ToString(),
+            //((OpcionCombo)cboRol.SelectedItem).Texto.ToString()
+            //});
+
+            //limpiar();
+            //}
+            //else
+            //{
+            //MessageBox.Show(mensaje);
+            //}
         }
     }
 }

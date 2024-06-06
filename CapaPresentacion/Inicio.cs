@@ -81,7 +81,7 @@ namespace SistemaDeVentas
         }
         private void menuPreventas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Preventa());
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Preventa(usuarioActual));
         }
 
         private void menuClientes_Click(object sender, EventArgs e)

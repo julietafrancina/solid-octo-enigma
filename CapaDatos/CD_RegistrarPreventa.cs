@@ -32,6 +32,7 @@ namespace CapaDatos
                         {
                             lista.Add(new Cliente()
                             {
+                                idCliente = Convert.ToInt32(dr["id_cliente"].ToString()),
                                 nombreCompleto = dr["nombre_completo"].ToString(),
                                 correo = dr["correo"].ToString(),
                                 telefono = dr["telefono"].ToString(),
@@ -82,6 +83,48 @@ namespace CapaDatos
                 }
             }
             return listaArticulo;
+        }
+
+        //Método para REGISTRAR una nueva preventa
+        public int registrarPreventa(Preventa obj, out string mensaje)
+        {
+            int idPreventaGenerada = 0;
+            mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_registrarPreventa", oconexion);
+                    //parámetros de entrada
+                    cmd.Parameters.AddWithValue("fecha", obj.fecha);
+                    cmd.Parameters.AddWithValue("monto", obj.monto);
+                    cmd.Parameters.AddWithValue("baja", obj.baja);
+                    cmd.Parameters.AddWithValue("sucursal_id", obj.osucursal.id_suc);
+                    cmd.Parameters.AddWithValue("usuario_id", obj.ousuario.idUsuario);
+                    cmd.Parameters.AddWithValue("cliente_id", obj.ocliente.idCliente);
+
+                    //parámetros de salida
+                    cmd.Parameters.Add("id_preventa_resultada", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    idPreventaGenerada = Convert.ToInt32(cmd.Parameters["id_preventa_resultada"].Value);
+                    mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                idPreventaGenerada = 0;
+                mensaje = ex.Message;
+            }
+
+            return idPreventaGenerada;
         }
     }
 }

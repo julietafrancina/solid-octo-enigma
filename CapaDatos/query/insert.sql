@@ -71,3 +71,22 @@ VALUES
 	(8, 3, 3),
 	(8, 3, 7);
 
+
+UPDATE Cliente
+SET dni = 43512205, fecha_nac = '2001-06-19 11:30:00', domicilio = 'Río Negro 332'
+WHERE id_cliente = 1;
+
+
+UPDATE Cliente
+SET dni = 41740235, fecha_nac = '1999-03-12 11:30:00', domicilio = 'Bernardo de Irigoyen 379'
+WHERE id_cliente = 2;
+
+UPDATE Cliente
+SET dni = 43248206, fecha_nac = '2001-02-12 11:30:00', domicilio = 'Alsina 175'
+WHERE id_cliente = 3;
+
+UPDATE Cliente
+SET telefono = '+5492364412534'
+WHERE id_cliente = 4;
+
+SELECT * FROM Cliente

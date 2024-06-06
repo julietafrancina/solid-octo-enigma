@@ -73,13 +73,6 @@ namespace CapaPresentacion
             cboBusquedaUsuario.SelectedIndex = 0;
         }
 
-        //Filtro buscador
-        //private void filtrarDatos()
-        //{
-        //    string filtro;
-        //}
-
-        //Registrar un usuario nuevo al hacer click en el botón 'Guardar'.
         private void bntGuardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
