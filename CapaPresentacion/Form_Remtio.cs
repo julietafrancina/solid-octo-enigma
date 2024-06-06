@@ -85,7 +85,7 @@ namespace CapaPresentacion
                 }
                 catch (Exception ex)
                 {
-                   // MessageBox.Show("Error al cargar los datos: " + ex.Message);
+                    //MessageBox.Show("Error al cargar los datos: " + ex.Message);
                 }
             }
         }
@@ -99,7 +99,8 @@ namespace CapaPresentacion
             textL.Text = "R";
             textNro.Text = "";
             CB_tipo.SelectedIndex = 0;
-            textEstado.Text = "Confirmado";   
+            textEstado.Text = "Confirmado";
+            CB_fact.SelectedIndex = 0;
         }
 
         private void btnBusqueda_Click(object sender, EventArgs e)
@@ -231,44 +232,52 @@ namespace CapaPresentacion
 
         private void BtLimpiarRem_Click(object sender, EventArgs e)
         {
-            tabla_rem.Rows.Clear();
+            limpiar();
         }
 
         private void btEliminarRem_Click(object sender, EventArgs e)
         {
             //damos de baja (estado anulado) el remito 
-            string Mensaje = string.Empty;
-            Remito re = new Remito();
-            re.nroOperacion = Convert.ToInt32(textNroOp.Text);
-            re.Sucursal_id = text_idsuc.Text;
-            re.letra = textL.Text;
-            re.tipoRemito = ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString();
-            re.Estado_id = "3";
-            re.numero = Convert.ToInt32(textNro.Text);
-            re.factura = ((OpcionCombo)CB_fact.SelectedItem).Texto.ToString();
-
-            int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
+            int numero;
+            if (int.TryParse(textNro.Text, out numero))
+            {
+                AnularRemito(numero);
+                // Actualizar el DataGridView para reflejar los cambios
+                CargarDatos();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese un número válido.");
+            }
 
         }
-        private void Anular_bd(int id, int nuevoEstado)
+        private void AnularRemito(int num)
         {
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
-                string query = "sp_CambiarEstado";
+                string query = "sp_AnularRemito";
                 SqlCommand command = new SqlCommand(query, oconexion);
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.AddWithValue("@id", id);
-                command.Parameters.AddWithValue("@nuevo_estado", nuevoEstado);
+                command.Parameters.AddWithValue("@numero", num);
+                command.Parameters.AddWithValue("@nuevo_estado_id", 3); //le asigno el 3 que es el id del estado anulado
 
-                oconexion.Open();
-                command.ExecuteNonQuery();
-                oconexion.Close();
+                try
+                {
+                    oconexion.Open();
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("El objeto ha sido anulado correctamente.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al anular el objeto: " + ex.Message);
+                }
+                
             }
         }
 
-        private const int nuevoEstado = 3;
-
+        
         private void textL_TextChanged(object sender, EventArgs e)                                                                                                                                                                                                                                 
         {
 
@@ -350,7 +359,7 @@ namespace CapaPresentacion
             {
                 row.Visible = true;
                 row.Selected = false;
-            }
+            } 
 
         }   
 
@@ -403,7 +412,11 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
-    
+
+        private void text_buscar_nroOp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
