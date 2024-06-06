@@ -220,28 +220,7 @@ namespace CapaPresentacion
             CB_tipo.DisplayMember = "Texto";
             CB_tipo.ValueMember = "Valor";
             CB_tipo.SelectedIndex = 0;
-
-            //string connectionString = "your_connection_string_here";
-
-          /*  using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-            {
-                string query = "SELECT id_factura, nro_op FROM Factura";
-                SqlCommand command = new SqlCommand(query, oconexion);
-
-                oconexion.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    CB_fact.Items.Add(new OpcionCombo()
-                    {
-                        Valor = reader["nro_op"],
-                        Texto = reader["id_factura"].ToString()
-                    }); 
-                }
-
-                reader.Close();
-            }*/
+         
         }
         private void CargarComboBoxFactura()
         {
@@ -258,42 +237,18 @@ namespace CapaPresentacion
         private void btEliminarRem_Click(object sender, EventArgs e)
         {
             //damos de baja (estado anulado) el remito 
+            string Mensaje = string.Empty;
+            Remito re = new Remito();
+            re.nroOperacion = Convert.ToInt32(textNroOp.Text);
+            re.Sucursal_id = text_idsuc.Text;
+            re.letra = textL.Text;
+            re.tipoRemito = ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString();
+            re.Estado_id = "3";
+            re.numero = Convert.ToInt32(textNro.Text);
+            re.factura = ((OpcionCombo)CB_fact.SelectedItem).Texto.ToString();
 
-            // Verifica que haya filas en el DataGridView
-            if (tabla_rem.Rows.Count > 0)
-            {
-                // Selecciona la última fila (recién agregada)
-                DataGridViewRow ultimaFila = tabla_rem.Rows[tabla_rem.Rows.Count - 1];
+            int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
 
-                // Obtén el ID de la última fila  
-                int id = Convert.ToInt32(ultimaFila.Cells["Estado"].Value); // Cambia "id" por el nombre de la columna que almacena el ID
-
-                // Llama al método para cambiar el estado en la base de datos
-                Anular_bd(id, nuevoEstado);
-
-                // Actualiza el DataGridView para reflejar el cambio
-                ultimaFila.Cells["Estado"].Value = nuevoEstado; // Cambia "estado_id" por el nombre de la columna de estado
-                ultimaFila.Cells["Estado"].Value = "Anulado"; //ia "estado" por el nombre de la columna que muestra el estado
-            }
-                                               
-
-            // tabla_rem.SelectedRows.
-            /* using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-             {
-                 string query = "UPDATE Remito SET estado_id  = 3 where id_remito = @id_remito
-                 SqlCommand command = new SqlCommand(query, oconexion);
-
-                 command.Parameters.AddWithValue("@id_remito", selectedValue.Valor);
-
-                 oconexion.Open();
-                 SqlDataReader reader = command.ExecuteReader();
-                 
-                if (reader.Reader()){
-
-                    
-            }
-      
-             */
         }
         private void Anular_bd(int id, int nuevoEstado)
         {
@@ -347,8 +302,8 @@ namespace CapaPresentacion
                 foreach (DataGridViewRow row in tabla_rem.Rows)
                 {
                     // Verificar si la celda de la columna específica contiene el texto de búsqueda
-                    if (row.Cells["Nro_operación"].Value != null &&
-                        row.Cells["Nro_operación"].Value.ToString().Trim() == textoBusqueda)
+                    if (row.Cells["nro"].Value != null &&
+                        row.Cells["nro"].Value.ToString().Trim() == textoBusqueda)
                     {
                         row.Selected = true;
                         row.Visible = true; // Asegurarse de que la fila sea visible
@@ -358,6 +313,7 @@ namespace CapaPresentacion
                     else
                     {
                         row.Visible = false; // Ocultar las filas que no coinciden
+                       // MessageBox.Show("Número no encontrado.");
                     }
                 }
 
@@ -389,8 +345,14 @@ namespace CapaPresentacion
         private void btnLimpiarBuscador_Click(object sender, EventArgs e)
         {
             text_buscar.Text = "";
-            tabla_rem.Rows.Clear();
-        }
+
+            foreach (DataGridViewRow row in tabla_rem.Rows)
+            {
+                row.Visible = true;
+                row.Selected = false;
+            }
+
+        }   
 
         private void CB_fact_SelectedIndexChanged(object sender, EventArgs e)
         {

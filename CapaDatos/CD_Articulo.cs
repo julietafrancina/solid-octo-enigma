@@ -74,6 +74,16 @@ namespace CapaDatos
         {
             int id_new_art = 0;
             Mensaje = string.Empty;
+            bool a;
+            if (obj.activo == "Si")
+            {
+                a = true;
+            }
+            else
+            {
+                a = false;
+            }
+
 
             try
             {
@@ -81,15 +91,15 @@ namespace CapaDatos
                 {
                     SqlCommand cmd = new SqlCommand("sp_ingresarArt", oconexion);
 
-                    cmd.Parameters.AddWithValue("Codigo", obj.SKU);
+                    cmd.Parameters.AddWithValue("sku", obj.SKU);
                     cmd.Parameters.AddWithValue("rubro", obj.rubro);
                     cmd.Parameters.AddWithValue("marca", obj.marca);
                     cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
                     cmd.Parameters.AddWithValue("costo", Convert.ToDecimal(obj.costo));
-                    cmd.Parameters.AddWithValue("baja", obj.activo);
+                    cmd.Parameters.AddWithValue("activo", a);
 
-                    cmd.Parameters.AddWithValue("id_new_art", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("id_artResult", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -97,7 +107,7 @@ namespace CapaDatos
 
                     cmd.ExecuteNonQuery();
 
-                    id_new_art = Convert.ToInt32(cmd.Parameters["id_new_art"].Value);
+                    id_new_art = Convert.ToInt32(cmd.Parameters["id_artResult"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
                 }

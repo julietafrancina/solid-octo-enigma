@@ -52,11 +52,40 @@ namespace CapaPresentacion
 
         private void tabla_art_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (tabla_art.Columns[e.ColumnIndex].Name == "Boton")
+            {
+                int indice = e.RowIndex;
+
+                if (indice >= 0)
+                {
+                    //hacemos que el valor de la columna id lo pinte en txtId
+
+                    textSKU.Text = tabla_art.Rows[indice].Cells["Codigo"].Value.ToString();
+                    textRubro.Text = tabla_art.Rows[indice].Cells["Rubro"].Value.ToString();
+                    textSKU.ReadOnly = true;
+                    textMarca.Text = tabla_art.Rows[indice].Cells["Marca"].Value.ToString();
+                    textDesc.Text = tabla_art.Rows[indice].Cells["Descripción"].Value.ToString();
+                    textCosto.Text = tabla_art.Rows[indice].Cells["Costo"].Value.ToString();                   
+                    
+
+                    foreach (OpcionCombo oc in CB_baja.Items)
+                    {
+                        if (oc.Texto.ToString() == tabla_art.Rows[indice].Cells["Activo"].Value.ToString())
+                        {
+                            int indice_combo = CB_baja.Items.IndexOf(oc);
+                            CB_baja.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+
+                }
+            }
         }
 
         private void byGuardar_Click(object sender, EventArgs e)
         {
+           
+            
             string mensaje = string.Empty;
             Articulo art = new Articulo();
 
@@ -69,7 +98,7 @@ namespace CapaPresentacion
 
             int idgenerado = new CN_Articulo().guardar_bd(art, out mensaje);
 
-            if (idgenerado == 0)
+            if (idgenerado != 0)
             {
                 tabla_art.Rows.Add(new object[] {
 
@@ -144,7 +173,7 @@ namespace CapaPresentacion
 
         private void BtEditar_Click(object sender, EventArgs e)
         {
-            tabla_art.Rows.Clear();
+            limpiar();
 
         }
 
