@@ -35,6 +35,15 @@ namespace CapaPresentacion
             this.cboBusquedaPreventa = new System.Windows.Forms.ComboBox();
             this.ttlUsuarios = new System.Windows.Forms.Label();
             this.dgvPreventas = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.idPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNroOperacion = new System.Windows.Forms.TextBox();
             this.preventaNroOperacion = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
@@ -48,36 +57,27 @@ namespace CapaPresentacion
             this.formDetallePreventa = new System.Windows.Forms.Label();
             this.preventaBaja = new System.Windows.Forms.Label();
             this.dgvArticulosPreventa = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtUsuarioPreventa = new System.Windows.Forms.TextBox();
-            this.Usuario = new System.Windows.Forms.Label();
-            this.txtBaja = new System.Windows.Forms.TextBox();
-            this.grpArticulos = new System.Windows.Forms.GroupBox();
-            this.DetallePreventa = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRestablecerBusquedaPreventa = new FontAwesome.Sharp.IconButton();
-            this.btnBusquedaPreventa = new FontAwesome.Sharp.IconButton();
-            this.btnRegistrarPreventa = new FontAwesome.Sharp.IconButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtUsuarioPreventa = new System.Windows.Forms.TextBox();
+            this.Usuario = new System.Windows.Forms.Label();
+            this.txtBaja = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.grpArticulos = new System.Windows.Forms.GroupBox();
+            this.DetallePreventa = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDarDeBaja = new FontAwesome.Sharp.IconButton();
             this.bntGenerarFactura = new FontAwesome.Sharp.IconButton();
-            this.btnLimpiar = new FontAwesome.Sharp.IconButton();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.idPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NroOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Baja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UsuarioPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnBusquedaPreventa = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.btnRestablecerBusquedaPreventa = new FontAwesome.Sharp.IconButton();
+            this.btnRegistrarPreventa = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosPreventa)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -157,6 +157,79 @@ namespace CapaPresentacion
             this.dgvPreventas.TabIndex = 45;
             this.dgvPreventas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPreventas_CellContentClick);
             this.dgvPreventas.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvPreventa_CellPainting);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 6;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 40;
+            // 
+            // idPreventa
+            // 
+            this.idPreventa.HeaderText = "idPreventa";
+            this.idPreventa.MinimumWidth = 6;
+            this.idPreventa.Name = "idPreventa";
+            this.idPreventa.ReadOnly = true;
+            this.idPreventa.Visible = false;
+            this.idPreventa.Width = 125;
+            // 
+            // Fecha
+            // 
+            this.Fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Cliente
+            // 
+            this.Cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            // 
+            // Monto
+            // 
+            this.Monto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Monto.HeaderText = "Monto";
+            this.Monto.MinimumWidth = 6;
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            // 
+            // NroOperacion
+            // 
+            this.NroOperacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NroOperacion.HeaderText = "NroOperacion";
+            this.NroOperacion.MinimumWidth = 6;
+            this.NroOperacion.Name = "NroOperacion";
+            this.NroOperacion.ReadOnly = true;
+            // 
+            // Baja
+            // 
+            this.Baja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Baja.HeaderText = "Baja";
+            this.Baja.MinimumWidth = 6;
+            this.Baja.Name = "Baja";
+            this.Baja.ReadOnly = true;
+            // 
+            // UsuarioPreventa
+            // 
+            this.UsuarioPreventa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UsuarioPreventa.HeaderText = "Usuario";
+            this.UsuarioPreventa.MinimumWidth = 6;
+            this.UsuarioPreventa.Name = "UsuarioPreventa";
+            this.UsuarioPreventa.ReadOnly = true;
             // 
             // txtNroOperacion
             // 
@@ -284,6 +357,41 @@ namespace CapaPresentacion
             this.dgvArticulosPreventa.Size = new System.Drawing.Size(993, 143);
             this.dgvArticulosPreventa.TabIndex = 45;
             // 
+            // Articulo
+            // 
+            this.Articulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Articulo.HeaderText = "Artículo";
+            this.Articulo.MinimumWidth = 6;
+            this.Articulo.Name = "Articulo";
+            // 
+            // Rubro
+            // 
+            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Rubro.HeaderText = "Rubro";
+            this.Rubro.MinimumWidth = 6;
+            this.Rubro.Name = "Rubro";
+            // 
+            // Marca
+            // 
+            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            // 
+            // SKU
+            // 
+            this.SKU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SKU.HeaderText = "SKU";
+            this.SKU.MinimumWidth = 6;
+            this.SKU.Name = "SKU";
+            // 
+            // Costo
+            // 
+            this.Costo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -333,6 +441,22 @@ namespace CapaPresentacion
             this.txtBaja.Size = new System.Drawing.Size(164, 22);
             this.txtBaja.TabIndex = 55;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiar.IconSize = 20;
+            this.btnLimpiar.Location = new System.Drawing.Point(1064, 24);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(176, 44);
+            this.btnLimpiar.TabIndex = 42;
+            this.btnLimpiar.Text = "Limpiar campos";
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // grpArticulos
             // 
             this.grpArticulos.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -369,119 +493,6 @@ namespace CapaPresentacion
             this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox3.Controls.Add(this.btnBusquedaPreventa);
-            this.groupBox3.Controls.Add(this.txtBusquedaPreventa);
-            this.groupBox3.Controls.Add(this.cboBusquedaPreventa);
-            this.groupBox3.Location = new System.Drawing.Point(1063, 421);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(212, 162);
-            this.groupBox3.TabIndex = 61;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Buscar por";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1304, 753);
-            this.label1.TabIndex = 62;
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(131, 384);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(41, 22);
-            this.txtId.TabIndex = 63;
-            // 
-            // Articulo
-            // 
-            this.Articulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Articulo.HeaderText = "Artículo";
-            this.Articulo.MinimumWidth = 6;
-            this.Articulo.Name = "Articulo";
-            // 
-            // Rubro
-            // 
-            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            // 
-            // Marca
-            // 
-            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            // 
-            // SKU
-            // 
-            this.SKU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SKU.HeaderText = "SKU";
-            this.SKU.MinimumWidth = 6;
-            this.SKU.Name = "SKU";
-            // 
-            // Costo
-            // 
-            this.Costo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
-            // 
-            // btnRestablecerBusquedaPreventa
-            // 
-            this.btnRestablecerBusquedaPreventa.BackColor = System.Drawing.SystemColors.Control;
-            this.btnRestablecerBusquedaPreventa.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
-            this.btnRestablecerBusquedaPreventa.IconColor = System.Drawing.Color.Black;
-            this.btnRestablecerBusquedaPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRestablecerBusquedaPreventa.IconSize = 20;
-            this.btnRestablecerBusquedaPreventa.Location = new System.Drawing.Point(1078, 571);
-            this.btnRestablecerBusquedaPreventa.Name = "btnRestablecerBusquedaPreventa";
-            this.btnRestablecerBusquedaPreventa.Size = new System.Drawing.Size(176, 44);
-            this.btnRestablecerBusquedaPreventa.TabIndex = 58;
-            this.btnRestablecerBusquedaPreventa.Text = "Restablecer";
-            this.btnRestablecerBusquedaPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnRestablecerBusquedaPreventa.UseVisualStyleBackColor = false;
-            this.btnRestablecerBusquedaPreventa.Click += new System.EventHandler(this.btnRestablecerBusquedaPreventa_Click);
-            // 
-            // btnBusquedaPreventa
-            // 
-            this.btnBusquedaPreventa.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBusquedaPreventa.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnBusquedaPreventa.IconColor = System.Drawing.Color.Black;
-            this.btnBusquedaPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBusquedaPreventa.IconSize = 20;
-            this.btnBusquedaPreventa.Location = new System.Drawing.Point(15, 102);
-            this.btnBusquedaPreventa.Name = "btnBusquedaPreventa";
-            this.btnBusquedaPreventa.Size = new System.Drawing.Size(176, 42);
-            this.btnBusquedaPreventa.TabIndex = 44;
-            this.btnBusquedaPreventa.Text = "Buscar";
-            this.btnBusquedaPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBusquedaPreventa.UseVisualStyleBackColor = false;
-            this.btnBusquedaPreventa.Click += new System.EventHandler(this.btnBusquedaPreventa_Click);
-            // 
-            // btnRegistrarPreventa
-            // 
-            this.btnRegistrarPreventa.BackColor = System.Drawing.SystemColors.Control;
-            this.btnRegistrarPreventa.IconChar = FontAwesome.Sharp.IconChar.Add;
-            this.btnRegistrarPreventa.IconColor = System.Drawing.Color.LimeGreen;
-            this.btnRegistrarPreventa.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnRegistrarPreventa.IconSize = 30;
-            this.btnRegistrarPreventa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrarPreventa.Location = new System.Drawing.Point(1078, 666);
-            this.btnRegistrarPreventa.Name = "btnRegistrarPreventa";
-            this.btnRegistrarPreventa.Size = new System.Drawing.Size(176, 62);
-            this.btnRegistrarPreventa.TabIndex = 44;
-            this.btnRegistrarPreventa.Text = "Registrar nueva\r\npreventa\r\n";
-            this.btnRegistrarPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnRegistrarPreventa.UseVisualStyleBackColor = false;
-            this.btnRegistrarPreventa.Click += new System.EventHandler(this.btnRegistrarPreventa_Click);
-            // 
             // btnDarDeBaja
             // 
             this.btnDarDeBaja.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -513,94 +524,83 @@ namespace CapaPresentacion
             this.bntGenerarFactura.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.bntGenerarFactura.UseVisualStyleBackColor = false;
             // 
-            // btnLimpiar
+            // groupBox3
             // 
-            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLimpiar.IconSize = 20;
-            this.btnLimpiar.Location = new System.Drawing.Point(1064, 24);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(176, 44);
-            this.btnLimpiar.TabIndex = 42;
-            this.btnLimpiar.Text = "Limpiar campos";
-            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox3.Controls.Add(this.btnBusquedaPreventa);
+            this.groupBox3.Controls.Add(this.txtBusquedaPreventa);
+            this.groupBox3.Controls.Add(this.cboBusquedaPreventa);
+            this.groupBox3.Location = new System.Drawing.Point(1063, 421);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(212, 162);
+            this.groupBox3.TabIndex = 61;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Buscar por";
             // 
-            // btnSeleccionar
+            // btnBusquedaPreventa
             // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 6;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 40;
+            this.btnBusquedaPreventa.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBusquedaPreventa.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnBusquedaPreventa.IconColor = System.Drawing.Color.Black;
+            this.btnBusquedaPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBusquedaPreventa.IconSize = 20;
+            this.btnBusquedaPreventa.Location = new System.Drawing.Point(15, 102);
+            this.btnBusquedaPreventa.Name = "btnBusquedaPreventa";
+            this.btnBusquedaPreventa.Size = new System.Drawing.Size(176, 42);
+            this.btnBusquedaPreventa.TabIndex = 44;
+            this.btnBusquedaPreventa.Text = "Buscar";
+            this.btnBusquedaPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBusquedaPreventa.UseVisualStyleBackColor = false;
+            this.btnBusquedaPreventa.Click += new System.EventHandler(this.btnBusquedaPreventa_Click);
             // 
-            // idPreventa
+            // label1
             // 
-            this.idPreventa.HeaderText = "idPreventa";
-            this.idPreventa.MinimumWidth = 6;
-            this.idPreventa.Name = "idPreventa";
-            this.idPreventa.ReadOnly = true;
-            this.idPreventa.Visible = false;
-            this.idPreventa.Width = 125;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1304, 753);
+            this.label1.TabIndex = 62;
             // 
-            // Fecha
+            // txtId
             // 
-            this.Fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.MinimumWidth = 6;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
+            this.txtId.Location = new System.Drawing.Point(131, 384);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(41, 22);
+            this.txtId.TabIndex = 63;
             // 
-            // Cliente
+            // btnRestablecerBusquedaPreventa
             // 
-            this.Cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 6;
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
+            this.btnRestablecerBusquedaPreventa.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRestablecerBusquedaPreventa.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
+            this.btnRestablecerBusquedaPreventa.IconColor = System.Drawing.Color.Black;
+            this.btnRestablecerBusquedaPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRestablecerBusquedaPreventa.IconSize = 20;
+            this.btnRestablecerBusquedaPreventa.Location = new System.Drawing.Point(1078, 571);
+            this.btnRestablecerBusquedaPreventa.Name = "btnRestablecerBusquedaPreventa";
+            this.btnRestablecerBusquedaPreventa.Size = new System.Drawing.Size(176, 44);
+            this.btnRestablecerBusquedaPreventa.TabIndex = 58;
+            this.btnRestablecerBusquedaPreventa.Text = "Restablecer";
+            this.btnRestablecerBusquedaPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnRestablecerBusquedaPreventa.UseVisualStyleBackColor = false;
+            this.btnRestablecerBusquedaPreventa.Click += new System.EventHandler(this.btnRestablecerBusquedaPreventa_Click);
             // 
-            // Sucursal
+            // btnRegistrarPreventa
             // 
-            this.Sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.MinimumWidth = 6;
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.ReadOnly = true;
-            // 
-            // Monto
-            // 
-            this.Monto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Monto.HeaderText = "Monto";
-            this.Monto.MinimumWidth = 6;
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
-            // 
-            // NroOperacion
-            // 
-            this.NroOperacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NroOperacion.HeaderText = "NroOperacion";
-            this.NroOperacion.MinimumWidth = 6;
-            this.NroOperacion.Name = "NroOperacion";
-            this.NroOperacion.ReadOnly = true;
-            // 
-            // Baja
-            // 
-            this.Baja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Baja.HeaderText = "Baja";
-            this.Baja.MinimumWidth = 6;
-            this.Baja.Name = "Baja";
-            this.Baja.ReadOnly = true;
-            // 
-            // UsuarioPreventa
-            // 
-            this.UsuarioPreventa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UsuarioPreventa.HeaderText = "Usuario";
-            this.UsuarioPreventa.MinimumWidth = 6;
-            this.UsuarioPreventa.Name = "UsuarioPreventa";
-            this.UsuarioPreventa.ReadOnly = true;
+            this.btnRegistrarPreventa.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRegistrarPreventa.IconChar = FontAwesome.Sharp.IconChar.Add;
+            this.btnRegistrarPreventa.IconColor = System.Drawing.Color.LimeGreen;
+            this.btnRegistrarPreventa.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnRegistrarPreventa.IconSize = 30;
+            this.btnRegistrarPreventa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistrarPreventa.Location = new System.Drawing.Point(1078, 666);
+            this.btnRegistrarPreventa.Name = "btnRegistrarPreventa";
+            this.btnRegistrarPreventa.Size = new System.Drawing.Size(176, 62);
+            this.btnRegistrarPreventa.TabIndex = 44;
+            this.btnRegistrarPreventa.Text = "Registrar nueva\r\npreventa\r\n";
+            this.btnRegistrarPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnRegistrarPreventa.UseVisualStyleBackColor = false;
+            this.btnRegistrarPreventa.Click += new System.EventHandler(this.btnRegistrarPreventa_Click);
             // 
             // form_Preventa
             // 
