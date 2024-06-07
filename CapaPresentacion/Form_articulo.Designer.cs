@@ -39,7 +39,8 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabla_art = new System.Windows.Forms.DataGridView();
-            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Boton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,13 +56,9 @@ namespace CapaPresentacion
             this.Desc = new System.Windows.Forms.Label();
             this.btnBusqueda = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
-            this.Boton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bntGuardar = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiarDatos = new FontAwesome.Sharp.IconButton();
+            this.formUsuarios = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_art)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,12 +171,19 @@ namespace CapaPresentacion
             this.tabla_art.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_art_CellContentClick);
             this.tabla_art.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tabla_art_CellPainting);
             // 
-            // Código
+            // Boton
             // 
-            this.Código.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Código.HeaderText = "SKU";
-            this.Código.MinimumWidth = 6;
-            this.Código.Name = "Código";
+            this.Boton.HeaderText = "";
+            this.Boton.MinimumWidth = 6;
+            this.Boton.Name = "Boton";
+            this.Boton.Width = 40;
+            // 
+            // Codigo
+            // 
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Codigo.HeaderText = "SKU";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
             // 
             // Rubro
             // 
@@ -327,43 +331,6 @@ namespace CapaPresentacion
             this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
             this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
             // 
-            // Boton
-            // 
-            this.Boton.HeaderText = "";
-            this.Boton.MinimumWidth = 6;
-            this.Boton.Name = "Boton";
-            this.Boton.Width = 40;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "SKU";
-            this.Codigo.MinimumWidth = 6;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.Width = 125;
-            // 
-            // Rubro
-            // 
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            this.Rubro.Width = 125;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.Width = 125;
-            // 
-            // Descripción
-            // 
-            this.formUsuarios.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.formUsuarios.Dock = System.Windows.Forms.DockStyle.Left;
-            this.formUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.formUsuarios.Name = "formUsuarios";
-            this.formUsuarios.Size = new System.Drawing.Size(268, 753);
-            this.formUsuarios.TabIndex = 67;
-            // 
             // bntGuardar
             // 
             this.bntGuardar.BackColor = System.Drawing.Color.LightGreen;
@@ -372,15 +339,14 @@ namespace CapaPresentacion
             this.bntGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bntGuardar.IconSize = 25;
             this.bntGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntGuardar.Location = new System.Drawing.Point(27, 506);
+            this.bntGuardar.Location = new System.Drawing.Point(28, 527);
             this.bntGuardar.Name = "bntGuardar";
-            this.bntGuardar.Size = new System.Drawing.Size(213, 46);
-            this.bntGuardar.TabIndex = 106;
+            this.bntGuardar.Size = new System.Drawing.Size(212, 46);
+            this.bntGuardar.TabIndex = 50;
             this.bntGuardar.Text = "Guardar";
             this.bntGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bntGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.bntGuardar.UseVisualStyleBackColor = false;
-            this.bntGuardar.Click += new System.EventHandler(this.byGuardar_Click);
             // 
             // btnLimpiarDatos
             // 
@@ -390,15 +356,23 @@ namespace CapaPresentacion
             this.btnLimpiarDatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiarDatos.IconSize = 20;
             this.btnLimpiarDatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiarDatos.Location = new System.Drawing.Point(28, 454);
+            this.btnLimpiarDatos.Location = new System.Drawing.Point(28, 475);
             this.btnLimpiarDatos.Name = "btnLimpiarDatos";
-            this.btnLimpiarDatos.Size = new System.Drawing.Size(213, 46);
-            this.btnLimpiarDatos.TabIndex = 107;
+            this.btnLimpiarDatos.Size = new System.Drawing.Size(212, 46);
+            this.btnLimpiarDatos.TabIndex = 51;
             this.btnLimpiarDatos.Text = "Limpiar";
             this.btnLimpiarDatos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiarDatos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiarDatos.UseVisualStyleBackColor = false;
-            this.btnLimpiarDatos.Click += new System.EventHandler(this.BtEditar_Click);
+            // 
+            // formUsuarios
+            // 
+            this.formUsuarios.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.formUsuarios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.formUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.formUsuarios.Name = "formUsuarios";
+            this.formUsuarios.Size = new System.Drawing.Size(269, 753);
+            this.formUsuarios.TabIndex = 67;
             // 
             // Form_articulo
             // 
@@ -466,8 +440,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
-        private System.Windows.Forms.Label formUsuarios;
         private FontAwesome.Sharp.IconButton bntGuardar;
         private FontAwesome.Sharp.IconButton btnLimpiarDatos;
+        private System.Windows.Forms.Label formUsuarios;
     }
 }

@@ -54,15 +54,15 @@ namespace CapaPresentacion
             this.textNro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CB_tipo = new System.Windows.Forms.ComboBox();
-            this.textEstado = new System.Windows.Forms.TextBox();
-            this.CB_fact = new System.Windows.Forms.ComboBox();
-            this.labelFact = new System.Windows.Forms.Label();
-            this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             this.formUsuarios = new System.Windows.Forms.Label();
             this.btnLimpiarDatos = new FontAwesome.Sharp.IconButton();
             this.btnAnular = new FontAwesome.Sharp.IconButton();
             this.bntGuardar = new FontAwesome.Sharp.IconButton();
             this.text_idsuc = new System.Windows.Forms.TextBox();
+            this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
+            this.textEstado = new System.Windows.Forms.TextBox();
+            this.labelFact = new System.Windows.Forms.Label();
+            this.CB_fact = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_rem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,7 +201,6 @@ namespace CapaPresentacion
             this.textNroOp.ReadOnly = true;
             this.textNroOp.Size = new System.Drawing.Size(212, 22);
             this.textNroOp.TabIndex = 28;
-            this.textNroOp.TextChanged += new System.EventHandler(this.textNroOp_TextChanged);
             // 
             // nro_op
             // 
@@ -212,7 +211,6 @@ namespace CapaPresentacion
             this.nro_op.Size = new System.Drawing.Size(98, 17);
             this.nro_op.TabIndex = 29;
             this.nro_op.Text = "Nro operación";
-            this.nro_op.Click += new System.EventHandler(this.nro_op_Click);
             // 
             // textSuc
             // 
@@ -223,7 +221,6 @@ namespace CapaPresentacion
             this.textSuc.Size = new System.Drawing.Size(63, 17);
             this.textSuc.TabIndex = 30;
             this.textSuc.Text = "Sucursal";
-            this.textSuc.Click += new System.EventHandler(this.textSuc_Click);
             // 
             // textSucursal
             // 
@@ -232,7 +229,6 @@ namespace CapaPresentacion
             this.textSucursal.ReadOnly = true;
             this.textSucursal.Size = new System.Drawing.Size(212, 22);
             this.textSucursal.TabIndex = 31;
-            this.textSucursal.TextChanged += new System.EventHandler(this.textSucursal_TextChanged);
             // 
             // textLetra
             // 
@@ -243,7 +239,6 @@ namespace CapaPresentacion
             this.textLetra.Size = new System.Drawing.Size(41, 17);
             this.textLetra.TabIndex = 32;
             this.textLetra.Text = "Letra";
-            this.textLetra.Click += new System.EventHandler(this.textLetra_Click);
             // 
             // textL
             // 
@@ -263,7 +258,6 @@ namespace CapaPresentacion
             this.labelTipo.Size = new System.Drawing.Size(36, 17);
             this.labelTipo.TabIndex = 34;
             this.labelTipo.Text = "Tipo";
-            this.labelTipo.Click += new System.EventHandler(this.labelTipo_Click);
             // 
             // labelestado
             // 
@@ -274,7 +268,6 @@ namespace CapaPresentacion
             this.labelestado.Size = new System.Drawing.Size(52, 17);
             this.labelestado.TabIndex = 36;
             this.labelestado.Text = "Estado";
-            this.labelestado.Click += new System.EventHandler(this.labelestado_Click);
             // 
             // detalle_rem
             // 
@@ -286,7 +279,6 @@ namespace CapaPresentacion
             this.detalle_rem.Size = new System.Drawing.Size(100, 17);
             this.detalle_rem.TabIndex = 38;
             this.detalle_rem.Text = "Detalle Remito";
-            this.detalle_rem.Click += new System.EventHandler(this.detalle_rem_Click);
             // 
             // textNro
             // 
@@ -306,7 +298,6 @@ namespace CapaPresentacion
             this.label1.Size = new System.Drawing.Size(31, 17);
             this.label1.TabIndex = 43;
             this.label1.Text = "Nro";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // CB_tipo
             // 
@@ -317,48 +308,6 @@ namespace CapaPresentacion
             this.CB_tipo.Size = new System.Drawing.Size(212, 24);
             this.CB_tipo.TabIndex = 44;
             this.CB_tipo.SelectedIndexChanged += new System.EventHandler(this.CB_fact_SelectedIndexChanged);
-            // 
-            // textEstado
-            // 
-            this.textEstado.Location = new System.Drawing.Point(28, 461);
-            this.textEstado.Name = "textEstado";
-            this.textEstado.Size = new System.Drawing.Size(212, 22);
-            this.textEstado.TabIndex = 3;
-            this.textEstado.TextChanged += new System.EventHandler(this.textEstado_TextChanged);
-            // 
-            // CB_fact
-            // 
-            this.CB_fact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_fact.Location = new System.Drawing.Point(28, 401);
-            this.CB_fact.Name = "CB_fact";
-            this.CB_fact.Size = new System.Drawing.Size(212, 24);
-            this.CB_fact.TabIndex = 2;
-            this.CB_fact.SelectedIndexChanged += new System.EventHandler(this.CB_fact_SelectedIndexChanged_1);
-            // 
-            // labelFact
-            // 
-            this.labelFact.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.labelFact.Location = new System.Drawing.Point(25, 377);
-            this.labelFact.Name = "labelFact";
-            this.labelFact.Size = new System.Drawing.Size(95, 21);
-            this.labelFact.TabIndex = 1;
-            this.labelFact.Text = "Factura";
-            this.labelFact.Click += new System.EventHandler(this.labelFact_Click);
-            // 
-            // btnLimpiarBuscador
-            // 
-            this.btnLimpiarBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpiarBuscador.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLimpiarBuscador.IconSize = 20;
-            this.btnLimpiarBuscador.Location = new System.Drawing.Point(1146, 22);
-            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
-            this.btnLimpiarBuscador.Size = new System.Drawing.Size(64, 54);
-            this.btnLimpiarBuscador.TabIndex = 0;
-            this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
-            this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click_1);
             // 
             // formUsuarios
             // 
@@ -426,27 +375,67 @@ namespace CapaPresentacion
             // 
             // text_idsuc
             // 
-            this.text_idsuc.Location = new System.Drawing.Point(104, 212);
+            this.text_idsuc.Location = new System.Drawing.Point(203, 175);
             this.text_idsuc.Name = "text_idsuc";
-            this.text_idsuc.Size = new System.Drawing.Size(100, 22);
+            this.text_idsuc.Size = new System.Drawing.Size(37, 22);
             this.text_idsuc.TabIndex = 49;
             this.text_idsuc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.text_idsuc.Visible = false;
+            // 
+            // btnLimpiarBuscador
+            // 
+            this.btnLimpiarBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiarBuscador.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarBuscador.IconSize = 20;
+            this.btnLimpiarBuscador.Location = new System.Drawing.Point(1148, 22);
+            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
+            this.btnLimpiarBuscador.Size = new System.Drawing.Size(62, 54);
+            this.btnLimpiarBuscador.TabIndex = 106;
+            this.btnLimpiarBuscador.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
+            // 
+            // textEstado
+            // 
+            this.textEstado.Location = new System.Drawing.Point(27, 461);
+            this.textEstado.Name = "textEstado";
+            this.textEstado.Size = new System.Drawing.Size(212, 22);
+            this.textEstado.TabIndex = 107;
+            // 
+            // labelFact
+            // 
+            this.labelFact.AutoSize = true;
+            this.labelFact.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.labelFact.Location = new System.Drawing.Point(25, 380);
+            this.labelFact.Name = "labelFact";
+            this.labelFact.Size = new System.Drawing.Size(56, 17);
+            this.labelFact.TabIndex = 108;
+            this.labelFact.Text = "Factura";
+            // 
+            // CB_fact
+            // 
+            this.CB_fact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_fact.FormattingEnabled = true;
+            this.CB_fact.Location = new System.Drawing.Point(27, 400);
+            this.CB_fact.Name = "CB_fact";
+            this.CB_fact.Size = new System.Drawing.Size(212, 24);
+            this.CB_fact.TabIndex = 109;
             // 
             // Form_Remito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1237, 728);
+            this.ClientSize = new System.Drawing.Size(1282, 728);
+            this.Controls.Add(this.CB_fact);
+            this.Controls.Add(this.labelFact);
+            this.Controls.Add(this.textEstado);
+            this.Controls.Add(this.btnLimpiarBuscador);
             this.Controls.Add(this.bntGuardar);
             this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnLimpiarDatos);
-            this.ClientSize = new System.Drawing.Size(1282, 728);
             this.Controls.Add(this.text_idsuc);
-            this.Controls.Add(this.btnLimpiarBuscador);
-            this.Controls.Add(this.labelFact);
-            this.Controls.Add(this.CB_fact);
-            this.Controls.Add(this.textEstado);
             this.Controls.Add(this.CB_tipo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textNro);
@@ -493,10 +482,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox textNro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CB_tipo;
-        private System.Windows.Forms.TextBox textEstado;
-        private System.Windows.Forms.ComboBox CB_fact;
-        private System.Windows.Forms.Label labelFact;
-        private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
         private System.Windows.Forms.TextBox text_idsuc;
         private System.Windows.Forms.DataGridViewButtonColumn boton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nro_operación;
@@ -506,13 +491,13 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn nro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Factura;
-        private System.Windows.Forms.TextBox textEstado;
-        private System.Windows.Forms.ComboBox CB_fact;
-        private System.Windows.Forms.Label labelFact;
-        private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
         private System.Windows.Forms.Label formUsuarios;
         private FontAwesome.Sharp.IconButton btnLimpiarDatos;
         private FontAwesome.Sharp.IconButton btnAnular;
         private FontAwesome.Sharp.IconButton bntGuardar;
+        private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
+        private System.Windows.Forms.TextBox textEstado;
+        private System.Windows.Forms.Label labelFact;
+        private System.Windows.Forms.ComboBox CB_fact;
     }
 }

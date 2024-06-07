@@ -10,7 +10,6 @@ namespace CapaEntidad
     {
         public int idArticulo { get; set; }
         public int SKU { get; set; }
-        public string descripcion { get; set; }
         public string rubro { get; set; }
         public decimal costo { get; set; }
         public string descripcion { get; set; }
