@@ -100,7 +100,7 @@ namespace CapaPresentacion
             textNro.Text = "";
             CB_tipo.SelectedIndex = 0;
             textEstado.Text = "Confirmado";
-            CB_fact.SelectedIndex = 0;
+            CB_fact.SelectedIndex = -1;
         }
 
         private void btnBusqueda_Click(object sender, EventArgs e)

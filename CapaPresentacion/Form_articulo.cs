@@ -1,8 +1,11 @@
-﻿using CapaEntidad;
+﻿using CapaDatos;
+using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -85,7 +88,11 @@ namespace CapaPresentacion
         private void byGuardar_Click(object sender, EventArgs e)
         {
            
-            
+            if (((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "No")
+            {
+                int s= Convert.ToInt32(textSKU.Text);
+                BajaArt(s);
+            }
             string mensaje = string.Empty;
             Articulo art = new Articulo();
 
@@ -116,6 +123,33 @@ namespace CapaPresentacion
             limpiar();
 
         }
+        private void BajaArt(int s)
+        {
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "sp_DarDeBajaArt";
+                SqlCommand command = new SqlCommand(query, oconexion);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@sku", s);
+                command.Parameters.AddWithValue("@activo", 0); //le asigno el 0 que significa que no esta acitvo
+
+                try
+                {
+                    oconexion.Open();
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("El articulo ha sido dado de baja.");
+                 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al dar de baja: " + ex.Message);
+                }
+
+            }
+        }
+
         private void limpiar()
         {
 
