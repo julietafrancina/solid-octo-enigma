@@ -42,7 +42,7 @@ namespace CapaDatos
 
                     cmd.ExecuteNonQuery();
 
-                    id_rem_gen = Convert.ToInt32(cmd.Parameters["id_rem_gen"].Value);
+                    id_rem_gen = Convert.ToInt32(cmd.Parameters["id_remResult"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
                 }

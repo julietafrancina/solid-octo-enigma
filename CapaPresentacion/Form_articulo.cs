@@ -325,5 +325,15 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
+
+        private void btnLimpiarDatos_Click(object sender, EventArgs e)
+        {
+            textSKU.Text = "";
+            textRubro.Text = "";
+            textMarca.Text = "";
+            textCosto.Text = "";
+            textDesc.Text = "";
+            CB_baja.SelectedIndex = 0;
+        }
     }
 }

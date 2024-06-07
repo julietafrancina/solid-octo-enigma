@@ -100,7 +100,7 @@ namespace CapaPresentacion
             textNro.Text = "";
             CB_tipo.SelectedIndex = 0;
             textEstado.Text = "Confirmado";
-            CB_fact.SelectedIndex = 0;
+            CB_fact.SelectedIndex = -1;
         }
 
         private void btnBusqueda_Click(object sender, EventArgs e)
@@ -312,17 +312,17 @@ namespace CapaPresentacion
                 {
                     // Verificar si la celda de la columna específica contiene el texto de búsqueda
                     if (row.Cells["nro"].Value != null &&
-                        row.Cells["nro"].Value.ToString().Trim() == textoBusqueda)
+                        row.Cells["nro"].Value.ToString().Trim().Contains(textoBusqueda))
                     {
-                        row.Selected = true;
+                       // row.Selected = true;
                         row.Visible = true; // Asegurarse de que la fila sea visible
                         encontrado = true;
-                        break; // Detener la búsqueda después de encontrar la primera coincidencia
+                        //break;  Detener la búsqueda después de encontrar la primera coincidencia
                     }
                     else
                     {
                         row.Visible = false; // Ocultar las filas que no coinciden
-                       // MessageBox.Show("Número no encontrado.");
+                        // MessageBox.Show("Número no encontrado.");
                     }
                 }
 
@@ -416,6 +416,15 @@ namespace CapaPresentacion
         private void text_buscar_nroOp_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLimpiarBuscador_Click(object sender, EventArgs e)
+        {
+            text_buscar.Text = "";
+            foreach (DataGridViewRow row in tabla_rem.Rows)
+            {
+                row.Visible = true;
+            }
         }
     }
 

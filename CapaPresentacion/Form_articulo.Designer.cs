@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.detalle_art = new System.Windows.Forms.Label();
             this.sku = new System.Windows.Forms.Label();
             this.textSKU = new System.Windows.Forms.TextBox();
@@ -85,6 +86,7 @@ namespace CapaPresentacion
             // 
             // textSKU
             // 
+            this.textSKU.BackColor = System.Drawing.Color.White;
             this.textSKU.Location = new System.Drawing.Point(28, 82);
             this.textSKU.Name = "textSKU";
             this.textSKU.Size = new System.Drawing.Size(212, 22);
@@ -150,10 +152,20 @@ namespace CapaPresentacion
             // 
             // tabla_art
             // 
+            this.tabla_art.AllowUserToAddRows = false;
             this.tabla_art.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabla_art.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabla_art.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.tabla_art.ColumnHeadersHeight = 50;
             this.tabla_art.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Boton,
             this.Codigo,
@@ -164,8 +176,9 @@ namespace CapaPresentacion
             this.Activo});
             this.tabla_art.Location = new System.Drawing.Point(291, 82);
             this.tabla_art.Name = "tabla_art";
+            this.tabla_art.ReadOnly = true;
             this.tabla_art.RowHeadersWidth = 51;
-            this.tabla_art.RowTemplate.Height = 24;
+            this.tabla_art.RowTemplate.Height = 40;
             this.tabla_art.Size = new System.Drawing.Size(837, 575);
             this.tabla_art.TabIndex = 13;
             this.tabla_art.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_art_CellContentClick);
@@ -176,6 +189,7 @@ namespace CapaPresentacion
             this.Boton.HeaderText = "";
             this.Boton.MinimumWidth = 6;
             this.Boton.Name = "Boton";
+            this.Boton.ReadOnly = true;
             this.Boton.Width = 40;
             // 
             // Codigo
@@ -184,6 +198,7 @@ namespace CapaPresentacion
             this.Codigo.HeaderText = "SKU";
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
             // Rubro
             // 
@@ -191,6 +206,7 @@ namespace CapaPresentacion
             this.Rubro.HeaderText = "Rubro";
             this.Rubro.MinimumWidth = 6;
             this.Rubro.Name = "Rubro";
+            this.Rubro.ReadOnly = true;
             // 
             // Marca
             // 
@@ -198,6 +214,7 @@ namespace CapaPresentacion
             this.Marca.HeaderText = "Marca";
             this.Marca.MinimumWidth = 6;
             this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
             // 
             // Descripción
             // 
@@ -205,6 +222,7 @@ namespace CapaPresentacion
             this.Descripción.HeaderText = "Descripción";
             this.Descripción.MinimumWidth = 6;
             this.Descripción.Name = "Descripción";
+            this.Descripción.ReadOnly = true;
             // 
             // Costo
             // 
@@ -212,6 +230,7 @@ namespace CapaPresentacion
             this.Costo.HeaderText = "Costo";
             this.Costo.MinimumWidth = 6;
             this.Costo.Name = "Costo";
+            this.Costo.ReadOnly = true;
             // 
             // Activo
             // 
@@ -219,6 +238,7 @@ namespace CapaPresentacion
             this.Activo.HeaderText = "Activo";
             this.Activo.MinimumWidth = 6;
             this.Activo.Name = "Activo";
+            this.Activo.ReadOnly = true;
             // 
             // label5
             // 
@@ -347,6 +367,7 @@ namespace CapaPresentacion
             this.bntGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bntGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.bntGuardar.UseVisualStyleBackColor = false;
+            this.bntGuardar.Click += new System.EventHandler(this.byGuardar_Click);
             // 
             // btnLimpiarDatos
             // 
@@ -364,6 +385,7 @@ namespace CapaPresentacion
             this.btnLimpiarDatos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiarDatos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLimpiarDatos.UseVisualStyleBackColor = false;
+            this.btnLimpiarDatos.Click += new System.EventHandler(this.btnLimpiarDatos_Click);
             // 
             // formUsuarios
             // 
