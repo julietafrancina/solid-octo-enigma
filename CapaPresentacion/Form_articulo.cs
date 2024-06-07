@@ -144,6 +144,7 @@ namespace CapaPresentacion
                     command.ExecuteNonQuery();
 
                     MessageBox.Show("El articulo ha sido dado de baja.");
+                    ActualizarTabla(s);
                  
                 }
                 catch (Exception ex)
@@ -171,6 +172,7 @@ namespace CapaPresentacion
                     command.ExecuteNonQuery();
 
                     MessageBox.Show("El articulo ha sido activado nuevamente.");
+                    ActualizarTabla(s);
 
                 }
                 catch (Exception ex)
@@ -178,6 +180,17 @@ namespace CapaPresentacion
                     MessageBox.Show("Error al dar de alta: " + ex.Message);
                 }
 
+            }
+        }
+
+        private void ActualizarTabla(int s)
+        {
+            foreach (DataGridViewRow row in tabla_art.Rows)
+            {
+                if (Convert.ToInt32(row.Cells["Codigo"].Value) == s) 
+                {
+                    row.Cells["Activo"].Value =CB_baja.SelectedItem;
+                }
             }
         }
 
