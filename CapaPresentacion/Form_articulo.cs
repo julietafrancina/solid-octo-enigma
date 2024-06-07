@@ -92,6 +92,10 @@ namespace CapaPresentacion
             {
                 int s= Convert.ToInt32(textSKU.Text);
                 BajaArt(s);
+            } else if(((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "Si")
+            {
+                int s = Convert.ToInt32(textSKU.Text);
+                AltaArt(s);
             }
             string mensaje = string.Empty;
             Articulo art = new Articulo();
@@ -145,6 +149,33 @@ namespace CapaPresentacion
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al dar de baja: " + ex.Message);
+                }
+
+            }
+        }
+
+        private void AltaArt(int s)
+        {
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "sp_DarDeAltaArt";
+                SqlCommand command = new SqlCommand(query, oconexion);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@sku", s);
+                command.Parameters.AddWithValue("@activo", 1); //le asigno el 1 que significa que está acitvo
+
+                try
+                {
+                    oconexion.Open();
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("El articulo ha sido activado nuevamente.");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al dar de alta: " + ex.Message);
                 }
 
             }
