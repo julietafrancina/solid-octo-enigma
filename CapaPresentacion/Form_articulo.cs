@@ -3,6 +3,7 @@ using CapaNegocio;
 using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
@@ -26,7 +27,7 @@ namespace CapaPresentacion
 
 
                 tabla_art.Rows.Add(new object[] {
-              //  "",
+                "",
                 art.SKU,
                 art.rubro,
                 art.marca,
@@ -51,11 +52,40 @@ namespace CapaPresentacion
 
         private void tabla_art_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (tabla_art.Columns[e.ColumnIndex].Name == "Boton")
+            {
+                int indice = e.RowIndex;
 
+                if (indice >= 0)
+                {
+                    //hacemos que el valor de la columna id lo pinte en txtId
+
+                    textSKU.Text = tabla_art.Rows[indice].Cells["Codigo"].Value.ToString();
+                    textRubro.Text = tabla_art.Rows[indice].Cells["Rubro"].Value.ToString();
+                    textSKU.ReadOnly = true;
+                    textMarca.Text = tabla_art.Rows[indice].Cells["Marca"].Value.ToString();
+                    textDesc.Text = tabla_art.Rows[indice].Cells["Descripción"].Value.ToString();
+                    textCosto.Text = tabla_art.Rows[indice].Cells["Costo"].Value.ToString();                   
+                    
+
+                    foreach (OpcionCombo oc in CB_baja.Items)
+                    {
+                        if (oc.Texto.ToString() == tabla_art.Rows[indice].Cells["Activo"].Value.ToString())
+                        {
+                            int indice_combo = CB_baja.Items.IndexOf(oc);
+                            CB_baja.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+
+                }
+            }
         }
 
         private void byGuardar_Click(object sender, EventArgs e)
         {
+           
+            
             string mensaje = string.Empty;
             Articulo art = new Articulo();
 
@@ -63,22 +93,22 @@ namespace CapaPresentacion
             art.rubro = textRubro.Text;
             art.marca = textMarca.Text;
             art.descripcion = textDesc.Text;
-            art.costo = Convert.ToDouble(textCosto.Text);
+            art.costo = Convert.ToDecimal(textCosto.Text);
             art.activo = ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString();
+
             int idgenerado = new CN_Articulo().guardar_bd(art, out mensaje);
 
-            if (idgenerado == 0)
+            if (idgenerado != 0)
             {
                 tabla_art.Rows.Add(new object[] {
 
-                //"",
+                "",
                 textSKU.Text,
                 textRubro.Text,
                 textMarca.Text,
                 textDesc.Text,
                 textCosto.Text,
                 ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString(),
-                MessageBox.Show("Datos guardados correctamente"),
 
             });
             }
@@ -143,7 +173,7 @@ namespace CapaPresentacion
 
         private void BtEditar_Click(object sender, EventArgs e)
         {
-            tabla_art.Rows.Clear();
+            limpiar();
 
         }
 
@@ -275,5 +305,25 @@ namespace CapaPresentacion
 
         }
 
+        private void tabla_art_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            //boton seleccionar en tabla:
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 0)
+            {
+                //eventos del método
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                //para que el ícono quede centrado
+                var w = Properties.Resources.tabler_check.Width;
+                var h = Properties.Resources.tabler_check.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.tabler_check, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace CapaPresentacion
         private void InitializeComponent()
         {
             this.tabla_rem = new System.Windows.Forms.DataGridView();
+            this.boton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Nro_operación = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Letra = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +62,7 @@ namespace CapaPresentacion
             this.btnLimpiarDatos = new FontAwesome.Sharp.IconButton();
             this.btnAnular = new FontAwesome.Sharp.IconButton();
             this.bntGuardar = new FontAwesome.Sharp.IconButton();
+            this.text_idsuc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_rem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +73,7 @@ namespace CapaPresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabla_rem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabla_rem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.boton,
             this.Nro_operación,
             this.Sucursal,
             this.Letra,
@@ -85,6 +88,16 @@ namespace CapaPresentacion
             this.tabla_rem.Size = new System.Drawing.Size(913, 589);
             this.tabla_rem.TabIndex = 0;
             this.tabla_rem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_rem_CellContentClick);
+            this.tabla_rem.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tabla_rem_CellPainting);
+            // 
+            // boton
+            // 
+            this.boton.HeaderText = "";
+            this.boton.MinimumWidth = 6;
+            this.boton.Name = "boton";
+            this.boton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.boton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.boton.Width = 40;
             // 
             // Nro_operación
             // 
@@ -151,9 +164,10 @@ namespace CapaPresentacion
             this.text_buscar_nroOp.AutoSize = true;
             this.text_buscar_nroOp.Location = new System.Drawing.Point(665, 43);
             this.text_buscar_nroOp.Name = "text_buscar_nroOp";
-            this.text_buscar_nroOp.Size = new System.Drawing.Size(193, 17);
+            this.text_buscar_nroOp.Size = new System.Drawing.Size(169, 17);
             this.text_buscar_nroOp.TabIndex = 21;
-            this.text_buscar_nroOp.Text = "Buscar por nro de operación:";
+            this.text_buscar_nroOp.Text = "Buscar por nro de remito:";
+            this.text_buscar_nroOp.Click += new System.EventHandler(this.text_buscar_nroOp_Click);
             // 
             // text_buscar
             // 
@@ -410,6 +424,15 @@ namespace CapaPresentacion
             this.bntGuardar.UseVisualStyleBackColor = false;
             this.bntGuardar.Click += new System.EventHandler(this.btGuardarRem_Click);
             // 
+            // text_idsuc
+            // 
+            this.text_idsuc.Location = new System.Drawing.Point(104, 212);
+            this.text_idsuc.Name = "text_idsuc";
+            this.text_idsuc.Size = new System.Drawing.Size(100, 22);
+            this.text_idsuc.TabIndex = 49;
+            this.text_idsuc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.text_idsuc.Visible = false;
+            // 
             // Form_Remito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -418,6 +441,8 @@ namespace CapaPresentacion
             this.Controls.Add(this.bntGuardar);
             this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnLimpiarDatos);
+            this.ClientSize = new System.Drawing.Size(1282, 728);
+            this.Controls.Add(this.text_idsuc);
             this.Controls.Add(this.btnLimpiarBuscador);
             this.Controls.Add(this.labelFact);
             this.Controls.Add(this.CB_fact);
@@ -468,6 +493,12 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox textNro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CB_tipo;
+        private System.Windows.Forms.TextBox textEstado;
+        private System.Windows.Forms.ComboBox CB_fact;
+        private System.Windows.Forms.Label labelFact;
+        private FontAwesome.Sharp.IconButton btnLimpiarBuscador;
+        private System.Windows.Forms.TextBox text_idsuc;
+        private System.Windows.Forms.DataGridViewButtonColumn boton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nro_operación;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Letra;

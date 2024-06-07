@@ -21,17 +21,20 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("sp_generarRemito", oconexion);
+                    SqlCommand cmd = new SqlCommand("sp_ingresarRem", oconexion);
+
                     
+
                     cmd.Parameters.AddWithValue("nro_op", re.nroOperacion);
                     cmd.Parameters.AddWithValue("letra", re.letra);
                     cmd.Parameters.AddWithValue("tipo", re.tipoRemito);
                     cmd.Parameters.AddWithValue("nro", re.numero);
-                    cmd.Parameters.AddWithValue("sucursal", re.Sucursal_id);
-                    cmd.Parameters.AddWithValue("factura", re.factura);
-                    cmd.Parameters.AddWithValue("estado", re.Estado_id);
-                    cmd.Parameters.AddWithValue("id_rem_gen", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("sucursal_id", Convert.ToInt32(re.Sucursal_id));
+                    cmd.Parameters.AddWithValue("factura_id", Convert.ToInt32( re.factura));
+                    cmd.Parameters.AddWithValue("estado_id", Convert.ToInt32(re.Estado_id));
+
+                    cmd.Parameters.Add("id_remResult", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
