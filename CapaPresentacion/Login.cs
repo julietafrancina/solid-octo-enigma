@@ -61,7 +61,7 @@ namespace SistemaDeVentas
                 MessageBox.Show("Ingrese su información por favor.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else { 
-                Usuario ousuario = new CN_Usuario().listar().Where(u => u.dni == Convert.ToInt32(txtDNI.Text) && u.contraseña == txtClave.Text).FirstOrDefault();
+                Usuario ousuario = new CN_Usuario().listar().Where(u => u.dni == Convert.ToInt32(txtDNI.Text) && u.contraseña == txtClave.Text && u.activo == true).FirstOrDefault();
 
                 if(ousuario != null)
                 {

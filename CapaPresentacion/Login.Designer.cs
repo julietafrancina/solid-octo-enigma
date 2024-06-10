@@ -59,10 +59,10 @@ namespace SistemaDeVentas
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Store;
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 52;
-            this.iconPictureBox1.Location = new System.Drawing.Point(154, 80);
+            this.iconPictureBox1.IconSize = 100;
+            this.iconPictureBox1.Location = new System.Drawing.Point(131, 54);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(52, 52);
+            this.iconPictureBox1.Size = new System.Drawing.Size(100, 100);
             this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox1.TabIndex = 2;
             this.iconPictureBox1.TabStop = false;

@@ -284,21 +284,42 @@ namespace CapaPresentacion
                     {
 
                         string mensaje = string.Empty;
+                        bool activado;
+
+                        if(dgvData.Rows[Convert.ToInt32(txtIndice.Text)].Cells["Activo"].Value.ToString() == "Si")
+                        {
+                            activado = true;
+                        }
+                        else
+                        {
+                            activado = false;
+                        }
 
                         Usuario obj = new Usuario()
                         {
                             idUsuario = Convert.ToInt32(txtId.Text),
                             dni = Convert.ToInt32(txtDNI.Text),
+                            activo = activado
                         };
 
 
-                        bool resultado = new CN_Usuario().DarBaja(obj, out mensaje);
+                        bool resultado = new CN_Usuario().cambiarActivo(obj, out mensaje);
 
                         if (resultado)
                         {
-                            DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
-                            row.Cells["Activo"].Value = "No";
-                            limpiar();
+                            if (activado)
+                            {
+                                DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                                row.Cells["Activo"].Value = "No";
+                                limpiar();
+                            }
+                            else
+                            {
+                                DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                                row.Cells["Activo"].Value = "Si";
+                                limpiar();
+                            }
+                            
                         }
                         else
                         {

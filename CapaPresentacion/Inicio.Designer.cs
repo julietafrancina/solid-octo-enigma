@@ -228,11 +228,12 @@ namespace SistemaDeVentas
             this.usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.usuario.AutoSize = true;
             this.usuario.BackColor = System.Drawing.Color.Firebrick;
+            this.usuario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuario.ForeColor = System.Drawing.Color.White;
-            this.usuario.Location = new System.Drawing.Point(752, 44);
+            this.usuario.Location = new System.Drawing.Point(746, 44);
             this.usuario.Name = "usuario";
-            this.usuario.Size = new System.Drawing.Size(80, 20);
+            this.usuario.Size = new System.Drawing.Size(82, 22);
             this.usuario.TabIndex = 6;
             this.usuario.Text = "Usuario:";
             // 
@@ -241,11 +242,12 @@ namespace SistemaDeVentas
             this.lblUsuarioName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuarioName.AutoSize = true;
             this.lblUsuarioName.BackColor = System.Drawing.Color.Firebrick;
+            this.lblUsuarioName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblUsuarioName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioName.ForeColor = System.Drawing.Color.White;
             this.lblUsuarioName.Location = new System.Drawing.Point(825, 44);
             this.lblUsuarioName.Name = "lblUsuarioName";
-            this.lblUsuarioName.Size = new System.Drawing.Size(142, 20);
+            this.lblUsuarioName.Size = new System.Drawing.Size(144, 22);
             this.lblUsuarioName.TabIndex = 7;
             this.lblUsuarioName.Text = "lblUsuarioName";
             // 
