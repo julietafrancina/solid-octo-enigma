@@ -79,7 +79,7 @@ namespace CapaNegocio
             }
         }
 
-        public bool DarBaja(Usuario obj, out string mensaje)
+        public bool cambiarActivo(Usuario obj, out string mensaje)
         {
             //Validaciones
             mensaje = string.Empty;
@@ -105,7 +105,7 @@ namespace CapaNegocio
             }
             else
             {
-                return objcd_usuario.DarBaja(obj, out mensaje);
+                return objcd_usuario.cambiarActivo(obj, out mensaje);
             }
         }
     }

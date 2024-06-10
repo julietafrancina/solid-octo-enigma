@@ -144,8 +144,8 @@ namespace CapaDatos
             return respuesta;
         }
 
-        //Método para DAR DE BAJA un usuario
-        public bool DarBaja(Usuario obj, out string mensaje)
+        //Método para DES/ACTIVAR un usuario
+        public bool cambiarActivo(Usuario obj, out string mensaje)
         {
             bool respuesta = false;
             mensaje = string.Empty;
@@ -158,6 +158,7 @@ namespace CapaDatos
                     //parámetros de entrada
                     cmd.Parameters.AddWithValue("IdDeUsuario", obj.idUsuario);
                     cmd.Parameters.AddWithValue("Dni", obj.dni);
+                    cmd.Parameters.AddWithValue("Baja", obj.activo);
 
                     //parámetros de salida
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;

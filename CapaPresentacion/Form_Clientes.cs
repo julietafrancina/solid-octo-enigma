@@ -54,11 +54,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label7_Click(object sender, EventArgs e)
         {
 
@@ -102,12 +97,7 @@ namespace CapaPresentacion
                     txtCorreo.Text = dgvData.Rows[indice].Cells["Correo"].Value.ToString();
                     txtTelefono.Text = dgvData.Rows[indice].Cells["Telefono"].Value.ToString();
                     txtDomicilio.Text = dgvData.Rows[indice].Cells["Domicilio"].Value.ToString();
-                    txtDia.Text = fecha.Day.ToString();
-                    txtDia.ForeColor = System.Drawing.Color.Black;
-                    txtMes.Text = fecha.Month.ToString();
-                    txtMes.ForeColor = System.Drawing.Color.Black;
-                    txtAnio.Text = fecha.Year.ToString();
-                    txtAnio.ForeColor = System.Drawing.Color.Black;
+                    datePicker.Value = Convert.ToDateTime(dgvData.Rows[indice].Cells["FechaNacimiento"].Value);
                 }
             }
         }
@@ -119,16 +109,10 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Es necesario el documento del Cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (txtDia.Text == "dd" || txtMes.Text == "mm" || txtAnio.Text == "yyyy")
-            {
-                MessageBox.Show("Es necesaria la fecha de nacimiento del Cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
             else
             {
 
                 string mensaje = string.Empty;
-
-                string fecha = txtDia.Text + "/" + txtMes.Text + "/" + txtAnio.Text;
 
                 Cliente obj = new Cliente()
                 {
@@ -138,7 +122,7 @@ namespace CapaPresentacion
                     correo = txtCorreo.Text,
                     telefono = txtTelefono.Text,
                     domicilio = txtDomicilio.Text,
-                    fechaNacimiento = Convert.ToDateTime(fecha)
+                    fechaNacimiento = datePicker.Value
                 };
 
                 if (obj.idCliente == 0)
@@ -156,7 +140,7 @@ namespace CapaPresentacion
                         txtCorreo.Text,
                         txtTelefono.Text,
                         txtDomicilio.Text,
-                        fecha
+                        datePicker.Value
                     });
 
                         limpiar();
@@ -179,7 +163,7 @@ namespace CapaPresentacion
                         row.Cells["Correo"].Value = txtCorreo.Text;
                         row.Cells["Telefono"].Value = txtTelefono.Text;
                         row.Cells["Domicilio"].Value = txtDomicilio.Text;
-                        row.Cells["FechaNacimiento"].Value = fecha;
+                        row.Cells["FechaNacimiento"].Value = datePicker.Value;
                         limpiar();
                     }
                     else
@@ -204,20 +188,13 @@ namespace CapaPresentacion
             txtCorreo.Text = "";
             txtTelefono.Text = "";
             txtDomicilio.Text = "";
-            txtDia.Text = "";
-            txtMes.Text = "";
-            txtAnio.Text = "";
+            datePicker.Value = DateTime.Today;
         }
 
 
         private void txtDNI_TextChanged(object sender, EventArgs e)
         {
             
-        }
-
-        private void txtDia_TextChanged(object sender, EventArgs e)
-        {
-           
         }
 
         private void txtDomicilio_TextChanged(object sender, EventArgs e)
@@ -230,66 +207,6 @@ namespace CapaPresentacion
             
         }
 
-
-        private void txtDia_Leave(object sender, EventArgs e)
-        {
-            // Restaurar el texto de fondo si la TextBox está vacía al salir de ella
-            if (string.IsNullOrWhiteSpace(txtDia.Text))
-            {
-                txtDia.Text = "dd";
-                txtDia.ForeColor = System.Drawing.Color.Gray;
-            }
-        }
-
-        private void txtDia_Enter(object sender, EventArgs e)
-        {
-            // Limpiar el texto de fondo y cambiar el color del texto cuando se hace clic en la TextBox
-            if (txtDia.Text == "dd")
-            {
-                txtDia.Text = "";
-                txtDia.ForeColor = System.Drawing.Color.Black;
-            }
-        }
-
-        private void txtMes_Leave(object sender, EventArgs e)
-        {
-            // Restaurar el texto de fondo si la TextBox está vacía al salir de ella
-            if (string.IsNullOrWhiteSpace(txtMes.Text))
-            {
-                txtMes.Text = "mm";
-                txtMes.ForeColor = System.Drawing.Color.Gray;
-            }
-        }
-
-        private void txtMes_Enter(object sender, EventArgs e)
-        {
-            // Limpiar el texto de fondo y cambiar el color del texto cuando se hace clic en la TextBox
-            if (txtMes.Text == "mm")
-            {
-                txtMes.Text = "";
-                txtMes.ForeColor = System.Drawing.Color.Black;
-            }
-        }
-
-        private void txtAnio_Leave(object sender, EventArgs e)
-        {
-            // Restaurar el texto de fondo si la TextBox está vacía al salir de ella
-            if (string.IsNullOrWhiteSpace(txtAnio.Text))
-            {
-                txtAnio.Text = "yyyy";
-                txtAnio.ForeColor = System.Drawing.Color.Gray;
-            }
-        }
-
-        private void txtAnio_Enter(object sender, EventArgs e)
-        {
-            // Limpiar el texto de fondo y cambiar el color del texto cuando se hace clic en la TextBox
-            if (txtAnio.Text == "yyyy")
-            {
-                txtAnio.Text = "";
-                txtAnio.ForeColor = System.Drawing.Color.Black;
-            }
-        }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -347,16 +264,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void txtMes_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAnio_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void cboBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -369,12 +276,7 @@ namespace CapaPresentacion
             txtCorreo.Text = "";
             txtTelefono.Text = "";
             txtDomicilio.Text = "";
-            txtAnio.Text = "yyyy";
-            txtAnio.ForeColor = System.Drawing.Color.Gray;
-            txtMes.Text = "mm";
-            txtMes.ForeColor = System.Drawing.Color.Gray;
-            txtDia.Text = "dd";
-            txtDia.ForeColor = System.Drawing.Color.Gray;
+            datePicker.Value = DateTime.Today;
         }
 
         private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
@@ -391,36 +293,6 @@ namespace CapaPresentacion
         {
             // Verifico si la tecla presionada es un nro o una tecla de control 
             if ((!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) && e.KeyChar != '+')
-            {
-                // Si no es un número ni una tecla de control, cancelar el evento
-                e.Handled = true;
-            }
-        }
-
-        private void txtDia_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Verifico si la tecla presionada es un nro o una tecla de control 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                // Si no es un número ni una tecla de control, cancelar el evento
-                e.Handled = true;
-            }
-        }
-
-        private void txtMes_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Verifico si la tecla presionada es un nro o una tecla de control 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                // Si no es un número ni una tecla de control, cancelar el evento
-                e.Handled = true;
-            }
-        }
-
-        private void txtAnio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Verifico si la tecla presionada es un nro o una tecla de control 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 // Si no es un número ni una tecla de control, cancelar el evento
                 e.Handled = true;
