@@ -98,7 +98,7 @@ namespace SistemaDeVentas
 
         private void menuAyuda_Click(object sender, EventArgs e)
         {
-            
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Ayuda());
         }
 
         private void menuFacturas_Click(object sender, EventArgs e)
