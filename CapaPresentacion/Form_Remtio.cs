@@ -243,7 +243,8 @@ namespace CapaPresentacion
             {
                 AnularRemito(numero);
                 // Actualizar el DataGridView para reflejar los cambios
-                CargarDatos();
+                ActualizarTabla(numero);
+                //CargarDatos();
             }
             else
             {
@@ -268,6 +269,7 @@ namespace CapaPresentacion
                     command.ExecuteNonQuery();
 
                     MessageBox.Show("El objeto ha sido anulado correctamente.");
+                    
                 }
                 catch (Exception ex)
                 {
@@ -277,7 +279,23 @@ namespace CapaPresentacion
             }
         }
 
-        
+        private void ActualizarTabla(int nro)
+        {
+            foreach (DataGridViewRow row in tabla_rem.Rows)
+            {
+                if (Convert.ToInt32(row.Cells["nro"].Value) == nro)
+                {
+                    row.Cells["Nro_operación"].Value = textNroOp.Text; 
+                    row.Cells["Sucursal"].Value = textSucursal.Text;
+                    row.Cells["Letra"].Value = textL.Text;
+                    row.Cells["nro"].Value = Convert.ToString(textNro.Text);
+                    row.Cells["Estado"].Value = "Anulado";
+                    row.Cells["Tipo"].Value = CB_tipo.SelectedItem;
+                }
+            }
+        }
+
+
         private void textL_TextChanged(object sender, EventArgs e)                                                                                                                                                                                                                                 
         {
 
