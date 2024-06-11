@@ -20,7 +20,6 @@ namespace CapaDatos
             {
                 try
                 {
-
                     SqlCommand cmd = new SqlCommand("SP_LISTARPREVENTAS", oconexion);
                     cmd.CommandType = CommandType.Text;
 

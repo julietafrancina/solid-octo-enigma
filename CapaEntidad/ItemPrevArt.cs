@@ -10,6 +10,7 @@ namespace CapaEntidad
     {
         public int idPreventaPorArticulo { get; set; }
         public Preventa opreventa { get; set; }
+        public Sucursal osucursal { get; set; }
         public Articulo oarticulo { get; set; }
     }
 }

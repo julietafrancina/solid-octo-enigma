@@ -36,7 +36,6 @@ namespace CapaPresentacion
             cboRol.ValueMember = "Valor";
             cboRol.SelectedIndex = 0;
 
-
             //Mostrar todos los usuarios en la tabla 
             List<Usuario> listaUsuario = new CN_Usuario().listar();
 
@@ -55,7 +54,6 @@ namespace CapaPresentacion
                 });
             }
 
-
             //para que en el combo de búsqueda me aparezcan los nombres de las columnas visibles
             foreach (DataGridViewColumn columna in dgvData.Columns)
             {
@@ -73,6 +71,8 @@ namespace CapaPresentacion
             cboBusquedaUsuario.SelectedIndex = 0;
         }
 
+
+        //Guardar un nuevo usuario.
         private void bntGuardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;

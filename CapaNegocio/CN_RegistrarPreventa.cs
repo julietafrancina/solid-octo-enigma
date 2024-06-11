@@ -23,7 +23,7 @@ namespace CapaNegocio
             return objcd_registrarPreventa.mostrarDatosArticulo(sku);
         }
 
-        //llamo el método para registrar nueva preventa
+        //llamo el método para REGISTRAR nueva preventa
         public int registrarPreventa(Preventa obj, out string mensaje)
         {
             //Validaciones
@@ -52,6 +52,13 @@ namespace CapaNegocio
             {
                 return objcd_registrarPreventa.registrarPreventa(obj, out mensaje);
             }
+        }
+
+        public int EnviarDatos(List<ItemPrevArt> articulosPreventa, out string mensaje)
+        {
+            mensaje = string.Empty;
+            CD_RegistrarPreventa datos = new CD_RegistrarPreventa();
+            return datos.EjecutarSP(articulosPreventa, out mensaje);
         }
     }
 }

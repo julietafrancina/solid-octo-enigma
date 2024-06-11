@@ -27,7 +27,7 @@ namespace CapaPresentacion
         }
 
         //Mostrar todas las preventas en el DataGridView
-        private void form_Preventa_Load_1(object sender, EventArgs e)
+        public void form_Preventa_Load_1(object sender, EventArgs e)
         {
             List<Preventa> listaPreventa = new CN_Preventa().listar();
 
@@ -78,7 +78,7 @@ namespace CapaPresentacion
         //botón para abrir formulario de registrar nueva preventa
         private void btnRegistrarPreventa_Click(object sender, EventArgs e)
         {
-            form_RegistrarPreventa registrarPreventa = new form_RegistrarPreventa(usuarioActual);
+            form_RegistrarPreventa registrarPreventa = new form_RegistrarPreventa(usuarioActual, this);
             registrarPreventa.Show();
         }
 
@@ -210,6 +210,11 @@ namespace CapaPresentacion
             {
                 row.Visible = true;
             }
+        }
+
+        public void limpiarDgv()
+        {
+            dgvPreventas.Rows.Clear();
         }
     }
 }

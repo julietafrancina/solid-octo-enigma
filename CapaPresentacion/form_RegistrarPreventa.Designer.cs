@@ -34,6 +34,8 @@ namespace CapaPresentacion
             this.bntCrearPreventa = new FontAwesome.Sharp.IconButton();
             this.txtTotalAPagar = new System.Windows.Forms.TextBox();
             this.totalAPagar = new System.Windows.Forms.Label();
+            this.txtNroOperacionPreventa = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.RegistrarPreventa = new System.Windows.Forms.Label();
             this.grpArticulos = new System.Windows.Forms.GroupBox();
             this.btnAgregarArticulosPreventa = new FontAwesome.Sharp.IconButton();
@@ -47,18 +49,26 @@ namespace CapaPresentacion
             this.label6 = new System.Windows.Forms.Label();
             this.txtSKUBusqueda = new System.Windows.Forms.TextBox();
             this.txtDescripcionArticulo = new System.Windows.Forms.TextBox();
-            this.dgvAgregarArticulosPreventa = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBuscarSKU = new FontAwesome.Sharp.IconButton();
+            this.dgvAgregarArticulosPreventa = new System.Windows.Forms.DataGridView();
+            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSucursalPreventa = new System.Windows.Forms.TextBox();
+            this.cboSucursalPreventa = new System.Windows.Forms.ComboBox();
+            this.txtIdSucursal = new System.Windows.Forms.TextBox();
             this.txtFechaPreventa = new System.Windows.Forms.TextBox();
             this.preventaSucursal = new System.Windows.Forms.Label();
             this.preventaFecha = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.preventaNombreCliente = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtDNICliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDomicilioCliente = new System.Windows.Forms.TextBox();
@@ -68,14 +78,8 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.txtTelefonoCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtIdSucursal = new System.Windows.Forms.TextBox();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.txtIdArticulo = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.grpArticulos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadArticulo)).BeginInit();
@@ -91,9 +95,9 @@ namespace CapaPresentacion
             this.groupBox2.Controls.Add(this.bntCrearPreventa);
             this.groupBox2.Controls.Add(this.txtTotalAPagar);
             this.groupBox2.Controls.Add(this.totalAPagar);
-            this.groupBox2.Location = new System.Drawing.Point(958, 438);
+            this.groupBox2.Location = new System.Drawing.Point(939, 454);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(204, 262);
+            this.groupBox2.Size = new System.Drawing.Size(224, 246);
             this.groupBox2.TabIndex = 66;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Preventa";
@@ -105,9 +109,9 @@ namespace CapaPresentacion
             this.btnCancelarPreventa.IconColor = System.Drawing.Color.Firebrick;
             this.btnCancelarPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancelarPreventa.IconSize = 20;
-            this.btnCancelarPreventa.Location = new System.Drawing.Point(14, 143);
+            this.btnCancelarPreventa.Location = new System.Drawing.Point(14, 125);
             this.btnCancelarPreventa.Name = "btnCancelarPreventa";
-            this.btnCancelarPreventa.Size = new System.Drawing.Size(176, 42);
+            this.btnCancelarPreventa.Size = new System.Drawing.Size(196, 42);
             this.btnCancelarPreventa.TabIndex = 43;
             this.btnCancelarPreventa.Text = "Cancelar";
             this.btnCancelarPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -120,9 +124,9 @@ namespace CapaPresentacion
             this.bntCrearPreventa.IconColor = System.Drawing.Color.LightGreen;
             this.bntCrearPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bntCrearPreventa.IconSize = 25;
-            this.bntCrearPreventa.Location = new System.Drawing.Point(14, 200);
+            this.bntCrearPreventa.Location = new System.Drawing.Point(14, 184);
             this.bntCrearPreventa.Name = "bntCrearPreventa";
-            this.bntCrearPreventa.Size = new System.Drawing.Size(176, 46);
+            this.bntCrearPreventa.Size = new System.Drawing.Size(196, 46);
             this.bntCrearPreventa.TabIndex = 41;
             this.bntCrearPreventa.Text = "Crear Preventa";
             this.bntCrearPreventa.UseVisualStyleBackColor = false;
@@ -130,10 +134,10 @@ namespace CapaPresentacion
             // 
             // txtTotalAPagar
             // 
-            this.txtTotalAPagar.Location = new System.Drawing.Point(14, 53);
+            this.txtTotalAPagar.Location = new System.Drawing.Point(14, 57);
             this.txtTotalAPagar.MinimumSize = new System.Drawing.Size(4, 32);
             this.txtTotalAPagar.Name = "txtTotalAPagar";
-            this.txtTotalAPagar.Size = new System.Drawing.Size(176, 22);
+            this.txtTotalAPagar.Size = new System.Drawing.Size(196, 22);
             this.txtTotalAPagar.TabIndex = 36;
             // 
             // totalAPagar
@@ -141,11 +145,28 @@ namespace CapaPresentacion
             this.totalAPagar.AutoSize = true;
             this.totalAPagar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.totalAPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalAPagar.Location = new System.Drawing.Point(11, 31);
+            this.totalAPagar.Location = new System.Drawing.Point(11, 35);
             this.totalAPagar.Name = "totalAPagar";
             this.totalAPagar.Size = new System.Drawing.Size(106, 17);
             this.totalAPagar.TabIndex = 35;
             this.totalAPagar.Text = "Total a pagar";
+            // 
+            // txtNroOperacionPreventa
+            // 
+            this.txtNroOperacionPreventa.Location = new System.Drawing.Point(238, 63);
+            this.txtNroOperacionPreventa.Name = "txtNroOperacionPreventa";
+            this.txtNroOperacionPreventa.Size = new System.Drawing.Size(164, 22);
+            this.txtNroOperacionPreventa.TabIndex = 76;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label11.Location = new System.Drawing.Point(235, 41);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(125, 17);
+            this.label11.TabIndex = 75;
+            this.label11.Text = "Nro. de Operación";
             // 
             // RegistrarPreventa
             // 
@@ -162,6 +183,7 @@ namespace CapaPresentacion
             // grpArticulos
             // 
             this.grpArticulos.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.grpArticulos.Controls.Add(this.txtIdArticulo);
             this.grpArticulos.Controls.Add(this.btnAgregarArticulosPreventa);
             this.grpArticulos.Controls.Add(this.label9);
             this.grpArticulos.Controls.Add(this.nudCantidadArticulo);
@@ -173,13 +195,12 @@ namespace CapaPresentacion
             this.grpArticulos.Controls.Add(this.label6);
             this.grpArticulos.Controls.Add(this.txtSKUBusqueda);
             this.grpArticulos.Controls.Add(this.txtDescripcionArticulo);
-            this.grpArticulos.Controls.Add(this.dgvAgregarArticulosPreventa);
             this.grpArticulos.Controls.Add(this.label7);
             this.grpArticulos.Controls.Add(this.label5);
             this.grpArticulos.Controls.Add(this.btnBuscarSKU);
             this.grpArticulos.Location = new System.Drawing.Point(25, 270);
             this.grpArticulos.Name = "grpArticulos";
-            this.grpArticulos.Size = new System.Drawing.Size(916, 430);
+            this.grpArticulos.Size = new System.Drawing.Size(1138, 152);
             this.grpArticulos.TabIndex = 64;
             this.grpArticulos.TabStop = false;
             this.grpArticulos.Text = "Agregar artículos";
@@ -192,9 +213,9 @@ namespace CapaPresentacion
             this.btnAgregarArticulosPreventa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnAgregarArticulosPreventa.IconSize = 30;
             this.btnAgregarArticulosPreventa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarArticulosPreventa.Location = new System.Drawing.Point(789, 55);
+            this.btnAgregarArticulosPreventa.Location = new System.Drawing.Point(928, 38);
             this.btnAgregarArticulosPreventa.Name = "btnAgregarArticulosPreventa";
-            this.btnAgregarArticulosPreventa.Size = new System.Drawing.Size(108, 80);
+            this.btnAgregarArticulosPreventa.Size = new System.Drawing.Size(196, 85);
             this.btnAgregarArticulosPreventa.TabIndex = 67;
             this.btnAgregarArticulosPreventa.Text = "Agregar";
             this.btnAgregarArticulosPreventa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -205,7 +226,7 @@ namespace CapaPresentacion
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(586, 88);
+            this.label9.Location = new System.Drawing.Point(638, 88);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 17);
             this.label9.TabIndex = 88;
@@ -213,7 +234,7 @@ namespace CapaPresentacion
             // 
             // nudCantidadArticulo
             // 
-            this.nudCantidadArticulo.Location = new System.Drawing.Point(589, 112);
+            this.nudCantidadArticulo.Location = new System.Drawing.Point(641, 112);
             this.nudCantidadArticulo.Name = "nudCantidadArticulo";
             this.nudCantidadArticulo.Size = new System.Drawing.Size(164, 22);
             this.nudCantidadArticulo.TabIndex = 87;
@@ -225,7 +246,7 @@ namespace CapaPresentacion
             // 
             // txtCostoArticulo
             // 
-            this.txtCostoArticulo.Location = new System.Drawing.Point(589, 55);
+            this.txtCostoArticulo.Location = new System.Drawing.Point(641, 55);
             this.txtCostoArticulo.Name = "txtCostoArticulo";
             this.txtCostoArticulo.Size = new System.Drawing.Size(164, 22);
             this.txtCostoArticulo.TabIndex = 86;
@@ -234,7 +255,7 @@ namespace CapaPresentacion
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label8.Location = new System.Drawing.Point(586, 33);
+            this.label8.Location = new System.Drawing.Point(638, 33);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 17);
             this.label8.TabIndex = 85;
@@ -242,7 +263,7 @@ namespace CapaPresentacion
             // 
             // txtMarcaArticulo
             // 
-            this.txtMarcaArticulo.Location = new System.Drawing.Point(384, 112);
+            this.txtMarcaArticulo.Location = new System.Drawing.Point(408, 112);
             this.txtMarcaArticulo.Name = "txtMarcaArticulo";
             this.txtMarcaArticulo.Size = new System.Drawing.Size(164, 22);
             this.txtMarcaArticulo.TabIndex = 84;
@@ -251,7 +272,7 @@ namespace CapaPresentacion
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label10.Location = new System.Drawing.Point(381, 90);
+            this.label10.Location = new System.Drawing.Point(405, 90);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 17);
             this.label10.TabIndex = 83;
@@ -259,7 +280,7 @@ namespace CapaPresentacion
             // 
             // txtRubroArticulo
             // 
-            this.txtRubroArticulo.Location = new System.Drawing.Point(214, 112);
+            this.txtRubroArticulo.Location = new System.Drawing.Point(238, 112);
             this.txtRubroArticulo.Name = "txtRubroArticulo";
             this.txtRubroArticulo.Size = new System.Drawing.Size(164, 22);
             this.txtRubroArticulo.TabIndex = 78;
@@ -268,7 +289,7 @@ namespace CapaPresentacion
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label6.Location = new System.Drawing.Point(211, 90);
+            this.label6.Location = new System.Drawing.Point(235, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 17);
             this.label6.TabIndex = 77;
@@ -283,33 +304,16 @@ namespace CapaPresentacion
             // 
             // txtDescripcionArticulo
             // 
-            this.txtDescripcionArticulo.Location = new System.Drawing.Point(214, 55);
+            this.txtDescripcionArticulo.Location = new System.Drawing.Point(238, 55);
             this.txtDescripcionArticulo.Name = "txtDescripcionArticulo";
             this.txtDescripcionArticulo.Size = new System.Drawing.Size(334, 22);
             this.txtDescripcionArticulo.TabIndex = 76;
-            // 
-            // dgvAgregarArticulosPreventa
-            // 
-            this.dgvAgregarArticulosPreventa.AllowUserToAddRows = false;
-            this.dgvAgregarArticulosPreventa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAgregarArticulosPreventa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Articulo,
-            this.SKU,
-            this.CostoArticulo,
-            this.Cantidad,
-            this.Subtotal});
-            this.dgvAgregarArticulosPreventa.Location = new System.Drawing.Point(14, 168);
-            this.dgvAgregarArticulosPreventa.Name = "dgvAgregarArticulosPreventa";
-            this.dgvAgregarArticulosPreventa.RowHeadersWidth = 51;
-            this.dgvAgregarArticulosPreventa.RowTemplate.Height = 24;
-            this.dgvAgregarArticulosPreventa.Size = new System.Drawing.Size(883, 246);
-            this.dgvAgregarArticulosPreventa.TabIndex = 56;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label7.Location = new System.Drawing.Point(211, 33);
+            this.label7.Location = new System.Drawing.Point(235, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 17);
             this.label7.TabIndex = 75;
@@ -341,27 +345,100 @@ namespace CapaPresentacion
             this.btnBuscarSKU.UseVisualStyleBackColor = false;
             this.btnBuscarSKU.Click += new System.EventHandler(this.btnBuscarSKU_Click);
             // 
+            // dgvAgregarArticulosPreventa
+            // 
+            this.dgvAgregarArticulosPreventa.AllowUserToAddRows = false;
+            this.dgvAgregarArticulosPreventa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAgregarArticulosPreventa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Articulo,
+            this.SKU,
+            this.CostoArticulo,
+            this.Cantidad,
+            this.Subtotal,
+            this.idArticulo});
+            this.dgvAgregarArticulosPreventa.Location = new System.Drawing.Point(25, 454);
+            this.dgvAgregarArticulosPreventa.Name = "dgvAgregarArticulosPreventa";
+            this.dgvAgregarArticulosPreventa.RowHeadersWidth = 51;
+            this.dgvAgregarArticulosPreventa.RowTemplate.Height = 24;
+            this.dgvAgregarArticulosPreventa.Size = new System.Drawing.Size(883, 246);
+            this.dgvAgregarArticulosPreventa.TabIndex = 56;
+            // 
+            // Articulo
+            // 
+            this.Articulo.HeaderText = "Artículo";
+            this.Articulo.MinimumWidth = 6;
+            this.Articulo.Name = "Articulo";
+            this.Articulo.Width = 275;
+            // 
+            // SKU
+            // 
+            this.SKU.HeaderText = "SKU";
+            this.SKU.MinimumWidth = 6;
+            this.SKU.Name = "SKU";
+            this.SKU.Width = 140;
+            // 
+            // CostoArticulo
+            // 
+            this.CostoArticulo.HeaderText = "Costo";
+            this.CostoArticulo.MinimumWidth = 6;
+            this.CostoArticulo.Name = "CostoArticulo";
+            this.CostoArticulo.Width = 170;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cant.";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 75;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.MinimumWidth = 6;
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.Width = 170;
+            // 
+            // idArticulo
+            // 
+            this.idArticulo.HeaderText = "idArticulo";
+            this.idArticulo.MinimumWidth = 6;
+            this.idArticulo.Name = "idArticulo";
+            this.idArticulo.Visible = false;
+            this.idArticulo.Width = 125;
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox1.Controls.Add(this.txtNroOperacionPreventa);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.cboSucursalPreventa);
             this.groupBox1.Controls.Add(this.txtIdSucursal);
-            this.groupBox1.Controls.Add(this.txtSucursalPreventa);
             this.groupBox1.Controls.Add(this.txtFechaPreventa);
             this.groupBox1.Controls.Add(this.preventaSucursal);
             this.groupBox1.Controls.Add(this.preventaFecha);
             this.groupBox1.Location = new System.Drawing.Point(25, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(217, 161);
+            this.groupBox1.Size = new System.Drawing.Size(434, 161);
             this.groupBox1.TabIndex = 63;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de la Preventa";
             // 
-            // txtSucursalPreventa
+            // cboSucursalPreventa
             // 
-            this.txtSucursalPreventa.Location = new System.Drawing.Point(14, 119);
-            this.txtSucursalPreventa.Name = "txtSucursalPreventa";
-            this.txtSucursalPreventa.Size = new System.Drawing.Size(164, 22);
-            this.txtSucursalPreventa.TabIndex = 34;
+            this.cboSucursalPreventa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSucursalPreventa.FormattingEnabled = true;
+            this.cboSucursalPreventa.Location = new System.Drawing.Point(13, 119);
+            this.cboSucursalPreventa.Name = "cboSucursalPreventa";
+            this.cboSucursalPreventa.Size = new System.Drawing.Size(165, 24);
+            this.cboSucursalPreventa.TabIndex = 76;
+            this.cboSucursalPreventa.SelectedIndexChanged += new System.EventHandler(this.cboSucursalPreventa_SelectedIndexChanged);
+            // 
+            // txtIdSucursal
+            // 
+            this.txtIdSucursal.Location = new System.Drawing.Point(179, 119);
+            this.txtIdSucursal.Name = "txtIdSucursal";
+            this.txtIdSucursal.Size = new System.Drawing.Size(32, 22);
+            this.txtIdSucursal.TabIndex = 35;
             // 
             // txtFechaPreventa
             // 
@@ -422,12 +499,19 @@ namespace CapaPresentacion
             this.groupBox3.Controls.Add(this.txtNombreCliente);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.preventaNombreCliente);
-            this.groupBox3.Location = new System.Drawing.Point(260, 80);
+            this.groupBox3.Location = new System.Drawing.Point(482, 80);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(681, 161);
             this.groupBox3.TabIndex = 64;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Información del Cliente";
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Location = new System.Drawing.Point(184, 63);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(32, 22);
+            this.txtIdCliente.TabIndex = 36;
             // 
             // txtDNICliente
             // 
@@ -481,7 +565,7 @@ namespace CapaPresentacion
             // 
             // txtCorreoCliente
             // 
-            this.txtCorreoCliente.Location = new System.Drawing.Point(457, 119);
+            this.txtCorreoCliente.Location = new System.Drawing.Point(475, 119);
             this.txtCorreoCliente.Name = "txtCorreoCliente";
             this.txtCorreoCliente.Size = new System.Drawing.Size(164, 22);
             this.txtCorreoCliente.TabIndex = 70;
@@ -490,7 +574,7 @@ namespace CapaPresentacion
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(454, 97);
+            this.label3.Location = new System.Drawing.Point(472, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 69;
@@ -498,7 +582,7 @@ namespace CapaPresentacion
             // 
             // txtTelefonoCliente
             // 
-            this.txtTelefonoCliente.Location = new System.Drawing.Point(457, 63);
+            this.txtTelefonoCliente.Location = new System.Drawing.Point(475, 63);
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
             this.txtTelefonoCliente.Size = new System.Drawing.Size(164, 22);
             this.txtTelefonoCliente.TabIndex = 68;
@@ -507,60 +591,11 @@ namespace CapaPresentacion
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(454, 41);
+            this.label2.Location = new System.Drawing.Point(472, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 67;
             this.label2.Text = "Teléfono";
-            // 
-            // Articulo
-            // 
-            this.Articulo.HeaderText = "Artículo";
-            this.Articulo.MinimumWidth = 6;
-            this.Articulo.Name = "Articulo";
-            this.Articulo.Width = 275;
-            // 
-            // SKU
-            // 
-            this.SKU.HeaderText = "SKU";
-            this.SKU.MinimumWidth = 6;
-            this.SKU.Name = "SKU";
-            this.SKU.Width = 140;
-            // 
-            // CostoArticulo
-            // 
-            this.CostoArticulo.HeaderText = "Costo";
-            this.CostoArticulo.MinimumWidth = 6;
-            this.CostoArticulo.Name = "CostoArticulo";
-            this.CostoArticulo.Width = 170;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cant.";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 75;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.MinimumWidth = 6;
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.Width = 170;
-            // 
-            // txtIdSucursal
-            // 
-            this.txtIdSucursal.Location = new System.Drawing.Point(179, 119);
-            this.txtIdSucursal.Name = "txtIdSucursal";
-            this.txtIdSucursal.Size = new System.Drawing.Size(32, 22);
-            this.txtIdSucursal.TabIndex = 35;
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Location = new System.Drawing.Point(184, 63);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(32, 22);
-            this.txtIdCliente.TabIndex = 36;
             // 
             // txtIdUsuario
             // 
@@ -568,6 +603,13 @@ namespace CapaPresentacion
             this.txtIdUsuario.Name = "txtIdUsuario";
             this.txtIdUsuario.Size = new System.Drawing.Size(32, 22);
             this.txtIdUsuario.TabIndex = 75;
+            // 
+            // txtIdArticulo
+            // 
+            this.txtIdArticulo.Location = new System.Drawing.Point(179, 55);
+            this.txtIdArticulo.Name = "txtIdArticulo";
+            this.txtIdArticulo.Size = new System.Drawing.Size(32, 22);
+            this.txtIdArticulo.TabIndex = 77;
             // 
             // form_RegistrarPreventa
             // 
@@ -581,8 +623,10 @@ namespace CapaPresentacion
             this.Controls.Add(this.RegistrarPreventa);
             this.Controls.Add(this.grpArticulos);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dgvAgregarArticulosPreventa);
             this.Name = "form_RegistrarPreventa";
             this.Text = "Registro de Preventas";
+            this.Load += new System.EventHandler(this.form_RegistrarPreventa_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.grpArticulos.ResumeLayout(false);
@@ -609,7 +653,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.GroupBox grpArticulos;
         private System.Windows.Forms.DataGridView dgvAgregarArticulosPreventa;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtSucursalPreventa;
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.TextBox txtFechaPreventa;
         private System.Windows.Forms.Label preventaSucursal;
@@ -639,13 +682,18 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox txtRubroArticulo;
         private System.Windows.Forms.Label label6;
         private FontAwesome.Sharp.IconButton btnAgregarArticulosPreventa;
+        private System.Windows.Forms.TextBox txtIdSucursal;
+        private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.ComboBox cboSucursalPreventa;
+        private System.Windows.Forms.TextBox txtNroOperacionPreventa;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Articulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKU;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
-        private System.Windows.Forms.TextBox txtIdSucursal;
-        private System.Windows.Forms.TextBox txtIdCliente;
-        private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idArticulo;
+        private System.Windows.Forms.TextBox txtIdArticulo;
     }
 }

@@ -10,18 +10,18 @@ using CapaEntidad;
 
 namespace CapaDatos
 {
-    public class CD_Rol
+    public class CD_Sucursal
     {
-        public List<Rol> listar()
+        public List<Sucursal> listar()
         {
-            List<Rol> lista = new List<Rol>();
+            List<Sucursal> lista = new List<Sucursal>();
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select id_rol, descripcion from Rol");
+                    query.AppendLine("SELECT id_sucursal, descripcion FROM Sucursal");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -32,10 +32,10 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new Rol()
+                            lista.Add(new Sucursal()
                             {
-                                id_rol = Convert.ToInt32(dr["id_rol"]),
-                                descripcion = dr["descripcion"].ToString(),
+                                id_suc = Convert.ToInt32(dr["id_sucursal"]),
+                                desc = dr["descripcion"].ToString(),
                             });
                         }
 
@@ -43,7 +43,7 @@ namespace CapaDatos
                 }
                 catch (Exception)
                 {
-                    lista = new List<Rol>();
+                    lista = new List<Sucursal>();
                 }
             }
 

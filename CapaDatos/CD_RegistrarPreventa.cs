@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -69,11 +70,12 @@ namespace CapaDatos
                         {
                             listaArticulo.Add(new Articulo()
                             {
+                                idArticulo = Convert.ToInt32(dr["id_articulo"]),
                                 descripcion = dr["descripcion"].ToString(),
                                 rubro = dr["rubro"].ToString(),
                                 marca = dr["marca"].ToString(),
                                 costo = Convert.ToDouble(dr["costo"])
-                        });
+                            });
                         }
                     }
                 }
@@ -103,6 +105,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("sucursal_id", obj.osucursal.id_suc);
                     cmd.Parameters.AddWithValue("usuario_id", obj.ousuario.idUsuario);
                     cmd.Parameters.AddWithValue("cliente_id", obj.ocliente.idCliente);
+                    cmd.Parameters.AddWithValue("nro_operacion", obj.nroOperacion);
 
                     //parámetros de salida
                     cmd.Parameters.Add("id_preventa_resultada", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -123,8 +126,49 @@ namespace CapaDatos
                 idPreventaGenerada = 0;
                 mensaje = ex.Message;
             }
-
             return idPreventaGenerada;
+        }
+
+        //REGISTRAR artículos por PREVENTA
+        public int EjecutarSP(List<ItemPrevArt> articulosPreventa, out string mensaje)
+        {
+            mensaje = string.Empty;
+            int idArticuloPreventaGenerado = 0;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    foreach (ItemPrevArt item in articulosPreventa)
+                    {
+
+                        SqlCommand cmd = new SqlCommand("SP_registrarArticuloPreventa", oconexion);
+                        //parámetros de entrada
+                        cmd.Parameters.AddWithValue("id_preventa", item.opreventa.idPreventa);
+                        cmd.Parameters.AddWithValue("id_sucursal", item.osucursal.id_suc);
+                        cmd.Parameters.AddWithValue("id_articulo", item.oarticulo.idArticulo);
+
+                        //parámetros de salida
+                        cmd.Parameters.Add("id_articulo_preventa_resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        oconexion.Open();
+                        cmd.ExecuteNonQuery();
+
+                        idArticuloPreventaGenerado = Convert.ToInt32(cmd.Parameters["id_articulo_preventa_resultado"].Value);
+                        mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                idArticuloPreventaGenerado = 0;
+                mensaje = ex.Message;
+            }
+            return idArticuloPreventaGenerado;
         }
     }
 }

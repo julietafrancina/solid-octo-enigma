@@ -47,7 +47,6 @@ namespace SistemaDeVentas
 
         }
 
-
         private void AbrirFormulario(IconMenuItem menu, Form formulario)
         {
 
@@ -88,7 +87,6 @@ namespace SistemaDeVentas
         {
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Clientes());
         }
-
 
         private void menuArtículos_Click(object sender, EventArgs e)
         {
