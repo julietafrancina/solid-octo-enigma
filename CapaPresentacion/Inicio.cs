@@ -34,6 +34,7 @@ namespace SistemaDeVentas
             //    usuarioActual = usuario;
             //}
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void Inicio_Load_1(object sender, EventArgs e)

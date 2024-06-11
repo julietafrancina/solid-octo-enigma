@@ -17,12 +17,14 @@ namespace CapaPresentacion
     {
         public form_Facturas()
         {
+
             InitializeComponent();
+            
         }
 
         private void form_Facturas_Load(object sender, EventArgs e)
         {
-
+           
             foreach (DataGridViewColumn columna in dgvData.Columns)
             {
 

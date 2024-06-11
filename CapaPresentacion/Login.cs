@@ -16,8 +16,10 @@ namespace SistemaDeVentas
     {
         public Login()
         {
+
             InitializeComponent();
             this.AcceptButton = iconButton1;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
