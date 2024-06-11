@@ -490,7 +490,7 @@ namespace CapaPresentacion
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.Control;
             this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Cancel;
-            this.btnEliminar.IconColor = System.Drawing.Color.Black;
+            this.btnEliminar.IconColor = System.Drawing.Color.Firebrick;
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 20;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -524,6 +524,8 @@ namespace CapaPresentacion
             // 
             // datePicker
             // 
+            this.datePicker.CalendarMonthBackground = System.Drawing.SystemColors.WindowFrame;
+            this.datePicker.CustomFormat = "";
             this.datePicker.Location = new System.Drawing.Point(24, 387);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(243, 22);
