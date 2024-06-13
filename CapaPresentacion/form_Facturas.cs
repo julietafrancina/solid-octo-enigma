@@ -208,7 +208,7 @@ namespace CapaPresentacion
 
             if (txtNumero.Text == "" || txtLetra.Text == "" || txtMontoTotal.Text == "" || cboBoxPreventa.SelectedIndex == -1)
             {
-                MessageBox.Show("Rellene los datos de la factura por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese los datos de la factura por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
