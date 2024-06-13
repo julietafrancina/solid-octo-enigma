@@ -176,9 +176,9 @@ namespace CapaPresentacion
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(101, 257);
+            this.label3.Location = new System.Drawing.Point(101, 265);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1604, 96);
+            this.label3.Size = new System.Drawing.Size(1604, 72);
             this.label3.TabIndex = 15;
             this.label3.Text = resources.GetString("label3.Text");
             // 

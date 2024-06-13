@@ -142,7 +142,7 @@ namespace CapaPresentacion
                         txtDomicilio.Text,
                         datePicker.Value
                     });
-
+                        MessageBox.Show("El cliente ha sido registrado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         limpiar();
                     }
                     else
@@ -164,6 +164,7 @@ namespace CapaPresentacion
                         row.Cells["Telefono"].Value = txtTelefono.Text;
                         row.Cells["Domicilio"].Value = txtDomicilio.Text;
                         row.Cells["FechaNacimiento"].Value = datePicker.Value;
+                        MessageBox.Show("El cliente ha sido editado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         limpiar();
                     }
                     else
@@ -227,6 +228,7 @@ namespace CapaPresentacion
                     if (respuesta)
                     {
                         dgvData.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
+                        MessageBox.Show("El cliente ha sido eliminado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         limpiar();
                     }
                     else
@@ -235,6 +237,10 @@ namespace CapaPresentacion
                     }
 
                 }
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar un cliente que no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }

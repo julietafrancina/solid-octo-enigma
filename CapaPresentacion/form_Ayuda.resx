@@ -120,7 +120,6 @@
   <data name="label3.Text" xml:space="preserve">
     <value>Menú donde los usuarios podrán gestionar las preventas del sistema. Allí se podrán crear nuevas preventas, dónde se abrirá un nuevo menú para el registro de la misma. 
 En este menú se podrán rellenar todos los datos de la preventa, cómo la información del cliente mediante el DNI del mismo, o la información de los artículos deseados 
-mediante el SKU correspondiente. También se podrá seleccionar las preventas existentes para poder observar sus datos, y si se desea, llevar los datos de la preventa 
-seleccionada al menú de facturas para facturar a la misma.</value>
+mediante el SKU correspondiente. </value>
   </data>
 </root>

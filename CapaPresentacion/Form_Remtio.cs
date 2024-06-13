@@ -277,12 +277,12 @@ namespace CapaPresentacion
                     oconexion.Open();
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("El objeto ha sido anulado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El remito ha sido anulado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al anular el objeto: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Error al anular el remito: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 
             }

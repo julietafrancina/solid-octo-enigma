@@ -267,6 +267,7 @@ namespace CapaPresentacion
             textCosto.Text = "";
             textDesc.Text = "";
             CB_baja.SelectedIndex = 0;
+            textSKU.ReadOnly = false;
         }
         private void BuscarArticulo()
         {
@@ -476,6 +477,7 @@ namespace CapaPresentacion
             textCosto.Text = "";
             textDesc.Text = "";
             CB_baja.SelectedIndex = 0;
+            textSKU.ReadOnly = false;
         }
     }
 }
