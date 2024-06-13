@@ -1,8 +1,11 @@
-﻿using CapaEntidad;
+﻿using CapaDatos;
+using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -84,8 +87,35 @@ namespace CapaPresentacion
 
         private void byGuardar_Click(object sender, EventArgs e)
         {
-           
-            
+            if (int.TryParse(textSKU.Text, out int numeroIngresado))
+            {
+                foreach (DataGridViewRow row in tabla_art.Rows)
+                {
+                    while (row.Cells["Codigo"].Value != null && Convert.ToInt32(row.Cells["Codigo"].Value) == numeroIngresado)
+                    {
+                        if (Convert.ToString(textDesc.Text)!= Convert.ToString(row.Cells["Descripción"].Value) || Convert.ToString(textCosto.Text)!= Convert.ToString(row.Cells["Costo"].Value)
+                            || Convert.ToString(textRubro.Text) != Convert.ToString(row.Cells["Rubro"].Value) || Convert.ToString(textMarca.Text) != Convert.ToString(row.Cells["Marca"].Value))
+                        {
+                            EditarArt(numeroIngresado);
+                            break;
+                        }
+                        else if (((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "No")
+                        {
+                            int s = Convert.ToInt32(textSKU.Text);
+                            BajaArt(s);
+                            break;
+                        }
+                        else if (((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "Si")
+                        {
+                            int s = Convert.ToInt32(textSKU.Text);
+                            AltaArt(s);
+                            break;
+                        }
+
+                    }
+                }
+            }
+                
             string mensaje = string.Empty;
             Articulo art = new Articulo();
 
@@ -116,6 +146,118 @@ namespace CapaPresentacion
             limpiar();
 
         }
+        private void BajaArt(int s)
+        {
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "sp_DarDeBajaArt";
+                SqlCommand command = new SqlCommand(query, oconexion);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@sku", s);
+                command.Parameters.AddWithValue("@activo", 0); //le asigno el 0 que significa que no esta acitvo
+
+                try
+                {
+                    oconexion.Open();
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("El articulo ha sido dado de baja.");
+                    ActualizarTabla(s);
+                 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al dar de baja: " + ex.Message);
+                }
+
+            }
+        }
+
+        private void AltaArt(int s)
+        {
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {   
+                string query = "sp_DarDeAltaArt";
+                SqlCommand command = new SqlCommand(query, oconexion);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@sku", s);
+                command.Parameters.AddWithValue("@activo", 1); //le asigno el 1 que significa que está activo
+
+                try
+                {
+                    oconexion.Open();
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("El articulo ha sido activado nuevamente.");
+                    ActualizarTabla(s);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al dar de alta: " + ex.Message);
+                }
+
+            }
+        }
+        private void EditarArt(int s)
+        {
+
+            int a=0;
+
+            if (((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "No")
+            {
+                a = 0;
+            }
+            else if (((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "Si")
+            {
+                a = 1;
+            }
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "sp_EditarArt";
+                SqlCommand command = new SqlCommand(query, oconexion);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@sku", s);
+                command.Parameters.AddWithValue("@activo", a);
+                command.Parameters.AddWithValue("@costo", Convert.ToDecimal(textCosto.Text));
+                command.Parameters.AddWithValue("@descripcion", textDesc.Text);
+                command.Parameters.AddWithValue("@rubro", textRubro.Text);
+                command.Parameters.AddWithValue("@marca", textMarca.Text);
+
+                try
+                {
+                    oconexion.Open();
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("Cambios guardados correctamente.");
+                    ActualizarTabla(s);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al modificar: " + ex.Message);
+                }
+
+            }
+        }
+        private void ActualizarTabla(int s)
+        {
+            foreach (DataGridViewRow row in tabla_art.Rows)
+            {
+                if (Convert.ToInt32(row.Cells["Codigo"].Value) == s) 
+                {
+                    row.Cells["Activo"].Value =CB_baja.SelectedItem;
+                    row.Cells["Rubro"].Value = textRubro.Text;
+                    row.Cells["Marca"].Value = textMarca.Text;
+                    row.Cells["Costo"].Value = Convert.ToString(textCosto.Text); 
+                    row.Cells["Descripción"].Value = textDesc.Text;
+                }
+            }
+        }
+
         private void limpiar()
         {
 
