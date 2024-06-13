@@ -246,19 +246,20 @@ namespace CapaPresentacion
                     if (idgenerado != 0)
                     {
                         dgvData.Rows.Add(new object[] {
-                        "",
-                        idgenerado,
-                        txtNumero.Text,
-                        txtLetra.Text,
-                        txtMontoTotal.Text,
-                        txtNroOperacion.Text,
-                        "",
-                        txtSucursal.Text,
-                        ((OpcionCombo)cboBoxPreventa.SelectedItem).Valor,
-                        1,
-                        "Confirmado"
-                    });
+                            "",
+                            idgenerado,
+                            txtNumero.Text,
+                            txtLetra.Text,
+                            txtMontoTotal.Text,
+                            txtNroOperacion.Text,
+                            "",
+                            txtSucursal.Text,
+                            ((OpcionCombo)cboBoxPreventa.SelectedItem).Valor,
+                            1,
+                            "Confirmado"
+                        });
 
+                        MessageBox.Show("La factura se ha registrado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         limpiar();
                         cargarPreventasCBO();
                     }
@@ -320,6 +321,7 @@ namespace CapaPresentacion
                     {
                         DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
                         row.Cells["DescEstado"].Value = "Anulado";
+                        MessageBox.Show("La factura ha sido anulada correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         limpiar();
                         cargarPreventasCBO();
                     }

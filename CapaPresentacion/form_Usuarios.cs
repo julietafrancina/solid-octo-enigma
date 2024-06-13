@@ -130,6 +130,7 @@ namespace CapaPresentacion
                             "Sí"
                             });
 
+                            MessageBox.Show("El usuario ha sido registrado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             limpiar();
                         }
                         else
@@ -149,6 +150,7 @@ namespace CapaPresentacion
                             row.Cells["NombreCompleto"].Value = txtNombreCompleto.Text;
                             row.Cells["Correo"].Value = txtCorreo.Text;
                             row.Cells["Rol"].Value = ((OpcionCombo)cboRol.SelectedItem).Texto.ToString();
+                            MessageBox.Show("El usuario ha sido editado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             limpiar();
                         }
                         else

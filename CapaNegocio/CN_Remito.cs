@@ -21,7 +21,7 @@ namespace CapaNegocio
 
         public int genRemito(Remito r, out string Mensaje)
         {
-            Mensaje = String.Empty;
+           Mensaje = String.Empty;
            return objcd_re.GenerarRemito(r, out Mensaje);
         }
         public List<Remito> listar()

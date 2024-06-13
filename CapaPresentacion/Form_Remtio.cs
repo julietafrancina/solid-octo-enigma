@@ -33,25 +33,7 @@ namespace CapaPresentacion
             textEstado.Text = "Confirmado";
             CB_fact.Text = "Seleccione:";
 
-            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-            {
-                string query = "SELECT id_factura FROM Factura";
-                SqlCommand command = new SqlCommand(query, oconexion);
-
-                oconexion.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    CB_fact.Items.Add(new OpcionCombo()
-                    {
-                        Valor = Convert.ToInt32(reader["id_factura"]),
-                        Texto = reader["id_factura"].ToString()
-                    });
-                }
-
-                reader.Close();
-            }
+            cargarCboFact();
         }
 
         private void CargarDatos()
@@ -186,30 +168,37 @@ namespace CapaPresentacion
             {
                 string Mensaje = string.Empty;
                 Remito re = new Remito();
-                re.nroOperacion = Convert.ToInt32(textNroOp.Text);
+                re.numero = Convert.ToInt32(textNro.Text);
                 re.Sucursal_id = text_idsuc.Text;
                 re.letra = textL.Text;
                 re.tipoRemito = ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString();
                 re.Estado_id = "1";
-                re.numero = Convert.ToInt32(textNro.Text);
-                re.factura = ((OpcionCombo)CB_fact.SelectedItem).Texto.ToString();
+                re.nroOperacion = Convert.ToInt32(textNroOp.Text);
+                re.factura = ((OpcionCombo)CB_fact.SelectedItem).Valor.ToString();
 
                 int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
 
-                if (re.nroOperacion != 0)
+                if (rem_gen != 0)
                 {
                     tabla_rem.Rows.Add(new object[] {
                         "",
-                        textNroOp.Text,
+                        textNro.Text,
                         textSucursal.Text,
                         textL.Text,
                         ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString(),
                         textEstado.Text,
-                        textNro.Text,
-                        ((OpcionCombo)CB_fact.SelectedItem).Texto.ToString()
+                        textNroOp.Text,
+                        ((OpcionCombo)CB_fact.SelectedItem).Valor.ToString()
                      });
+
+                    MessageBox.Show("El remito se ha registrado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
+                    cargarCboFact();
                 }
-                limpiar();
+                else
+                {
+                    MessageBox.Show(Mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 
@@ -223,12 +212,12 @@ namespace CapaPresentacion
 
                 tabla_rem.Rows.Add(new object[] {
                  "",
-                rem.nroOperacion,
+                rem.numero,
                 rem.Sucursal_id,
                 rem.letra,
                 rem.tipoRemito,
                 rem.Estado_id,
-                rem.numero,
+                rem.nroOperacion,
                 rem.factura,
                 });
             }
@@ -257,16 +246,18 @@ namespace CapaPresentacion
         {
             //damos de baja (estado anulado) el remito 
             int numero;
-            if (int.TryParse(textNro.Text, out numero))
+            if (int.TryParse(textNro.Text, out numero) && textNroOp.Text != string.Empty)
             {
                 AnularRemito(numero);
                 // Actualizar el DataGridView para reflejar los cambios
                 ActualizarTabla(numero);
                 //CargarDatos();
+                limpiar();
+                cargarCboFact();
             }
             else
             {
-                MessageBox.Show("Por favor, ingrese un número válido.");
+                MessageBox.Show("Por favor, seleccione un remito.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -286,12 +277,12 @@ namespace CapaPresentacion
                     oconexion.Open();
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("El objeto ha sido anulado correctamente.");
-                    
+                    MessageBox.Show("El objeto ha sido anulado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al anular el objeto: " + ex.Message);
+                    MessageBox.Show("Error al anular el objeto: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 
             }
@@ -462,6 +453,36 @@ namespace CapaPresentacion
                 row.Visible = true;
             }
         }
+
+
+        private void cargarCboFact()
+        {
+
+            CB_fact.Items.Clear();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "sp_TraerFacturasARemitar";
+                SqlCommand command = new SqlCommand(query, oconexion);
+                command.CommandType = CommandType.StoredProcedure;
+
+                oconexion.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    CB_fact.Items.Add(new OpcionCombo()
+                    {
+                        Valor = Convert.ToInt32(reader["id_factura"]),
+                        Texto = "ID: " + reader["id_factura"].ToString() + " Número: " + reader["nro"].ToString()
+                    });
+                }
+
+                reader.Close();
+            }
+        }
+
+
     }
 
 

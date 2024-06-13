@@ -31,14 +31,6 @@ namespace CapaPresentacion
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabla_rem = new System.Windows.Forms.DataGridView();
-            this.boton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Nro_operación = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Letra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label_lista = new System.Windows.Forms.Label();
             this.text_buscar_nroOp = new System.Windows.Forms.Label();
             this.text_buscar = new System.Windows.Forms.TextBox();
@@ -64,6 +56,14 @@ namespace CapaPresentacion
             this.textEstado = new System.Windows.Forms.TextBox();
             this.labelFact = new System.Windows.Forms.Label();
             this.CB_fact = new System.Windows.Forms.ComboBox();
+            this.boton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Letra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nro_operación = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_rem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,12 +85,12 @@ namespace CapaPresentacion
             this.tabla_rem.ColumnHeadersHeight = 50;
             this.tabla_rem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.boton,
-            this.Nro_operación,
+            this.nro,
             this.Sucursal,
             this.Letra,
             this.Tipo,
             this.Estado,
-            this.nro,
+            this.Nro_operación,
             this.Factura});
             this.tabla_rem.Location = new System.Drawing.Point(297, 82);
             this.tabla_rem.Name = "tabla_rem";
@@ -101,72 +101,6 @@ namespace CapaPresentacion
             this.tabla_rem.TabIndex = 0;
             this.tabla_rem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_rem_CellContentClick);
             this.tabla_rem.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tabla_rem_CellPainting);
-            // 
-            // boton
-            // 
-            this.boton.FillWeight = 5.86F;
-            this.boton.HeaderText = "";
-            this.boton.MinimumWidth = 6;
-            this.boton.Name = "boton";
-            this.boton.ReadOnly = true;
-            this.boton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.boton.Width = 40;
-            // 
-            // Nro_operación
-            // 
-            this.Nro_operación.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nro_operación.HeaderText = "Nro_operación";
-            this.Nro_operación.MinimumWidth = 6;
-            this.Nro_operación.Name = "Nro_operación";
-            this.Nro_operación.ReadOnly = true;
-            // 
-            // Sucursal
-            // 
-            this.Sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Sucursal.HeaderText = "Sucursal";
-            this.Sucursal.MinimumWidth = 6;
-            this.Sucursal.Name = "Sucursal";
-            this.Sucursal.ReadOnly = true;
-            // 
-            // Letra
-            // 
-            this.Letra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Letra.HeaderText = "Letra";
-            this.Letra.MinimumWidth = 6;
-            this.Letra.Name = "Letra";
-            this.Letra.ReadOnly = true;
-            // 
-            // Tipo
-            // 
-            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.MinimumWidth = 6;
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            // 
-            // Estado
-            // 
-            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            // 
-            // nro
-            // 
-            this.nro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nro.HeaderText = "Nro";
-            this.nro.MinimumWidth = 6;
-            this.nro.Name = "nro";
-            this.nro.ReadOnly = true;
-            // 
-            // Factura
-            // 
-            this.Factura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Factura.HeaderText = "Nro factura";
-            this.Factura.MinimumWidth = 6;
-            this.Factura.Name = "Factura";
-            this.Factura.ReadOnly = true;
             // 
             // label_lista
             // 
@@ -445,6 +379,72 @@ namespace CapaPresentacion
             this.CB_fact.TabIndex = 109;
             this.CB_fact.SelectedIndexChanged += new System.EventHandler(this.CB_fact_SelectedIndexChanged);
             // 
+            // boton
+            // 
+            this.boton.FillWeight = 5.86F;
+            this.boton.HeaderText = "";
+            this.boton.MinimumWidth = 6;
+            this.boton.Name = "boton";
+            this.boton.ReadOnly = true;
+            this.boton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.boton.Width = 40;
+            // 
+            // nro
+            // 
+            this.nro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nro.HeaderText = "Número";
+            this.nro.MinimumWidth = 6;
+            this.nro.Name = "nro";
+            this.nro.ReadOnly = true;
+            // 
+            // Sucursal
+            // 
+            this.Sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Sucursal.HeaderText = "Sucursal";
+            this.Sucursal.MinimumWidth = 6;
+            this.Sucursal.Name = "Sucursal";
+            this.Sucursal.ReadOnly = true;
+            // 
+            // Letra
+            // 
+            this.Letra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Letra.HeaderText = "Letra";
+            this.Letra.MinimumWidth = 6;
+            this.Letra.Name = "Letra";
+            this.Letra.ReadOnly = true;
+            // 
+            // Tipo
+            // 
+            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.MinimumWidth = 6;
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
+            // Nro_operación
+            // 
+            this.Nro_operación.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nro_operación.HeaderText = "Número Operación";
+            this.Nro_operación.MinimumWidth = 6;
+            this.Nro_operación.Name = "Nro_operación";
+            this.Nro_operación.ReadOnly = true;
+            // 
+            // Factura
+            // 
+            this.Factura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Factura.HeaderText = "Factura";
+            this.Factura.MinimumWidth = 6;
+            this.Factura.Name = "Factura";
+            this.Factura.ReadOnly = true;
+            // 
             // Form_Remito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -514,12 +514,12 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label labelFact;
         private System.Windows.Forms.ComboBox CB_fact;
         private System.Windows.Forms.DataGridViewButtonColumn boton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nro_operación;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Letra;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nro_operación;
         private System.Windows.Forms.DataGridViewTextBoxColumn Factura;
     }
 }
