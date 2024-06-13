@@ -443,6 +443,7 @@ namespace CapaPresentacion
             this.CB_fact.Name = "CB_fact";
             this.CB_fact.Size = new System.Drawing.Size(212, 24);
             this.CB_fact.TabIndex = 109;
+            this.CB_fact.SelectedIndexChanged += new System.EventHandler(this.CB_fact_SelectedIndexChanged);
             // 
             // Form_Remito
             // 

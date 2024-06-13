@@ -101,6 +101,11 @@ namespace CapaPresentacion
             CB_tipo.SelectedIndex = 0;
             textEstado.Text = "Confirmado";
             CB_fact.SelectedIndex = -1;
+            CB_tipo.Enabled = true;
+            CB_fact.Enabled = true;
+            textNro.ReadOnly = false;
+            btnAnular.Enabled = true;
+
         }
 
         private void btnBusqueda_Click(object sender, EventArgs e)
@@ -136,6 +141,7 @@ namespace CapaPresentacion
                     textEstado.Text = tabla_rem.Rows[indice].Cells["Estado"].Value.ToString();
                    
                     CB_tipo.Enabled = false;
+                    CB_fact.Enabled = false;
 
                     foreach (OpcionCombo oc in CB_tipo.Items)
                     {
@@ -145,6 +151,15 @@ namespace CapaPresentacion
                             CB_tipo.SelectedIndex = indice_combo;
                             break;
                         }
+                    }
+
+                    if (tabla_rem.Rows[indice].Cells["Estado"].Value.ToString() == "Anulado")
+                    {
+                        btnAnular.Enabled = false;
+                    }
+                    else
+                    {
+                        btnAnular.Enabled = true;
                     }
 
                 }
@@ -163,36 +178,39 @@ namespace CapaPresentacion
 
         private void btGuardarRem_Click(object sender, EventArgs e)
         {
-
-            string Mensaje = string.Empty;
-            Remito re = new Remito();
-            re.nroOperacion = Convert.ToInt32(textNroOp.Text);
-            re.Sucursal_id = text_idsuc.Text;
-            re.letra = textL.Text;
-            re.tipoRemito = ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString();
-            re.Estado_id = "1";
-            re.numero = Convert.ToInt32(textNro.Text);
-            re.factura= ((OpcionCombo)CB_fact.SelectedItem).Texto.ToString();
-
-            int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
-
-            if (re.nroOperacion != 0)
+            if(CB_fact.SelectedIndex == -1 || textNro.Text == string.Empty)
             {
-
-                tabla_rem.Rows.Add(new object[] {
-
-                "",
-                textNroOp.Text,
-                textSucursal.Text,
-                textL.Text,
-                ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString(),
-                textEstado.Text,
-                textNro.Text,
-             });
+                MessageBox.Show("Ingrese los datos del remito por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            limpiar();
+            else
+            {
+                string Mensaje = string.Empty;
+                Remito re = new Remito();
+                re.nroOperacion = Convert.ToInt32(textNroOp.Text);
+                re.Sucursal_id = text_idsuc.Text;
+                re.letra = textL.Text;
+                re.tipoRemito = ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString();
+                re.Estado_id = "1";
+                re.numero = Convert.ToInt32(textNro.Text);
+                re.factura = ((OpcionCombo)CB_fact.SelectedItem).Texto.ToString();
 
+                int rem_gen = new CN_Remito().genRemito(re, out Mensaje);
 
+                if (re.nroOperacion != 0)
+                {
+                    tabla_rem.Rows.Add(new object[] {
+                        "",
+                        textNroOp.Text,
+                        textSucursal.Text,
+                        textL.Text,
+                        ((OpcionCombo)CB_tipo.SelectedItem).Texto.ToString(),
+                        textEstado.Text,
+                        textNro.Text,
+                        ((OpcionCombo)CB_fact.SelectedItem).Texto.ToString()
+                     });
+                }
+                limpiar();
+            }
         }
 
 
