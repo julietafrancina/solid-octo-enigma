@@ -95,6 +95,7 @@ namespace CapaPresentacion
             txtSucursal.ForeColor = System.Drawing.Color.Gray;
             cboBoxPreventa.SelectedIndex = -1;
             cboBoxPreventa.Enabled = true;
+            btnAnular.Enabled = true;
         }
 
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -127,6 +128,15 @@ namespace CapaPresentacion
                             cboBoxPreventa.SelectedIndex = indice_combo;
                             break;
                         }
+                    }
+
+                    if(dgvData.Rows[indice].Cells["DescEstado"].Value.ToString() == "Anulado")
+                    {
+                        btnAnular.Enabled = false;
+                    }
+                    else
+                    {
+                        btnAnular.Enabled = true;
                     }
 
                 }
@@ -293,30 +303,32 @@ namespace CapaPresentacion
             }
             else
             {
-
-                string mensaje = string.Empty;
-
-                Factura obj = new Factura()
+                if (MessageBox.Show("¿Desea anular la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    id_factura = Convert.ToInt32(txtId.Text),
-                    nro = Convert.ToInt32(txtNumero.Text),
-                };
+                    string mensaje = string.Empty;
+
+                    Factura obj = new Factura()
+                    {
+                        id_factura = Convert.ToInt32(txtId.Text),
+                        nro = Convert.ToInt32(txtNumero.Text),
+                    };
 
 
-                bool resultado = new CN_Factura().Editar(obj, out mensaje);
+                    bool resultado = new CN_Factura().Editar(obj, out mensaje);
 
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
-                    row.Cells["DescEstado"].Value = "Anulado";
-                    limpiar();
-                    cargarPreventasCBO();
+                    if (resultado)
+                    {
+                        DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                        row.Cells["DescEstado"].Value = "Anulado";
+                        limpiar();
+                        cargarPreventasCBO();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-
+                
             }
         }
 
