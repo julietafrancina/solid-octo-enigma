@@ -92,6 +92,8 @@ namespace CapaPresentacion
             txtSucursal.Text = "";
             txtUsuarioPreventa.Text = "";
             txtBaja.Text = "";
+            txtMonto.Text = "";
+            dgvArticulosPreventa.Rows.Clear();
         }
 
         private void dgvPreventa_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -124,6 +126,15 @@ namespace CapaPresentacion
             {
                 int indice = e.RowIndex;
 
+                if (Convert.ToBoolean(dgvPreventas.Rows[indice].Cells["Baja"].Value))
+                {
+                    btnDarDeBaja.Enabled = false;
+                }
+                else
+                {
+                    btnDarDeBaja.Enabled = true;
+                }
+
                 if (indice >= 0)
                 {
                     //hacemos que el valor de la columna id lo pinte en txtId
@@ -134,6 +145,7 @@ namespace CapaPresentacion
                     txtSucursal.Text = dgvPreventas.Rows[indice].Cells["Sucursal"].Value.ToString();
                     txtBaja.Text = dgvPreventas.Rows[indice].Cells["Baja"].Value.ToString();
                     txtUsuarioPreventa.Text = dgvPreventas.Rows[indice].Cells["UsuarioPreventa"].Value.ToString();
+                    txtIndice.Text = indice.ToString();
 
                     List<Articulo> listaArticulosPreventa = new CN_Preventa().listarArticulosPreventa(new Preventa()
                     {
@@ -181,6 +193,7 @@ namespace CapaPresentacion
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();
+            btnDarDeBaja.Enabled = true;
         }
 
         private void btnBusquedaPreventa_Click(object sender, EventArgs e)
@@ -212,9 +225,41 @@ namespace CapaPresentacion
             }
         }
 
-        public void limpiarDgv()
+        public DataGridView MyDataGridView
         {
-            dgvPreventas.Rows.Clear();
+            get { return dgvPreventas; }
+        }
+
+        private void btnDarDeBaja_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text == string.Empty)
+            {
+                MessageBox.Show("No se puede dar de baja una preventa que no existe", "Error");
+            }
+
+            else
+            {
+                if (MessageBox.Show("¿Desea dar de baja la preventa?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    bajaPreventa();
+                }
+            }
+
+            limpiar();
+        }
+
+        private void bajaPreventa()
+        {
+            string mensaje = string.Empty;
+            bool resultado = new CN_Preventa().bajaPreventa(Convert.ToInt32(txtId.Text), out mensaje);
+
+            if (resultado)
+            {
+                MessageBox.Show("La preventa se ha dado de baja correctamente.");
+                dgvPreventas.Rows[Convert.ToInt32(txtIndice.Text)].Cells["Baja"].Value = true;
+
+                limpiar();
+            }
         }
     }
 }

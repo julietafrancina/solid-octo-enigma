@@ -79,6 +79,7 @@ namespace CapaPresentacion
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnRestablecerBusquedaPreventa = new FontAwesome.Sharp.IconButton();
             this.btnRegistrarPreventa = new FontAwesome.Sharp.IconButton();
+            this.txtIndice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosPreventa)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -517,6 +518,7 @@ namespace CapaPresentacion
             this.btnDarDeBaja.Text = "Dar de baja";
             this.btnDarDeBaja.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnDarDeBaja.UseVisualStyleBackColor = false;
+            this.btnDarDeBaja.Click += new System.EventHandler(this.btnDarDeBaja_Click);
             // 
             // bntGenerarFactura
             // 
@@ -612,11 +614,19 @@ namespace CapaPresentacion
             this.btnRegistrarPreventa.UseVisualStyleBackColor = false;
             this.btnRegistrarPreventa.Click += new System.EventHandler(this.btnRegistrarPreventa_Click);
             // 
+            // txtIndice
+            // 
+            this.txtIndice.Location = new System.Drawing.Point(188, 20);
+            this.txtIndice.Name = "txtIndice";
+            this.txtIndice.Size = new System.Drawing.Size(41, 22);
+            this.txtIndice.TabIndex = 64;
+            // 
             // form_Preventa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1304, 852);
+            this.Controls.Add(this.txtIndice);
             this.Controls.Add(this.btnRestablecerBusquedaPreventa);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.groupBox3);
@@ -695,5 +705,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
+        private System.Windows.Forms.TextBox txtIndice;
     }
 }

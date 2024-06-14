@@ -29,11 +29,16 @@ namespace CapaPresentacion
             txtIdUsuario.Text = usuarioActual.idUsuario.ToString();
 
             formPreventa = form;
+
+            dgvArticulosAFiltrar.RowHeadersVisible = false;
+            dgvAgregarArticulosPreventa.RowHeadersVisible = false;
         }
 
         private void form_RegistrarPreventa_Load(object sender, EventArgs e)
         {
             txtFechaPreventa.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            dgvArticulosAFiltrar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAgregarArticulosPreventa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             List<Sucursal> listaSucursal = new CN_Sucursal().listar();
 
@@ -50,6 +55,38 @@ namespace CapaPresentacion
             cboSucursalPreventa.ValueMember = "Valor";
             cboSucursalPreventa.SelectedIndex = 0;
 
+            //listar artículos a filtrar
+            List<Articulo> listaArticulos = new CN_RegistrarPreventa().listarArticulos();
+
+            foreach (Articulo item in listaArticulos)
+            {
+                dgvArticulosAFiltrar.Rows.Add(new object[]
+                {
+                    "",
+                    item.idArticulo, //no visible en la tabla
+                    item.descripcion,
+                    item.marca,
+                    item.SKU,
+                    item.rubro,
+                    item.costo
+                });
+            }
+
+            //combo box filtro artículos
+            foreach (DataGridViewColumn columna in dgvArticulosAFiltrar.Columns)
+            {
+                if (columna.Visible == true && columna.Name != "btnSeleccionar")
+                {
+                    cboFiltrarArticulos.Items.Add(new OpcionCombo()
+                    {
+                        Texto = columna.HeaderText,
+                        Valor = columna.Name
+                    });
+                }
+            }
+            cboFiltrarArticulos.DisplayMember = "Texto";
+            cboFiltrarArticulos.ValueMember = "Valor";
+            cboFiltrarArticulos.SelectedIndex = 0;
         }
         private void limpiar()
         {
@@ -105,46 +142,8 @@ namespace CapaPresentacion
             }
         }
 
-        //Agregar artículos a la preventa
-        private void btnAgregarArticulosPreventa_Click_1(object sender, EventArgs e)
+        private decimal SumarSubtotales()
         {
-            string descripcion = txtDescripcionArticulo.Text;
-            string sku = txtSKUBusqueda.Text;
-            double costo = 0;
-            string idArticulo = txtIdArticulo.Text;
-
-            // Validar y convertir el costo a double
-            if (!double.TryParse(txtCostoArticulo.Text, out costo))
-            {
-                MessageBox.Show("El costo no es un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            int cantidad = (int)nudCantidadArticulo.Value;
-
-            DataGridViewRow row = new DataGridViewRow();
-            row.CreateCells(dgvAgregarArticulosPreventa);
-
-            row.Cells[0].Value = descripcion;
-            row.Cells[1].Value = sku;
-            row.Cells[2].Value = costo.ToString("F2");
-            row.Cells[3].Value = cantidad;
-            row.Cells[5].Value = idArticulo;
-
-            double valorCosto = Convert.ToDouble(row.Cells[2].Value);
-
-            row.Cells[4].Value = cantidad * valorCosto;
-
-            dgvAgregarArticulosPreventa.Rows.Add(row);
-
-            // Limpiar los campos de texto y resetear el NumericUpDown
-            txtSKUBusqueda.Clear();
-            txtDescripcionArticulo.Clear();
-            txtRubroArticulo.Clear();
-            txtMarcaArticulo.Clear();
-            txtCostoArticulo.Clear();
-            nudCantidadArticulo.Value = 1; // Asumiendo que el valor mínimo es 1
-
             decimal sumaTotal = 0;
 
             foreach (DataGridViewRow filaArticulo in dgvAgregarArticulosPreventa.Rows)
@@ -162,9 +161,52 @@ namespace CapaPresentacion
                 }
             }
 
-            txtTotalAPagar.Text = sumaTotal.ToString("N2");
+            return sumaTotal;
         }
 
+        //Agregar artículos a la preventa
+        private void btnAgregarArticulosPreventa_Click_1(object sender, EventArgs e)
+        {
+            string descripcion = txtDescripcionArticulo.Text;
+            string sku = txtSKUBusqueda.Text;
+            double costo = 0;
+            string idArticulo = txtIdArticulo.Text;
+
+            if (!double.TryParse(txtCostoArticulo.Text, out costo))
+            {
+                MessageBox.Show("El costo no es un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int cantidad = (int)nudCantidadArticulo.Value;
+
+            DataGridViewRow row = new DataGridViewRow();
+            row.CreateCells(dgvAgregarArticulosPreventa);
+
+            row.Cells[0].Value = descripcion;
+            row.Cells[1].Value = sku;
+            row.Cells[2].Value = costo.ToString("F2");
+            row.Cells[3].Value = cantidad;
+            row.Cells[5].Value = idArticulo;
+            row.Cells[6].Value = "";
+
+            double valorCosto = Convert.ToDouble(row.Cells[2].Value);
+
+            row.Cells[4].Value = cantidad * valorCosto;
+
+            dgvAgregarArticulosPreventa.Rows.Add(row);
+
+            // Limpiar los campos de texto y resetear el NumericUpDown
+            txtSKUBusqueda.Clear();
+            txtDescripcionArticulo.Clear();
+            txtRubroArticulo.Clear();
+            txtMarcaArticulo.Clear();
+            txtCostoArticulo.Clear();
+            nudCantidadArticulo.Value = 1; // Asumiendo que el valor mínimo es 1
+
+            txtTotalAPagar.Text = SumarSubtotales().ToString("N2");
+        }
+        
         // CREAR nueva preventa
         private void bntCrearPreventa_Click(object sender, EventArgs e)
         {
@@ -175,15 +217,18 @@ namespace CapaPresentacion
                 monto = Convert.ToDouble(txtTotalAPagar.Text),
                 osucursal = new Sucursal()
                 {
-                    id_suc = Convert.ToInt32(txtIdSucursal.Text)
+                    id_suc = Convert.ToInt32(txtIdSucursal.Text),
+                    desc =  ((OpcionCombo)cboSucursalPreventa.SelectedItem).Texto
                 },
                 ousuario = new Usuario()
                 {
-                    idUsuario = Convert.ToInt32(txtIdUsuario.Text)
+                    idUsuario = Convert.ToInt32(txtIdUsuario.Text),
+                    nombreCompleto = usuarioActual.nombreCompleto
                 },
                 ocliente = new Cliente()
                 {
-                    idCliente = Convert.ToInt32(txtIdCliente.Text)
+                    idCliente = Convert.ToInt32(txtIdCliente.Text),
+                    nombreCompleto = txtNombreCliente.Text
                 },
                 nroOperacion = Convert.ToInt32(txtNroOperacionPreventa.Text)
             };
@@ -222,15 +267,160 @@ namespace CapaPresentacion
             registrarArticulosPreventa.EnviarDatos(articulosPreventa, out msj);
 
             MessageBox.Show("La preventa se ha creado correctamente.");
-            formPreventa.limpiarDgv();
-            formPreventa.form_Preventa_Load_1(sender, e);
+            formPreventa.MyDataGridView.Rows.Add
+                (
+                    "",
+                    idPreventaGenerada, //no visible en la tabla
+                    objregistrarPreventa.fecha,
+                    objregistrarPreventa.ocliente.nombreCompleto,
+                    objregistrarPreventa.osucursal.desc,
+                    objregistrarPreventa.monto,
+                    objregistrarPreventa.nroOperacion,
+                    objregistrarPreventa.baja,
+                    objregistrarPreventa.ousuario.nombreCompleto
+                );
+
             this.Close();
-            //actualizar form_Preventa
         }
 
         private void cboSucursalPreventa_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtIdSucursal.Text = ((OpcionCombo)cboSucursalPreventa.SelectedItem).Valor.ToString();
+        }
+
+        //Cancelar preventa
+        private void btnCancelarPreventa_Click(object sender, EventArgs e)
+        {
+            List<TextBox> textBoxes = new List<TextBox>();
+            textBoxes.Add(txtNroOperacionPreventa);
+            textBoxes.Add(txtDNICliente);
+            textBoxes.Add(txtSKUBusqueda);
+            textBoxes.Add(txtSKUBusqueda);
+            bool contieneTexto = false;
+
+            foreach (TextBox textBox in textBoxes)
+            {
+                if (!string.IsNullOrEmpty(textBox.Text))
+                {
+                    contieneTexto = true;
+                    break;
+                }
+            }
+
+            if (contieneTexto)
+            {
+                DialogResult result = MessageBox.Show("¿Desea cancelar la preventa?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
+
+        private void dgvArticulosAFiltrar_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            if (e.ColumnIndex == 0)
+            {
+                //eventos del método
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                //para que el ícono quede centrado
+                var w = Properties.Resources.tabler_check.Width;
+                var h = Properties.Resources.tabler_check.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.tabler_check, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void dgvArticulosAFiltrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvArticulosAFiltrar.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            {
+                int indice = e.RowIndex;
+                if (indice >= 0)
+                {
+                    //hacemos que el valor de la columna id lo pinte en txtId
+                    txtIdArticulo.Text = dgvArticulosAFiltrar.Rows[indice].Cells["idArticuloAFiltrar"].Value.ToString();
+                    txtDescripcionArticulo.Text = dgvArticulosAFiltrar.Rows[indice].Cells["DescripcionArticulo"].Value.ToString();
+                    txtMarcaArticulo.Text = dgvArticulosAFiltrar.Rows[indice].Cells["MarcaArticulo"].Value.ToString();
+                    txtSKUBusqueda.Text = dgvArticulosAFiltrar.Rows[indice].Cells["SKUArticulo"].Value.ToString();
+                    txtRubroArticulo.Text = dgvArticulosAFiltrar.Rows[indice].Cells["RubroArticulo"].Value.ToString();
+                    txtCostoArticulo.Text = dgvArticulosAFiltrar.Rows[indice].Cells["PrecioArticulo"].Value.ToString();
+                }
+            }
+        }
+
+        private void cboFiltrarArticulos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFiltrarArticulos_TextChanged(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)cboFiltrarArticulos.SelectedItem).Valor.ToString();
+
+            if (dgvArticulosAFiltrar.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvArticulosAFiltrar.Rows)
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltrarArticulos.Text.Trim().ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void dgvAgregarArticulosPreventa_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            if (e.ColumnIndex == 6)
+            {
+                //eventos del método
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                //para que el ícono quede centrado
+                var w = Properties.Resources.tabler_trash.Width;
+                var h = Properties.Resources.tabler_trash.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.tabler_trash, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void dgvAgregarArticulosPreventa_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvAgregarArticulosPreventa.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                int indice = e.RowIndex;
+                if (indice >= 0)
+                {
+                    dgvAgregarArticulosPreventa.Rows.RemoveAt(e.RowIndex);
+                    txtTotalAPagar.Text = SumarSubtotales().ToString("N2");
+                }
+            }
         }
     }
 }

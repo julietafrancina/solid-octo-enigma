@@ -23,6 +23,12 @@ namespace CapaNegocio
             return objcd_registrarPreventa.mostrarDatosArticulo(sku);
         }
 
+        //llamo al método para listar artículos a filtrar
+        public List<Articulo> listarArticulos()
+        {
+            return objcd_registrarPreventa.listarArticulos();
+        }
+
         //llamo el método para REGISTRAR nueva preventa
         public int registrarPreventa(Preventa obj, out string mensaje)
         {

@@ -44,7 +44,7 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    //MessageBox.Show("Ocurrió un error al buscar el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ocurrió un error al buscar el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             return lista;
@@ -81,7 +81,7 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    //MessageBox.Show("Ocurrió un error al buscar el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ocurrió un error al buscar el artículo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             return listaArticulo;
@@ -135,14 +135,15 @@ namespace CapaDatos
             mensaje = string.Empty;
             int idArticuloPreventaGenerado = 0;
 
-            try
+            foreach (ItemPrevArt item in articulosPreventa)
             {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                try
                 {
-                    foreach (ItemPrevArt item in articulosPreventa)
+                    using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                     {
 
                         SqlCommand cmd = new SqlCommand("SP_registrarArticuloPreventa", oconexion);
+
                         //parámetros de entrada
                         cmd.Parameters.AddWithValue("id_preventa", item.opreventa.idPreventa);
                         cmd.Parameters.AddWithValue("id_sucursal", item.osucursal.id_suc);
@@ -159,16 +160,57 @@ namespace CapaDatos
 
                         idArticuloPreventaGenerado = Convert.ToInt32(cmd.Parameters["id_articulo_preventa_resultado"].Value);
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
+
                     }
                 }
 
-            }
-            catch (Exception ex)
-            {
-                idArticuloPreventaGenerado = 0;
-                mensaje = ex.Message;
+
+                catch (Exception ex)
+                {
+                    idArticuloPreventaGenerado = 0;
+                    mensaje = ex.Message;
+                }
+
             }
             return idArticuloPreventaGenerado;
+        }
+
+        //Método para LISTAR artículos a filtrar
+        public List<Articulo> listarArticulos()
+        {
+            List<Articulo> listaArticulos = new List<Articulo>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SP_listarArticulos", oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            listaArticulos.Add(new Articulo()
+                            {
+                                idArticulo = Convert.ToInt32(dr["id_articulo"]),
+                                descripcion = dr["descripcion"].ToString(),
+                                marca = dr["marca"].ToString(),
+                                SKU = Convert.ToInt32(dr["sku"]),
+                                rubro = dr["rubro"].ToString(),
+                                costo = Convert.ToDouble(dr["costo"])
+                            });
+                        }
+                    }
+                }
+
+                catch (Exception)
+                {
+                    listaArticulos = new List<Articulo>();
+                }
+            }
+            return listaArticulos;
         }
     }
 }

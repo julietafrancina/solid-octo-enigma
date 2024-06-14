@@ -24,6 +24,12 @@ namespace CapaNegocio
         {
             return objcd_preventa.listarArticulosPreventa(obj);
         }
+
+        public bool bajaPreventa(int id_preventa, out string mensaje)
+        {
+            mensaje = string.Empty;
+            return objcd_preventa.bajaPreventa(id_preventa, out mensaje);
+        }
     }
 
 }

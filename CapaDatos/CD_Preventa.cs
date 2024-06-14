@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -105,6 +106,38 @@ namespace CapaDatos
                 }
             }
             return lista;
+        }
+
+        public bool bajaPreventa (int id_preventa, out string mensaje)
+        {
+            bool resultado = false;
+            mensaje = string.Empty;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SP_bajaPreventa", oconexion);
+                    cmd.Parameters.AddWithValue("@id_preventa", id_preventa);
+
+                    cmd.Parameters.Add("resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+                   
+                    resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+                    mensaje = cmd.Parameters["mensaje"].Value.ToString();
+
+                }
+                catch (Exception ex)
+                {
+                    resultado = false;
+                    MessageBox.Show("Ocurrió un error al dar de baja la preventa: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            return resultado;
         }
     }
 }
