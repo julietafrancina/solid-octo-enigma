@@ -19,10 +19,17 @@ namespace CapaNegocio
             return objcd_preventa.listar();
         }
 
-        public List<Preventa> listarPrevsAFacturar()
+        //Llamo al método MostrarArticulosPreventa
+        public List<Articulo> listarArticulosPreventa(Preventa obj)
         {
-            return objcd_preventa.listarPrevsAFacturar();
+            return objcd_preventa.listarArticulosPreventa(obj);
         }
 
+        public bool bajaPreventa(int id_preventa, out string mensaje)
+        {
+            mensaje = string.Empty;
+            return objcd_preventa.bajaPreventa(id_preventa, out mensaje);
+        }
     }
+
 }

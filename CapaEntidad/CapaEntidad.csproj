@@ -44,7 +44,7 @@
     <Compile Include="Articulo.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Factura.cs" />
-    <Compile Include="Item_Preventa_Por_Articulo.cs" />
+    <Compile Include="ItemPrevArt.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Preventa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

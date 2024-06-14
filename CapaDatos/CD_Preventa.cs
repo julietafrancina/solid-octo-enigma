@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -20,17 +21,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT p.id_preventa, p.fecha, p.monto, p.nro_operacion, p.baja, p.cliente_id, p.sucursal_id, p.usuario_id," +
-                        "c.id_cliente, c.nombre_completo as nomC, c.dni as dniC, c.correo, c.telefono as telC, c.domicilio, c.fecha_nac," +
-                        "s.id_sucursal, s.descripcion, s.telefono as telS," +
-                        "u.id_usuario, u.dni as dniU, u.nombre_completo as nomU " +
-                        "FROM preventa p");
-                    query.AppendLine("INNER JOIN cliente c on c.id_cliente = p.cliente_id");
-                    query.AppendLine("INNER JOIN sucursal s on s.id_sucursal = p.sucursal_id");
-                    query.AppendLine("INNER JOIN usuario u on u.id_usuario = p.usuario_id");
-
-                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_LISTARPREVENTAS", oconexion);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -83,59 +74,70 @@ namespace CapaDatos
             return lista;
         }
 
-
-        public List<Preventa> listarPrevsAFacturar()
+        public List<Articulo> listarArticulosPreventa(Preventa obj)
         {
+            List<Articulo> lista = new List<Articulo>();
 
-            List<Preventa> lista = new List<Preventa>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand("SP_ARTICULOSPREVENTA", oconexion);
+                cmd.Parameters.AddWithValue("id_preventa", obj.idPreventa);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                oconexion.Open();
+                cmd.ExecuteNonQuery();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new Articulo()
+                        {
+                            idArticulo = Convert.ToInt32(dr["id_articulo"]),
+                            SKU = Convert.ToInt32(dr["SKU"]),
+                            descripcion = dr["descripcion"].ToString(),
+                            rubro = dr["rubro"].ToString(),
+                            marca = dr["marca"].ToString(),
+                            costo = Convert.ToDouble(dr["costo"])
+                        });
+                    }
+
+                }
+            }
+            return lista;
+        }
+
+        public bool bajaPreventa (int id_preventa, out string mensaje)
+        {
+            bool resultado = false;
+            mensaje = string.Empty;
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
+                    SqlCommand cmd = new SqlCommand("SP_bajaPreventa", oconexion);
+                    cmd.Parameters.AddWithValue("@id_preventa", id_preventa);
 
-                    SqlCommand cmd = new SqlCommand("sp_TraerPreventasAFacturar", oconexion);
-                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.Add("resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
+                    cmd.ExecuteNonQuery();
+                   
+                    resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+                    mensaje = cmd.Parameters["mensaje"].Value.ToString();
 
-                            lista.Add(new Preventa()
-                            {
-                                idPreventa = Convert.ToInt32(dr["id_preventa"]),
-                                fecha = Convert.ToDateTime(dr["fecha"]),
-                                baja = Convert.ToBoolean(dr["baja"]),
-                                monto = Convert.ToDouble(dr["monto"]),
-                                nroOperacion = Convert.ToInt32(dr["nro_operacion"]),
-                                osucursal = new Sucursal()
-                                {
-                                    id_suc = Convert.ToInt32(dr["sucursal_id"]),
-                                    desc = dr["descripcion"].ToString()
-                                },
-                                ousuario = new Usuario() { idUsuario = Convert.ToInt32(dr["usuario_id"])},
-                                ocliente = new Cliente() { idCliente = Convert.ToInt32(dr["cliente_id"])}
-                            });
-                        }
-
-                    }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    lista = new List<Preventa>();
+                    resultado = false;
+                    MessageBox.Show("Ocurrió un error al dar de baja la preventa: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
-
             }
-
-            return lista;
-
+            return resultado;
         }
-
-
-
     }
 }

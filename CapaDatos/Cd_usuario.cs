@@ -101,6 +101,7 @@ namespace CapaDatos
             return idUsuarioGenerado;
         }
 
+
         //Método para EDITAR un usuario
         public bool Editar(Usuario obj, out string mensaje)
         {
