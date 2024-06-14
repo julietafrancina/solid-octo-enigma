@@ -15,14 +15,19 @@ namespace CapaPresentacion
 {
     public partial class form_Preventa : Form
     {
-        public form_Preventa()
+        private static Usuario usuarioActual;
+        public form_Preventa(Usuario user)
         {
             InitializeComponent();
+
+            usuarioActual = user;
+
             dgvPreventas.CellFormatting += dgvPreventas_CellFormatting;
+            dgvArticulosPreventa.AllowUserToAddRows = false;
         }
 
         //Mostrar todas las preventas en el DataGridView
-        private void form_Preventa_Load_1(object sender, EventArgs e)
+        public void form_Preventa_Load_1(object sender, EventArgs e)
         {
             List<Preventa> listaPreventa = new CN_Preventa().listar();
 
@@ -73,8 +78,9 @@ namespace CapaPresentacion
         //botón para abrir formulario de registrar nueva preventa
         private void btnRegistrarPreventa_Click(object sender, EventArgs e)
         {
-            form_RegistrarPreventa registrarPreventa = new form_RegistrarPreventa();
-            registrarPreventa.Show();
+            form_RegistrarPreventa registrarPreventa = new form_RegistrarPreventa(usuarioActual, this);
+
+            registrarPreventa.ShowDialog();
         }
 
         //Limpiar los campos una vez que se completó la operación
@@ -87,6 +93,8 @@ namespace CapaPresentacion
             txtSucursal.Text = "";
             txtUsuarioPreventa.Text = "";
             txtBaja.Text = "";
+            txtMonto.Text = "";
+            dgvArticulosPreventa.Rows.Clear();
         }
 
         private void dgvPreventa_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -112,12 +120,21 @@ namespace CapaPresentacion
             }
         }
 
-        //Al seleccionar un usuario de la tabla, pasar sus datos a los inputs de la izquierda.
+        //Al seleccionar un usuario de la tabla, pasar sus datos a los inputs del detalle.
         private void dgvPreventas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvPreventas.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
                 int indice = e.RowIndex;
+
+                if (Convert.ToBoolean(dgvPreventas.Rows[indice].Cells["Baja"].Value))
+                {
+                    btnDarDeBaja.Enabled = false;
+                }
+                else
+                {
+                    btnDarDeBaja.Enabled = true;
+                }
 
                 if (indice >= 0)
                 {
@@ -129,7 +146,71 @@ namespace CapaPresentacion
                     txtSucursal.Text = dgvPreventas.Rows[indice].Cells["Sucursal"].Value.ToString();
                     txtBaja.Text = dgvPreventas.Rows[indice].Cells["Baja"].Value.ToString();
                     txtUsuarioPreventa.Text = dgvPreventas.Rows[indice].Cells["UsuarioPreventa"].Value.ToString();
+                    txtIndice.Text = indice.ToString();
+
+                    List<Articulo> listaArticulosPreventa = new CN_Preventa().listarArticulosPreventa(new Preventa()
+                    {
+                        idPreventa = Convert.ToInt32(dgvPreventas.Rows[indice].Cells["idPreventa"].Value)
+                    });
+
+                    dgvArticulosPreventa.Rows.Clear();
+
+                    foreach (Articulo item in listaArticulosPreventa)
+                    {
+                        bool existe = false;
+                        int indiceArticulo = 0;
+
+                        foreach (DataGridViewRow row in dgvArticulosPreventa.Rows)
+                        {
+                            if (item.SKU == Convert.ToInt32(row.Cells["SKU"].Value))
+                            {
+                                existe = true;
+                                indiceArticulo = row.Index;
+                                break;
+                            }
+                        }
+
+                        if (existe)
+                        {
+                            int cantidad = Convert.ToInt32(dgvArticulosPreventa.Rows[indiceArticulo].Cells["CantidadArticulosPreventa"].Value);
+
+                            cantidad++;
+                            dgvArticulosPreventa.Rows[indiceArticulo].Cells["CantidadArticulosPreventa"].Value = cantidad;
+                        }
+                        else
+                        {
+                            dgvArticulosPreventa.Rows.Add(new object[]
+                            {
+                                item.idArticulo, //no visible en la tabla
+                                item.descripcion,
+                                item.rubro,
+                                item.marca,
+                                item.SKU,
+                                item.costo,
+                                "1"
+                            });
+                        }
+                    }
+                }  
+
+                decimal sumaTotal = 0;
+
+                foreach (DataGridViewRow row in dgvArticulosPreventa.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        var valorCelda = row.Cells["Costo"].Value;
+                        if (valorCelda != null)
+                        {
+                            if (decimal.TryParse(valorCelda.ToString(), out decimal costo))
+                            {
+                                sumaTotal += costo;
+                            }
+                        }
+                    }
                 }
+
+                txtMonto.Text = sumaTotal.ToString("N2");
             }
         }
 
@@ -137,6 +218,7 @@ namespace CapaPresentacion
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();
+            btnDarDeBaja.Enabled = true;
         }
 
         private void btnBusquedaPreventa_Click(object sender, EventArgs e)
@@ -165,6 +247,43 @@ namespace CapaPresentacion
             foreach (DataGridViewRow row in dgvPreventas.Rows)
             {
                 row.Visible = true;
+            }
+        }
+
+        public DataGridView MyDataGridView
+        {
+            get { return dgvPreventas; }
+        }
+
+        private void btnDarDeBaja_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text == string.Empty)
+            {
+                MessageBox.Show("No se puede dar de baja una preventa que no existe", "Error");
+            }
+
+            else
+            {
+                if (MessageBox.Show("¿Desea dar de baja la preventa?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    bajaPreventa();
+                }
+            }
+
+            limpiar();
+        }
+
+        private void bajaPreventa()
+        {
+            string mensaje = string.Empty;
+            bool resultado = new CN_Preventa().bajaPreventa(Convert.ToInt32(txtId.Text), out mensaje);
+
+            if (resultado)
+            {
+                MessageBox.Show("La preventa se ha dado de baja correctamente.");
+                dgvPreventas.Rows[Convert.ToInt32(txtIndice.Text)].Cells["Baja"].Value = true;
+
+                limpiar();
             }
         }
     }
