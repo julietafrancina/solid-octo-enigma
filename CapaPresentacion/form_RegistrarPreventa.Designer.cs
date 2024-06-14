@@ -34,6 +34,14 @@ namespace CapaPresentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvAgregarArticulosPreventa = new System.Windows.Forms.DataGridView();
+            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnCancelarPreventa = new FontAwesome.Sharp.IconButton();
             this.bntCrearPreventa = new FontAwesome.Sharp.IconButton();
             this.txtTotalAPagar = new System.Windows.Forms.TextBox();
@@ -89,37 +97,129 @@ namespace CapaPresentacion
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cboFiltrarArticulos = new System.Windows.Forms.ComboBox();
-            this.dgvAgregarArticulosPreventa = new System.Windows.Forms.DataGridView();
-            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarArticulosPreventa)).BeginInit();
             this.grpArticulos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadArticulo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosAFiltrar)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarArticulosPreventa)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox2.Controls.Add(this.dgvAgregarArticulosPreventa);
             this.groupBox2.Controls.Add(this.btnCancelarPreventa);
             this.groupBox2.Controls.Add(this.bntCrearPreventa);
             this.groupBox2.Controls.Add(this.txtTotalAPagar);
             this.groupBox2.Controls.Add(this.totalAPagar);
-            this.groupBox2.Location = new System.Drawing.Point(1333, 469);
+            this.groupBox2.Location = new System.Drawing.Point(517, 469);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(224, 246);
+            this.groupBox2.Size = new System.Drawing.Size(1040, 246);
             this.groupBox2.TabIndex = 66;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Preventa";
+            // 
+            // dgvAgregarArticulosPreventa
+            // 
+            this.dgvAgregarArticulosPreventa.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAgregarArticulosPreventa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAgregarArticulosPreventa.ColumnHeadersHeight = 40;
+            this.dgvAgregarArticulosPreventa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Articulo,
+            this.SKU,
+            this.Costo,
+            this.Cantidad,
+            this.Subtotal,
+            this.idArticulo,
+            this.btnEliminar});
+            this.dgvAgregarArticulosPreventa.Location = new System.Drawing.Point(14, 31);
+            this.dgvAgregarArticulosPreventa.MultiSelect = false;
+            this.dgvAgregarArticulosPreventa.Name = "dgvAgregarArticulosPreventa";
+            this.dgvAgregarArticulosPreventa.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAgregarArticulosPreventa.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAgregarArticulosPreventa.RowHeadersWidth = 51;
+            this.dgvAgregarArticulosPreventa.RowTemplate.Height = 200;
+            this.dgvAgregarArticulosPreventa.Size = new System.Drawing.Size(771, 195);
+            this.dgvAgregarArticulosPreventa.TabIndex = 79;
+            this.dgvAgregarArticulosPreventa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgregarArticulosPreventa_CellContentClick_1);
+            this.dgvAgregarArticulosPreventa.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvAgregarArticulosPreventa_CellPainting_1);
+            // 
+            // Articulo
+            // 
+            this.Articulo.HeaderText = "Artículo";
+            this.Articulo.MinimumWidth = 6;
+            this.Articulo.Name = "Articulo";
+            this.Articulo.ReadOnly = true;
+            this.Articulo.Width = 150;
+            // 
+            // SKU
+            // 
+            this.SKU.HeaderText = "SKU";
+            this.SKU.MinimumWidth = 6;
+            this.SKU.Name = "SKU";
+            this.SKU.ReadOnly = true;
+            this.SKU.Width = 125;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            this.Costo.ReadOnly = true;
+            this.Costo.Width = 125;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cant.";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 150;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.MinimumWidth = 6;
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
+            this.Subtotal.Width = 125;
+            // 
+            // idArticulo
+            // 
+            this.idArticulo.HeaderText = "idArticulo";
+            this.idArticulo.MinimumWidth = 6;
+            this.idArticulo.Name = "idArticulo";
+            this.idArticulo.ReadOnly = true;
+            this.idArticulo.Visible = false;
+            this.idArticulo.Width = 125;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.btnEliminar.HeaderText = "";
+            this.btnEliminar.MinimumWidth = 6;
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.ReadOnly = true;
+            this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnEliminar.Width = 40;
             // 
             // btnCancelarPreventa
             // 
@@ -128,7 +228,7 @@ namespace CapaPresentacion
             this.btnCancelarPreventa.IconColor = System.Drawing.Color.Firebrick;
             this.btnCancelarPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancelarPreventa.IconSize = 20;
-            this.btnCancelarPreventa.Location = new System.Drawing.Point(14, 125);
+            this.btnCancelarPreventa.Location = new System.Drawing.Point(830, 121);
             this.btnCancelarPreventa.Name = "btnCancelarPreventa";
             this.btnCancelarPreventa.Size = new System.Drawing.Size(196, 42);
             this.btnCancelarPreventa.TabIndex = 43;
@@ -144,7 +244,7 @@ namespace CapaPresentacion
             this.bntCrearPreventa.IconColor = System.Drawing.Color.LightGreen;
             this.bntCrearPreventa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bntCrearPreventa.IconSize = 25;
-            this.bntCrearPreventa.Location = new System.Drawing.Point(14, 184);
+            this.bntCrearPreventa.Location = new System.Drawing.Point(830, 180);
             this.bntCrearPreventa.Name = "bntCrearPreventa";
             this.bntCrearPreventa.Size = new System.Drawing.Size(196, 46);
             this.bntCrearPreventa.TabIndex = 41;
@@ -154,7 +254,7 @@ namespace CapaPresentacion
             // 
             // txtTotalAPagar
             // 
-            this.txtTotalAPagar.Location = new System.Drawing.Point(14, 57);
+            this.txtTotalAPagar.Location = new System.Drawing.Point(830, 53);
             this.txtTotalAPagar.MinimumSize = new System.Drawing.Size(4, 32);
             this.txtTotalAPagar.Name = "txtTotalAPagar";
             this.txtTotalAPagar.Size = new System.Drawing.Size(196, 22);
@@ -165,7 +265,7 @@ namespace CapaPresentacion
             this.totalAPagar.AutoSize = true;
             this.totalAPagar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.totalAPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalAPagar.Location = new System.Drawing.Point(11, 35);
+            this.totalAPagar.Location = new System.Drawing.Point(827, 31);
             this.totalAPagar.Name = "totalAPagar";
             this.totalAPagar.Size = new System.Drawing.Size(106, 17);
             this.totalAPagar.TabIndex = 35;
@@ -587,15 +687,15 @@ namespace CapaPresentacion
             // dgvArticulosAFiltrar
             // 
             this.dgvArticulosAFiltrar.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvArticulosAFiltrar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvArticulosAFiltrar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvArticulosAFiltrar.ColumnHeadersHeight = 40;
             this.dgvArticulosAFiltrar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -609,14 +709,14 @@ namespace CapaPresentacion
             this.dgvArticulosAFiltrar.MultiSelect = false;
             this.dgvArticulosAFiltrar.Name = "dgvArticulosAFiltrar";
             this.dgvArticulosAFiltrar.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvArticulosAFiltrar.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvArticulosAFiltrar.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvArticulosAFiltrar.RowHeadersWidth = 51;
             this.dgvArticulosAFiltrar.RowTemplate.Height = 40;
             this.dgvArticulosAFiltrar.Size = new System.Drawing.Size(442, 485);
@@ -719,112 +819,12 @@ namespace CapaPresentacion
             this.cboFiltrarArticulos.TabIndex = 77;
             this.cboFiltrarArticulos.SelectedIndexChanged += new System.EventHandler(this.cboFiltrarArticulos_SelectedIndexChanged);
             // 
-            // dgvAgregarArticulosPreventa
-            // 
-            this.dgvAgregarArticulosPreventa.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAgregarArticulosPreventa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAgregarArticulosPreventa.ColumnHeadersHeight = 40;
-            this.dgvAgregarArticulosPreventa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Articulo,
-            this.SKU,
-            this.Costo,
-            this.Cantidad,
-            this.Subtotal,
-            this.idArticulo,
-            this.btnEliminar});
-            this.dgvAgregarArticulosPreventa.Location = new System.Drawing.Point(517, 469);
-            this.dgvAgregarArticulosPreventa.MultiSelect = false;
-            this.dgvAgregarArticulosPreventa.Name = "dgvAgregarArticulosPreventa";
-            this.dgvAgregarArticulosPreventa.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAgregarArticulosPreventa.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvAgregarArticulosPreventa.RowHeadersWidth = 51;
-            this.dgvAgregarArticulosPreventa.RowTemplate.Height = 40;
-            this.dgvAgregarArticulosPreventa.Size = new System.Drawing.Size(785, 246);
-            this.dgvAgregarArticulosPreventa.TabIndex = 79;
-            this.dgvAgregarArticulosPreventa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgregarArticulosPreventa_CellContentClick_1);
-            this.dgvAgregarArticulosPreventa.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvAgregarArticulosPreventa_CellPainting_1);
-            // 
-            // Articulo
-            // 
-            this.Articulo.HeaderText = "Artículo";
-            this.Articulo.MinimumWidth = 6;
-            this.Articulo.Name = "Articulo";
-            this.Articulo.ReadOnly = true;
-            this.Articulo.Width = 150;
-            // 
-            // SKU
-            // 
-            this.SKU.HeaderText = "SKU";
-            this.SKU.MinimumWidth = 6;
-            this.SKU.Name = "SKU";
-            this.SKU.ReadOnly = true;
-            this.SKU.Width = 125;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
-            this.Costo.ReadOnly = true;
-            this.Costo.Width = 125;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cant.";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 150;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.MinimumWidth = 6;
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
-            this.Subtotal.Width = 125;
-            // 
-            // idArticulo
-            // 
-            this.idArticulo.HeaderText = "idArticulo";
-            this.idArticulo.MinimumWidth = 6;
-            this.idArticulo.Name = "idArticulo";
-            this.idArticulo.ReadOnly = true;
-            this.idArticulo.Visible = false;
-            this.idArticulo.Width = 125;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.btnEliminar.HeaderText = "";
-            this.btnEliminar.MinimumWidth = 6;
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.ReadOnly = true;
-            this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnEliminar.Width = 40;
-            // 
             // form_RegistrarPreventa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1579, 738);
-            this.Controls.Add(this.dgvAgregarArticulosPreventa);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.txtIdUsuario);
             this.Controls.Add(this.groupBox3);
@@ -837,6 +837,7 @@ namespace CapaPresentacion
             this.Load += new System.EventHandler(this.form_RegistrarPreventa_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarArticulosPreventa)).EndInit();
             this.grpArticulos.ResumeLayout(false);
             this.grpArticulos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadArticulo)).EndInit();
@@ -847,7 +848,6 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosAFiltrar)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarArticulosPreventa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

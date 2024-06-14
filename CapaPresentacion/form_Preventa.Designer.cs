@@ -57,12 +57,6 @@ namespace CapaPresentacion
             this.formDetallePreventa = new System.Windows.Forms.Label();
             this.preventaBaja = new System.Windows.Forms.Label();
             this.dgvArticulosPreventa = new System.Windows.Forms.DataGridView();
-            this.idArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtUsuarioPreventa = new System.Windows.Forms.TextBox();
             this.Usuario = new System.Windows.Forms.Label();
@@ -80,6 +74,13 @@ namespace CapaPresentacion
             this.btnRestablecerBusquedaPreventa = new FontAwesome.Sharp.IconButton();
             this.btnRegistrarPreventa = new FontAwesome.Sharp.IconButton();
             this.txtIndice = new System.Windows.Forms.TextBox();
+            this.idArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadArticulosPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosPreventa)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -352,56 +353,14 @@ namespace CapaPresentacion
             this.Rubro,
             this.Marca,
             this.SKU,
-            this.Costo});
+            this.Costo,
+            this.CantidadArticulosPreventa});
             this.dgvArticulosPreventa.Location = new System.Drawing.Point(15, 31);
             this.dgvArticulosPreventa.Name = "dgvArticulosPreventa";
             this.dgvArticulosPreventa.RowHeadersWidth = 51;
             this.dgvArticulosPreventa.RowTemplate.Height = 24;
             this.dgvArticulosPreventa.Size = new System.Drawing.Size(993, 194);
             this.dgvArticulosPreventa.TabIndex = 45;
-            // 
-            // idArticulo
-            // 
-            this.idArticulo.HeaderText = "idArticulo";
-            this.idArticulo.MinimumWidth = 6;
-            this.idArticulo.Name = "idArticulo";
-            this.idArticulo.Visible = false;
-            this.idArticulo.Width = 125;
-            // 
-            // Articulo
-            // 
-            this.Articulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Articulo.HeaderText = "Artículo";
-            this.Articulo.MinimumWidth = 6;
-            this.Articulo.Name = "Articulo";
-            // 
-            // Rubro
-            // 
-            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            // 
-            // Marca
-            // 
-            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            // 
-            // SKU
-            // 
-            this.SKU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SKU.HeaderText = "SKU";
-            this.SKU.MinimumWidth = 6;
-            this.SKU.Name = "SKU";
-            // 
-            // Costo
-            // 
-            this.Costo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
             // 
             // groupBox1
             // 
@@ -621,6 +580,56 @@ namespace CapaPresentacion
             this.txtIndice.Size = new System.Drawing.Size(41, 22);
             this.txtIndice.TabIndex = 64;
             // 
+            // idArticulo
+            // 
+            this.idArticulo.HeaderText = "idArticulo";
+            this.idArticulo.MinimumWidth = 6;
+            this.idArticulo.Name = "idArticulo";
+            this.idArticulo.Visible = false;
+            this.idArticulo.Width = 125;
+            // 
+            // Articulo
+            // 
+            this.Articulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Articulo.HeaderText = "Artículo";
+            this.Articulo.MinimumWidth = 6;
+            this.Articulo.Name = "Articulo";
+            // 
+            // Rubro
+            // 
+            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Rubro.HeaderText = "Rubro";
+            this.Rubro.MinimumWidth = 6;
+            this.Rubro.Name = "Rubro";
+            // 
+            // Marca
+            // 
+            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            // 
+            // SKU
+            // 
+            this.SKU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SKU.HeaderText = "SKU";
+            this.SKU.MinimumWidth = 6;
+            this.SKU.Name = "SKU";
+            // 
+            // Costo
+            // 
+            this.Costo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 6;
+            this.Costo.Name = "Costo";
+            // 
+            // CantidadArticulosPreventa
+            // 
+            this.CantidadArticulosPreventa.HeaderText = "Cant.";
+            this.CantidadArticulosPreventa.MinimumWidth = 6;
+            this.CantidadArticulosPreventa.Name = "CantidadArticulosPreventa";
+            this.CantidadArticulosPreventa.Width = 125;
+            // 
             // form_Preventa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -699,12 +708,13 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn NroOperacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Baja;
         private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioPreventa;
+        private System.Windows.Forms.TextBox txtIndice;
         private System.Windows.Forms.DataGridViewTextBoxColumn idArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Articulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rubro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
-        private System.Windows.Forms.TextBox txtIndice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadArticulosPreventa;
     }
 }

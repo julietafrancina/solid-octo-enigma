@@ -244,22 +244,25 @@ namespace CapaPresentacion
             {
                 if (row.Cells["idArticulo"].Value != null)
                 {
-                    ItemPrevArt item = new ItemPrevArt
+                    for (int i = 0; i < Convert.ToInt32(row.Cells["Cantidad"].Value); i++)
                     {
-                        opreventa = new Preventa
+                        ItemPrevArt item = new ItemPrevArt
                         {
-                            idPreventa = idPreventaGenerada
-                        },
-                        osucursal = new Sucursal
-                        {
-                            id_suc = Convert.ToInt32(txtIdSucursal.Text)
-                        },
-                        oarticulo = new Articulo
-                        {
-                            idArticulo = Convert.ToInt32(row.Cells["idArticulo"].Value)
-                        }
-                    };
-                    articulosPreventa.Add(item);
+                            opreventa = new Preventa
+                            {
+                                idPreventa = idPreventaGenerada
+                            },
+                            osucursal = new Sucursal
+                            {
+                                id_suc = Convert.ToInt32(txtIdSucursal.Text)
+                            },
+                            oarticulo = new Articulo
+                            {
+                                idArticulo = Convert.ToInt32(row.Cells["idArticulo"].Value)
+                            }
+                        };
+                        articulosPreventa.Add(item);
+                    }
                 }
             }
 

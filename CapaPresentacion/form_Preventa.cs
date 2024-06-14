@@ -79,7 +79,8 @@ namespace CapaPresentacion
         private void btnRegistrarPreventa_Click(object sender, EventArgs e)
         {
             form_RegistrarPreventa registrarPreventa = new form_RegistrarPreventa(usuarioActual, this);
-            registrarPreventa.Show();
+
+            registrarPreventa.ShowDialog();
         }
 
         //Limpiar los campos una vez que se completó la operación
@@ -156,15 +157,39 @@ namespace CapaPresentacion
 
                     foreach (Articulo item in listaArticulosPreventa)
                     {
-                        dgvArticulosPreventa.Rows.Add(new object[]
+                        bool existe = false;
+                        int indiceArticulo = 0;
+
+                        foreach (DataGridViewRow row in dgvArticulosPreventa.Rows)
                         {
-                            item.idArticulo, //no visible en la tabla
-                            item.descripcion,
-                            item.rubro,
-                            item.marca,
-                            item.SKU,
-                            item.costo
-                        });
+                            if (item.SKU == Convert.ToInt32(row.Cells["SKU"].Value))
+                            {
+                                existe = true;
+                                indiceArticulo = row.Index;
+                                break;
+                            }
+                        }
+
+                        if (existe)
+                        {
+                            int cantidad = Convert.ToInt32(dgvArticulosPreventa.Rows[indiceArticulo].Cells["CantidadArticulosPreventa"].Value);
+
+                            cantidad++;
+                            dgvArticulosPreventa.Rows[indiceArticulo].Cells["CantidadArticulosPreventa"].Value = cantidad;
+                        }
+                        else
+                        {
+                            dgvArticulosPreventa.Rows.Add(new object[]
+                            {
+                                item.idArticulo, //no visible en la tabla
+                                item.descripcion,
+                                item.rubro,
+                                item.marca,
+                                item.SKU,
+                                item.costo,
+                                "1"
+                            });
+                        }
                     }
                 }  
 
