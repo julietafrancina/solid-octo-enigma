@@ -69,7 +69,7 @@ namespace SistemaDeVentas
         }
 
 
-        private void AbrirFormulario(Form formulario)
+        private void AbrirFormulario(Form formulario, IconMenuItem menu)
         {
 
             if (MenuActivo != null)
@@ -77,7 +77,8 @@ namespace SistemaDeVentas
                 MenuActivo.BackColor = Color.White;
             }
 
-
+            MenuActivo = menu;
+            MenuActivo.BackColor = Color.Silver;
 
             if (FormularioActivo != null)
             {
@@ -133,12 +134,12 @@ namespace SistemaDeVentas
 
         public void abrirFacturas(object sender, EventArgs e)
         {
-            AbrirFormulario(new CapaPresentacion.form_Facturas(idPrev, this));
+            AbrirFormulario(new CapaPresentacion.form_Facturas(idPrev, this), menuFacturas);
         }
 
         public void abrirRemitos(object sender, EventArgs e)
         {
-            AbrirFormulario(new CapaPresentacion.Form_Remito(idFact));
+            AbrirFormulario(new CapaPresentacion.Form_Remito(idFact), menuRemitos);
         }
 
 

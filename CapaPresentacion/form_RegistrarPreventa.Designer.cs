@@ -341,6 +341,7 @@ namespace CapaPresentacion
             this.txtIdArticulo.Name = "txtIdArticulo";
             this.txtIdArticulo.Size = new System.Drawing.Size(32, 22);
             this.txtIdArticulo.TabIndex = 77;
+            this.txtIdArticulo.Visible = false;
             // 
             // btnAgregarArticulosPreventa
             // 
@@ -522,6 +523,7 @@ namespace CapaPresentacion
             this.txtIdSucursal.Name = "txtIdSucursal";
             this.txtIdSucursal.Size = new System.Drawing.Size(32, 22);
             this.txtIdSucursal.TabIndex = 35;
+            this.txtIdSucursal.Visible = false;
             // 
             // txtFechaPreventa
             // 
@@ -599,6 +601,7 @@ namespace CapaPresentacion
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(32, 22);
             this.txtIdCliente.TabIndex = 36;
+            this.txtIdCliente.Visible = false;
             // 
             // txtDNICliente
             // 
@@ -693,6 +696,7 @@ namespace CapaPresentacion
             this.txtIdUsuario.Name = "txtIdUsuario";
             this.txtIdUsuario.Size = new System.Drawing.Size(32, 22);
             this.txtIdUsuario.TabIndex = 75;
+            this.txtIdUsuario.Visible = false;
             // 
             // txtFiltrarArticulos
             // 
