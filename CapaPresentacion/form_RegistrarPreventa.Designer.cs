@@ -33,6 +33,7 @@ namespace CapaPresentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_RegistrarPreventa));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvAgregarArticulosPreventa = new System.Windows.Forms.DataGridView();
             this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,6 +110,9 @@ namespace CapaPresentacion
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox2.Controls.Add(this.dgvAgregarArticulosPreventa);
             this.groupBox2.Controls.Add(this.btnCancelarPreventa);
@@ -290,6 +294,9 @@ namespace CapaPresentacion
             // 
             // RegistrarPreventa
             // 
+            this.RegistrarPreventa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RegistrarPreventa.AutoSize = true;
             this.RegistrarPreventa.BackColor = System.Drawing.Color.WhiteSmoke;
             this.RegistrarPreventa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -302,6 +309,9 @@ namespace CapaPresentacion
             // 
             // grpArticulos
             // 
+            this.grpArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpArticulos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.grpArticulos.Controls.Add(this.txtIdArticulo);
             this.grpArticulos.Controls.Add(this.btnAgregarArticulosPreventa);
@@ -478,6 +488,9 @@ namespace CapaPresentacion
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox1.Controls.Add(this.txtNroOperacionPreventa);
             this.groupBox1.Controls.Add(this.label11);
@@ -557,6 +570,9 @@ namespace CapaPresentacion
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox3.Controls.Add(this.txtIdCliente);
             this.groupBox3.Controls.Add(this.txtDNICliente);
@@ -670,6 +686,9 @@ namespace CapaPresentacion
             // 
             // txtIdUsuario
             // 
+            this.txtIdUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIdUsuario.Location = new System.Drawing.Point(204, 27);
             this.txtIdUsuario.Name = "txtIdUsuario";
             this.txtIdUsuario.Size = new System.Drawing.Size(32, 22);
@@ -788,6 +807,9 @@ namespace CapaPresentacion
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.cboFiltrarArticulos);
             this.groupBox4.Controls.Add(this.dgvArticulosAFiltrar);
@@ -833,7 +855,9 @@ namespace CapaPresentacion
             this.Controls.Add(this.grpArticulos);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "form_RegistrarPreventa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Preventas";
             this.Load += new System.EventHandler(this.form_RegistrarPreventa_Load);
             this.groupBox2.ResumeLayout(false);

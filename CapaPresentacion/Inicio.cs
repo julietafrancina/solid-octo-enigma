@@ -20,6 +20,8 @@ namespace SistemaDeVentas
         private static Usuario usuarioActual;
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
+        private static string idPrev;
+        private static string iiFact;
 
         public Inicio(Usuario usuario)
         {
@@ -75,13 +77,42 @@ namespace SistemaDeVentas
 
         }
 
+
+        private void AbrirFormulario(Form formulario)
+        {
+
+            if (MenuActivo != null)
+            {
+                MenuActivo.BackColor = Color.White;
+            }
+
+            //menu.BackColor = Color.Silver;
+            //MenuActivo = menu;
+
+            if (FormularioActivo != null)
+            {
+                FormularioActivo.Close();
+            }
+
+            FormularioActivo = formulario;
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            formulario.BackColor = Color.LightGray;
+
+            contenedor.Controls.Add(formulario);
+            formulario.Show();
+
+        }
+
+
         private void menuUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Usuarios());
         }
         private void menuPreventas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Preventa(usuarioActual));
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Preventa(usuarioActual, this));
         }
 
         private void menuClientes_Click(object sender, EventArgs e)
@@ -108,5 +139,18 @@ namespace SistemaDeVentas
         {
             AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.Form_Remito());
         }
+
+
+        public void abrirFacturas(object sender, EventArgs e)
+        {
+            AbrirFormulario(new CapaPresentacion.form_Facturas(idPrev));
+        }
+
+
+        public void setIdPrev(string id)
+        {
+            idPrev = id;
+        }
+
     }
 }

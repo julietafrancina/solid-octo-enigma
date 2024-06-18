@@ -123,7 +123,7 @@ namespace CapaPresentacion
             art.rubro = textRubro.Text;
             art.marca = textMarca.Text;
             art.descripcion = textDesc.Text;
-            art.costo = Convert.ToDecimal(textCosto.Text);
+            art.costo = Convert.ToDouble(textCosto.Text);
             art.activo = ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString();
 
             int idgenerado = new CN_Articulo().guardar_bd(art, out mensaje);

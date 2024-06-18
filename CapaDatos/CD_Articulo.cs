@@ -52,7 +52,7 @@ namespace CapaDatos
                                 rubro = dr["rubro"].ToString(),
                                 marca = dr["marca"].ToString(),
                                 descripcion = dr["descripcion"].ToString(),
-                                costo = Convert.ToDecimal(dr["costo"]),
+                                costo = Convert.ToDouble(dr["costo"]),
                                 activo = a,
 
                             });

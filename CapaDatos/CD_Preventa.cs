@@ -139,5 +139,59 @@ namespace CapaDatos
             }
             return resultado;
         }
+
+        public List<Preventa> listarPrevsAFacturar()
+        {
+
+            List<Preventa> lista = new List<Preventa>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+
+                    SqlCommand cmd = new SqlCommand("sp_TraerPreventasAFacturar", oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+
+                            lista.Add(new Preventa()
+                            {
+                                idPreventa = Convert.ToInt32(dr["id_preventa"]),
+                                fecha = Convert.ToDateTime(dr["fecha"]),
+                                baja = Convert.ToBoolean(dr["baja"]),
+                                monto = Convert.ToDouble(dr["monto"]),
+                                nroOperacion = Convert.ToInt32(dr["nro_operacion"]),
+                                osucursal = new Sucursal()
+                                {
+                                    id_suc = Convert.ToInt32(dr["sucursal_id"]),
+                                    desc = dr["descripcion"].ToString()
+                                },
+                                ousuario = new Usuario() { idUsuario = Convert.ToInt32(dr["usuario_id"]) },
+                                ocliente = new Cliente() { idCliente = Convert.ToInt32(dr["cliente_id"]) }
+                            });
+                        }
+
+                    }
+                }
+                catch (Exception)
+                {
+                    lista = new List<Preventa>();
+                }
+
+
+
+            }
+
+            return lista;
+
+        }
+
+
+
     }
 }

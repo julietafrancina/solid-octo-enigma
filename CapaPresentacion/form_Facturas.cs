@@ -15,11 +15,22 @@ namespace CapaPresentacion
 {
     public partial class form_Facturas : Form
     {
+
+        string idPreventa;
+
+        public form_Facturas(string idPrev)
+        {
+
+            InitializeComponent();
+            idPreventa = idPrev;
+
+        }
+
         public form_Facturas()
         {
 
             InitializeComponent();
-            
+
         }
 
         private void form_Facturas_Load(object sender, EventArgs e)
@@ -58,6 +69,17 @@ namespace CapaPresentacion
             }
 
             cargarPreventasCBO();
+
+
+            foreach (OpcionCombo oc in cboBoxPreventa.Items)
+            {
+                if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(idPreventa))
+                {
+                    int indice_combo = cboBoxPreventa.Items.IndexOf(oc);
+                    cboBoxPreventa.SelectedIndex = indice_combo;
+                    break;
+                }
+            }
 
         }
 

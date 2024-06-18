@@ -29,8 +29,8 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtBusquedaPreventa = new System.Windows.Forms.TextBox();
             this.cboBusquedaPreventa = new System.Windows.Forms.ComboBox();
             this.ttlUsuarios = new System.Windows.Forms.Label();
@@ -57,11 +57,13 @@ namespace CapaPresentacion
             this.formDetallePreventa = new System.Windows.Forms.Label();
             this.preventaBaja = new System.Windows.Forms.Label();
             this.dgvArticulosPreventa = new System.Windows.Forms.DataGridView();
+            this.idArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadArticulosPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtUsuarioPreventa = new System.Windows.Forms.TextBox();
             this.Usuario = new System.Windows.Forms.Label();
@@ -79,13 +81,6 @@ namespace CapaPresentacion
             this.btnRestablecerBusquedaPreventa = new FontAwesome.Sharp.IconButton();
             this.btnRegistrarPreventa = new FontAwesome.Sharp.IconButton();
             this.txtIndice = new System.Windows.Forms.TextBox();
-            this.idArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rubro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadArticulosPreventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPreventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosPreventa)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -127,15 +122,15 @@ namespace CapaPresentacion
             // dgvPreventas
             // 
             this.dgvPreventas.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPreventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPreventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPreventas.ColumnHeadersHeight = 40;
             this.dgvPreventas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -151,14 +146,14 @@ namespace CapaPresentacion
             this.dgvPreventas.MultiSelect = false;
             this.dgvPreventas.Name = "dgvPreventas";
             this.dgvPreventas.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPreventas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPreventas.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPreventas.RowHeadersWidth = 51;
             this.dgvPreventas.RowTemplate.Height = 40;
             this.dgvPreventas.Size = new System.Drawing.Size(994, 307);
@@ -331,8 +326,9 @@ namespace CapaPresentacion
             // 
             // formDetallePreventa
             // 
+            this.formDetallePreventa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.formDetallePreventa.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.formDetallePreventa.Dock = System.Windows.Forms.DockStyle.Top;
             this.formDetallePreventa.Location = new System.Drawing.Point(0, 0);
             this.formDetallePreventa.Name = "formDetallePreventa";
             this.formDetallePreventa.Size = new System.Drawing.Size(1304, 441);
@@ -366,6 +362,14 @@ namespace CapaPresentacion
             this.dgvArticulosPreventa.RowTemplate.Height = 24;
             this.dgvArticulosPreventa.Size = new System.Drawing.Size(993, 194);
             this.dgvArticulosPreventa.TabIndex = 45;
+            // 
+            // idArticulo
+            // 
+            this.idArticulo.HeaderText = "idArticulo";
+            this.idArticulo.MinimumWidth = 6;
+            this.idArticulo.Name = "idArticulo";
+            this.idArticulo.Visible = false;
+            this.idArticulo.Width = 125;
             // 
             // Articulo
             // 
@@ -401,6 +405,13 @@ namespace CapaPresentacion
             this.Costo.HeaderText = "Costo";
             this.Costo.MinimumWidth = 6;
             this.Costo.Name = "Costo";
+            // 
+            // CantidadArticulosPreventa
+            // 
+            this.CantidadArticulosPreventa.HeaderText = "Cant.";
+            this.CantidadArticulosPreventa.MinimumWidth = 6;
+            this.CantidadArticulosPreventa.Name = "CantidadArticulosPreventa";
+            this.CantidadArticulosPreventa.Width = 125;
             // 
             // groupBox1
             // 
@@ -534,6 +545,7 @@ namespace CapaPresentacion
             this.bntGenerarFactura.Text = "Generar factura";
             this.bntGenerarFactura.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.bntGenerarFactura.UseVisualStyleBackColor = false;
+            this.bntGenerarFactura.Click += new System.EventHandler(this.bntGenerarFactura_Click);
             // 
             // groupBox3
             // 
@@ -566,8 +578,9 @@ namespace CapaPresentacion
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Location = new System.Drawing.Point(0, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1304, 753);
@@ -619,56 +632,6 @@ namespace CapaPresentacion
             this.txtIndice.Name = "txtIndice";
             this.txtIndice.Size = new System.Drawing.Size(41, 22);
             this.txtIndice.TabIndex = 64;
-            // 
-            // idArticulo
-            // 
-            this.idArticulo.HeaderText = "idArticulo";
-            this.idArticulo.MinimumWidth = 6;
-            this.idArticulo.Name = "idArticulo";
-            this.idArticulo.Visible = false;
-            this.idArticulo.Width = 125;
-            // 
-            // Articulo
-            // 
-            this.Articulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Articulo.HeaderText = "Artículo";
-            this.Articulo.MinimumWidth = 6;
-            this.Articulo.Name = "Articulo";
-            // 
-            // Rubro
-            // 
-            this.Rubro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Rubro.HeaderText = "Rubro";
-            this.Rubro.MinimumWidth = 6;
-            this.Rubro.Name = "Rubro";
-            // 
-            // Marca
-            // 
-            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            // 
-            // SKU
-            // 
-            this.SKU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SKU.HeaderText = "SKU";
-            this.SKU.MinimumWidth = 6;
-            this.SKU.Name = "SKU";
-            // 
-            // Costo
-            // 
-            this.Costo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 6;
-            this.Costo.Name = "Costo";
-            // 
-            // CantidadArticulosPreventa
-            // 
-            this.CantidadArticulosPreventa.HeaderText = "Cant.";
-            this.CantidadArticulosPreventa.MinimumWidth = 6;
-            this.CantidadArticulosPreventa.Name = "CantidadArticulosPreventa";
-            this.CantidadArticulosPreventa.Width = 125;
             // 
             // form_Preventa
             // 

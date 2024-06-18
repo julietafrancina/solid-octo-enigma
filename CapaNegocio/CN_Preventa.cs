@@ -30,6 +30,11 @@ namespace CapaNegocio
             mensaje = string.Empty;
             return objcd_preventa.bajaPreventa(id_preventa, out mensaje);
         }
+
+        public List<Preventa> listarPrevsAFacturar()
+        {
+            return objcd_preventa.listarPrevsAFacturar();
+        }
     }
 
 }
