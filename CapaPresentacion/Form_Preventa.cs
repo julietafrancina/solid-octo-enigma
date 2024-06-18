@@ -10,18 +10,20 @@ using System.Windows.Forms;
 using CapaPresentacion.Utilidades;
 using CapaEntidad;
 using CapaNegocio;
+using SistemaDeVentas;
 
 namespace CapaPresentacion
 {
     public partial class form_Preventa : Form
     {
         private static Usuario usuarioActual;
-        public form_Preventa(Usuario user)
+        private static Inicio inicio;
+        public form_Preventa(Usuario user, Inicio form_in)
         {
             InitializeComponent();
 
             usuarioActual = user;
-
+            inicio = form_in;
             dgvPreventas.CellFormatting += dgvPreventas_CellFormatting;
             dgvArticulosPreventa.AllowUserToAddRows = false;
         }
@@ -86,7 +88,7 @@ namespace CapaPresentacion
         //Limpiar los campos una vez que se completó la operación
         private void limpiar()
         {
-            txtId.Text = "-1";
+            txtId.Text = "";
             txtFecha.Text = "";
             txtNombreCliente.Text = "";
             txtNroOperacion.Text = "";
@@ -95,6 +97,7 @@ namespace CapaPresentacion
             txtBaja.Text = "";
             txtMonto.Text = "";
             dgvArticulosPreventa.Rows.Clear();
+            txtIndice.Text = "";
         }
 
         private void dgvPreventa_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -285,6 +288,20 @@ namespace CapaPresentacion
 
                 limpiar();
             }
+        }
+
+        private void bntGenerarFactura_Click(object sender, EventArgs e)
+        {
+            if(txtId.Text != "")
+            {
+                inicio.setIdPrev(txtId.Text);
+                inicio.abrirFacturas(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una preventa por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
         }
     }
 }
