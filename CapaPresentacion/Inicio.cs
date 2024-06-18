@@ -21,20 +21,11 @@ namespace SistemaDeVentas
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
         private static string idPrev;
-        private static string iiFact;
+        private static string idFact;
 
         public Inicio(Usuario usuario)
         {
             usuarioActual = usuario;
-            //solución momentánea para no tener que loguearme cada vez que abro el sistema.
-            //if (usuario == null) usuarioActual = new Usuario()
-            //{
-            //    nombreCompleto = "Admin", idUsuario = 1
-            //};
-            //else
-            //{ 
-            //    usuarioActual = usuario;
-            //}
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
         }
@@ -86,8 +77,7 @@ namespace SistemaDeVentas
                 MenuActivo.BackColor = Color.White;
             }
 
-            //menu.BackColor = Color.Silver;
-            //MenuActivo = menu;
+
 
             if (FormularioActivo != null)
             {
@@ -132,7 +122,7 @@ namespace SistemaDeVentas
 
         private void menuFacturas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Facturas());
+            AbrirFormulario((IconMenuItem)sender, new CapaPresentacion.form_Facturas(this));
         }
 
         private void menuRemitos_Click(object sender, EventArgs e)
@@ -143,13 +133,23 @@ namespace SistemaDeVentas
 
         public void abrirFacturas(object sender, EventArgs e)
         {
-            AbrirFormulario(new CapaPresentacion.form_Facturas(idPrev));
+            AbrirFormulario(new CapaPresentacion.form_Facturas(idPrev, this));
+        }
+
+        public void abrirRemitos(object sender, EventArgs e)
+        {
+            AbrirFormulario(new CapaPresentacion.Form_Remito(idFact));
         }
 
 
         public void setIdPrev(string id)
         {
             idPrev = id;
+        }
+
+        public void setIdFactura(string id)
+        {
+            idFact = id;
         }
 
     }

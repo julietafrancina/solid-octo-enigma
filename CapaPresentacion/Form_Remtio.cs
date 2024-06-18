@@ -17,6 +17,7 @@ namespace CapaPresentacion
 {
     public partial class Form_Remito : Form
     {
+        string idFactura;
         public Form_Remito()
         {
             InitializeComponent();
@@ -24,6 +25,16 @@ namespace CapaPresentacion
             CargarComboBoxFactura();
             CB_fact.SelectedIndexChanged += new EventHandler(CB_fact_SelectedIndexChanged);
 
+        }
+
+        public Form_Remito(string id)
+        {
+            InitializeComponent();
+            this.Load += new EventHandler(DLoad);
+            CargarComboBoxFactura();
+            CB_fact.SelectedIndexChanged += new EventHandler(CB_fact_SelectedIndexChanged);
+            idFactura = id;
+            
         }
 
         private void DLoad(object sender, EventArgs e)
@@ -34,6 +45,15 @@ namespace CapaPresentacion
             CB_fact.Text = "Seleccione:";
 
             cargarCboFact();
+            foreach (OpcionCombo oc in CB_fact.Items)
+            {
+                if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(idFactura))
+                {
+                    int indice_combo = CB_fact.Items.IndexOf(oc);
+                    CB_fact.SelectedIndex = indice_combo;
+                    break;
+                }
+            }
         }
 
         private void CargarDatos()
@@ -228,7 +248,9 @@ namespace CapaPresentacion
             CB_tipo.DisplayMember = "Texto";
             CB_tipo.ValueMember = "Valor";
             CB_tipo.SelectedIndex = 0;
-         
+
+            
+
         }
         private void CargarComboBoxFactura()
         {
