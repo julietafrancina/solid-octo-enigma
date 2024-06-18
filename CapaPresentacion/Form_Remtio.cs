@@ -319,7 +319,7 @@ namespace CapaPresentacion
 
         }
         private void BuscarRemito()
-        {
+        { 
             string textoBusqueda = text_buscar.Text.Trim();
 
             if (!string.IsNullOrEmpty(textoBusqueda))

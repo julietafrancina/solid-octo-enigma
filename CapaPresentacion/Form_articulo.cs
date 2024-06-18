@@ -428,22 +428,6 @@ namespace CapaPresentacion
         private void btnBusqueda_Click(object sender, EventArgs e)
         {
             BuscarArticulo();
-            /*string columnaFiltro = ((OpcionCombo)Cb_busqueda.SelectedItem).Texto.ToString();
-
-            if (tabla_art.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow row in tabla_art.Rows)
-                {
-                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(text_buscar.Text.Trim().ToUpper()))
-                    {
-                        row.Visible = true;
-                    }
-                        
-                    else
-                        row.Visible = false;
-
-                }
-            }*/
 
         }
 
