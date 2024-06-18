@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion.Utilidades;
+using SistemaDeVentas;
 
 namespace CapaPresentacion
 {
@@ -17,19 +18,22 @@ namespace CapaPresentacion
     {
 
         string idPreventa;
+        private static Inicio inicio;
 
-        public form_Facturas(string idPrev)
+        public form_Facturas(string idPrev, Inicio ini)
         {
 
             InitializeComponent();
             idPreventa = idPrev;
+            inicio = ini;
 
         }
 
-        public form_Facturas()
+        public form_Facturas(Inicio ini)
         {
 
             InitializeComponent();
+            inicio = ini;
 
         }
 
@@ -389,5 +393,17 @@ namespace CapaPresentacion
             cboBoxPreventa.ValueMember = "Valor";
         }
 
+        private void btnGenerarRemito_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "0")
+            {
+                inicio.setIdFactura(txtId.Text);
+                inicio.abrirRemitos(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una factura por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }
