@@ -147,9 +147,17 @@ namespace CapaPresentacion
                     txtNombreCliente.Text = dgvPreventas.Rows[indice].Cells["Cliente"].Value.ToString();
                     txtNroOperacion.Text = dgvPreventas.Rows[indice].Cells["NroOperacion"].Value.ToString();
                     txtSucursal.Text = dgvPreventas.Rows[indice].Cells["Sucursal"].Value.ToString();
-                    txtBaja.Text = dgvPreventas.Rows[indice].Cells["Baja"].Value.ToString();
+                    if(dgvPreventas.Rows[indice].Cells["Baja"].Value.ToString() == "True")
+                    {
+                        txtBaja.Text = "Si";
+                    }
+                    else
+                    {
+                        txtBaja.Text = "No";
+                    }
                     txtUsuarioPreventa.Text = dgvPreventas.Rows[indice].Cells["UsuarioPreventa"].Value.ToString();
                     txtIndice.Text = indice.ToString();
+                    txtMonto.Text = dgvPreventas.Rows[indice].Cells["Monto"].Value.ToString();
 
                     List<Articulo> listaArticulosPreventa = new CN_Preventa().listarArticulosPreventa(new Preventa()
                     {
@@ -196,24 +204,6 @@ namespace CapaPresentacion
                     }
                 }  
 
-                decimal sumaTotal = 0;
-
-                foreach (DataGridViewRow row in dgvArticulosPreventa.Rows)
-                {
-                    if (!row.IsNewRow)
-                    {
-                        var valorCelda = row.Cells["Costo"].Value;
-                        if (valorCelda != null)
-                        {
-                            if (decimal.TryParse(valorCelda.ToString(), out decimal costo))
-                            {
-                                sumaTotal += costo;
-                            }
-                        }
-                    }
-                }
-
-                txtMonto.Text = sumaTotal.ToString("N2");
             }
         }
 
@@ -262,7 +252,7 @@ namespace CapaPresentacion
         {
             if (txtId.Text == string.Empty)
             {
-                MessageBox.Show("No se puede dar de baja una preventa que no existe", "Error");
+                MessageBox.Show("No se puede dar de baja una preventa que no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             else
@@ -283,7 +273,7 @@ namespace CapaPresentacion
 
             if (resultado)
             {
-                MessageBox.Show("La preventa se ha dado de baja correctamente.");
+                MessageBox.Show("La preventa se ha dado de baja correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgvPreventas.Rows[Convert.ToInt32(txtIndice.Text)].Cells["Baja"].Value = true;
 
                 limpiar();
@@ -292,14 +282,14 @@ namespace CapaPresentacion
 
         private void bntGenerarFactura_Click(object sender, EventArgs e)
         {
-            if(txtId.Text != "")
+            if(txtId.Text != "" && txtBaja.Text == "No")
             {
                 inicio.setIdPrev(txtId.Text);
                 inicio.abrirFacturas(sender, e);
             }
             else
             {
-                MessageBox.Show("Seleccione una preventa por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccione una preventa no dada de baja por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             
         }

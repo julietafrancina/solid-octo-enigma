@@ -109,6 +109,8 @@ namespace CapaPresentacion
             // 
             // ttlUsuarios
             // 
+            this.ttlUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ttlUsuarios.AutoSize = true;
             this.ttlUsuarios.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ttlUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -122,6 +124,8 @@ namespace CapaPresentacion
             // dgvPreventas
             // 
             this.dgvPreventas.AllowUserToAddRows = false;
+            this.dgvPreventas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -254,8 +258,10 @@ namespace CapaPresentacion
             // 
             // txtMonto
             // 
+            this.txtMonto.BackColor = System.Drawing.SystemColors.Window;
             this.txtMonto.Location = new System.Drawing.Point(14, 51);
             this.txtMonto.Name = "txtMonto";
+            this.txtMonto.ReadOnly = true;
             this.txtMonto.Size = new System.Drawing.Size(176, 22);
             this.txtMonto.TabIndex = 36;
             // 
@@ -347,6 +353,8 @@ namespace CapaPresentacion
             // dgvArticulosPreventa
             // 
             this.dgvArticulosPreventa.AllowUserToAddRows = false;
+            this.dgvArticulosPreventa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvArticulosPreventa.ColumnHeadersHeight = 40;
             this.dgvArticulosPreventa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idArticulo,
@@ -415,6 +423,8 @@ namespace CapaPresentacion
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox1.Controls.Add(this.txtUsuarioPreventa);
             this.groupBox1.Controls.Add(this.Usuario);
@@ -464,6 +474,7 @@ namespace CapaPresentacion
             // 
             // btnLimpiar
             // 
+            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
             this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.btnLimpiar.IconColor = System.Drawing.Color.Black;
@@ -480,6 +491,8 @@ namespace CapaPresentacion
             // 
             // grpArticulos
             // 
+            this.grpArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpArticulos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.grpArticulos.Controls.Add(this.dgvArticulosPreventa);
             this.grpArticulos.Location = new System.Drawing.Point(27, 166);
@@ -491,6 +504,8 @@ namespace CapaPresentacion
             // 
             // DetallePreventa
             // 
+            this.DetallePreventa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DetallePreventa.AutoSize = true;
             this.DetallePreventa.BackColor = System.Drawing.Color.WhiteSmoke;
             this.DetallePreventa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -503,6 +518,7 @@ namespace CapaPresentacion
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox2.Controls.Add(this.btnDarDeBaja);
             this.groupBox2.Controls.Add(this.bntGenerarFactura);
@@ -549,6 +565,7 @@ namespace CapaPresentacion
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox3.Controls.Add(this.btnBusquedaPreventa);
             this.groupBox3.Controls.Add(this.txtBusquedaPreventa);
@@ -596,6 +613,7 @@ namespace CapaPresentacion
             // 
             // btnRestablecerBusquedaPreventa
             // 
+            this.btnRestablecerBusquedaPreventa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestablecerBusquedaPreventa.BackColor = System.Drawing.SystemColors.Control;
             this.btnRestablecerBusquedaPreventa.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
             this.btnRestablecerBusquedaPreventa.IconColor = System.Drawing.Color.Black;
@@ -612,6 +630,7 @@ namespace CapaPresentacion
             // 
             // btnRegistrarPreventa
             // 
+            this.btnRegistrarPreventa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRegistrarPreventa.BackColor = System.Drawing.SystemColors.Control;
             this.btnRegistrarPreventa.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.btnRegistrarPreventa.IconColor = System.Drawing.Color.LimeGreen;

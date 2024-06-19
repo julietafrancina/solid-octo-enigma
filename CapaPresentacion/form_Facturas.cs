@@ -395,14 +395,15 @@ namespace CapaPresentacion
 
         private void btnGenerarRemito_Click(object sender, EventArgs e)
         {
-            if (txtId.Text != "0")
+            int indice = Convert.ToInt32(txtIndice.Text);
+            if (txtId.Text != "0" && dgvData.Rows[indice].Cells["DescEstado"].Value.ToString() != "Anulado")
             {
                 inicio.setIdFactura(txtId.Text);
                 inicio.abrirRemitos(sender, e);
             }
             else
             {
-                MessageBox.Show("Seleccione una factura por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccione una factura no anulada por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
