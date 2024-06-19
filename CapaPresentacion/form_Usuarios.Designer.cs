@@ -120,6 +120,7 @@ namespace CapaPresentacion
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(229, 22);
             this.txtDNI.TabIndex = 4;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // txtNombreCompleto
             // 

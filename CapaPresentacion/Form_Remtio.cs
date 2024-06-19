@@ -270,12 +270,16 @@ namespace CapaPresentacion
             int numero;
             if (int.TryParse(textNro.Text, out numero) && textNroOp.Text != string.Empty)
             {
-                AnularRemito(numero);
-                // Actualizar el DataGridView para reflejar los cambios
-                ActualizarTabla(numero);
-                //CargarDatos();
-                limpiar();
-                cargarCboFact();
+                if (MessageBox.Show("¿Desea anular el remito?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    AnularRemito(numero);
+                    // Actualizar el DataGridView para reflejar los cambios
+                    ActualizarTabla(numero);
+                    //CargarDatos();
+                    limpiar();
+                    cargarCboFact();
+                }
+                
             }
             else
             {

@@ -336,5 +336,15 @@ namespace CapaPresentacion
 
             }
         }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
     }
 }

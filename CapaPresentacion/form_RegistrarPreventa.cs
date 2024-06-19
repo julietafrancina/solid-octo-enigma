@@ -210,80 +210,88 @@ namespace CapaPresentacion
         // CREAR nueva preventa
         private void bntCrearPreventa_Click(object sender, EventArgs e)
         {
-            string mensaje = string.Empty;
-            Preventa objregistrarPreventa = new Preventa()
+            if(txtNombreCliente.Text == "" || txtNroOperacionPreventa.Text == "" || txtTotalAPagar.Text == "" || txtTotalAPagar.Text == "0,00")
             {
-                fecha = Convert.ToDateTime(txtFechaPreventa.Text),
-                monto = Convert.ToDouble(txtTotalAPagar.Text),
-                osucursal = new Sucursal()
-                {
-                    id_suc = Convert.ToInt32(txtIdSucursal.Text),
-                    desc =  ((OpcionCombo)cboSucursalPreventa.SelectedItem).Texto
-                },
-                ousuario = new Usuario()
-                {
-                    idUsuario = Convert.ToInt32(txtIdUsuario.Text),
-                    nombreCompleto = usuarioActual.nombreCompleto
-                },
-                ocliente = new Cliente()
-                {
-                    idCliente = Convert.ToInt32(txtIdCliente.Text),
-                    nombreCompleto = txtNombreCliente.Text
-                },
-                nroOperacion = Convert.ToInt32(txtNroOperacionPreventa.Text)
-            };
-
-            int idPreventaGenerada = new CN_RegistrarPreventa().registrarPreventa(objregistrarPreventa, out mensaje);
-
-
-            //Artículos
-            string msj = string.Empty;
-
-            List<ItemPrevArt> articulosPreventa = new List<ItemPrevArt>();
-            foreach (DataGridViewRow row in dgvAgregarArticulosPreventa.Rows)
+                MessageBox.Show("Ingrese los datos de la preventa por favor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
             {
-                if (row.Cells["idArticulo"].Value != null)
+                string mensaje = string.Empty;
+                Preventa objregistrarPreventa = new Preventa()
                 {
-                    for (int i = 0; i < Convert.ToInt32(row.Cells["Cantidad"].Value); i++)
+                    fecha = Convert.ToDateTime(txtFechaPreventa.Text),
+                    monto = Convert.ToDouble(txtTotalAPagar.Text),
+                    osucursal = new Sucursal()
                     {
-                        ItemPrevArt item = new ItemPrevArt
+                        id_suc = Convert.ToInt32(txtIdSucursal.Text),
+                        desc = ((OpcionCombo)cboSucursalPreventa.SelectedItem).Texto
+                    },
+                    ousuario = new Usuario()
+                    {
+                        idUsuario = Convert.ToInt32(txtIdUsuario.Text),
+                        nombreCompleto = usuarioActual.nombreCompleto
+                    },
+                    ocliente = new Cliente()
+                    {
+                        idCliente = Convert.ToInt32(txtIdCliente.Text),
+                        nombreCompleto = txtNombreCliente.Text
+                    },
+                    nroOperacion = Convert.ToInt32(txtNroOperacionPreventa.Text)
+                };
+
+                int idPreventaGenerada = new CN_RegistrarPreventa().registrarPreventa(objregistrarPreventa, out mensaje);
+
+
+                //Artículos
+                string msj = string.Empty;
+
+                List<ItemPrevArt> articulosPreventa = new List<ItemPrevArt>();
+                foreach (DataGridViewRow row in dgvAgregarArticulosPreventa.Rows)
+                {
+                    if (row.Cells["idArticulo"].Value != null)
+                    {
+                        for (int i = 0; i < Convert.ToInt32(row.Cells["Cantidad"].Value); i++)
                         {
-                            opreventa = new Preventa
+                            ItemPrevArt item = new ItemPrevArt
                             {
-                                idPreventa = idPreventaGenerada
-                            },
-                            osucursal = new Sucursal
-                            {
-                                id_suc = Convert.ToInt32(txtIdSucursal.Text)
-                            },
-                            oarticulo = new Articulo
-                            {
-                                idArticulo = Convert.ToInt32(row.Cells["idArticulo"].Value)
-                            }
-                        };
-                        articulosPreventa.Add(item);
+                                opreventa = new Preventa
+                                {
+                                    idPreventa = idPreventaGenerada
+                                },
+                                osucursal = new Sucursal
+                                {
+                                    id_suc = Convert.ToInt32(txtIdSucursal.Text)
+                                },
+                                oarticulo = new Articulo
+                                {
+                                    idArticulo = Convert.ToInt32(row.Cells["idArticulo"].Value)
+                                }
+                            };
+                            articulosPreventa.Add(item);
+                        }
                     }
                 }
+
+                CN_RegistrarPreventa registrarArticulosPreventa = new CN_RegistrarPreventa();
+                registrarArticulosPreventa.EnviarDatos(articulosPreventa, out msj);
+
+                MessageBox.Show("La preventa se ha creado correctamente.", "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                formPreventa.MyDataGridView.Rows.Add
+                    (
+                        "",
+                        idPreventaGenerada, //no visible en la tabla
+                        objregistrarPreventa.fecha,
+                        objregistrarPreventa.ocliente.nombreCompleto,
+                        objregistrarPreventa.osucursal.desc,
+                        objregistrarPreventa.monto,
+                        objregistrarPreventa.nroOperacion,
+                        objregistrarPreventa.baja,
+                        objregistrarPreventa.ousuario.nombreCompleto
+                    );
+
+                this.Close();
             }
-
-            CN_RegistrarPreventa registrarArticulosPreventa = new CN_RegistrarPreventa();
-            registrarArticulosPreventa.EnviarDatos(articulosPreventa, out msj);
-
-            MessageBox.Show("La preventa se ha creado correctamente.");
-            formPreventa.MyDataGridView.Rows.Add
-                (
-                    "",
-                    idPreventaGenerada, //no visible en la tabla
-                    objregistrarPreventa.fecha,
-                    objregistrarPreventa.ocliente.nombreCompleto,
-                    objregistrarPreventa.osucursal.desc,
-                    objregistrarPreventa.monto,
-                    objregistrarPreventa.nroOperacion,
-                    objregistrarPreventa.baja,
-                    objregistrarPreventa.ousuario.nombreCompleto
-                );
-
-            this.Close();
+            
         }
 
         private void cboSucursalPreventa_SelectedIndexChanged(object sender, EventArgs e)
@@ -299,11 +307,12 @@ namespace CapaPresentacion
             textBoxes.Add(txtDNICliente);
             textBoxes.Add(txtSKUBusqueda);
             textBoxes.Add(txtSKUBusqueda);
+            textBoxes.Add(txtTotalAPagar);
             bool contieneTexto = false;
 
             foreach (TextBox textBox in textBoxes)
             {
-                if (!string.IsNullOrEmpty(textBox.Text))
+                if (!string.IsNullOrEmpty(textBox.Text) && textBox.Text != "0,00")
                 {
                     contieneTexto = true;
                     break;
@@ -423,6 +432,36 @@ namespace CapaPresentacion
                     dgvAgregarArticulosPreventa.Rows.RemoveAt(e.RowIndex);
                     txtTotalAPagar.Text = SumarSubtotales().ToString("N2");
                 }
+            }
+        }
+
+        private void txtNroOperacionPreventa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void txtDNICliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
+            }
+        }
+
+        private void txtSKUBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifico si la tecla presionada es un nro o una tecla de control 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si no es un número ni una tecla de control, cancelar el evento
+                e.Handled = true;
             }
         }
     }

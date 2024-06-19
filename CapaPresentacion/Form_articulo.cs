@@ -87,50 +87,56 @@ namespace CapaPresentacion
 
         private void byGuardar_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(textSKU.Text, out int numeroIngresado))
+            if (textSKU.Text == "" || textRubro.Text == "" || textMarca.Text == "" || textDesc.Text == "" || textCosto.Text == "")
             {
-                foreach (DataGridViewRow row in tabla_art.Rows)
+                MessageBox.Show("Ingrese los datos del artículo a guardar, o seleccione un artículo para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                if (int.TryParse(textSKU.Text, out int numeroIngresado))
                 {
-                    while (row.Cells["Codigo"].Value != null && Convert.ToInt32(row.Cells["Codigo"].Value) == numeroIngresado)
+                    foreach (DataGridViewRow row in tabla_art.Rows)
                     {
-                        if (Convert.ToString(textDesc.Text)!= Convert.ToString(row.Cells["Descripción"].Value) || Convert.ToString(textCosto.Text)!= Convert.ToString(row.Cells["Costo"].Value)
-                            || Convert.ToString(textRubro.Text) != Convert.ToString(row.Cells["Rubro"].Value) || Convert.ToString(textMarca.Text) != Convert.ToString(row.Cells["Marca"].Value))
+                        while (row.Cells["Codigo"].Value != null && Convert.ToInt32(row.Cells["Codigo"].Value) == numeroIngresado)
                         {
-                            EditarArt(numeroIngresado);
-                            break;
-                        }
-                        else if (((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "No")
-                        {
-                            int s = Convert.ToInt32(textSKU.Text);
-                            BajaArt(s);
-                            break;
-                        }
-                        else if (((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "Si")
-                        {
-                            int s = Convert.ToInt32(textSKU.Text);
-                            AltaArt(s);
-                            break;
-                        }
+                            if (Convert.ToString(textDesc.Text) != Convert.ToString(row.Cells["Descripción"].Value) || Convert.ToString(textCosto.Text) != Convert.ToString(row.Cells["Costo"].Value)
+                                || Convert.ToString(textRubro.Text) != Convert.ToString(row.Cells["Rubro"].Value) || Convert.ToString(textMarca.Text) != Convert.ToString(row.Cells["Marca"].Value))
+                            {
+                                EditarArt(numeroIngresado);
+                                break;
+                            }
+                            else if (((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "No")
+                            {
+                                int s = Convert.ToInt32(textSKU.Text);
+                                BajaArt(s);
+                                break;
+                            }
+                            else if (((OpcionCombo)CB_baja.SelectedItem).Texto.ToString() == "Si")
+                            {
+                                int s = Convert.ToInt32(textSKU.Text);
+                                AltaArt(s);
+                                break;
+                            }
 
+                        }
                     }
                 }
-            }
-                
-            string mensaje = string.Empty;
-            Articulo art = new Articulo();
 
-            art.SKU = Convert.ToInt32(textSKU.Text);
-            art.rubro = textRubro.Text;
-            art.marca = textMarca.Text;
-            art.descripcion = textDesc.Text;
-            art.costo = Convert.ToDouble(textCosto.Text);
-            art.activo = ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString();
+                string mensaje = string.Empty;
+                Articulo art = new Articulo();
 
-            int idgenerado = new CN_Articulo().guardar_bd(art, out mensaje);
+                art.SKU = Convert.ToInt32(textSKU.Text);
+                art.rubro = textRubro.Text;
+                art.marca = textMarca.Text;
+                art.descripcion = textDesc.Text;
+                art.costo = Convert.ToDouble(textCosto.Text);
+                art.activo = ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString();
 
-            if (idgenerado != 0)
-            {
-                tabla_art.Rows.Add(new object[] {
+                int idgenerado = new CN_Articulo().guardar_bd(art, out mensaje);
+
+                if (idgenerado != 0)
+                {
+                    tabla_art.Rows.Add(new object[] {
 
                 "",
                 textSKU.Text,
@@ -141,9 +147,10 @@ namespace CapaPresentacion
                 ((OpcionCombo)CB_baja.SelectedItem).Texto.ToString(),
 
             });
-            }
+                }
 
-            limpiar();
+                limpiar();
+            }
 
         }
         private void BajaArt(int s)
@@ -162,13 +169,13 @@ namespace CapaPresentacion
                     oconexion.Open();
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("El articulo ha sido dado de baja.");
+                    MessageBox.Show("El articulo ha sido dado de baja.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ActualizarTabla(s);
                  
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al dar de baja: " + ex.Message);
+                    MessageBox.Show("Error al dar de baja: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
             }
@@ -190,13 +197,13 @@ namespace CapaPresentacion
                     oconexion.Open();
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("El articulo ha sido activado nuevamente.");
+                    MessageBox.Show("El articulo ha sido activado nuevamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ActualizarTabla(s);
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al dar de alta: " + ex.Message);
+                    MessageBox.Show("Error al dar de alta: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
             }
@@ -232,13 +239,13 @@ namespace CapaPresentacion
                     oconexion.Open();
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("Cambios guardados correctamente.");
+                    MessageBox.Show("Cambios guardados correctamente..", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ActualizarTabla(s);
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al modificar: " + ex.Message);
+                    MessageBox.Show("Error al modificar: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
             }

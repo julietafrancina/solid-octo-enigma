@@ -283,6 +283,7 @@ namespace CapaPresentacion
             txtTelefono.Text = "";
             txtDomicilio.Text = "";
             datePicker.Value = DateTime.Today;
+            txtId.Text = "0";
         }
 
         private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)

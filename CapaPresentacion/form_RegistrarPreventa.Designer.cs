@@ -258,9 +258,11 @@ namespace CapaPresentacion
             // 
             // txtTotalAPagar
             // 
+            this.txtTotalAPagar.BackColor = System.Drawing.SystemColors.Window;
             this.txtTotalAPagar.Location = new System.Drawing.Point(830, 53);
             this.txtTotalAPagar.MinimumSize = new System.Drawing.Size(4, 32);
             this.txtTotalAPagar.Name = "txtTotalAPagar";
+            this.txtTotalAPagar.ReadOnly = true;
             this.txtTotalAPagar.Size = new System.Drawing.Size(196, 22);
             this.txtTotalAPagar.TabIndex = 36;
             // 
@@ -281,6 +283,7 @@ namespace CapaPresentacion
             this.txtNroOperacionPreventa.Name = "txtNroOperacionPreventa";
             this.txtNroOperacionPreventa.Size = new System.Drawing.Size(164, 22);
             this.txtNroOperacionPreventa.TabIndex = 76;
+            this.txtNroOperacionPreventa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroOperacionPreventa_KeyPress);
             // 
             // label11
             // 
@@ -458,6 +461,7 @@ namespace CapaPresentacion
             this.txtSKUBusqueda.Name = "txtSKUBusqueda";
             this.txtSKUBusqueda.Size = new System.Drawing.Size(165, 22);
             this.txtSKUBusqueda.TabIndex = 77;
+            this.txtSKUBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSKUBusqueda_KeyPress);
             // 
             // txtDescripcionArticulo
             // 
@@ -557,6 +561,7 @@ namespace CapaPresentacion
             // 
             this.txtNombreCliente.Location = new System.Drawing.Point(237, 63);
             this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.ReadOnly = true;
             this.txtNombreCliente.Size = new System.Drawing.Size(164, 22);
             this.txtNombreCliente.TabIndex = 33;
             // 
@@ -609,6 +614,7 @@ namespace CapaPresentacion
             this.txtDNICliente.Name = "txtDNICliente";
             this.txtDNICliente.Size = new System.Drawing.Size(164, 22);
             this.txtDNICliente.TabIndex = 74;
+            this.txtDNICliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNICliente_KeyPress);
             // 
             // label1
             // 
@@ -624,6 +630,7 @@ namespace CapaPresentacion
             // 
             this.txtDomicilioCliente.Location = new System.Drawing.Point(237, 119);
             this.txtDomicilioCliente.Name = "txtDomicilioCliente";
+            this.txtDomicilioCliente.ReadOnly = true;
             this.txtDomicilioCliente.Size = new System.Drawing.Size(164, 22);
             this.txtDomicilioCliente.TabIndex = 72;
             // 
@@ -657,6 +664,7 @@ namespace CapaPresentacion
             // 
             this.txtCorreoCliente.Location = new System.Drawing.Point(425, 119);
             this.txtCorreoCliente.Name = "txtCorreoCliente";
+            this.txtCorreoCliente.ReadOnly = true;
             this.txtCorreoCliente.Size = new System.Drawing.Size(164, 22);
             this.txtCorreoCliente.TabIndex = 70;
             // 
@@ -674,6 +682,7 @@ namespace CapaPresentacion
             // 
             this.txtTelefonoCliente.Location = new System.Drawing.Point(425, 63);
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
+            this.txtTelefonoCliente.ReadOnly = true;
             this.txtTelefonoCliente.Size = new System.Drawing.Size(164, 22);
             this.txtTelefonoCliente.TabIndex = 68;
             // 
